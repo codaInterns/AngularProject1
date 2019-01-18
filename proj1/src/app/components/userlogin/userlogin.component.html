@@ -1,0 +1,13 @@
+<div class="form-container">
+  <form [formGroup]="formdata" (ngSubmit)="onClickSubmit(formdata.value)">
+  <header>Login</header>
+   <label>Email<span>*</span></label>
+   <input type="text" name="email" formControlName="email"/>
+   <div class="help">give a valid email</div>
+   <label>Password<span>*</span> </label>
+   <input type="password" class="fortextbox" name="password" formControlName="password"/>
+   <div class="help" > Use Upper and lower case </div>
+   <button [disabled]="!formdata.valid" value="Login">Login</button>
+
+  </form>
+</div>

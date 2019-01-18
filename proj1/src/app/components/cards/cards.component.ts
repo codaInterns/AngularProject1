@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-cards',
@@ -6,15 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./cards.component.css']
 })
 export class CardsComponent implements OnInit {
-<<<<<<< HEAD
 
-  @Input()
-  city: string;
-
-=======
-@Input()
-flight:any;
->>>>>>> eed4083d3bdd7973eadad8e4a81de7a534b40ebf
   constructor() { }
 
   ngOnInit() {

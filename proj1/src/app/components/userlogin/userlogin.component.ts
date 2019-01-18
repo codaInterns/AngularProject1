@@ -38,7 +38,7 @@ onClickSubmit(data){
     
   } else{
     alert("invalid");
-    this.router.navigate(['app-register'])
+    this.router.navigate(['register'])
     return false;
   }
   

@@ -9,8 +9,6 @@ export class CardsComponent implements OnInit {
 
   @Input()
   city: string;
-@Input()
-flight:any;
 
   constructor() { }
 

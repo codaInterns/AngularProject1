@@ -1,15 +1,14 @@
-<div class="row">
-    <div class="col-md-4">
-        <div class="card-text-left" style="width: 25rem;">
-            <div class="thumbnail">
-                <img class="card-img-top" src="https://fm.cnbc.com/applications/cnbc.com/resources/img/editorial/2018/06/01/105245766-Singapore-Airlines-A350URL.1910x1000.jpg?v=1527878338" alt="Card image cap">
+
+        <div class="card-text-left" style="width: 20rem;">
+            <img class="card-img" [src]="city.imgUrl" alt="Card image">
+            <div class="card-img-overlay">
+                <h6 class="card-title text-light">{{city.city}}</h6>
             </div>
             
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Weekend breaks|Wonderfull Places to Explore.</p>
+              <h5 class="card-title">{{city.route}}</h5>
+              <p class="card-text">Weekend breaks | Affordable Price.</p>
               <a href="#" class="btn btn-default btn-sm" >View More</a>
             </div>
           </div>
-    </div>
-</div>
+

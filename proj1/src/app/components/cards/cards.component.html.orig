@@ -1,0 +1,28 @@
+
+        <div class="card-text-left" style="width: 20rem;">
+<<<<<<< HEAD
+            <img class="card-img" [src]="city.imgUrl" alt="Card image" style="height: 200px;width: 350px">
+            <div class="card-img-overlay">
+                <h6 class="card-title text-light">{{city.city}}</h6>
+            </div>
+            
+            <div class="card-body">
+              <h5 class="card-title">{{city.route}}</h5>
+              <p class="card-text">Weekend breaks | Affordable Price.</p>
+              <a href="#" class="btn btn-default btn-sm" >View More</a>
+            </div>
+          </div>
+
+=======
+            <div class="img-thumbnail">
+                <img class="card-img-top" src="{{flight.image}}" alt="Card image cap" style="height:250px;width:350px">
+            </div>            
+            <div class="card-body">
+              <strong><h2 class="card-title">{{flight.flightName}}</h2></strong>
+              <p>Price:{{flight.price}}</p>
+              <p class="card-text">Weekend breaks|Wonderfull Places to Explore.</p>
+              <a href="#" class="btn btn-default btn-sm" >View More</a>
+            </div>
+          </div>
+ 
+>>>>>>> eed4083d3bdd7973eadad8e4a81de7a534b40ebf

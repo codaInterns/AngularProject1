@@ -1,0 +1,7 @@
+
+<<<<<<< HEAD
+<app-dashboard></app-dashboard>
+=======
+<app-flights> </app-flights>
+>>>>>>> eed4083d3bdd7973eadad8e4a81de7a534b40ebf
+<router-outlet></router-outlet>

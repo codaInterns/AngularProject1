@@ -4,7 +4,12 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './views/dashboard/dashboard.component';
+
 import { FlightSearchComponent } from './components/flight-search/flight-search.component';
+import { CardsComponent } from './components/cards/cards.component';
+import { NavFeatureComponent } from './components/nav-feature/nav-feature.component';
+import { FlightsComponent } from './views/flights/flights.component';
+
 
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
@@ -15,7 +20,10 @@ import { FlightSearchResultComponent } from './components/flight-search-result/f
     AppComponent,
     DashboardComponent,
     FlightSearchComponent,
-    FlightSearchResultComponent
+    FlightSearchResultComponent,
+    CardsComponent,
+    NavFeatureComponent,
+FlightsComponent
   ],
   imports: [
     BrowserModule,

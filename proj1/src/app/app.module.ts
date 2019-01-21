@@ -7,6 +7,8 @@ import { RouterModule, Routes} from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './views/dashboard/dashboard.component';
+
+import { FlightSearchComponent } from './components/flight-search/flight-search.component';
 import { CardsComponent } from './components/cards/cards.component';
 import { NavFeatureComponent } from './components/nav-feature/nav-feature.component';
 import { FlightsComponent } from './views/flights/flights.component';
@@ -27,6 +29,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     DashboardComponent,
+    FlightSearchComponent,
+    FlightSearchResultComponent,
     CardsComponent,
     NavFeatureComponent,
 FlightsComponent
@@ -34,7 +38,11 @@ FlightsComponent
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot(appRoutes)
+    BsDropdownModule.forRoot(),
+RouterModule.forRoot(appRoutes)
+    TooltipModule.forRoot(),
+    ModalModule.forRoot(),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

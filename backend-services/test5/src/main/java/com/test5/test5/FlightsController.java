@@ -8,6 +8,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -25,8 +27,8 @@ public List<flights> getAllFlights(){
 	return repo.findAll();
 }
 
-@GetMapping("/getFlight/{source}/{destination}/{date}")
-public List<flights> getFlights(@PathVariable(name="source")String source,@PathVariable(name="destination")String destination,@PathVariable(name="date")String date)
+@PostMapping(path="/getFlight/" ,consumes = "application/json" , produces = "application/json")
+public List<flights> getFlights(@RequestBody FlightInput fi)
 		{
 	
 	List<flights> flightList=repo.findAll();
@@ -34,7 +36,7 @@ public List<flights> getFlights(@PathVariable(name="source")String source,@PathV
 	List<flights> selectedList=new ArrayList<flights>();
 	while(flightIter.hasNext()) {
 		flights f1=flightIter.next();
-		if(f1.getDestination().equals(destination)&&f1.getSource().equals(source)) {
+		if(f1.getDestination().equals(fi.getSource())&&f1.getSource().equals(fi.getSource())) {
 			selectedList.add(f1);
 		}
 		

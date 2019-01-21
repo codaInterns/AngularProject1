@@ -36,7 +36,7 @@ public List<flights> getFlights(@RequestBody FlightInput fi)
 	List<flights> selectedList=new ArrayList<flights>();
 	while(flightIter.hasNext()) {
 		flights f1=flightIter.next();
-		if(f1.getDestination().equals(fi.getSource())&&f1.getSource().equals(fi.getSource())) {
+		if(f1.getDestination().equals(fi.getDestination())&&f1.getSource().equals(fi.getSource())) {
 			selectedList.add(f1);
 		}
 		

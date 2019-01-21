@@ -1,21 +1,20 @@
-import { Component, OnInit } from '@angular/core';
-import { FlightService } from 'src/app/services/flight.service';
-
+import { Component, OnInit } from "@angular/core";
+import { FlightService } from "src/app/services/flight.service";
 
 @Component({
-  selector: 'app-footer',
-  templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.css']
+  selector: "app-footer",
+  templateUrl: "./footer.component.html",
+  styleUrls: ["./footer.component.css"]
 })
 export class FooterComponent implements OnInit {
+  city: any;
 
-  city:any;
-
-  constructor(private myservice:FlightService) { }
+  constructor(private myservice: FlightService) {}
 
   ngOnInit() {
-   this.myservice.getHotDeals().subscribe(res=>{this.city=res});
+    this.myservice.getHotDeals().subscribe(res => {
+      this.city = res;
+      console.log(res);
+    });
   }
-
-
 }

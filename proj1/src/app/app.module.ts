@@ -16,8 +16,11 @@ import { FlightsComponent } from './views/flights/flights.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ModalModule } from 'ngx-bootstrap/modal';
+
 import { FlightSearchResultComponent } from './components/flight-search-result/flight-search-result.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { TicketCardComponent } from './components/ticket-card/ticket-card.component'
 
 const appRoutes: Routes = [
   {
@@ -39,13 +42,15 @@ const appRoutes: Routes = [
     CardsComponent,
     NavFeatureComponent,
 FlightsComponent,
-FooterComponent
+FooterComponent,
+TicketCardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule.forRoot(appRoutes),
     BsDropdownModule.forRoot(),
+    BsDatepickerModule.forRoot(),
     TooltipModule.forRoot(),
     ModalModule.forRoot(),
     FormsModule

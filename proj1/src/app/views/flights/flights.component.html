@@ -4,7 +4,15 @@
       <h3>Book flights to Exciting Places</h3>
     </div>   
   </div>
-  <app-flight-search></app-flight-search>
+  <app-flight-search (search)="onResultUpdate($event)"></app-flight-search>
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+          <app-ticket-card *ngIf="ticketAvailable" [ticket]="ticketDetails"></app-ticket-card>
+      </div>
+    </div>
+  </div>
+  
 <div class="container">
   <div class ="row">   
       <div class="col-sm" *ngFor="let i of details" >

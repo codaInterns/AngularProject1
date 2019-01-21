@@ -13,7 +13,7 @@
     </div>
     <div class="card-body">
       <h5 class="card-title">Search Flights</h5>
-      <form class="needs-validation" novalidate>
+      <form class="needs-validation" #searchForm="ngForm" novalidate>
         <div class="row">
           <div class="col-sm-6">
 
@@ -24,7 +24,7 @@
                   <span class="input-group-text" id="inputGroupPrepend">From</span>
                 </div>
                 <input type="text" class="form-control" id="validationCustomUsername" placeholder="Source"
-                  aria-describedby="inputGroupPrepend" required>
+                  aria-describedby="inputGroupPrepend" [(ngModel)]="fromValue" name="from" required>
                 <div class="invalid-feedback">
                   Please choose a valid source.
                 </div>
@@ -37,7 +37,7 @@
                   <span class="input-group-text" id="inputGroupPrepend">To</span>
                 </div>
                 <input type="text" class="form-control" id="validationCustomUsername" placeholder="Destination"
-                  aria-describedby="inputGroupPrepend" required>
+                  aria-describedby="inputGroupPrepend" [(ngModel)]="toValue" name="to" required>
                 <div class="invalid-feedback">
                   Please choose a valid destination.
                 </div>
@@ -47,7 +47,7 @@
           </div>
           <div class="col-sm-6">
             <div style="padding-bottom: 2%">
-              <b>Journey Date<br></b> <input type="date" name="tday">
+              <b>Journey Date<br></b> <input type="text" bsDatepicker [(ngModel)]="date" name="dateValue"/>
             </div>
           </div>
         </div>
@@ -57,7 +57,7 @@
               <div class="input-group-prepend">
                   <span class="input-group-text" id="inputGroupPrepend">Passengers</span>
                 </div>
-            <select class="form-control form-control-md">
+            <select class="form-control form-control-md" #passCount>
               <option>One</option>
               <option>Two</option>
               <option>Three</option>
@@ -67,7 +67,7 @@
               <div class="input-group-prepend">
                   <span class="input-group-text" id="inputGroupPrepend">Class</span>
                 </div>
-            <select class="form-control form-control-md">
+            <select class="form-control form-control-md" #class>
               
               <option>Premium</option>
               <option>Economy</option>
@@ -78,16 +78,17 @@
               <div class="input-group-prepend">
                   <span class="input-group-text" id="inputGroupPrepend">Type</span>
                 </div>
-            <select class="form-control form-control-md">
+            <select class="form-control form-control-md" #type>
               <option>One Way</option>
               <option>Round Trip</option>
               <option>Multi City</option>
             </select>
           </div>
         </div>
-        <a href="#" class="btn btn-primary">SUBMIT</a>
+        <a  class="btn btn-primary" (click)="onSubmit(searchForm.value)">SUBMIT</a>
 
       </form>
     </div>
   </div>
 </div>
+

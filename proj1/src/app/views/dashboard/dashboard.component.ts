@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HotDealsService } from 'src/app/services/hot-deals.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  city:any[];
+
+  constructor(private myservice:HotDealsService) { }
 
   ngOnInit() {
+    this.city = this.myservice.getDetails();
   }
+
+
 
 }

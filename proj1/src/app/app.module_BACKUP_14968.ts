@@ -40,22 +40,31 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     DashboardComponent,
- FlightSearchComponent,
+<<<<<<< HEAD
+    UserloginComponent
+    
+  
+=======
+    FlightSearchComponent,
     FlightSearchResultComponent,
     CardsComponent,
     NavFeatureComponent,
-FlightsComponent,
-UserloginComponent
+FlightsComponent
+>>>>>>> 98235108a064fd4c4a44995f44ccd3e89a463a46
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-  BsDropdownModule.forRoot(),
+<<<<<<< HEAD
+    ReactiveFormsModule,
+    RouterModule.forRoot(appRoutes)
+=======
+    BsDropdownModule.forRoot(),
 RouterModule.forRoot(appRoutes)
     TooltipModule.forRoot(),
     ModalModule.forRoot(),
-    FormsModule,
-ReactiveFormsModule,s
+    FormsModule
+>>>>>>> 98235108a064fd4c4a44995f44ccd3e89a463a46
   ],
   providers: [],
   bootstrap: [AppComponent]

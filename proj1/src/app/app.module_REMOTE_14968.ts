@@ -7,17 +7,6 @@ import { RouterModule, Routes} from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './views/dashboard/dashboard.component';
-import { LoginComponent } from './components/login/login.component';
-import {ReactiveFormsModule} from '@angular/forms';
-import { Routes, RouterModule } from '@angular/router';
-import { UserloginComponent } from './components/userlogin/userlogin.component';
-
-const appRoutes: Routes = [
-  {
-    path : '',
-    component : UserloginComponent
-  }
-];
 
 import { FlightSearchComponent } from './components/flight-search/flight-search.component';
 import { CardsComponent } from './components/cards/cards.component';
@@ -40,22 +29,20 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     DashboardComponent,
- FlightSearchComponent,
+    FlightSearchComponent,
     FlightSearchResultComponent,
     CardsComponent,
     NavFeatureComponent,
-FlightsComponent,
-UserloginComponent
+FlightsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-  BsDropdownModule.forRoot(),
+    BsDropdownModule.forRoot(),
 RouterModule.forRoot(appRoutes)
     TooltipModule.forRoot(),
     ModalModule.forRoot(),
-    FormsModule,
-ReactiveFormsModule,s
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

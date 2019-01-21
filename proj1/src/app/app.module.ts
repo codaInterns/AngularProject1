@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { RouterModule, Routes} from '@angular/router';
 
@@ -53,6 +54,7 @@ TicketCardComponent
     BsDatepickerModule.forRoot(),
     TooltipModule.forRoot(),
     ModalModule.forRoot(),
+    NgbModule.forRoot(),
     FormsModule
   ],
   providers: [],

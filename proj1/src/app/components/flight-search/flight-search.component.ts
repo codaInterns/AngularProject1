@@ -1,4 +1,10 @@
 import { Component, OnInit, ViewChild, ElementRef, Output, EventEmitter } from '@angular/core';
+import { Observable } from 'rxjs';
+import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
+
+const states = [
+  'Chennai','Madurai','Coimbatore','Mumbai','Noida','Nepal','Hyderabad','Himalayas'
+];
 
 @Component({
   selector: 'app-flight-search',
@@ -19,6 +25,14 @@ export class FlightSearchComponent implements OnInit {
   }>();
 
   searchValue:{searchForm:any,class:any,type:any,passCount:any};
+
+  search = (text$: Observable<String>) => 
+    text$.pipe(
+      debounceTime(200),
+      distinctUntilChanged(),
+      map(term => term.length < 2 ? [] :
+        states.filter(v => v.toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0,10))
+      )
 
   constructor() { }
 

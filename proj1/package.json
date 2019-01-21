@@ -23,6 +23,7 @@
     "angularjs-datepicker": "^2.1.23",
     "bootstrap": "^4.2.1",
     "core-js": "^2.5.4",
+    "mockable": "^1.0.10",
     "font-awesome": "^4.7.0",
     "ngx-bootstrap": "^3.1.4",
     "rxjs": "~6.3.3",

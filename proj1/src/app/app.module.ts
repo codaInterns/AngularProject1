@@ -9,6 +9,22 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './views/dashboard/dashboard.component';
+import { RegisterComponent } from './components/register/register.component';
+import {ReactiveFormsModule} from '@angular/forms';
+import { Routes, RouterModule } from '@angular/router';
+import { UserloginComponent } from './components/userlogin/userlogin.component';
+import{HttpClientModule} from '@angular/common/http'
+
+const appRoutes: Routes = [
+  {
+    path : '',
+    component : UserloginComponent
+  },
+  {
+    path : 'register',
+    component : RegisterComponent
+  }
+];
 
 import { FlightSearchComponent } from './components/flight-search/flight-search.component';
 import { CardsComponent } from './components/cards/cards.component';
@@ -38,6 +54,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     DashboardComponent,
+    RegisterComponent,
+    UserloginComponent,
     FlightSearchComponent,
     FlightSearchResultComponent,
     CardsComponent,
@@ -49,6 +67,10 @@ TicketCardComponent
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
+    RouterModule.forRoot(appRoutes),
+    HttpClientModule,
+
     RouterModule.forRoot(appRoutes),
     BsDropdownModule.forRoot(),
     BsDatepickerModule.forRoot(),
@@ -56,6 +78,7 @@ TicketCardComponent
     ModalModule.forRoot(),
     NgbModule.forRoot(),
     FormsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -8,12 +8,12 @@ import { HotDealsService } from 'src/app/services/hot-deals.service';
 })
 export class DashboardComponent implements OnInit {
 
-  city:any[];
+  
 
-  constructor(private myservice:HotDealsService) { }
+  constructor() { }
 
   ngOnInit() {
-    this.city = this.myservice.getDetails();
+    
   }
 
 

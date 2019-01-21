@@ -35,26 +35,24 @@ passwordvalidation(formcontrol){
     return{"password":true};
   }
 }
-result:any;
+result;
 onClickSubmit(data){
   console.log(data.email);
   
 
-  this.email.getUser(data.email,data.password).subscribe(
-    res=>{this.result=res;}
-  );
+  this.email.getUser(data.email,data.password).subscribe(res=>{this.result=res;console.log(this.result);
+      if(this.result == true) {
+        alert("Login Sucessful");
+      }
+      else{
+        alert("Login Not Sucessful");
+        this.router.navigate(['register']);
 
-console.log(this.result);
+           return false;
+      }
+    });
 
-  // if(this.result.email=="systemadmin@gmail.com" && data.password=="admin123")
-  // {
-  //   alert("login successful");
-    
-  // } else{
-  //   alert("invalid");
-  //   this.router.navigate(['register'])
-  //   return false;
-  // }
+
   
 }
 

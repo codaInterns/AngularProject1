@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl,FormGroup,Validators} from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import{RegisterServiceService} from '../../services/register-service.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -9,7 +11,7 @@ import { HttpClient } from '@angular/common/http';
 export class RegisterComponent implements OnInit {
    formdata;
    customerdata;
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient,private registerServe:RegisterServiceService , private route : Router) { }
 
   
   stateCtrl:FormControl;
@@ -25,12 +27,13 @@ export class RegisterComponent implements OnInit {
       });
   }
   userdata; 
+  
 onClickSubmit(data) {
 
   alert("register successfully");
  
- this.http.get("http://localhost:4200/api/user").subscribe(res=>{console.log(res);
-   this.userdata=res});
+ this.registerServe.postUser(data.email,data.password);
+ this.route.navigate(['/']);
  //console.log(this.userdata);
 }
 

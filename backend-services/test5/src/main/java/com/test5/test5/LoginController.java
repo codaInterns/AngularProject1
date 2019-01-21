@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,7 +18,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class LoginController {
     @Autowired
 	private UserInterface repo;
-	/*@GetMapping("/get")
+	private options opt;
+    /*@GetMapping("/get")
 	public String Allid() {
 		return "hi";
 	}*/
@@ -33,4 +36,12 @@ public class LoginController {
     	}
     	return false;
     }
+	@PostMapping(path = "/register/" , consumes = "application/json" , produces = "application/json")
+	public Boolean postUser(@RequestBody options opt) {
+		UserDB user1=new UserDB();
+		user1.setEmail(opt.getEmail());
+		user1.setPassword(opt.getPassword());
+		repo.save(user1);
+		return true;
+	}
 }

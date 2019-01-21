@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HotDealsService } from 'src/app/services/hot-deals.service';
+import { FlightService } from 'src/app/services/flight.service';
+
 
 @Component({
   selector: 'app-footer',
@@ -8,12 +9,13 @@ import { HotDealsService } from 'src/app/services/hot-deals.service';
 })
 export class FooterComponent implements OnInit {
 
-  city:any[];
+  city:any;
 
-  constructor(private myservice:HotDealsService) { }
+  constructor(private myservice:FlightService) { }
 
   ngOnInit() {
-    this.city = this.myservice.getDetails();
+   this.myservice.getHotDeals().subscribe(res=>{this.city=res});
   }
+
 
 }

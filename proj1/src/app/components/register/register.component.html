@@ -1,0 +1,12 @@
+<div class="form-container">
+  <form [formGroup]="formdata" (ngSubmit)="onClickSubmit(formdata.value)">
+    <header>User details</header>
+    <label>email<span></span></label>
+    <input type="text" name="email" formControlName="email" />
+    <label>password<span></span></label>
+    <input type="password" name="password" formControlName="password" />
+    
+    <button value="Submit">Submit</button>
+  </form>
+</div>
+<br />

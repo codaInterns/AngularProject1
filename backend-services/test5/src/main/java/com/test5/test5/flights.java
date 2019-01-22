@@ -18,7 +18,7 @@ public class flights {
 @GeneratedValue(strategy=GenerationType.AUTO)
 private long flights_id;
 
-@Column(name="name")
+@Column(name="name ")
 private String name;
 
 @Column(name="source")
@@ -34,7 +34,18 @@ private String departure;
 
 public long getFlights_id() {
 	return flights_id;
+
+@Column(name="price")
+private int price;
+
+public int getPrice() {
+	return price;
 }
+
+public void setPrice(int price) {
+	this.price = price;
+}
+
 
 public void setFlights_id(long flights_id) {
 	this.flights_id = flights_id;

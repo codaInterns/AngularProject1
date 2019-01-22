@@ -1,21 +1,30 @@
-<div class="form-container">
+
+
+<div class="login-container">
+  <div class="login">
   <form [formGroup]="formdata" (ngSubmit)="onClickSubmit(formdata.value)">
-  <header>Login</header>
-   <label>Email<span>*</span></label>
-   <input type="text" name="email" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+  <h1 class="login-title">Login Form</h1>  
+  
+   <input type="text" name="email" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" class="login-input"  placeholder="Email Address" autofocus>
    <div *ngIf="submitted && f.email.errors">
      <span *ngIf="f.email.errors.required">Email is required</span>
      <div *ngIf="f.email.errors.pattern">Email must be a valid email address</div>
    </div>
-   <label>Password<span>*</span> </label>
-   <input type="password" class="fortextbox" name="password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+   
+   <input type="password"  class="login-input" name="password" formControlName="password" placeholder="Password" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
    <div *ngIf="submitted && f.email.errors">
      <span *ngIf="f.email.errors.required">Password is required</span>
      <div *ngIf="f.email.errors.pattern">password must contain atleast one upper case ,lowercase, special character , number and length =8</div>
    </div>
 
    
-   <button  value="Login">Login</button>
+  <input type="submit" value="Log in" class="login-button"> 
+    <p class="login-lost"><a href="">Forgot Password?</a></p> 
     
+
   </form>
 </div>
+</div>
+
+
+

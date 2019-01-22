@@ -1,16 +1,14 @@
 <div class="container-fluid">
-    <div class="jumbotron">
-      <h1>Flights</h1>
-      <h3>Book flights to Exciting Places</h3>
-    </div>   
+  <div class="jumbotron">
+    <h1>Flights</h1>
+    <h3>Book flights to Exciting Places</h3>
   </div>
-  <app-flight-search (result)="onResultUpdate($event)"></app-flight-search>
-  <div class="container">
-    <div class="row">
-      <div class="col-12" *ngFor="let f of flightDetails">
-          <app-flight-search-result *ngIf="flightAvailable" [flight]="f"></app-flight-search-result>
-      </div>
+</div>
+<app-flight-search (result)="onResultUpdate($event)"></app-flight-search>
+<div class="container">
+  <div class="row">
+    <div class="col-12" *ngFor="let f of flightDetails">
+      <app-flight-search-result *ngIf="flightAvailable" [flight]="f"></app-flight-search-result>
     </div>
   </div>
-  
-
+</div>

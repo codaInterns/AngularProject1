@@ -8,6 +8,7 @@ export class FlightService {
   constructor(private http: HttpClient) {}
 
   getFlights(searchDetails: any) {
+    console.log(searchDetails);
     return this.http.post("http:/localhost:8080/api/getFlight/", searchDetails);
   }
 

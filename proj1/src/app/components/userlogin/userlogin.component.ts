@@ -19,9 +19,15 @@ export class UserloginComponent implements OnInit {
 
   ngOnInit() {
     this.formdata = this.formBuilder.group({
-      email: ["", [Validators.required, Validators.email]],
-      password: ["", [Validators.required, Validators.minLength(6)]]
+      email: ["", [Validators.required, Validators.pattern("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$"
+      )]],
+      password: ["", [Validators.required, Validators.pattern("(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}")]]
     });
+  }
+  onKey(event)
+  {
+    var pattern = "";
+    event.value
   }
   get f() { return this.formdata.controls; }
   result;
@@ -36,6 +42,7 @@ export class UserloginComponent implements OnInit {
     this.result = res; console.log(this.result);
       if (this.result == true) {
         alert("Login Sucessful");
+        this.router.navigate(['flights']);
       }
       else {
         alert("Login Not Sucessful");

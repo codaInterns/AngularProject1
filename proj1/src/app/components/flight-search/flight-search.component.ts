@@ -4,7 +4,7 @@ import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
 import { FlightService } from 'src/app/services/flight.service';
 
 const states = [
-  'Chennai','Madurai','Coimbatore','Mumbai','Noida','Nepal','Hyderabad','Himalayas'
+  'chennai','Madurai','Coimbatore','Mumbai','Noida','Nepal','Hyderabad','Himalayas'
 ];
 
 @Component({
@@ -18,14 +18,8 @@ export class FlightSearchComponent implements OnInit {
   @ViewChild('type') type:ElementRef;
   @ViewChild('passCount') passCount:ElementRef;
 
-  @Output('search') searchResult = new EventEmitter<{
-    searchForm:any,
-    class:any,
-    type:any,
-    passCount:any
-  }>();
+  @Output() result = new EventEmitter<any>();
 
-  searchValue:{searchForm:any,class:any,type:any,passCount:any};
   serviceValue:{source:string,destination:string,departure:string};
 
   search = (text$: Observable<String>) => 
@@ -40,21 +34,23 @@ export class FlightSearchComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  output:any;
   onSubmit(searchForm:any){
-    this.searchValue = {
-      searchForm:searchForm,
-      class:this.class.nativeElement.value,
-      type:this.type.nativeElement.value,
-      passCount:this.passCount.nativeElement.value
-    };
+    
     this.serviceValue = {
       source:searchForm.from,
       destination:searchForm.to,
       departure:"testing"
     };
-    this.searchResult.emit(this.searchValue);
-    this.myservice.getFlights(this.serviceValue)
+    
+   
+
+    this.myservice.getFlights(this.serviceValue).subscribe(res => {
+      this.result.emit(res);
+    });
+
+   
+    
   }
 
 }

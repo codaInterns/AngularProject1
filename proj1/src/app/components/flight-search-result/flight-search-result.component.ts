@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-flight-search-result',
@@ -7,8 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FlightSearchResultComponent implements OnInit {
 
-  constructor() { }
+  @Input('flight') details:any;
 
+  constructor() { }
+ 
   ngOnInit() {
   }
 

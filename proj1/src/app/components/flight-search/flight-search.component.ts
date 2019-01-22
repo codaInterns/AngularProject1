@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef, Output, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
+import { FlightService } from 'src/app/services/flight.service';
 
 const states = [
   'Chennai','Madurai','Coimbatore','Mumbai','Noida','Nepal','Hyderabad','Himalayas'
@@ -25,6 +26,7 @@ export class FlightSearchComponent implements OnInit {
   }>();
 
   searchValue:{searchForm:any,class:any,type:any,passCount:any};
+  serviceValue:{source:string,destination:string,departure:string};
 
   search = (text$: Observable<String>) => 
     text$.pipe(
@@ -34,7 +36,7 @@ export class FlightSearchComponent implements OnInit {
         states.filter(v => v.toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0,10))
       )
 
-  constructor() { }
+  constructor(private myservice:FlightService) { }
 
   ngOnInit() {
   }
@@ -46,7 +48,13 @@ export class FlightSearchComponent implements OnInit {
       type:this.type.nativeElement.value,
       passCount:this.passCount.nativeElement.value
     };
+    this.serviceValue = {
+      source:searchForm.from,
+      destination:searchForm.to,
+      departure:"testing"
+    };
     this.searchResult.emit(this.searchValue);
+    this.myservice.getFlights(this.serviceValue)
   }
 
 }

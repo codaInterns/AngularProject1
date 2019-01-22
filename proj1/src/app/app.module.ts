@@ -28,10 +28,7 @@ import { BsDatepickerModule } from "ngx-bootstrap/datepicker";
 import { TicketCardComponent } from "./components/ticket-card/ticket-card.component";
 
 const appRoutes: Routes = [
-  {
-    path: "",
-    component: FooterComponent
-  },
+  
   {
     path: "flights",
     component: FlightsComponent

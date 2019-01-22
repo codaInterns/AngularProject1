@@ -19,8 +19,9 @@ export class UserloginComponent implements OnInit {
 
   ngOnInit() {
     this.formdata = this.formBuilder.group({
-      email: ["", [Validators.required, Validators.email]],
-      password: ["", [Validators.required, Validators.minLength(6)]]
+      email: ["", [Validators.required, Validators.pattern("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$"
+      )]],
+      password: ["", [Validators.required, Validators.pattern("(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}")]]
     });
   }
   get f() { return this.formdata.controls; }

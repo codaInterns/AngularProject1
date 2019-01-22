@@ -3,6 +3,7 @@ import { FormControl,FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { RegisterServiceService } from '../../services/register-service.service';
 import { Router } from '@angular/router';
+import { checkAndUpdatePureExpressionDynamic } from '@angular/core/src/view/pure_expression';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -24,9 +25,10 @@ export class RegisterComponent implements OnInit {
       )]],
       password:["",[Validators.required,Validators.pattern("(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}"
 
-      )]]
+      )]],
+    }
       
-    });
+    );
   }
   get f() { return this.formdata.controls; }
   userdata;

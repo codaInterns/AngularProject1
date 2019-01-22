@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { BookServiceService } from 'src/app/services/book-service.service';
 
 @Component({
   selector: 'app-flight-search-result',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FlightSearchResultComponent implements OnInit {
 
-  constructor() { }
+  @Input('flight') details:any;
 
+  constructor(private myservice:BookServiceService) { }
+ 
   ngOnInit() {
+  }
+
+  onBook(){
+    this.myservice.setDetails(this.details);
   }
 
 }

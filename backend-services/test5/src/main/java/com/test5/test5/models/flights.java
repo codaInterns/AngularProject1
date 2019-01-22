@@ -1,4 +1,4 @@
-package com.test5.test5;
+package com.test5.test5.models;
 import javax.annotation.Generated;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -31,9 +31,9 @@ private String destination;
 private String departure;
 
 
-
 public long getFlights_id() {
 	return flights_id;
+}
 
 @Column(name="price")
 private int price;

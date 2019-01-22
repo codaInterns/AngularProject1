@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HotDealsService } from 'src/app/services/hot-deals.service';
+import { FlightService } from 'src/app/services/flight.service';
 
 @Component({
   selector: 'app-flights',
@@ -8,20 +9,36 @@ import { HotDealsService } from 'src/app/services/hot-deals.service';
 })
 export class FlightsComponent implements OnInit {
 
-  details:any[];
-  ticketAvailable:boolean=false;
-  ticketDetails:any;
-
-  constructor(private flight:HotDealsService) { }
+  
+  flightAvailable:boolean=false;
+  flightDetails:any;
+  noResult:boolean;
+  invalidInput: boolean;
+  constructor() { }
   
 
   ngOnInit() {
-    this.details=this.flight.getFlightDetails();
+    
   }
 
   onResultUpdate(event:any){
-    this.ticketDetails = event;
-    this.ticketAvailable = true;
+    if(event==null){
+      this.invalidInput=true;
+      return;
+    }
+    else{
+      this.invalidInput=false;
+    }
+    //console.log(this.flightDetails);
+    this.flightAvailable = true;
+    this.flightDetails = event;
+    //console.log(this.flightDetails);
+    console.log(event);
+    if(this.flightDetails.length==0)
+      this.noResult=true;
+    else
+      this.noResult=false;
   }
+
 
 }

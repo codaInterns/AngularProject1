@@ -1,4 +1,4 @@
-package com.test5.test5;
+package com.test5.test5.controllers;
 
 
 import java.util.ArrayList;
@@ -14,6 +14,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.test5.test5.models.FlightInput;
+import com.test5.test5.models.flights;
+import com.test5.test5.repo.FlightsInterface;
+
 
 
 @RestController
@@ -26,7 +30,6 @@ private FlightsInterface repo;
 
 @GetMapping("/getFlights")
 public List<flights> getAllFlights(){
-
 	return repo.findAll();
 }
 

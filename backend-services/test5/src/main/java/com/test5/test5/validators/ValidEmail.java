@@ -1,4 +1,4 @@
-package com.test5.test5;
+package com.test5.test5.validators;
 
 import static java.lang.annotation.ElementType.ANNOTATION_TYPE;
 import static java.lang.annotation.ElementType.FIELD;

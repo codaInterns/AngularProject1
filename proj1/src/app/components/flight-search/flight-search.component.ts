@@ -41,12 +41,12 @@ export class FlightSearchComponent implements OnInit {
   onSubmit(searchForm:any){
     
     this.serviceValue = {
-      source:searchForm.from,
-      destination:searchForm.to,
+      source:searchForm.from.toLowerCase(),
+      destination:searchForm.to.toLowerCase(),
       departure:"testing"
     };
     
-   
+    console.log(this.serviceValue.source);
 
     this.myservice.getFlights(this.serviceValue).subscribe(res => {
       this.result.emit(res);

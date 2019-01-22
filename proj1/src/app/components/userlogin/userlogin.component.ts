@@ -24,6 +24,11 @@ export class UserloginComponent implements OnInit {
       password: ["", [Validators.required, Validators.pattern("(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}")]]
     });
   }
+  onKey(event)
+  {
+    var pattern = "";
+    event.value
+  }
   get f() { return this.formdata.controls; }
   result;
   onClickSubmit(data) {
@@ -37,6 +42,7 @@ export class UserloginComponent implements OnInit {
     this.result = res; console.log(this.result);
       if (this.result == true) {
         alert("Login Sucessful");
+        this.router.navigate(['flights']);
       }
       else {
         alert("Login Not Sucessful");

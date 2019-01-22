@@ -1,4 +1,4 @@
-package com.test5.test5;
+package com.test5.test5.models;
 import javax.annotation.Generated;
 import javax.persistence.Column;
 import javax.persistence.Entity;

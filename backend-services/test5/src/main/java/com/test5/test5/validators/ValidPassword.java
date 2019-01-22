@@ -1,4 +1,4 @@
-package com.test5.test5;
+package com.test5.test5.validators;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;

@@ -1,11 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-<<<<<<< HEAD
-import { FlightService } from 'src/app/services/flight.service';
-
-=======
 import { HotDealsService } from 'src/app/services/hot-deals.service';
 import { FlightService } from 'src/app/services/flight.service';
->>>>>>> c62e8385e2ef11cb6da0fb55ada4913c80d43550
 
 @Component({
   selector: 'app-flights',

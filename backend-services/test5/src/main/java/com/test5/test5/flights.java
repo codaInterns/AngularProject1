@@ -30,14 +30,13 @@ private String destination;
 @Column(name="departure")
 private String departure;
 
-
+@Column(name="price")
+private int price;
 
 public long getFlights_id() {
 	return flights_id;
 }
 
-@Column(name="price")
-private int price;
 
 public int getPrice() {
 	return price;

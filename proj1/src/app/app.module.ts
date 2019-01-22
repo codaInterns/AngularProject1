@@ -37,12 +37,12 @@ const appRoutes: Routes = [
     component: FlightsComponent
   },
   {
-    path : "login",
-    component : UserloginComponent
+    path: "login",
+    component: UserloginComponent
   },
   {
-    path : "register",
-    component : RegisterComponent
+    path: "register",
+    component: RegisterComponent
   }
 ];
 
@@ -78,4 +78,4 @@ const appRoutes: Routes = [
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

@@ -25,7 +25,7 @@ export class UserloginComponent implements OnInit {
   }
   onKey(event)
   {
-    pattern = ;
+    var pattern = "";
     event.value
   }
   get f() { return this.formdata.controls; }

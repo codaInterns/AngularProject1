@@ -1,4 +1,4 @@
-package com.test5.test5;
+package com.test5.test5.validators;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;

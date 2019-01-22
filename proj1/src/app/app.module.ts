@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 import { RouterModule, Routes} from '@angular/router';
 
 
@@ -10,8 +11,10 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './views/dashboard/dashboard.component';
 import { RegisterComponent } from './components/register/register.component';
 import {ReactiveFormsModule} from '@angular/forms';
+
 import { UserloginComponent } from "./components/userlogin/userlogin.component";
 import { HttpClientModule } from "@angular/common/http";
+
 import { FlightSearchComponent } from "./components/flight-search/flight-search.component";
 import { CardsComponent } from "./components/cards/cards.component";
 import { NavFeatureComponent } from "./components/nav-feature/nav-feature.component";
@@ -26,18 +29,17 @@ import { TicketCardComponent } from "./components/ticket-card/ticket-card.compon
 
 const appRoutes: Routes = [
   {
+
     path : "flights",
     component: FlightsComponent
   },
   {
     path: "login",
-    component : UserloginComponent
+   component : UserloginComponent
   },
   {
     path : "register",
-    component : RegisterComponent 
-  }
-
+    component : RegisterComponent  }
 ];
 
 @NgModule({
@@ -72,4 +74,4 @@ const appRoutes: Routes = [
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

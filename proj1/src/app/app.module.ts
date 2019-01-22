@@ -1,15 +1,16 @@
-import { BrowserModule } from "@angular/platform-browser";
-import { NgModule } from "@angular/core";
-import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-import { RouterModule, Routes } from "@angular/router";
+import { RouterModule, Routes} from '@angular/router';
 
-import { FormsModule } from "@angular/forms";
-import { AppRoutingModule } from "./app-routing.module";
-import { AppComponent } from "./app.component";
-import { DashboardComponent } from "./views/dashboard/dashboard.component";
-import { RegisterComponent } from "./components/register/register.component";
-import { ReactiveFormsModule } from "@angular/forms";
+
+import { FormsModule } from '@angular/forms';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { DashboardComponent } from './views/dashboard/dashboard.component';
+import { RegisterComponent } from './components/register/register.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 import { UserloginComponent } from "./components/userlogin/userlogin.component";
 import { HttpClientModule } from "@angular/common/http";
@@ -21,26 +22,24 @@ import { FlightsComponent } from "./views/flights/flights.component";
 import { BsDropdownModule } from "ngx-bootstrap/dropdown";
 import { TooltipModule } from "ngx-bootstrap/tooltip";
 import { ModalModule } from "ngx-bootstrap/modal";
-
 import { FlightSearchResultComponent } from "./components/flight-search-result/flight-search-result.component";
 import { FooterComponent } from "./components/footer/footer.component";
 import { BsDatepickerModule } from "ngx-bootstrap/datepicker";
 import { TicketCardComponent } from "./components/ticket-card/ticket-card.component";
 
 const appRoutes: Routes = [
- 
   {
-    path: "flights",
+
+    path : "flights",
     component: FlightsComponent
   },
   {
     path: "login",
-    component: UserloginComponent
+   component : UserloginComponent
   },
   {
-    path: "register",
-    component: RegisterComponent
-  }
+    path : "register",
+    component : RegisterComponent  }
 ];
 
 @NgModule({
@@ -75,4 +74,4 @@ const appRoutes: Routes = [
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

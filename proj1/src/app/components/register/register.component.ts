@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl,FormGroup,Validators} from '@angular/forms';
+import { FormControl,FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import{RegisterServiceService} from '../../services/register-service.service';
+import { RegisterServiceService } from '../../services/register-service.service';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-register',
@@ -9,32 +9,41 @@ import { Router } from '@angular/router';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-   formdata;
-   customerdata;
-  constructor(private http:HttpClient,private registerServe:RegisterServiceService , private route : Router) { }
+  formdata:FormGroup;
+  customerdata;
+  submitted= false;
+  constructor(private http: HttpClient,private formBuilder:FormBuilder,private registerServe: RegisterServiceService, private route: Router) { }
 
-  
-  stateCtrl:FormControl;
+
+  stateCtrl: FormControl;
 
   ngOnInit() {
-    this.formdata=new FormGroup({
-      email:new FormControl("",Validators.compose([
-        Validators.required,
-        Validators.email
-      ])),
-       password:new FormControl("",Validators.minLength(6)),
-       //confirmPassword:new FormControl("",this.checkpassword)
-      });
+    this.formdata = this.formBuilder.group({
+      
+      email: ["",[Validators.required,Validators.pattern("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$"
+      )]],
+      password:["",[Validators.required,Validators.pattern("(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}"
+
+      )]]
+      
+    });
   }
-  userdata; 
-  
-onClickSubmit(data) {
+  get f() { return this.formdata.controls; }
+  userdata;
 
+  onClickSubmit(data) {
+    this.submitted=true;
+    
+    if (this.formdata.invalid) {
+      return;
+  }
+  this.registerServe.postUser(data.email, data.password);
   alert("register successfully");
- 
- this.registerServe.postUser(data.email,data.password);
- this.route.navigate(['/']);
- //console.log(this.userdata);
-}
+  this.route.navigate(['/']);
+  }
 
-}
+  
+    //console.log(this.userdata);
+  }
+
+

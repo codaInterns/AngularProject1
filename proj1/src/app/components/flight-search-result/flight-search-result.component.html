@@ -7,17 +7,18 @@
               <img src="assets/flight.png" width="30%">
             </div>
         <div class="col-lg-2 flight-text">
-          Flight ID
+          {{details.flights_id}}
         </div>
         <div class="col-lg-2 flight-text">
-          12:00pm
+          {{details.name}}
           </div>
-          <div class="col-lg-2 flight-text">
-            5:00pm
-            </div>
-            <div class="col-lg-2 flight-text">
-                5000 $
-                </div>
+        <div class="col-lg-2 flight-text">
+          {{details.departure}}
+        </div>
+         
+        <div class="col-lg-2 flight-text">
+        {{details.price}}
+        </div>
               <div class="col-lg-2" style="align-items: flex-end">
                 <button type="button" class="btn btn-danger">BOOK</button>
               </div>

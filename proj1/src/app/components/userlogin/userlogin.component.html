@@ -1,13 +1,17 @@
-<div class="form-container">
-  <form [formGroup]="formdata" (ngSubmit)="onClickSubmit(formdata.value)">
-  <header>Login</header>
-   <label>Email<span>*</span></label>
-   <input type="text" name="email" formControlName="email"/>
-   <div class="help">give a valid email</div>
-   <label>Password<span>*</span> </label>
-   <input type="password" class="fortextbox" name="password" formControlName="password"/>
-   <div class="help" > Use Upper and lower case </div>
-   <button  value="Login">Login</button>
-    
+ 
+ <div class="login-container">
+ <div class="login">
+  <form  [formGroup]="formdata" (ngSubmit)="onClickSubmit(formdata.value)">    
+    <h1 class="login-title">Login Form</h1>   
+   <input type="text" name="email" class="login-input" formControlName="email" placeholder="Email Address" autofocus>
+   <p>give a valid email</p>  
+   <input type="password" class="login-input" name="password" formControlName="password" placeholder="Password">
+   <p> Use Upper and lower case </p>
+   <input type="submit" value="Log in" class="login-button">    
+   <p class="login-lost"><a href="">Forgot Password?</a></p>  
   </form>
 </div>
+</div>
+
+
+

@@ -45,6 +45,7 @@ export class FlightSearchComponent implements OnInit {
       destination:searchForm.to,
       departure:"testing"
     };
+<<<<<<< HEAD
     
    
 
@@ -54,6 +55,10 @@ export class FlightSearchComponent implements OnInit {
 
    
     
+=======
+    this.searchResult.emit(this.searchValue);
+    this.myservice.getFlights(this.serviceValue).subscribe(res=>{this.resValue=res});
+>>>>>>> c62e8385e2ef11cb6da0fb55ada4913c80d43550
   }
 
 }

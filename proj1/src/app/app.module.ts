@@ -28,21 +28,18 @@ import { BsDatepickerModule } from "ngx-bootstrap/datepicker";
 import { TicketCardComponent } from "./components/ticket-card/ticket-card.component";
 
 const appRoutes: Routes = [
-  {
-    path: "",
-    component: FooterComponent
-  },
+ 
   {
     path: "flights",
     component: FlightsComponent
   },
   {
-    path : "login",
-    component : UserloginComponent
+    path: "login",
+    component: UserloginComponent
   },
   {
-    path : "register",
-    component : RegisterComponent
+    path: "register",
+    component: RegisterComponent
   }
 ];
 
@@ -78,4 +75,4 @@ const appRoutes: Routes = [
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

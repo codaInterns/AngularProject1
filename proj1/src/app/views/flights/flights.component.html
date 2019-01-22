@@ -7,16 +7,15 @@
   <app-flight-search (result)="onResultUpdate($event)"></app-flight-search>
   <div class="container">
     <div class="row">
+<<<<<<< HEAD
       <div class="col-12" *ngFor="let f of flightDetails">
           <app-flight-search-result *ngIf="flightAvailable" [flight]="f"></app-flight-search-result>
+=======
+      <div class="col-12">
+          
+>>>>>>> c62e8385e2ef11cb6da0fb55ada4913c80d43550
       </div>
     </div>
   </div>
   
-<div class="container">
-  <div class ="row">   
-      <div class="col-sm" *ngFor="let i of details" >
-          <app-cards [city]="i"></app-cards>
-      </div>
-  </div>  
-</div>
+

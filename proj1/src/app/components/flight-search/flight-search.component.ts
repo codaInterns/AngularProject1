@@ -40,6 +40,11 @@ export class FlightSearchComponent implements OnInit {
   output:any;
   onSubmit(searchForm:any){
     
+    if(searchForm.from==null || searchForm.to==null)
+      {
+        this.result.emit(null);
+        return;
+      }
     this.serviceValue = {
       source:searchForm.from.toLowerCase(),
       destination:searchForm.to.toLowerCase(),
@@ -48,6 +53,7 @@ export class FlightSearchComponent implements OnInit {
     
     console.log(this.serviceValue.source);
 
+    
     this.myservice.getFlights(this.serviceValue).subscribe(res => {
       this.result.emit(res);
     });

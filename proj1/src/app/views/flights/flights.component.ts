@@ -13,6 +13,7 @@ export class FlightsComponent implements OnInit {
   flightAvailable:boolean=false;
   flightDetails:any;
   noResult:boolean;
+  invalidInput: boolean;
   constructor() { }
   
 
@@ -21,7 +22,13 @@ export class FlightsComponent implements OnInit {
   }
 
   onResultUpdate(event:any){
-    
+    if(event==null){
+      this.invalidInput=true;
+      return;
+    }
+    else{
+      this.invalidInput=false;
+    }
     //console.log(this.flightDetails);
     this.flightAvailable = true;
     this.flightDetails = event;

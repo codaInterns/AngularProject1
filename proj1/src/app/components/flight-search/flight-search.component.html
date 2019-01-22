@@ -1,0 +1,94 @@
+<div class="flight-container container">
+  <div class="card text-center">
+    <div class="card-header">
+      <ul class="nav nav-pills card-header-pills">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Flights</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Trains</a>
+        </li>
+
+      </ul>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Search Flights</h5>
+      <form class="needs-validation" #searchForm="ngForm" novalidate>
+        <div class="row">
+          <div class="col-sm-6">
+
+            <div class="col-md-12 mb-3 mr-3">
+
+              <div class="input-group">
+                <div class="input-group-prepend" style="width:15%">
+                  <span class="input-group-text" id="inputGroupPrepend">From</span>
+                </div>
+                <input type="text" class="form-control" id="validationCustomUsername" placeholder="Source"
+                  aria-describedby="inputGroupPrepend" [(ngModel)]="fromValue" name="from" [ngbTypeahead]="search" required>
+                <div class="invalid-feedback">
+                  Please choose a valid source.
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12 mb-3 mr-3">
+
+              <div class="input-group">
+                <div class="input-group-prepend"style="width:15%">
+                  <span class="input-group-text" id="inputGroupPrepend">To</span>
+                </div>
+                <input type="text" class="form-control" id="validationCustomUsername" placeholder="Destination"
+                  aria-describedby="inputGroupPrepend" [(ngModel)]="toValue" name="to" [ngbTypeahead]="search" required>
+                <div class="invalid-feedback">
+                  Please choose a valid destination.
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="col-sm-6">
+            <div style="padding-bottom: 2%">
+              <b>Journey Date<br></b> <input type="text" bsDatepicker [(ngModel)]="date" name="dateValue" [minDate]="today" />
+            </div>
+          </div>
+        </div>
+        <div class="row " style="margin:2%;align-items: center">
+
+          <div class="col-lg-4" style="padding:2%">
+              <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroupPrepend">Passengers</span>
+                </div>
+            <select class="form-control form-control-md" #passCount>
+              <option>One</option>
+              <option>Two</option>
+              <option>Three</option>
+            </select>
+          </div>
+          <div class="col-lg-4" style="padding:2%">
+              <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroupPrepend">Class</span>
+                </div>
+            <select class="form-control form-control-md" #class>
+              
+              <option>Premium</option>
+              <option>Economy</option>
+              <option>Business</option>
+            </select>
+          </div>
+          <div class="col-lg-4" style="padding:2%">
+              <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroupPrepend">Type</span>
+                </div>
+            <select class="form-control form-control-md" #type>
+              <option>One Way</option>
+              <option>Round Trip</option>
+              <option>Multi City</option>
+            </select>
+          </div>
+        </div>
+        <a  class="btn btn-primary" (click)="onSubmit(searchForm.value)">SUBMIT</a>
+
+      </form>
+    </div>
+  </div>
+</div>
+

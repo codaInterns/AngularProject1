@@ -35,6 +35,14 @@ const appRoutes: Routes = [
   {
     path: "flights",
     component: FlightsComponent
+  },
+  {
+    path : "login",
+    component : UserloginComponent
+  },
+  {
+    path : "register",
+    component : RegisterComponent
   }
 ];
 

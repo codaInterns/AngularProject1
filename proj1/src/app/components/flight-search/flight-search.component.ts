@@ -14,6 +14,7 @@ const states = [
 })
 export class FlightSearchComponent implements OnInit {
 
+
   @ViewChild('class') class:ElementRef;
   @ViewChild('type') type:ElementRef;
   @ViewChild('passCount') passCount:ElementRef;
@@ -38,8 +39,9 @@ export class FlightSearchComponent implements OnInit {
       )
 
   constructor(private myservice:FlightService) { }
-
+        today;
   ngOnInit() {
+    this.today = new Date();
   }
 
   onSubmit(searchForm:any){

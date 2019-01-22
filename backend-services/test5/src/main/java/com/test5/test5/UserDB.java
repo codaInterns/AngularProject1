@@ -13,9 +13,11 @@ public class UserDB {
 @GeneratedValue(strategy=GenerationType.AUTO)
 private int id;	
 @Column(name="email")
+@ValidEmail
 private String email;
 @Column(name="password")
- private String password;
+@ValidPassword
+private String password;
 
 public int getId() {
 	return id;

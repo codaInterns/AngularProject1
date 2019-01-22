@@ -39,9 +39,17 @@ public class LoginController {
 	@PostMapping(path = "/register/" , consumes = "application/json" , produces = "application/json")
 	public Boolean postUser(@RequestBody options opt) {
 		UserDB user1=new UserDB();
-		user1.setEmail(opt.getEmail());
-		user1.setPassword(opt.getPassword());
-		repo.save(user1);
-		return true;
+		try {
+			user1.setEmail(opt.getEmail());
+			user1.setPassword(opt.getPassword());
+			repo.save(user1);
+			return true;
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+			return false;
+		}
+		
 	}
 }

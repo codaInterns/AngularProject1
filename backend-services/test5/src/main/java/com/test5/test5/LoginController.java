@@ -23,13 +23,13 @@ public class LoginController {
 	public String Allid() {
 		return "hi";
 	}*/
-	@GetMapping("/users/{email}/{password}")
-    public Boolean login(@PathVariable(value="email")String email,@PathVariable(value="password") String passwd){
+	@PostMapping(path = "/users/" , consumes = "application/json" , produces = "application/json")
+    public Boolean login(@RequestBody options opt){
     	List<UserDB> list1= repo.findAll();
     	Iterator<UserDB> listIterator=list1.iterator();
     	while(listIterator.hasNext()) {
     	     UserDB user=listIterator.next();
-    	     if(user.getEmail().equals(email) && user.getPassword().equals(passwd) ){
+    	     if(user.getEmail().equals(opt.getEmail()) && user.getPassword().equals(opt.getPassword()) ){
     	    	 return true;
     	     }
     	    

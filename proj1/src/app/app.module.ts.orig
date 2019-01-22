@@ -26,10 +26,13 @@ import { FlightSearchResultComponent } from "./components/flight-search-result/f
 import { FooterComponent } from "./components/footer/footer.component";
 import { BsDatepickerModule } from "ngx-bootstrap/datepicker";
 import { TicketCardComponent } from "./components/ticket-card/ticket-card.component";
-import { BookingComponent } from './views/booking/booking.component';
 
 const appRoutes: Routes = [
+<<<<<<< HEAD
  
+=======
+  
+>>>>>>> d7483d03ec356e1383261c62de5afe87a08a9bca
   {
     path: "flights",
     component: FlightsComponent
@@ -41,10 +44,6 @@ const appRoutes: Routes = [
   {
     path: "register",
     component: RegisterComponent
-  },
-  {
-    path: "booked",
-    component: BookingComponent
   }
 ];
 
@@ -60,8 +59,7 @@ const appRoutes: Routes = [
     NavFeatureComponent,
     FlightsComponent,
     FooterComponent,
-    TicketCardComponent,
-    BookingComponent
+    TicketCardComponent
   ],
   imports: [
     BrowserModule,

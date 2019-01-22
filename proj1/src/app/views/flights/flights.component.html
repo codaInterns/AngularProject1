@@ -7,22 +7,12 @@
   <app-flight-search (result)="onResultUpdate($event)"></app-flight-search>
   <div class="container">
     <div class="row">
-<<<<<<< HEAD
       <div class="col-12" *ngFor="let f of flightDetails">
           <app-flight-search-result *ngIf="flightAvailable" [flight]="f"></app-flight-search-result>
-=======
-      <div class="col-12">
-          <app-ticket-card *ngIf="ticketAvailable" [ticket]="ticketDetails"></app-ticket-card>
-      </div>
+       </div>   
     </div>
   </div>
   
-<div class="container">
-  <div class ="row">   
-      <div class="col-sm" *ngFor="let i of details" >
-          <app-cards [city]="i"></app-cards>
-      </div>
-    </div>
-  </div>
+
   
 

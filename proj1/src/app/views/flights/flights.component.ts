@@ -9,7 +9,7 @@ import { FlightService } from 'src/app/services/flight.service';
 })
 export class FlightsComponent implements OnInit {
 
-  details:any[];
+  
   flightAvailable:boolean=false;
   flightDetails:any;
   

@@ -27,6 +27,7 @@ export class FlightSearchComponent implements OnInit {
 
   searchValue:{searchForm:any,class:any,type:any,passCount:any};
   serviceValue:{source:string,destination:string,departure:string};
+  resValue:any;
 
   search = (text$: Observable<String>) => 
     text$.pipe(
@@ -54,7 +55,7 @@ export class FlightSearchComponent implements OnInit {
       departure:"testing"
     };
     this.searchResult.emit(this.searchValue);
-    this.myservice.getFlights(this.serviceValue)
+    this.myservice.getFlights(this.serviceValue).subscribe(res=>{this.resValue=res});
   }
 
 }

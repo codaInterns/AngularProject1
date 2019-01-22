@@ -16,9 +16,9 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 public class flights {
 @Id
 @GeneratedValue(strategy=GenerationType.AUTO)
-private long flight_id;
+private long flights_id;
 
-@Column(name="name")
+@Column(name="name ")
 private String name;
 
 @Column(name="source")
@@ -30,12 +30,25 @@ private String destination;
 @Column(name="departure")
 private String departure;
 
-public long getFlight_id() {
-	return flight_id;
+
+public long getFlights_id() {
+	return flights_id;
 }
 
-public void setFlight_id(long flight_id) {
-	this.flight_id = flight_id;
+@Column(name="price")
+private int price;
+
+public int getPrice() {
+	return price;
+}
+
+public void setPrice(int price) {
+	this.price = price;
+}
+
+
+public void setFlights_id(long flights_id) {
+	this.flights_id = flights_id;
 }
 
 public String getName() {

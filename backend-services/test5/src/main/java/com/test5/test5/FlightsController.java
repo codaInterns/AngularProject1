@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api")
+@CrossOrigin("http://localhost:4200")
 public class FlightsController {
 
 @Autowired 
@@ -36,7 +38,7 @@ public List<flights> getFlights(@RequestBody FlightInput fi)
 	List<flights> selectedList=new ArrayList<flights>();
 	while(flightIter.hasNext()) {
 		flights f1=flightIter.next();
-		if(f1.getDestination().equals(fi.getSource())&&f1.getSource().equals(fi.getSource())) {
+		if(f1.getDestination().equals(fi.getDestination())&&f1.getSource().equals(fi.getSource())) {
 			selectedList.add(f1);
 		}
 		

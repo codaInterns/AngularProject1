@@ -12,7 +12,8 @@ public void setSource(String source) {
 }
 public String getDestination() {
 	return destination;
-}
+} 
+
 public void setDestination(String destination) {
 	this.destination = destination;
 }

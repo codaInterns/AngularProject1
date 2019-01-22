@@ -15,11 +15,10 @@ public class UserDB {
 @GeneratedValue(strategy=GenerationType.AUTO)
 private int id;	
 @Column(name="email")
-@NotNull
+@ValidEmail
 private String email;
 @Column(name="password")
-@NotNull
-@Size(min=6)
+@ValidPassword
 private String password;
 
 public int getId() {

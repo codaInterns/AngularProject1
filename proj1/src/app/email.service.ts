@@ -10,7 +10,12 @@ export class EmailService {
    }
 
    public getUser(email:String,password:String){
-     return this.http.get("http://localhost:8080/api/users/"+email+"/"+password);
+    var options = {
+      email : email,
+      password : password
+        
+    };
+     return this.http.post("http://localhost:8080/api/users/",options);
 
    }
 }

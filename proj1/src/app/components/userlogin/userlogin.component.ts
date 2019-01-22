@@ -23,6 +23,11 @@ export class UserloginComponent implements OnInit {
       password: ["", [Validators.required, Validators.minLength(6)]]
     });
   }
+  onKey(event)
+  {
+    pattern = ;
+    event.value
+  }
   get f() { return this.formdata.controls; }
   result;
   onClickSubmit(data) {
@@ -36,6 +41,7 @@ export class UserloginComponent implements OnInit {
     this.result = res; console.log(this.result);
       if (this.result == true) {
         alert("Login Sucessful");
+        this.router.navigate(['flights']);
       }
       else {
         alert("Login Not Sucessful");

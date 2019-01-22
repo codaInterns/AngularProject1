@@ -47,7 +47,7 @@
           </div>
           <div class="col-sm-6">
             <div style="padding-bottom: 2%">
-              <b>Journey Date<br></b> <input type="text" bsDatepicker [(ngModel)]="date" name="dateValue"/>
+              <b>Journey Date<br></b> <input type="text" bsDatepicker [(ngModel)]="date" name="dateValue" [minDate]="today"/>
             </div>
           </div>
         </div>

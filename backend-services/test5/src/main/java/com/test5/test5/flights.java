@@ -31,10 +31,10 @@ private String destination;
 private String departure;
 
 
-
 public long getFlights_id() {
 	return flights_id;
 }
+
 @Column(name="price")
 private int price;
 

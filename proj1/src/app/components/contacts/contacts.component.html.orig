@@ -1,10 +1,13 @@
 <div class="form-container">
-<div [formGroup]="formdata" (ngSubmit)="onSubmit()">
+<<<<<<< HEAD
+  <form (ngSubmit)="onSubmit()" [formGroup]="contact_form">
+=======
+<div [formGroup]="formdata">
+>>>>>>> a1300b208bb703520c5297a2158f7194c6e2a6ad
   <div formArrayName="detcard" *ngFor="let detcard of formdata.get('detcard').controls; let i = index;">
     <div [formGroupName]="i">
       <input type="text" formControlName="userName">
       <input type="email" formControlName="email">
-      <button (click)="onDelete(i)">X</button>
      </div>
     </div>
   </div>

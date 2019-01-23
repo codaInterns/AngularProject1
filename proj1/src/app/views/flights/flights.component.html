@@ -4,7 +4,7 @@
     <h3 class="info">Book flights to Exciting Places</h3>
   </div>
 </div>
-<app-flight-search (result)="onResultUpdate($event)"></app-flight-search>
+<app-flight-search (result)="onResultUpdate($event)" [fromValue]="userFrom" [toValue]="userTo"></app-flight-search>
 <div class="container">
   <div class="row">
     <div class="col-12" *ngIf="noResult">

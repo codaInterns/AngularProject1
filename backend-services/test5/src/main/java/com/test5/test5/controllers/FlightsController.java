@@ -28,6 +28,12 @@ public class FlightsController {
 @Autowired 
 private FlightsInterface repo;
 
+@GetMapping("/test")
+public String check() {
+	return "hi";
+}
+
+
 @GetMapping("/getFlights")
 public List<flights> getAllFlights(){
 	return repo.findAll();

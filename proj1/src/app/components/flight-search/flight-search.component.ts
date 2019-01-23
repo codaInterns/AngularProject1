@@ -23,7 +23,10 @@ export class FlightSearchComponent implements OnInit {
 
   serviceValue:{source:string,destination:string,departure:string};
   resValue:any;
-
+  fromValue:string;
+  toValue:string;
+  isdisabled:any;
+ 
   search = (text$: Observable<String>) => 
     text$.pipe(
       debounceTime(200),
@@ -36,6 +39,7 @@ export class FlightSearchComponent implements OnInit {
         today;
   ngOnInit() {
     this.today = new Date();
+    console.log(this.fromValue);
   }
   output:any;
   onSubmit(searchForm:any){
@@ -48,7 +52,7 @@ export class FlightSearchComponent implements OnInit {
     this.serviceValue = {
       source:searchForm.from.toLowerCase(),
       destination:searchForm.to.toLowerCase(),
-      departure:"testing"
+      departure:searchForm.dateValue
     };
     
     console.log(this.serviceValue.source);
@@ -60,6 +64,16 @@ export class FlightSearchComponent implements OnInit {
 
    
     
+  }
+
+  isSame(){
+    if(this.fromValue == this.toValue){
+      this.isdisabled = true;
+      return true;
+    }
+    this.isdisabled = false;
+    return false;
+        
   }
 
 }

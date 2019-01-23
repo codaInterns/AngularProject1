@@ -1,8 +1,22 @@
 <div class="container-fluid">
   <div class="jumbotron">
-    <h1><i class="fa fa-plane" aria-hidden="true"></i>Flights</h1>
-    <h3 class="info">Book flights to Exciting Places</h3>
+    <h1>Flights</h1>
+    <h3>Book flights to Exciting Places</h3>
   </div>
+<<<<<<< HEAD
+  <app-flight-search (result)="onResultUpdate($event)"></app-flight-search>
+  <div class="container">
+    <div class="row">
+      <div class="col-12" *ngFor="let f of flightDetails">
+          <app-flight-search-result *ngIf="flightAvailable" [flight]="f"></app-flight-search-result>
+       </div>   
+    </div>
+  </div>
+  
+
+  
+
+=======
 </div>
 <app-flight-search (result)="onResultUpdate($event)"></app-flight-search>
 <div class="container">
@@ -16,8 +30,6 @@
         </div>
       </div>
     </div>
-
-
     <div class="col-12" *ngIf="invalidInput">
         <div class="noresult card">
           <div class="noresult card-body">
@@ -26,11 +38,10 @@
             </div>
           </div>
         </div>
-
       </div>
     <div class="col-12" *ngFor="let f of flightDetails">
       <app-flight-search-result *ngIf="flightAvailable" [flight]="f"></app-flight-search-result>
     </div>
   </div>
 </div>
-
+>>>>>>> 1aaf49f05dc13c7fd55e101bc5fb3d33e7b40cdd

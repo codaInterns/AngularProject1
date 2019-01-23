@@ -40,7 +40,7 @@ export class UserloginComponent implements OnInit {
   }
     this.email.getUser(data.email, data.password).subscribe(res => {
     this.result = res; console.log(this.result);
-      if (this.result == true) {
+      /*if (this.result == true) {
         alert("Login Sucessful");
         this.router.navigate(['flights']);
       }
@@ -49,7 +49,7 @@ export class UserloginComponent implements OnInit {
         this.router.navigate(['register']);
 
         return false;
-      }
+      }*/
     });
 
 

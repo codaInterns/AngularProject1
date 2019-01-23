@@ -15,7 +15,7 @@ export class EmailService {
       password : password
         
     };
-     return this.http.post("http://localhost:8080/api/users/",options);
+     return this.http.post("http://localhost:8080/api/jwt/",options,{responseType: 'text'});
 
    }
 }

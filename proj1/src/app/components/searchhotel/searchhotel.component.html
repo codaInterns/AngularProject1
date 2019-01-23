@@ -1,13 +1,15 @@
+
+
 <div class="jumbotron">
   <div class="container">
       <div class="row">
           <div class="col-md-8 offset-md-2">
-              <h3>Add hotels..</h3>
+              <h3></h3>
               <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
                   <div class="form-group">
                       <label for="firstName">Hotel location</label>
-                      <input type="text" class="form-control" name="hotel_name" [(ngModel)]="model.hotel_location" #hotel_name="ngModel"  required />
-                      <div *ngIf="f.submitted && firstName.invalid" class="invalid-feedback">
+                      <input type="text" class="form-control" name="hotel_place" [(ngModel)]="model.hotel_place" #hotel_place="ngModel"  required />
+                      <div *ngIf="f.submitted &&  hotel_place.invalid" class="invalid-feedback">
                           <div *ngIf="hotel_name.errors.required">hotel name is required</div>
                       </div>
                   </div>
@@ -20,4 +22,8 @@
           </div>
       </div>
   </div>
+</div>
+
+<div *ngIf="setform">
+  {{products|json}}
 </div>

@@ -24,5 +24,13 @@ export class AddhotelService {
     return this.http.get('http://localhost:8080/api/gethotels').pipe(
       map(this.extractData));
   }
-  
+  public postUser(data){
+    console.log(data)
+    return this.http.post("http://localhost:8080/api/addhotel/",data).subscribe(res=>{this.result=res;console.log(this.result);});
+  }
+
+  getProduct(data): Observable<any> {
+    console.log(data)
+    return this.http.post("http://localhost:8080/api/gethotel/",data)
+  }
 }

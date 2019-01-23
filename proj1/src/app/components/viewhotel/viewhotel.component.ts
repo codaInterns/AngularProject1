@@ -16,12 +16,12 @@ export class ViewhotelComponent implements OnInit {
     console.log("im view")
     
     this.getProducts();
-     console.log(this.products)
+    
   }
   
   getProducts() {
     console.log("hiiiiiiiiiii");
-    this.products = [{}];
+    this.products = [];
     this.addhotel.getProducts().subscribe((data: {}) => {console.log("hello"+data);this.products = data;});
   }
   list1:any[]=[

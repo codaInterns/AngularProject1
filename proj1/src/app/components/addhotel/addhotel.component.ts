@@ -11,14 +11,14 @@ import { Router } from '@angular/router';
 })
 export class AddhotelComponent implements OnInit {
 
-  constructor(private route:Router,private http:HttpClient) { }
+  constructor(private route:Router,private http:HttpClient,private addhotel:AddhotelService ) { }
 
   ngOnInit() {
   }
   model: any = {};
 
   onSubmit() {
-   // this.addhotel.postUser(this.model);
+   this.addhotel.postUser(this.model);
 
     alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.model))
     console.log(this.model.hotel_name)

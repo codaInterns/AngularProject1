@@ -19,10 +19,10 @@
                       </div>
                   </div>
                   <div class="form-group">
-                    <label for="hotel_location">Hotel Location</label>
-                    <input type="text" class="form-control" name="hotel_location" [(ngModel)]="model.hotel_location" #hotel_location="ngModel"  required />
-                    <div *ngIf="f.submitted && hotel_location.invalid" class="invalid-feedback">
-                        <div *ngIf="hotel_location.errors.required">Hotel Description is required</div>
+                    <label for="hotel_place">Hotel Location</label>
+                    <input type="text" class="form-control" name="hotel_place" [(ngModel)]="model.hotel_place" #hotel_place="ngModel"  required />
+                    <div *ngIf="f.submitted && hotel_place.invalid" class="invalid-feedback">
+                        <div *ngIf="hotel_place.errors.required">Hotel Description is required</div>
                     </div>
                 </div>
                 <div class="form-group">
@@ -33,9 +33,9 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="hotel_price">Hotel price</label>
-                    <input type="text" class="form-control" name="hotel_price" [(ngModel)]="model.hotel_price" #hotel_image="ngModel" required/>
-                    <div *ngIf="f.submitted && hotel_price.invalid" class="invalid-feedback">
+                    <label for="price">Hotel price</label>
+                    <input type="text" class="form-control" name="price" [(ngModel)]="model.price" #price="ngModel" required/>
+                    <div *ngIf="f.submitted && price.invalid" class="invalid-feedback">
                         <div *ngIf="hotel_price.errors.required">Hotel Description is required</div>
                     </div>
                 </div>

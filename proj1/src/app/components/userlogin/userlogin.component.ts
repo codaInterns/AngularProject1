@@ -30,7 +30,7 @@ export class UserloginComponent implements OnInit {
     event.value
   }
   get f() { return this.formdata.controls; }
-  result;
+  result:any;
   onClickSubmit(data) {
     console.log(data.email);
 
@@ -40,6 +40,7 @@ export class UserloginComponent implements OnInit {
   }
     this.email.getUser(data.email, data.password).subscribe(res => {
     this.result = res; console.log(this.result);
+    localStorage.setItem('token',this.result);
       /*if (this.result == true) {
         alert("Login Sucessful");
         this.router.navigate(['flights']);
@@ -50,6 +51,7 @@ export class UserloginComponent implements OnInit {
 
         return false;
       }*/
+
     });
 
 

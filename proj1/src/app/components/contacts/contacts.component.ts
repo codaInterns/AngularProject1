@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray,FormGroup,FormBuilder, Validators } from '@angular/forms';
+import { FormArray,FormGroup,FormBuilder, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class ContactsComponent implements OnInit {
    formdata:FormGroup;
    detcard:FormArray;
+   i:number;
   constructor(private formBuilder:FormBuilder, private route:Router) { }
 
   ngOnInit() {
@@ -17,8 +18,14 @@ export class ContactsComponent implements OnInit {
      detcard:this.formBuilder.array([this.createDetCard()])
    });
   }
-
+    
+  onDelete(i){
+    console.log("removing"+i);
+    this.detcard=this.formdata.get('detcard') as FormArray;
+    this.detcard.removeAt(i);
+  } 
   createDetCard():FormGroup{
+    console.log("form getting created");
     return this.formBuilder.group({
       userName:["",Validators.required],
       email:["",Validators.required,Validators.email]
@@ -38,7 +45,17 @@ export class ContactsComponent implements OnInit {
       { type: 'required', message: 'Email is required' },
       { type: 'pattern', message: 'Enter a valid email' }
     ],
-    
+    }
 
-}
+   onSubmit(){
+    this.detcard=this.formdata.get('detcard') as FormArray;
+    var result:any[];
+    console.log("submitting....");
+    for(let card of this.detcard.controls){
+        var item=card as FormGroup;
+        var userName=item.controls.userName as FormControl;
+        console.log(userName.value);
+       
+    }
+   } 
 }

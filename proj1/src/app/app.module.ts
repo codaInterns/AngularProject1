@@ -25,6 +25,8 @@ import { TicketCardComponent } from "./components/ticket-card/ticket-card.compon
 
 import { ContactsComponent } from './components/contacts/contacts.component';
 import { AdministratorComponent } from './components/administrator/administrator.component';
+import{ MatTableModule} from '@angular/material';
+import {MatInputModule} from '@angular/material';
 
 
 
@@ -64,7 +66,8 @@ const appRoutes: Routes = [
     TicketCardComponent,
    
     ContactsComponent,
-    AdministratorComponent
+    AdministratorComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -80,7 +83,9 @@ const appRoutes: Routes = [
     TooltipModule.forRoot(),
     ModalModule.forRoot(),
     NgbModule.forRoot(),
-    FormsModule
+    FormsModule,
+    MatInputModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

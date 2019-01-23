@@ -1,14 +1,17 @@
 <div class="form-container">
-<div [formGroup]="formdata">
-  <div formArrayName="detcard" *ngFor="let detcard of formdata.get('detcard').controls; let i = index;">
-    <div [formGroupName]="i">
-      <input type="text" formControlName="userName">
-      <input type="email" formControlName="email">
-     </div>
+  <div [formGroup]="formdata" (ngSubmit)="onSubmit()">
+    <div formArrayName="detcard" *ngFor="let detcard of formdata.get('detcard').controls; let i = index;">
+      <div [formGroupName]="i">
+        <input type="text" formControlName="userName">
+        <input type="email" placeholder="Email" formControlName="email" required>
+        <div *ngFor="let validation of account_validation_messages.email">
+          <div *ngIf="formdata.get('email').hasError(validation.type) && (formdata.get('email').dirty || formdata.get('email').touched)">{{validation.message}}</div>
+        </div>
+      </div>
     </div>
   </div>
-    <button value="Submit" (click)="addDetCard()">add</button>
-    <button value="Login">Submit</button>
+  <button value="Submit" (click)="addDetCard()">add</button>
+  <button value="Login">Submit</button>
 
 
-  </div>
+</div>

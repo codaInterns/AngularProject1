@@ -21,7 +21,7 @@ export class ViewhotelComponent implements OnInit {
   
   getProducts() {
     console.log("hiiiiiiiiiii");
-    this.products = [];
+    this.products = [{}];
     this.addhotel.getProducts().subscribe((data: {}) => {console.log("hello"+data);this.products = data;});
   }
   list1:any[]=[

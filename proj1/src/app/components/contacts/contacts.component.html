@@ -1,15 +1,15 @@
 <div class="form-container">
-<div [formGroup]="formdata" (ngSubmit)="onSubmit()">
+ <form [formGroup]="formdata" >
   <div formArrayName="detcard" *ngFor="let detcard of formdata.get('detcard').controls; let i = index;">
     <div [formGroupName]="i">
       <input type="text" formControlName="userName">
       <input type="email" formControlName="email">
       <button (click)="onDelete(i)">X</button>
-     </div>
     </div>
   </div>
-    <button value="Submit" (click)="addDetCard()">add</button>
-    <button value="Login">Submit</button>
-  
 
-  </div>
+    <button (click)="addDetCard()">add</button>
+    <button (click)="onSubmit()" type="submit">Submit</button>
+  </form>
+
+</div>

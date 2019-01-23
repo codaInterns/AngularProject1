@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray,FormGroup,FormBuilder, Validators } from '@angular/forms';
+import { FormArray,FormGroup,FormBuilder, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -45,8 +45,17 @@ export class ContactsComponent implements OnInit {
       { type: 'required', message: 'Email is required' },
       { type: 'pattern', message: 'Enter a valid email' }
     ],
-    
- 
+    }
 
-}
+   onSubmit(){
+    this.detcard=this.formdata.get('detcard') as FormArray;
+    var result:any[];
+    console.log("submitting....");
+    for(let card of this.detcard.controls){
+        var item=card as FormGroup;
+        var userName=item.controls.userName as FormControl;
+        console.log(userName.value);
+       
+    }
+   } 
 }

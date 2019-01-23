@@ -13,7 +13,7 @@ import { RegisterComponent } from './components/register/register.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {Routes,RouterModule} from '@angular/router';
 import { UserloginComponent } from "./components/userlogin/userlogin.component";
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 
 import { FlightSearchComponent } from "./components/flight-search/flight-search.component";
 import { CardsComponent } from "./components/cards/cards.component";
@@ -28,6 +28,7 @@ import { BsDatepickerModule } from "ngx-bootstrap/datepicker";
 import { TicketCardComponent } from "./components/ticket-card/ticket-card.component";
 import { BookingComponent } from './views/booking/booking.component';
 import { AdvertisementComponent } from './components/advertisement/advertisement.component';
+import { TokenInterceptor } from './services/token.service';
 
 const appRoutes: Routes = [
   {
@@ -85,7 +86,13 @@ const appRoutes: Routes = [
     NgbModule.forRoot(),
     FormsModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

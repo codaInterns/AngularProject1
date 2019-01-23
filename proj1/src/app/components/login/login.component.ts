@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
 
      
       if (this.registerForm.invalid) {
-          return;
+          return ;
       }
 
       alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.registerForm.value))

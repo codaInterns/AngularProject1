@@ -1,12 +1,17 @@
 <div class="form-container">
- <form [formGroup]="formdata" >
-  <div formArrayName="detcard" *ngFor="let detcard of formdata.get('detcard').controls; let i = index;">
-    <div [formGroupName]="i">
-      <input type="text" formControlName="userName">
-      <input type="email" formControlName="email">
-      <button (click)="onDelete(i)">X</button>
+  <form [formGroup]="formdata">
+    <div formArrayName="detcard" *ngFor="let detcard of formdata.get('detcard').controls; let i = index;">
+      <div [formGroupName]="i">
+        <input type="text" name="userName" formControlName="userName">
+        <div *ngIf="(formdata.controls.detcard.controls[i].controls.userName.invalid && 
+        formdata.controls.detcard.controls[i].controls.userName.touched)">Enter userName correctly</div>
+        <input type="email" name="Email" formControlName="email">
+        <div *ngIf="(formdata.controls.detcard.controls[i].controls.email.invalid && 
+        formdata.controls.detcard.controls[i].controls.email.touched)">Enter email correctly</div>
+
+        <button (click)="onDelete(i)">X</button>
+      </div>
     </div>
-  </div>
 
     <button (click)="addDetCard()">add</button>
     <button (click)="onSubmit()" type="submit">Submit</button>

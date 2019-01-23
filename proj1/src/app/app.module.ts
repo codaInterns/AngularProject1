@@ -24,10 +24,6 @@ import { BsDatepickerModule } from "ngx-bootstrap/datepicker";
 import { TicketCardComponent } from "./components/ticket-card/ticket-card.component";
 
 import { ContactsComponent } from './components/contacts/contacts.component';
-import { AdministratorComponent } from './components/administrator/administrator.component';
-import{ MatTableModule} from '@angular/material';
-import {MatInputModule} from '@angular/material';
-
 
 
 
@@ -66,7 +62,7 @@ const appRoutes: Routes = [
     TicketCardComponent,
    
     ContactsComponent,
-    AdministratorComponent,
+    
     
   ],
   imports: [
@@ -84,8 +80,7 @@ const appRoutes: Routes = [
     ModalModule.forRoot(),
     NgbModule.forRoot(),
     FormsModule,
-    MatInputModule,
-    MatTableModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

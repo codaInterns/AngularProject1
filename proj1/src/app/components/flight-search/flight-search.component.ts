@@ -48,7 +48,7 @@ export class FlightSearchComponent implements OnInit {
     this.serviceValue = {
       source:searchForm.from.toLowerCase(),
       destination:searchForm.to.toLowerCase(),
-      departure:"testing"
+      departure:searchForm.dateValue
     };
     
     console.log(this.serviceValue.source);

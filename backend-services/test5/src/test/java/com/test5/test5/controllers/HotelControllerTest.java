@@ -24,13 +24,13 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.test5.test5.models.FlightInput;
-
-import io.micrometer.core.ipc.http.HttpSender.Response;
+import com.test5.test5.models.HotelInput;
+import com.test5.test5.models.options;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @AutoConfigureMockMvc
-public class FlightsControllerTest {
+public class HotelControllerTest {
 	
 	 @Autowired
 	 private MockMvc mockMvc;
@@ -39,11 +39,11 @@ public class FlightsControllerTest {
 	 
 	
 	 @Test
-	 public void testGetFlight() throws Exception{
-		 mockMvc.perform(get("/api/getFlights")
+	 public void testGetAllHotels() throws Exception{
+		 mockMvc.perform(get("/api/gethotels")
 				 .accept(MediaType.APPLICATION_JSON))
 		 		 .andExpect(status().isOk())
-		 		 .andExpect(MockMvcResultMatchers.jsonPath("$[*].name").exists())
+		 		 .andExpect(MockMvcResultMatchers.jsonPath("$[*].hotel_name").exists())
 		 		 .andDo(print());
 		 		 
 		// assertThat(response.getStatus(),is(equalTo(200)));
@@ -51,18 +51,32 @@ public class FlightsControllerTest {
 	 }
 	 @Test
 	 public void testGetFlights() throws Exception{
-		 FlightInput mockInput=new FlightInput();
-		 mockInput.setDeparture("04:00:00");
-		 mockInput.setDestination("delhi");
-		 mockInput.setSource("chennai");
+		 HotelInput mockInput=new HotelInput();
+		 
+		 mockInput.setHotel_place("bistro");
 		 String json=mapper.writeValueAsString(mockInput);
-		 mockMvc.perform(post("/api/getFlight/")
+		 mockMvc.perform(post("/api/getHotel/")
 				 .content(json).contentType(MediaType.APPLICATION_JSON)
 				 .accept(MediaType.APPLICATION_JSON))
 		 		 .andExpect(status().isOk())
-		 		 .andExpect(MockMvcResultMatchers.jsonPath("$[*].name").exists())
+		 		 .andExpect(MockMvcResultMatchers.jsonPath("$[*].hotel_name").exists())
  		         .andDo(print());
 		 //assertThat(response.getStatus(),is(equalTo(200)));
 	 }
+	 @Test
+	 public void testaddHotel() throws Exception{
+		 options mockInput=new options();
+		 mockInput.setEmail("new@olivecastle.com");
+		 mockInput.setPassword("test");
+		
+		 String json=mapper.writeValueAsString(mockInput);
+		 mockMvc.perform(post("/api/addhotel/")
+				 .content(json).contentType(MediaType.APPLICATION_JSON)
+				 .accept(MediaType.APPLICATION_JSON))
+		 		 .andExpect(status().isOk());
+ 		         
+		 //assertThat(response.getStatus(),is(equalTo(200)));
+	 }
+	
 	
 }

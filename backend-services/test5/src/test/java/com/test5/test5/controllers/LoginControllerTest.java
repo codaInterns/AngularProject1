@@ -24,13 +24,12 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.test5.test5.models.FlightInput;
-
-import io.micrometer.core.ipc.http.HttpSender.Response;
+import com.test5.test5.models.options;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @AutoConfigureMockMvc
-public class FlightsControllerTest {
+public class LoginControllerTest {
 	
 	 @Autowired
 	 private MockMvc mockMvc;
@@ -39,29 +38,31 @@ public class FlightsControllerTest {
 	 
 	
 	 @Test
-	 public void testGetFlight() throws Exception{
-		 mockMvc.perform(get("/api/getFlights")
-				 .accept(MediaType.APPLICATION_JSON))
-		 		 .andExpect(status().isOk())
-		 		 .andExpect(MockMvcResultMatchers.jsonPath("$[*].name").exists())
-		 		 .andDo(print());
-		 		 
-		// assertThat(response.getStatus(),is(equalTo(200)));
-		 
-	 }
-	 @Test
-	 public void testGetFlights() throws Exception{
-		 FlightInput mockInput=new FlightInput();
-		 mockInput.setDeparture("04:00:00");
-		 mockInput.setDestination("delhi");
-		 mockInput.setSource("chennai");
+	 public void testPostUser() throws Exception{
+		 options mockInput=new options();
+		 mockInput.setEmail("new@olivecastle.com");
+		 mockInput.setPassword("test");
+		
 		 String json=mapper.writeValueAsString(mockInput);
-		 mockMvc.perform(post("/api/getFlight/")
+		 mockMvc.perform(post("/api/register/")
 				 .content(json).contentType(MediaType.APPLICATION_JSON)
 				 .accept(MediaType.APPLICATION_JSON))
-		 		 .andExpect(status().isOk())
-		 		 .andExpect(MockMvcResultMatchers.jsonPath("$[*].name").exists())
- 		         .andDo(print());
+		 		 .andExpect(status().isOk());
+ 		         
+		 //assertThat(response.getStatus(),is(equalTo(200)));
+	 }
+	 @Test
+	 public void testLogin() throws Exception{
+		 options mockInput=new options();
+		 mockInput.setEmail("sivani@olivecastle.com");
+		 mockInput.setPassword("test");
+		
+		 String json=mapper.writeValueAsString(mockInput);
+		 mockMvc.perform(post("/api/users/")
+				 .content(json).contentType(MediaType.APPLICATION_JSON)
+				 .accept(MediaType.APPLICATION_JSON))
+		 		 .andExpect(status().isOk());
+ 		         
 		 //assertThat(response.getStatus(),is(equalTo(200)));
 	 }
 	

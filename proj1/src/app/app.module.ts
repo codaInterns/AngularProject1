@@ -25,7 +25,7 @@ import {MatNativeDateModule} from '@angular/material';
 import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {DemoMaterialModule} from './material-module';
-import { ViewhotelComponent } from './viewhotel/viewhotel.component';
+import { ViewhotelComponent } from './Components/viewhotel/viewhotel.component';
 
 
 

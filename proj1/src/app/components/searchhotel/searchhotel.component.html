@@ -1,50 +1,23 @@
-
-<div *ngFor="let item of list1; let i = index" >
-<div class="wrapper">
+<div class="jumbotron">
   <div class="container">
-    
-    <div class="top" style='background: url(https://s-media-cache-ak0.pinimg.com/736x/49/80/6f/4906f3f1c7483093855ebca1b8ae2c4.jpg) no-repeat center center'>
-    hii</div>
-    <div class="bottom">
-      <div class="left">
-        <div class="details">
-          <h1>{{item.hotel_name}}</h1>
-          <p>{{item.hotel_price}}</p>
-        </div>
-        <div class="buy"><i class="material-icons">add_shopping_cart</i></div>
+      <div class="row">
+          <div class="col-md-8 offset-md-2">
+              <h3>Add hotels..</h3>
+              <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+                  <div class="form-group">
+                      <label for="firstName">Hotel location</label>
+                      <input type="text" class="form-control" name="hotel_name" [(ngModel)]="model.hotel_location" #hotel_name="ngModel"  required />
+                      <div *ngIf="f.submitted && firstName.invalid" class="invalid-feedback">
+                          <div *ngIf="hotel_name.errors.required">hotel name is required</div>
+                      </div>
+                  </div>
+                  
+                  
+                  <div class="form-group">
+                      <button class="btn btn-primary">Search</button>
+                  </div>
+              </form>
+          </div>
       </div>
-      <div class="right">
-        <div class="done"><i class="material-icons">done</i></div>
-        <div class="details">
-          <h1>booked</h1>
-          <p>booked.. to your cart</p>
-        </div>
-        <div class="remove"><i class="material-icons">clear</i></div>
-      </div>
-    </div>
-  </div>
-  <div class="inside">
-    <div class="icon"><i class="material-icons">info_outline</i></div>
-    <div class="contents">
-      <table>
-        <tr>
-          <th>Location</th>
-          <th>Description</th>
-        </tr>
-       <tr>
-         <td>
-           {{list.hotel_location}}
-         </td>
-         <td>
-           {{list.hotel_description}}
-         </td>
-       </tr>
-      </table>
-    </div>
   </div>
 </div>
-</div>
-
-
-
-

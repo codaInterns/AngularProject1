@@ -66,7 +66,7 @@
    text-decoration:none;
    font-size:13px;
  }
- p{
+ .error{
     padding:0;
     color:lightcoral;
     font-size: .9em

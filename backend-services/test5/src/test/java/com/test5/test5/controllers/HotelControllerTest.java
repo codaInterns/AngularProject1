@@ -50,7 +50,7 @@ public class HotelControllerTest {
 		 
 	 }
 	 @Test
-	 public void testGetFlights() throws Exception{
+	 public void testGetHotels() throws Exception{
 		 HotelInput mockInput=new HotelInput();
 		 
 		 mockInput.setHotel_place("bistro");

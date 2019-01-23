@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-import { RouterModule, Routes} from '@angular/router';
+
 
 
 import { FormsModule } from '@angular/forms';
@@ -63,8 +63,12 @@ const appRoutes: Routes = [
     FlightsComponent,
     FooterComponent,
     TicketCardComponent,
+<<<<<<< HEAD
     BookingComponent,
     AdvertisementComponent
+=======
+    BookingComponent
+>>>>>>> bf5fa4fee9ee8885fd99c676c7bce271dc96fa8a
   ],
   imports: [
     BrowserModule,

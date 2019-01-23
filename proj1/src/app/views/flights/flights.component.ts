@@ -24,7 +24,7 @@ export class FlightsComponent implements OnInit {
   ngOnInit() {
     this.userFrom = this.routes.snapshot.params['from'];
     this.userTo = this.routes.snapshot.params['to'];
-    console.log(this.userFrom+" "+this.userTo);
+    console.log(this.routes);
   }
 
   onResultUpdate(event:any){

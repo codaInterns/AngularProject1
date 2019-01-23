@@ -24,7 +24,6 @@ export class FlightsComponent implements OnInit {
   ngOnInit() {
     this.userFrom = this.routes.snapshot.params['from'];
     this.userTo = this.routes.snapshot.params['to'];
-    console.log(this.routes);
   }
 
   onResultUpdate(event:any){
@@ -35,16 +34,17 @@ export class FlightsComponent implements OnInit {
     else{
       this.invalidInput=false;
     }
-    //console.log(this.flightDetails);
+   
     this.flightAvailable = true;
     this.flightDetails = event;
-    //console.log(this.flightDetails);
-    console.log(event);
+
     if(this.flightDetails.length==0)
       this.noResult=true;
     else
       this.noResult=false;
   }
+
+ 
 
 
 }

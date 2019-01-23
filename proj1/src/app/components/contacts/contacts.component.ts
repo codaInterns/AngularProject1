@@ -19,6 +19,7 @@ export class ContactsComponent implements OnInit {
   }
 
   createDetCard():FormGroup{
+    console.log("form getting created")
     return this.formBuilder.group({
       userName:["",Validators.required],
       email:["",Validators.required,Validators.email]

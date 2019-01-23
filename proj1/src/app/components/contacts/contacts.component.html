@@ -1,5 +1,5 @@
 <div class="form-container">
-
+  <form (ngSubmit)="onSubmit()" [formGroup]="contact_form">
   <div formArrayName="detcard" *ngFor="let detcard of formdata.get('detcard').controls; let i = index;">
     <div [formGroupName]="i">
       <input formControlName="userName" placeholder="name">
@@ -7,6 +7,6 @@
     </div>
 
     <button value="Login">Submit</button>
-
+  
 
   </div>

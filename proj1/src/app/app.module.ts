@@ -63,12 +63,8 @@ const appRoutes: Routes = [
     FlightsComponent,
     FooterComponent,
     TicketCardComponent,
-<<<<<<< HEAD
     BookingComponent,
     AdvertisementComponent
-=======
-    BookingComponent
->>>>>>> bf5fa4fee9ee8885fd99c676c7bce271dc96fa8a
   ],
   imports: [
     BrowserModule,

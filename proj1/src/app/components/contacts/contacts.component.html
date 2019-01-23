@@ -1,0 +1,12 @@
+<div class="form-container">
+
+  <div formArrayName="detcard" *ngFor="let detcard of formdata.get('detcard').controls; let i = index;">
+    <div [formGroupName]="i">
+      <input formControlName="userName" placeholder="name">
+      <input formControlName="email">
+    </div>
+
+    <button value="Login">Submit</button>
+
+
+  </div>

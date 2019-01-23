@@ -23,6 +23,9 @@ import { FooterComponent } from "./components/footer/footer.component";
 import { BsDatepickerModule } from "ngx-bootstrap/datepicker";
 import { TicketCardComponent } from "./components/ticket-card/ticket-card.component";
 
+import { ContactsComponent } from './components/contacts/contacts.component';
+import { AdministratorComponent } from './components/administrator/administrator.component';
+
 
 
 
@@ -38,7 +41,11 @@ const appRoutes: Routes = [
   },
   {
     path : "register",
-    component : RegisterComponent  }
+    component : RegisterComponent  },
+    {
+      path:"contacts",
+      component: ContactsComponent
+    }
 ];
 
 
@@ -54,7 +61,10 @@ const appRoutes: Routes = [
     NavFeatureComponent,
     FlightsComponent,
     FooterComponent,
-    TicketCardComponent
+    TicketCardComponent,
+   
+    ContactsComponent,
+    AdministratorComponent
   ],
   imports: [
     BrowserModule,
@@ -62,6 +72,7 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes),
     HttpClientModule,
+
 
     RouterModule.forRoot(appRoutes),
     BsDropdownModule.forRoot(),

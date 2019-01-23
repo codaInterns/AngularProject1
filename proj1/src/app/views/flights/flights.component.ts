@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HotDealsService } from 'src/app/services/hot-deals.service';
 import { FlightService } from 'src/app/services/flight.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-flights',
@@ -14,11 +15,16 @@ export class FlightsComponent implements OnInit {
   flightDetails:any;
   noResult:boolean;
   invalidInput: boolean;
-  constructor() { }
+  userFrom:any;
+  userTo:any;
+
+  constructor(private routes:ActivatedRoute) { }
   
 
   ngOnInit() {
-    
+    this.userFrom = this.routes.snapshot.params['from'];
+    this.userTo = this.routes.snapshot.params['to'];
+    console.log(this.userFrom+" "+this.userTo);
   }
 
   onResultUpdate(event:any){

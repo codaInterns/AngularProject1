@@ -38,17 +38,18 @@ const appRoutes: Routes = [
    component : UserloginComponent
   },
   {
+<<<<<<< HEAD
     path: "register",
     component: RegisterComponent
   },
   {
     path: "booked",
     component: BookingComponent
-  },
-  {
-    path: "flights/:from/:to",
-    component:  FlightsComponent
   }
+=======
+    path : "register",
+    component : RegisterComponent  }
+>>>>>>> 1aaf49f05dc13c7fd55e101bc5fb3d33e7b40cdd
 ];
 
 

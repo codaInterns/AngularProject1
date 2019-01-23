@@ -11,7 +11,7 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './views/dashboard/dashboard.component';
 import { RegisterComponent } from './components/register/register.component';
 import {ReactiveFormsModule} from '@angular/forms';
-
+import {Routes,RouterModule} from '@angular/router';
 import { UserloginComponent } from "./components/userlogin/userlogin.component";
 import { HttpClientModule } from "@angular/common/http";
 

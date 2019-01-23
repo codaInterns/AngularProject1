@@ -12,4 +12,12 @@ export class CardsComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
+
+  myfun(){
+    console.log("hi");
+  }
+  public open(event, item) {
+    console.log("hello");
+
+  }
 }

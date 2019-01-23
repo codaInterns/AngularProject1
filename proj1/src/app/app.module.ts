@@ -11,7 +11,7 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './views/dashboard/dashboard.component';
 import { RegisterComponent } from './components/register/register.component';
 import {ReactiveFormsModule} from '@angular/forms';
-import { RouterModule, Routes} from '@angular/router';
+import {Routes,RouterModule} from '@angular/router';
 import { UserloginComponent } from "./components/userlogin/userlogin.component";
 import { HttpClientModule } from "@angular/common/http";
 
@@ -27,6 +27,7 @@ import { FooterComponent } from "./components/footer/footer.component";
 import { BsDatepickerModule } from "ngx-bootstrap/datepicker";
 import { TicketCardComponent } from "./components/ticket-card/ticket-card.component";
 import { BookingComponent } from './views/booking/booking.component';
+import { AdvertisementComponent } from './components/advertisement/advertisement.component';
 
 const appRoutes: Routes = [
   {
@@ -45,10 +46,6 @@ const appRoutes: Routes = [
   {
     path: "booked",
     component: BookingComponent
-  },
-  {
-    path: "flights/:from/:to",
-    component:  FlightsComponent
   }
 ];
 
@@ -66,7 +63,8 @@ const appRoutes: Routes = [
     FlightsComponent,
     FooterComponent,
     TicketCardComponent,
-    BookingComponent
+    BookingComponent,
+    AdvertisementComponent
   ],
   imports: [
     BrowserModule,

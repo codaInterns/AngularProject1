@@ -1,0 +1,50 @@
+<div class="jumbotron">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-8 offset-md-2">
+              <h3>Add hotels..</h3>
+              <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+                  <div class="form-group">
+                      <label for="firstName">Hotel Name</label>
+                      <input type="text" class="form-control" name="hotel_name" [(ngModel)]="model.hotel_name" #hotel_name="ngModel"  required />
+                      <div *ngIf="f.submitted && firstName.invalid" class="invalid-feedback">
+                          <div *ngIf="hotel_name.errors.required">hotel name is required</div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label for="lastName">Hotel Description</label>
+                      <input type="text" class="form-control" name="hotel_description" [(ngModel)]="model.hotel_description" #hotel_description="ngModel"  required />
+                      <div *ngIf="f.submitted && lastName.invalid" class="invalid-feedback">
+                          <div *ngIf="hotel_description.errors.required">Hotel Description is required</div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="hotel_location">Hotel Location</label>
+                    <input type="text" class="form-control" name="hotel_location" [(ngModel)]="model.hotel_location" #hotel_location="ngModel"  required />
+                    <div *ngIf="f.submitted && hotel_location.invalid" class="invalid-feedback">
+                        <div *ngIf="hotel_location.errors.required">Hotel Description is required</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="hotel_image">Hotel image</label>
+                    <input type="text" class="form-control" name="hotel_image" [(ngModel)]="model.hotel_image" #hotel_image="ngModel"  required />
+                    <div *ngIf="f.submitted && hotel_image.invalid" class="invalid-feedback">
+                        <div *ngIf="hotel_image.errors.required">Hotel Description is required</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="hotel_price">Hotel price</label>
+                    <input type="text" class="form-control" name="hotel_price" [(ngModel)]="model.hotel_price" #hotel_image="ngModel" required/>
+                    <div *ngIf="f.submitted && hotel_price.invalid" class="invalid-feedback">
+                        <div *ngIf="hotel_price.errors.required">Hotel Description is required</div>
+                    </div>
+                </div>
+                  
+                  <div class="form-group">
+                      <button class="btn btn-primary">Register</button>
+                  </div>
+              </form>
+          </div>
+      </div>
+  </div>
+</div>

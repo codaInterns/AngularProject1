@@ -1,4 +1,4 @@
-package com.test5.test5.models;
+package com.test5.test5;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,7 +12,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @Entity
 @Table(name="hotels")
-@EntityListeners(AuditingEntityListener.class)
+
 public class hotels {
 
 	@Id

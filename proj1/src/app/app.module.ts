@@ -4,57 +4,47 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { DashboardComponent } from './views/dashboard/dashboard.component';
-import { RegisterComponent } from './components/register/register.component';
+
 import {ReactiveFormsModule} from '@angular/forms';
 import { RouterModule, Routes} from '@angular/router';
-import { UserloginComponent } from "./components/userlogin/userlogin.component";
+
+import { AddhotelComponent } from "./components/addhotel/addhotel.component";
 import { HttpClientModule } from "@angular/common/http";
 
-import { FlightSearchComponent } from "./components/flight-search/flight-search.component";
-import { CardsComponent } from "./components/cards/cards.component";
-import { NavFeatureComponent } from "./components/nav-feature/nav-feature.component";
-import { FlightsComponent } from "./views/flights/flights.component";
 import { BsDropdownModule } from "ngx-bootstrap/dropdown";
 import { TooltipModule } from "ngx-bootstrap/tooltip";
 import { ModalModule } from "ngx-bootstrap/modal";
-import { FlightSearchResultComponent } from "./components/flight-search-result/flight-search-result.component";
-import { FooterComponent } from "./components/footer/footer.component";
-import { BsDatepickerModule } from "ngx-bootstrap/datepicker";
-import { TicketCardComponent } from "./components/ticket-card/ticket-card.component";
 
+import { BsDatepickerModule } from "ngx-bootstrap/datepicker";
+import { SearchhotelComponent } from './Components/searchhotel/searchhotel.component';
+import { HeaderComponent } from './Components/header/header.component';
+
+import {MatTabsModule} from '@angular/material/tabs'; 
+import {MatNativeDateModule} from '@angular/material';
+
+import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {DemoMaterialModule} from './material-module';
+import { ViewhotelComponent } from './viewhotel/viewhotel.component';
 
 
 
 const appRoutes: Routes = [
   {
 
-    path : "flights",
-    component: FlightsComponent
-  },
-  {
-    path: "login",
-   component : UserloginComponent
-  },
-  {
-    path : "register",
-    component : RegisterComponent  }
+    path : "",
+    component:HeaderComponent
+  }
 ];
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent,
-    RegisterComponent,
-    UserloginComponent,
-    FlightSearchComponent,
-    FlightSearchResultComponent,
-    CardsComponent,
-    NavFeatureComponent,
-    FlightsComponent,
-    FooterComponent,
-    TicketCardComponent
+    AddhotelComponent,
+    SearchhotelComponent,
+    HeaderComponent,
+    ViewhotelComponent
   ],
   imports: [
     BrowserModule,
@@ -62,14 +52,16 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes),
     HttpClientModule,
-
+    MatTabsModule,    
     RouterModule.forRoot(appRoutes),
     BsDropdownModule.forRoot(),
     BsDatepickerModule.forRoot(),
     TooltipModule.forRoot(),
     ModalModule.forRoot(),
     NgbModule.forRoot(),
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    DemoMaterialModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

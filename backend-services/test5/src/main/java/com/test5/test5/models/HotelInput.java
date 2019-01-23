@@ -1,4 +1,4 @@
-package com.test5.test5.models;
+package com.test5.test5;
 
 import javax.persistence.Column;
 

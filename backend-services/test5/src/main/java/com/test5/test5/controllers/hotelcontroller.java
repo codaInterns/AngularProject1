@@ -1,4 +1,4 @@
-package com.test5.test5.controllers;
+package com.test5.test5;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -11,12 +11,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.test5.test5.models.HotelInput;
-import com.test5.test5.models.hotels;
-import com.test5.test5.repo.hotelrespository;
+
 
 @RestController
 @RequestMapping("/api")
+
 	
 public class hotelcontroller {
 
@@ -65,7 +64,7 @@ public class hotelcontroller {
 		hotel.setHotel_image(hi.getHotel_image());
 		repo.save(hotel);
 		
-		return null;
+		return "success";
 		
 	}
 	

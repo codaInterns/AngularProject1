@@ -26,8 +26,7 @@ export class FlightSearchComponent implements OnInit {
 
   serviceValue:{source:string,destination:string,departure:string};
   resValue:any;
-  fromValue:string;
-  toValue:string;
+  
   isdisabled:any;
  
   search = (text$: Observable<String>) => 

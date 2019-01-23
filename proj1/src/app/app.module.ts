@@ -46,6 +46,10 @@ const appRoutes: Routes = [
   {
     path: "booked",
     component: BookingComponent
+  },
+  {
+    path: "flights/:from/:to",
+    component: FlightsComponent
   }
 ];
 

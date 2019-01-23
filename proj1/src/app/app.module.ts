@@ -34,7 +34,12 @@ const appRoutes: Routes = [
 
     path : "",
     component:HeaderComponent
+  },
+  {
+    path: "app-header",
+    component: HeaderComponent
   }
+  
 ];
 
 

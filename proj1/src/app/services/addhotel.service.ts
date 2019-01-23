@@ -26,7 +26,7 @@ export class AddhotelService {
   }
   public postUser(data){
     console.log(data)
-    return this.http.post("http://localhost:8080/api/addhotel/",data).subscribe(res=>{this.result=res;console.log(this.result);});
+    this.http.post("http://localhost:8080/api/addhotel/",data).subscribe(res=>{this.result=res;console.log(this.result);});
   }
 
   getProduct(data): Observable<any> {

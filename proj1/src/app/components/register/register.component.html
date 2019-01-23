@@ -5,16 +5,16 @@
         <h1 class="login-title">Register Form</h1>  
     
     <input type="text" name="email"class="login-input" formControlName="email" autofocus placeholder="Email Address" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
-    <div *ngIf="submitted && f.email.errors">
-      <span *ngIf="f.email.errors.required">Email is required</span>
-      <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+    <div class="error" *ngIf="submitted && f.email.errors">
+      <span class="error" *ngIf="f.email.errors.required">*Email is required</span>
+      <div class="error" *ngIf="f.email.errors.email">* must be a valid email address</div>
     </div>
 
     
     <input type="password" class="login-input" placeholder="Password" name="password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
-    <div *ngIf="submitted && f.password.errors">
-      <div *ngIf="f.password.errors.required">Password is required</div>
-      <div *ngIf="f.password.errors">Password is not strong</div>
+    <div class="error" *ngIf="submitted && f.password.errors">
+      <div class="error" *ngIf="f.password.errors.required">*Password is required</div>
+      <div class="error" *ngIf="f.password.errors">*Password is not strong</div>
       
       
     </div>

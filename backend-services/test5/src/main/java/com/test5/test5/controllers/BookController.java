@@ -30,29 +30,34 @@ public class BookController {
 	@PostMapping(path = "/book/" , consumes = "application/json" , produces = "application/json")
 	public ResponseEntity<Boolean> postUser(@RequestBody bookInput opt,final HttpServletRequest request)throws Exception {
 		
-		HttpHeaders responseHeaders = new HttpHeaders();
+		Boolean bookingComplete = false;
 		String isValidAuth = (String) request.getAttribute("valid");
+		HttpHeaders responseHeaders = new HttpHeaders();
 		responseHeaders.set("Authentication", isValidAuth);
-		if(isValidAuth.equals("false")){
-			return new ResponseEntity<Boolean>(false,responseHeaders,HttpStatus.FORBIDDEN);
-		}
-	    
-		Book bookDb=new Book();
-		try {
-			bookDb.setName(opt.getName());
-			bookDb.setDeparture(opt.getDeparture());
-			bookDb.setDestination(opt.getDestination());
-			bookDb.setSource(opt.getSource());
-			book.save(bookDb);
-			
-			System.out.println("VALID BOOKING");
-			return new ResponseEntity<Boolean>(true,responseHeaders,HttpStatus.OK);
-		}
-		catch(Exception ex)
-		{
-			ex.printStackTrace();
-			return new ResponseEntity<Boolean>(false,responseHeaders,HttpStatus.FORBIDDEN);
-		}
+		HttpStatus httpStatus = HttpStatus.OK;
 		
+		if(isValidAuth.equals("false")){
+			httpStatus=HttpStatus.FORBIDDEN;
+		}
+		else {
+			Book bookDb=new Book();
+			try {
+				bookDb.setName(opt.getName());
+				bookDb.setDeparture(opt.getDeparture());
+				bookDb.setDestination(opt.getDestination());
+				bookDb.setSource(opt.getSource());
+				bookDb.setUser_id((String)request.getAttribute("userid"));
+				book.save(bookDb);
+				
+				System.out.println("VALID BOOKING");
+				
+				bookingComplete = true;
+			}
+			catch(Exception ex) {
+				ex.printStackTrace();
+				httpStatus = HttpStatus.FORBIDDEN;
+			}
+		}
+		return new ResponseEntity<Boolean>(bookingComplete,responseHeaders,httpStatus);
 	}
 }

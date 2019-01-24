@@ -30,8 +30,15 @@ private String destination;
 @Column(name="departure")
 private String departure;
 
+@Column(name="user_id")
+private String user_id;
 
-
+public String getUser_id() {
+	return user_id;
+}
+public void setUser_id(String user_id) {
+	this.user_id=user_id;
+}
 public long getBook_id() {
 	return book_id;
 }

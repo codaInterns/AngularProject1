@@ -12,7 +12,7 @@ import { AppComponent } from './app.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {Routes,RouterModule} from '@angular/router';
 import { UserloginComponent } from "./components/userlogin/userlogin.component";
-import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
+import { HttpClientModule } from "@angular/common/http";
 import { BsDropdownModule } from "ngx-bootstrap/dropdown";
 import { TooltipModule } from "ngx-bootstrap/tooltip";
 import { ModalModule } from "ngx-bootstrap/modal";
@@ -24,10 +24,10 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { BookingComponent } from './views/booking/booking.component';
 import { TokenInterceptor } from './services/token.service';
 import { SearchhotelComponent } from './Components/searchhotel/searchhotel.component';
-import { HeaderComponent } from './Components/header/header.component';
+import { HeaderComponent } from './components/header/header.component';
 import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { ViewhotelComponent } from './Components/viewhotel/viewhotel.component';
+import { ViewhotelComponent } from './components/viewhotel/viewhotel.component';
 import {FlightsComponent} from './views/flights/flights.component';
 import {DashboardComponent} from './views/dashboard/dashboard.component';
 import {FlightSearchComponent} from './components/flight-search/flight-search.component';
@@ -36,14 +36,10 @@ import {CardsComponent} from './components/cards/cards.component';
 import {NavFeatureComponent} from './components/nav-feature/nav-feature.component';
 import {FooterComponent} from './components/footer/footer.component';
 import {AddhotelComponent} from './components/addhotel/addhotel.component';
-import {MatTabsModule} from '@angular/material/tabs';
 
 
 const appRoutes: Routes = [
-  {
-    path : "",
-    component : NavFeatureComponent
-  },
+  
   {
     path: "app-searchhotel",
     component: SearchhotelComponent
@@ -116,11 +112,11 @@ const appRoutes: Routes = [
     AngularFontAwesomeModule
   ],
   providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: TokenInterceptor,
-      multi: true
-    },
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   useClass: TokenInterceptor,
+    //   multi: true
+    // },
     BrowserAnimationsModule,
   ],
   bootstrap: [AppComponent]

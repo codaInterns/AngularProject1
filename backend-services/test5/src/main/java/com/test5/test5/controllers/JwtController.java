@@ -47,8 +47,9 @@ public class JwtController {
     	     UserDB user=listIterator.next();
     	     if(user.getEmail().equals(opt.getEmail()) && user.getPassword().equals(opt.getPassword()) ){
     	    	 try {
+    	    		 	int id = user.getId();
     	    		    Algorithm algorithm = Algorithm.HMAC256("secret");
-    	    		    String token = JWT.create()
+    	    		    String token = JWT.create().withClaim("userid", id)
     	    		        .withIssuer("auth0")
     	    		        .sign(algorithm);
     	    		    

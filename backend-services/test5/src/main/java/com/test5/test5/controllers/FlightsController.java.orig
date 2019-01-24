@@ -7,7 +7,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -42,7 +41,11 @@ public List<flights> getAllFlights(){
 }
 
 @PostMapping(path="/getFlight/" ,consumes = "application/json" , produces = "application/json")
-public List<flights> getFlights(@RequestBody FlightInput fi)
+<<<<<<< HEAD
+public List<flights> getFlights(@RequestBody FlightInput fi,@RequestHeader(value="token")String token )
+=======
+public List<flights> getFlights( @RequestBody FlightInput fi)
+>>>>>>> 99bcac0527b3b450a77eb3c83252f9b1f0c58028
 		{
 	
 	List<flights> flightList=repo.findAll();

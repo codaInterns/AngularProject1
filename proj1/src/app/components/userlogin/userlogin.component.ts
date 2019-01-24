@@ -30,7 +30,7 @@ export class UserloginComponent implements OnInit {
     event.value
   }
   get f() { return this.formdata.controls; }
-  result;
+  result:any;
   onClickSubmit(data) {
     console.log(data.email);
 
@@ -51,6 +51,7 @@ export class UserloginComponent implements OnInit {
 
         return false;
       }*/
+
     });
 
 

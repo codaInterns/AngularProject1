@@ -30,7 +30,6 @@ export class AddhotelComponent implements OnInit {
 get f() { return this.registerForm.controls; }
   
   model: any = {};
-
   onSubmit() {
    // alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.model.value))
    
@@ -39,12 +38,7 @@ get f() { return this.registerForm.controls; }
    this.submitted = true;
 
    this.route.navigate(['/app-viewhotel']);
-  
- 
-  
-  
   }
- 
 
 }
 

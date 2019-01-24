@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Output, EventEmitter, Input } from '@angular/core';
 import { Observable } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
 import { FlightService } from 'src/app/services/flight.service';
@@ -15,6 +15,9 @@ const states = [
 export class FlightSearchComponent implements OnInit {
 
 
+  @Input() fromValue:string;
+  @Input() toValue:string;
+
   @ViewChild('class') class:ElementRef;
   @ViewChild('type') type:ElementRef;
   @ViewChild('passCount') passCount:ElementRef;
@@ -23,8 +26,7 @@ export class FlightSearchComponent implements OnInit {
 
   serviceValue:{source:string,destination:string,departure:string};
   resValue:any;
-  fromValue:string;
-  toValue:string;
+
   isdisabled:any;
  
   search = (text$: Observable<String>) => 

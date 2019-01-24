@@ -13,7 +13,7 @@ import { RegisterComponent } from './components/register/register.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {Routes,RouterModule} from '@angular/router';
 import { UserloginComponent } from "./components/userlogin/userlogin.component";
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 
 import { FlightSearchComponent } from "./components/flight-search/flight-search.component";
 import { CardsComponent } from "./components/cards/cards.component";
@@ -28,7 +28,7 @@ import { BsDatepickerModule } from "ngx-bootstrap/datepicker";
 import { TicketCardComponent } from "./components/ticket-card/ticket-card.component";
 import { BookingComponent } from './views/booking/booking.component';
 import { LandingComponent } from './components/landing/landing.component';
-
+import { TokenInterceptor } from './services/token.service';
 const appRoutes: Routes = [
   {
     path:"",
@@ -50,6 +50,10 @@ const appRoutes: Routes = [
   {
     path: "booked",
     component: BookingComponent
+  },
+  {
+    path: "flights/:from/:to",
+    component: FlightsComponent
   }
 ];
 
@@ -68,7 +72,7 @@ const appRoutes: Routes = [
     FooterComponent,
     TicketCardComponent,
     BookingComponent,
-    AdvertisementComponent,
+    
     LandingComponent
   ],
   imports: [
@@ -76,17 +80,22 @@ const appRoutes: Routes = [
     AppRoutingModule,
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes),
-    HttpClientModule,
-
+    HttpClientModule,    
     RouterModule.forRoot(appRoutes),
     BsDropdownModule.forRoot(),
     BsDatepickerModule.forRoot(),
     TooltipModule.forRoot(),
     ModalModule.forRoot(),
     NgbModule.forRoot(),
-    FormsModule
+    FormsModule,   
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

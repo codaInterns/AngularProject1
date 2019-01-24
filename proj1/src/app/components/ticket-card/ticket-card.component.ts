@@ -20,10 +20,13 @@ export class TicketCardComponent implements OnInit {
   onConfirmBook(){
     console.log("booked");
     this.myservice.bookTicket(this.ticket).subscribe(
-    (res:HttpResponse<any>)=>{
-      console.log(res.headers);
-      console.log(res.headers.get('Authentication'));
-    });
+      (data: HttpResponse<any>) => {
+        
+        console.log(data.status);
+      },
+      error => {
+        console.log("Invalid response");       
+      });
     //this.myservice.bookTicket()
   }
 }

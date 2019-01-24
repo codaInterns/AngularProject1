@@ -34,9 +34,9 @@ public class BookController {
 		String isValidAuth = (String) request.getAttribute("valid");
 		responseHeaders.set("Authentication", isValidAuth);
 		if(isValidAuth.equals("false")){
-			return new ResponseEntity<Boolean>(false,responseHeaders,HttpStatus.OK);
+			return new ResponseEntity<Boolean>(false,responseHeaders,HttpStatus.FORBIDDEN);
 		}
-	
+	    
 		Book bookDb=new Book();
 		try {
 			bookDb.setName(opt.getName());
@@ -45,12 +45,13 @@ public class BookController {
 			bookDb.setSource(opt.getSource());
 			book.save(bookDb);
 			
+			System.out.println("VALID BOOKING");
 			return new ResponseEntity<Boolean>(true,responseHeaders,HttpStatus.OK);
 		}
 		catch(Exception ex)
 		{
 			ex.printStackTrace();
-			return new ResponseEntity<Boolean>(false,responseHeaders,HttpStatus.OK);
+			return new ResponseEntity<Boolean>(false,responseHeaders,HttpStatus.FORBIDDEN);
 		}
 		
 	}

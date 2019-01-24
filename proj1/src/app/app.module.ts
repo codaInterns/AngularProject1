@@ -22,8 +22,8 @@ import { FlightSearchResultComponent } from "./components/flight-search-result/f
 import { FooterComponent } from "./components/footer/footer.component";
 import { BsDatepickerModule } from "ngx-bootstrap/datepicker";
 import { TicketCardComponent } from "./components/ticket-card/ticket-card.component";
-
-
+import { ShowHidePasswordModule } from 'ngx-show-hide-password';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 
 const appRoutes: Routes = [
@@ -62,14 +62,15 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes),
     HttpClientModule,
-
+    ShowHidePasswordModule.forRoot(),
     RouterModule.forRoot(appRoutes),
     BsDropdownModule.forRoot(),
     BsDatepickerModule.forRoot(),
     TooltipModule.forRoot(),
     ModalModule.forRoot(),
     NgbModule.forRoot(),
-    FormsModule
+    FormsModule,
+    AngularFontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

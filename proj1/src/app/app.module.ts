@@ -31,13 +31,17 @@ import { ViewhotelComponent } from './Components/viewhotel/viewhotel.component';
 
 const appRoutes: Routes = [
   {
-
-    path : "",
-    component:HeaderComponent
+    path: "app-searchhotel",
+    component: SearchhotelComponent
   },
   {
-    path: "app-header",
-    component: HeaderComponent
+    path:"app-addhotel",
+    component: AddhotelComponent
+
+  },
+  {
+    path:"app-viewhotel",
+    component: ViewhotelComponent
   }
   
 ];

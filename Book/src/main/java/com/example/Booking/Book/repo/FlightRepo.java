@@ -8,5 +8,6 @@ import com.example.Booking.Book.Model.FlightPogo;
 
 
 public interface FlightRepo extends JpaRepository<FlightPogo, Integer> {
-
 }
+
+

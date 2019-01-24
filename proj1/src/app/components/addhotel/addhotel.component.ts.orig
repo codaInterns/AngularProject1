@@ -1,0 +1,39 @@
+import { Component, OnInit } from '@angular/core';
+import { FormControl,FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { AddhotelService } from '../../services/addhotel.service';
+import { Router } from '@angular/router';
+
+@Component({
+  selector: 'app-addhotel',
+  templateUrl: './addhotel.component.html',
+  styleUrls: ['./addhotel.component.css']
+})
+export class AddhotelComponent implements OnInit {
+
+<<<<<<< HEAD
+  constructor(private route: Router, private http: HttpClient, private Addhotel: AddhotelService) { }
+=======
+  constructor(private route:Router,private http:HttpClient,private addhotel:AddhotelService ) { }
+>>>>>>> da017f28a26292df905321b9c4eec4042e93993d
+
+  ngOnInit() {
+  }
+  model: any = {};
+<<<<<<< HEAD
+  value:any
+  onSubmit(data:any) {
+    this.value=this.Addhotel.addHotels(data);
+    alert('SUCCESS!! :-)\n\n' + JSON.stringify(data))
+    console.log(this.value)
+=======
+
+  onSubmit() {
+   this.addhotel.postUser(this.model);
+
+    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.model))
+    console.log(this.model.hotel_name)
+>>>>>>> da017f28a26292df905321b9c4eec4042e93993d
+  }
+
+}

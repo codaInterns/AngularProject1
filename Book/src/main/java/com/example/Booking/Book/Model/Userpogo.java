@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="User_booked")
+@Table(name="user_booked")
 public class Userpogo {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -17,10 +17,29 @@ public class Userpogo {
 	@Column(name="name")
 	private String name;
 	
-	@Column(name="Flight_name")
-	private String Flight_name;
+	@Column(name="flight_id")
+	private int Flight_id;
 	
-	@Column(name="Seats_booked")
+	@Column(name="flight_name")
+	private String flight_name;
+	
+	public String getFlight_name() {
+		return flight_name;
+	}
+
+	public void setFlight_name(String flight_name) {
+		this.flight_name = flight_name;
+	}
+
+	public int getFlight_id() {
+		return Flight_id;
+	}
+
+	public void setFlight_id(int flight_id) {
+		Flight_id = flight_id;
+	}
+
+	@Column(name="seats_booked")
 	private int Seats_booked;
 
 	public Integer getUid() {
@@ -39,13 +58,6 @@ public class Userpogo {
 		this.name = name;
 	}
 
-	public String getFlight_name() {
-		return Flight_name;
-	}
-
-	public void setFlight_name(String flight_name) {
-		Flight_name = flight_name;
-	}
 
 	public int getSeats_booked() {
 		return Seats_booked;

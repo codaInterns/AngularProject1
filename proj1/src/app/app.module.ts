@@ -1,11 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
-
-
-
-import { FormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -36,6 +31,7 @@ import {CardsComponent} from './components/cards/cards.component';
 import {NavFeatureComponent} from './components/nav-feature/nav-feature.component';
 import {FooterComponent} from './components/footer/footer.component';
 import {AddhotelComponent} from './components/addhotel/addhotel.component';
+import { LandingComponent } from './components/landing/landing.component';
 
 
 const appRoutes: Routes = [

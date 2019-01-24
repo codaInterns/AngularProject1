@@ -9,24 +9,34 @@
     background: none;
 }
 .btn-primary{
-    background: #7dd185;
-    padding:10px 20px 10px 20px;
+    background: #48b58f;
+    padding-left:30px;
+    padding-right:30px;
     border:1px solid black;   
 }
 a .btn-primary {
     color:white;
 }
 .btn-primary:hover{
-    background: #427c47;
+    background: #337c63;
 }
-#inputGroupPrepend{
-width:30%;
-margin:10px auto;
-text-align: center;
-background: none;
-border:none;
+#row1{
+    margin:20px; 
 }
-#validationCustomUsername{
-    width:70%;
-    margin:auto;
+
+.button{
+    margin-top:20px;
+}
+.radio-text{
+    padding:10px;
+    text-align: center
+}
+.card-title{
+    font-size:30px;
+}
+input[type=text]{
+    width:100%;
+}
+input[type=text]:hover{
+    padding:5px;
 }

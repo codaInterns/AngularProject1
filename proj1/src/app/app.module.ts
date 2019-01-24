@@ -28,7 +28,6 @@ import { BsDatepickerModule } from "ngx-bootstrap/datepicker";
 import { TicketCardComponent } from "./components/ticket-card/ticket-card.component";
 import { BookingComponent } from './views/booking/booking.component';
 import { AdvertisementComponent } from './components/advertisement/advertisement.component';
-import { TokenInterceptor } from './services/token.service';
 
 const appRoutes: Routes = [
   {

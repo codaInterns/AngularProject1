@@ -36,7 +36,7 @@ public class BookController {
 		if(isValidAuth.equals("false")){
 			return new ResponseEntity<Boolean>(false,responseHeaders,HttpStatus.OK);
 		}
-	    responseHeaders.set("valid", isValidAuth);
+	
 		Book bookDb=new Book();
 		try {
 			bookDb.setName(opt.getName());

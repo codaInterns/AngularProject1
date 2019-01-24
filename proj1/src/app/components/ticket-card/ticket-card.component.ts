@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { BookServiceService } from 'src/app/services/book-service.service';
+import { HttpResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-ticket-card',
@@ -18,8 +19,9 @@ export class TicketCardComponent implements OnInit {
 
   onConfirmBook(){
     console.log("booked");
-    this.myservice.bookTicket(this.ticket).subscribe(res=>{
-      console.log(res);
+    this.myservice.bookTicket(this.ticket).subscribe(
+    (res:HttpResponse<any>)=>{
+      console.log(res.headers);
       console.log(res.headers.get('Authentication'));
     });
     //this.myservice.bookTicket()

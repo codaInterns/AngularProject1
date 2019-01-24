@@ -1,11 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
-
-
-
-import { FormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
@@ -23,11 +18,11 @@ import { ShowHidePasswordModule } from 'ngx-show-hide-password';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { BookingComponent } from './views/booking/booking.component';
 import { TokenInterceptor } from './services/token.service';
-import { SearchhotelComponent } from './Components/searchhotel/searchhotel.component';
-import { HeaderComponent } from './Components/header/header.component';
+//import { SearchhotelComponent } from './Components/searchhotel/searchhotel.component';
+//import { HeaderComponent } from './Components/header/header.component';
 import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { ViewhotelComponent } from './Components/viewhotel/viewhotel.component';
+//import { ViewhotelComponent } from './Components/viewhotel/viewhotel.component';
 import {FlightsComponent} from './views/flights/flights.component';
 import {DashboardComponent} from './views/dashboard/dashboard.component';
 import {FlightSearchComponent} from './components/flight-search/flight-search.component';
@@ -35,24 +30,25 @@ import {FlightSearchResultComponent} from './components/flight-search-result/fli
 import {CardsComponent} from './components/cards/cards.component';
 import {NavFeatureComponent} from './components/nav-feature/nav-feature.component';
 import {FooterComponent} from './components/footer/footer.component';
-import {AddhotelComponent} from './components/addhotel/addhotel.component';
+//import {AddhotelComponent} from './components/addhotel/addhotel.component';
 import {MatTabsModule} from '@angular/material/tabs';
+import { LandingComponent } from './components/landing/landing.component';
 
 
 const appRoutes: Routes = [
   {
     path : "",
-    component : NavFeatureComponent
+    component : LandingComponent
   },
-  {
-    path: "app-searchhotel",
-    component: SearchhotelComponent
-  },
-  {
-    path:"app-addhotel",
-    component: AddhotelComponent
+  // {
+  //   path: "app-searchhotel",
+  //   component: SearchhotelComponent
+  // },
+  // {
+  //   path:"app-addhotel",
+  //   component: AddhotelComponent
 
-  },
+  // },
   {
     path: "register",
     component: RegisterComponent
@@ -68,10 +64,11 @@ const appRoutes: Routes = [
   {
     path: "flights/:from/:to",
     component: FlightSearchComponent
-  },{
-    path:"app-viewhotel",
-    component: ViewhotelComponent
-  },
+   },
+   //{
+  //   path:"app-viewhotel",
+  //   component: ViewhotelComponent
+  // },
   {
     path : "login",
     component : UserloginComponent
@@ -95,10 +92,11 @@ const appRoutes: Routes = [
     FooterComponent,
     TicketCardComponent,
     BookingComponent,
-    AddhotelComponent,
-    SearchhotelComponent,
-    HeaderComponent,
-    ViewhotelComponent
+    LandingComponent
+    // AddhotelComponent,
+    // SearchhotelComponent,
+    // HeaderComponent,
+    // ViewhotelComponent
   ],
   imports: [
     BrowserModule,

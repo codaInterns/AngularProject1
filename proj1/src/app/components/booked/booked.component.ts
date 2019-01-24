@@ -12,7 +12,7 @@ export class BookedComponent implements OnInit {
   constructor(private myservice:BookServiceService) { }
 
   ngOnInit() {
-    this.isBooked=this.myservice.isBooked;
+  
   }
 
 }

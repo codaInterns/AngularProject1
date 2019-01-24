@@ -57,13 +57,13 @@ public class JwtController {
     	    		    System.out.println(token);    
     	    		    return token;
     	    	 } catch (JWTCreationException exception){
+    	    		 	System.out.println("INVALID JWT CREATION");
     	    		    //Invalid Signing configuration / Couldn't convert Claims.
     	    		}
-    	     }else {
-    	    	 return null;
     	     }
     	    
     	}
+    	System.out.println("Not in db");
     	return null;
     }
 	

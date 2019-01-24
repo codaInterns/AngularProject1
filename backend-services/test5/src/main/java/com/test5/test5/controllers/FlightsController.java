@@ -16,6 +16,11 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.auth0.jwt.JWT;
+import com.auth0.jwt.JWTVerifier;
+import com.auth0.jwt.algorithms.Algorithm;
+import com.auth0.jwt.exceptions.JWTVerificationException;
+import com.auth0.jwt.interfaces.DecodedJWT;
 import com.test5.test5.models.FlightInput;
 import com.test5.test5.models.flights;
 import com.test5.test5.repo.FlightsInterface;
@@ -39,6 +44,20 @@ public List<flights> getAllFlights(){
 public List<flights> getFlights(@RequestHeader(value="token") String token, @RequestBody FlightInput fi)
 		{
 	System.out.println(token);
+	try {
+	    Algorithm algorithm = Algorithm.HMAC256("secret");
+	    
+	    JWTVerifier verifier = JWT.require(algorithm).withIssuer("auth0")
+	            .build();
+	    DecodedJWT jwt = verifier.verify(token);
+	    System.out.println(jwt.getIssuer());
+	    System.out.println("Valid token");
+	    
+	} catch (JWTVerificationException exception){
+	    
+		System.out.println("Invalid token");
+		return null;
+	}
 	List<flights> flightList=repo.findAll();
 	Iterator<flights> flightIter=flightList.iterator();
 	List<flights> selectedList=new ArrayList<flights>();

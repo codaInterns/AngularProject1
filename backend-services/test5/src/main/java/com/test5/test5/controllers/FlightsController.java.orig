@@ -41,7 +41,12 @@ public List<flights> getAllFlights(){
 }
 
 @PostMapping(path="/getFlight/" ,consumes = "application/json" , produces = "application/json")
-public List<flights> getFlights(@RequestBody FlightInput fi,@RequestHeader(value="token")String token )
+<<<<<<< HEAD
+public List<flights> getFlights(@RequestBody FlightInput fi,@RequestHeader(value="token")String gtoken)
+		{
+	System.out.println(gtoken);
+=======
+public List<flights> getFlights(@RequestHeader(value="token") String token, @RequestBody FlightInput fi)
 		{
 	System.out.println(token);
 	try {
@@ -58,6 +63,7 @@ public List<flights> getFlights(@RequestBody FlightInput fi,@RequestHeader(value
 		System.out.println("Invalid token");
 		return null;
 	}
+>>>>>>> 6e0fb7617d0914af113470d98eb0e1d74544deaf
 	List<flights> flightList=repo.findAll();
 	Iterator<flights> flightIter=flightList.iterator();
 	List<flights> selectedList=new ArrayList<flights>();
@@ -72,6 +78,7 @@ public List<flights> getFlights(@RequestBody FlightInput fi,@RequestHeader(value
 	return selectedList;
 		
 		}
+	
 
 
 

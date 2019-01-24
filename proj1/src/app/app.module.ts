@@ -7,6 +7,12 @@ import { AppComponent } from './app.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {Routes,RouterModule} from '@angular/router';
 import { UserloginComponent } from "./components/userlogin/userlogin.component";
+
+
+import { FlightSearchComponent } from "./components/flight-search/flight-search.component";
+import { CardsComponent } from "./components/cards/cards.component";
+import { NavFeatureComponent } from "./components/nav-feature/nav-feature.component";
+import { FlightsComponent } from "./views/flights/flights.component";
 import { HttpClientModule } from "@angular/common/http";
 import { BsDropdownModule } from "ngx-bootstrap/dropdown";
 import { TooltipModule } from "ngx-bootstrap/tooltip";
@@ -17,6 +23,8 @@ import { TicketCardComponent } from "./components/ticket-card/ticket-card.compon
 import { ShowHidePasswordModule } from 'ngx-show-hide-password';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { BookingComponent } from './views/booking/booking.component';
+import { AdvertisementComponent } from './components/advertisement/advertisement.component';
+import { BookedComponent } from './components/booked/booked.component';
 import { TokenInterceptor } from './services/token.service';
 import { SearchhotelComponent } from './Components/searchhotel/searchhotel.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -32,7 +40,6 @@ import {NavFeatureComponent} from './components/nav-feature/nav-feature.componen
 import {FooterComponent} from './components/footer/footer.component';
 import {AddhotelComponent} from './components/addhotel/addhotel.component';
 import { LandingComponent } from './components/landing/landing.component';
-
 
 const appRoutes: Routes = [
   {
@@ -57,13 +64,18 @@ const appRoutes: Routes = [
     component: BookingComponent
   },
   {
+    path: "flights/:from/:to",
+    component: FlightsComponent
+  },
+  {
+    path: "ticketBooked",
+    component: BookedComponent
+  },
+  {
     path : "flights",
     component : FlightsComponent
   },
   {
-    path: "flights/:from/:to",
-    component: FlightSearchComponent
-  },{
     path:"app-viewhotel",
     component: ViewhotelComponent
   },
@@ -71,7 +83,7 @@ const appRoutes: Routes = [
     path : "login",
     component : UserloginComponent
 
-  }
+ }
   
 ];
 
@@ -90,11 +102,16 @@ const appRoutes: Routes = [
     FooterComponent,
     TicketCardComponent,
     BookingComponent,
+
+    AdvertisementComponent,
+    BookedComponent
+
     AddhotelComponent,
     SearchhotelComponent,
     HeaderComponent,
     ViewhotelComponent,
     LandingComponent
+
   ],
   imports: [
     BrowserModule,
@@ -117,8 +134,9 @@ const appRoutes: Routes = [
     //   useClass: TokenInterceptor,
     //   multi: true
     // },
-    BrowserAnimationsModule,
+    BrowserAnimationsModule
   ],
+
   bootstrap: [AppComponent]
 })
 export class AppModule {}

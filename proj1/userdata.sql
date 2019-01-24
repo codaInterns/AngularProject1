@@ -11,7 +11,6 @@ insert into flights values(3,'jet airways','delhi','Toronto','03:00:00',12000);
 
 drop table users;
 create table users (
-
     id int(11) primary key  AUTO_INCREMENT,
     email varchar(255) not null,
     password varchar(255) not null

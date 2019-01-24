@@ -8,17 +8,16 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { DashboardComponent } from './views/dashboard/dashboard.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { RegisterComponent } from './components/register/register.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {Routes,RouterModule} from '@angular/router';
 import { UserloginComponent } from "./components/userlogin/userlogin.component";
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
-
 import { FlightSearchComponent } from "./components/flight-search/flight-search.component";
 import { CardsComponent } from "./components/cards/cards.component";
 import { NavFeatureComponent } from "./components/nav-feature/nav-feature.component";
-import { FlightsComponent } from "./views/flights/flights.component";
+import { FlightsComponent } from "./components/flights/flights.component";
 import { BsDropdownModule } from "ngx-bootstrap/dropdown";
 import { TooltipModule } from "ngx-bootstrap/tooltip";
 import { ModalModule } from "ngx-bootstrap/modal";
@@ -26,7 +25,7 @@ import { FlightSearchResultComponent } from "./components/flight-search-result/f
 import { FooterComponent } from "./components/footer/footer.component";
 import { BsDatepickerModule } from "ngx-bootstrap/datepicker";
 import { TicketCardComponent } from "./components/ticket-card/ticket-card.component";
-import { BookingComponent } from './views/booking/booking.component';
+import { BookingComponent } from './components/booking/booking.component';
 import { LandingComponent } from './components/landing/landing.component';
 import { TokenInterceptor } from './services/token.service';
 const appRoutes: Routes = [

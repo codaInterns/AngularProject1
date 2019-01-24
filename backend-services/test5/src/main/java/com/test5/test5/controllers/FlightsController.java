@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,6 +16,11 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.auth0.jwt.JWT;
+import com.auth0.jwt.JWTVerifier;
+import com.auth0.jwt.algorithms.Algorithm;
+import com.auth0.jwt.exceptions.JWTVerificationException;
+import com.auth0.jwt.interfaces.DecodedJWT;
 import com.test5.test5.models.FlightInput;
 import com.test5.test5.models.flights;
 import com.test5.test5.repo.FlightsInterface;
@@ -35,9 +41,23 @@ public List<flights> getAllFlights(){
 }
 
 @PostMapping(path="/getFlight/" ,consumes = "application/json" , produces = "application/json")
-public List<flights> getFlights(@RequestBody FlightInput fi,@RequestHeader(value="token")String gtoken)
+public List<flights> getFlights(@RequestBody FlightInput fi)
 		{
-	System.out.println(gtoken);
+	System.out.println(token);
+	try {
+	    Algorithm algorithm = Algorithm.HMAC256("secret");
+	    
+	    JWTVerifier verifier = JWT.require(algorithm).withIssuer("auth0")
+	            .build();
+	    DecodedJWT jwt = verifier.verify(token);
+	    System.out.println(jwt.getIssuer());
+	    System.out.println("Valid token");
+	    
+	} catch (JWTVerificationException exception){
+	    
+		System.out.println("Invalid token");
+		return null;
+	}
 	List<flights> flightList=repo.findAll();
 	Iterator<flights> flightIter=flightList.iterator();
 	List<flights> selectedList=new ArrayList<flights>();
@@ -48,7 +68,7 @@ public List<flights> getFlights(@RequestBody FlightInput fi,@RequestHeader(value
 		}
 		
 	}
-	
+	System.out.println(selectedList);
 	return selectedList;
 		
 		}

@@ -1,6 +1,7 @@
 package com.test5.test5.controllers;
 
 import java.security.Key;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
@@ -50,6 +51,7 @@ public class JwtController {
     	    		    String token = JWT.create()
     	    		        .withIssuer("auth0")
     	    		        .sign(algorithm);
+    	    		    
     	    		    System.out.println(token);    
     	    		    return token;
     	    	 } catch (JWTCreationException exception){

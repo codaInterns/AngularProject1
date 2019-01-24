@@ -1,6 +1,5 @@
 import { Injectable } from "@angular/core";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { tokenKey } from '@angular/core/src/view';
+import { HttpClient } from "@angular/common/http";
 
 @Injectable({
   providedIn: "root"
@@ -13,11 +12,13 @@ export class FlightService {
 
   getFlights(searchDetails: any) {
     this.token = localStorage.getItem('token');
+    
     const headers = new HttpHeaders({
       'token':this.token
     });
+  
     console.log("input"+searchDetails);
-    return this.http.post("http://localhost:8080/api/getFlight/", searchDetails,{headers:headers});
+    return this.http.post("http://localhost:8080/api/getFlight/", searchDetails);
      
   }
 

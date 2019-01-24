@@ -7,7 +7,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private mat:MatTabsModule) { }
+  constructor() { }
 
   ngOnInit() {
   }

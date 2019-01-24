@@ -11,7 +11,7 @@ import { RouterModule, Routes} from '@angular/router';
 
 import { AddhotelComponent } from "./components/addhotel/addhotel.component";
 import { HttpClientModule } from "@angular/common/http";
-import './polyfills';
+
 
 
 import { BsDropdownModule } from "ngx-bootstrap/dropdown";
@@ -34,15 +34,19 @@ import { ViewhotelComponent } from './Components/viewhotel/viewhotel.component';
 
 const appRoutes: Routes = [
   {
-
-    path : "",
-    component:HeaderComponent
+    path: "app-searchhotel",
+    component: SearchhotelComponent
   },
   {
-    path: "app-header",
+    path:"app-addhotel",
+    component: AddhotelComponent
+
+  },
+  {
+    path:"app-viewhotel",
     component: ViewhotelComponent
-  }
-  
+
+  },
 ];
 
 

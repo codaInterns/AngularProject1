@@ -59,32 +59,42 @@ public class hotelcontroller {
 
 //hotel insertion in to database
 	@PostMapping(path="/addhotel/" ,consumes = "application/json" , produces = "application/json")
-	public String addhotel(@RequestBody HotelInput hi)
+	public boolean addhotel(@RequestBody HotelInput hi)
 	{
+		try {
 		System.out.println("hekllcvbhccccccccccccccccccccccj");
 		hotels hotel = new hotels();
-		/*System.out.println(hi.getHotel_name());
+		System.out.println(hi.getHotel_name());
 		hotel.setHotel_name(hi.getHotel_name());
 		hotel.setHotel_place(hi.getHotel_place());
 		hotel.setPrice(hi.getPrice());
 		hotel.setHotel_description(hi.getHotel_description());
-		hotel.setHotel_image(hi.getHotel_image());*/
+		hotel.setHotel_image(hi.getHotel_image());
+		/*
 		hotel.setHotel_name("ddh");
 		hotel.setHotel_place("dhdh");
 		hotel.setPrice(12345);
 		hotel.setHotel_description("dhdhh");
 		hotel.setHotel_image("dddjdj");
+		*/
 		repo.save(hotel);
 		
-		return "success";
+		return true;
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+			return false;
+		}
+		
 		
 	}
 	
 
-	/*
-	@GetMapping("/getf")
-	public List getAll(){
 	
+	@GetMapping("/getf")
+	public boolean getAll(){
+	/*
 		HotelInput hi = new HotelInput();
 		hi.setHotel_place("chennai");
 		List<hotels> hotelList=repo.findAll();
@@ -99,9 +109,20 @@ public class hotelcontroller {
 		}
 		
 		  return selectedList;
+		  
+		  */
+		System.out.println("hekllcvbhccccccccccccccccccccccj");
+		hotels hotel = new hotels();
+		hotel.setHotel_name("castle rock");
+		hotel.setHotel_place("bangalore");
+		hotel.setPrice(12345);
+		hotel.setHotel_description("nice one");
+		hotel.setHotel_image("dddjdj");
+		repo.save(hotel);
+		return true;
 	
 	}
-*/
+
 
 
 	}

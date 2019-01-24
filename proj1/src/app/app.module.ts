@@ -15,6 +15,7 @@ import {Routes,RouterModule} from '@angular/router';
 import { UserloginComponent } from "./components/userlogin/userlogin.component";
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 
+
 import { FlightSearchComponent } from "./components/flight-search/flight-search.component";
 import { CardsComponent } from "./components/cards/cards.component";
 import { NavFeatureComponent } from "./components/nav-feature/nav-feature.component";
@@ -87,7 +88,7 @@ const appRoutes: Routes = [
     FormsModule
   ],
   providers: [
-    
+   
   ],
   bootstrap: [AppComponent]
 })

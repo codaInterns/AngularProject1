@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -34,9 +35,9 @@ public List<flights> getAllFlights(){
 }
 
 @PostMapping(path="/getFlight/" ,consumes = "application/json" , produces = "application/json")
-public List<flights> getFlights(@RequestBody FlightInput fi)
+public List<flights> getFlights(@RequestBody FlightInput fi,@RequestHeader(value="token")String gtoken)
 		{
-	
+	System.out.println(gtoken);
 	List<flights> flightList=repo.findAll();
 	Iterator<flights> flightIter=flightList.iterator();
 	List<flights> selectedList=new ArrayList<flights>();

@@ -1,14 +1,37 @@
+
 <div class="container-fluid">
   <div class="jumbotron">
-    <h1>Flights</h1>
-    <h3>Book flights to Exciting Places</h3>
+    <h1><i class="fa fa-plane" aria-hidden="true"></i>Flights</h1>
+    <h3 class="info">Book flights to Exciting Places</h3>
   </div>
 </div>
-<app-flight-search (result)="onResultUpdate($event)"></app-flight-search>
+<app-flight-search (result)="onResultUpdate($event)" [fromValue]="userFrom" [toValue]="userTo"></app-flight-search>
 <div class="container">
   <div class="row">
+    <div class="col-12" *ngIf="noResult">
+      <div class="noresult card">
+        <div class="noresult card-body">
+          <div style="text-align: center">
+            <b>No Results</b>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-12" *ngIf="invalidInput">
+        <div class="noresult card">
+          <div class="noresult card-body">
+            <div style="text-align: center">
+              <b>Invalid input - Please enter source and destination</b>
+            </div>
+          </div>
+        </div>
+
+      </div>
     <div class="col-12" *ngFor="let f of flightDetails">
       <app-flight-search-result *ngIf="flightAvailable" [flight]="f"></app-flight-search-result>
     </div>
   </div>
 </div>
+

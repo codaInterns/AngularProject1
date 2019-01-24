@@ -9,10 +9,7 @@ import {Routes,RouterModule} from '@angular/router';
 import { UserloginComponent } from "./components/userlogin/userlogin.component";
 
 
-import { FlightSearchComponent } from "./components/flight-search/flight-search.component";
-import { CardsComponent } from "./components/cards/cards.component";
-import { NavFeatureComponent } from "./components/nav-feature/nav-feature.component";
-import { FlightsComponent } from "./views/flights/flights.component";
+
 import { HttpClientModule } from "@angular/common/http";
 import { BsDropdownModule } from "ngx-bootstrap/dropdown";
 import { TooltipModule } from "ngx-bootstrap/tooltip";
@@ -22,7 +19,6 @@ import { BsDatepickerModule } from "ngx-bootstrap/datepicker";
 import { TicketCardComponent } from "./components/ticket-card/ticket-card.component";
 
 import { BookingComponent } from './views/booking/booking.component';
-import { AdvertisementComponent } from './components/advertisement/advertisement.component';
 import { BookedComponent } from './components/booked/booked.component';
 import { TokenInterceptor } from './services/token.service';
 import { SearchhotelComponent } from './Components/searchhotel/searchhotel.component';
@@ -102,8 +98,8 @@ const appRoutes: Routes = [
     TicketCardComponent,
     BookingComponent,
 
-    AdvertisementComponent,
-    BookedComponent
+    
+    BookedComponent,
 
     AddhotelComponent,
     SearchhotelComponent,

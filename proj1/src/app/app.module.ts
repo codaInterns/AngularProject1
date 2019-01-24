@@ -1,15 +1,19 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+
+
+
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './views/dashboard/dashboard.component';
 import { RegisterComponent } from './components/register/register.component';
 import {ReactiveFormsModule} from '@angular/forms';
-import { RouterModule, Routes} from '@angular/router';
+import {Routes,RouterModule} from '@angular/router';
 import { UserloginComponent } from "./components/userlogin/userlogin.component";
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 
 import { FlightSearchComponent } from "./components/flight-search/flight-search.component";
 import { CardsComponent } from "./components/cards/cards.component";
@@ -24,7 +28,9 @@ import { BsDatepickerModule } from "ngx-bootstrap/datepicker";
 import { TicketCardComponent } from "./components/ticket-card/ticket-card.component";
 import { ShowHidePasswordModule } from 'ngx-show-hide-password';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
-
+import { BookingComponent } from './views/booking/booking.component';
+import { AdvertisementComponent } from './components/advertisement/advertisement.component';
+import { TokenInterceptor } from './services/token.service';
 
 const appRoutes: Routes = [
   {
@@ -37,8 +43,17 @@ const appRoutes: Routes = [
    component : UserloginComponent
   },
   {
-    path : "register",
-    component : RegisterComponent  }
+    path: "register",
+    component: RegisterComponent
+  },
+  {
+    path: "booked",
+    component: BookingComponent
+  },
+  {
+    path: "flights/:from/:to",
+    component: FlightsComponent
+  }
 ];
 
 
@@ -54,7 +69,9 @@ const appRoutes: Routes = [
     NavFeatureComponent,
     FlightsComponent,
     FooterComponent,
-    TicketCardComponent
+    TicketCardComponent,
+    BookingComponent,
+    AdvertisementComponent
   ],
   imports: [
     BrowserModule,
@@ -72,7 +89,13 @@ const appRoutes: Routes = [
     FormsModule,
     AngularFontAwesomeModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

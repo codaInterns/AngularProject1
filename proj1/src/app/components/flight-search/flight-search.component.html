@@ -3,7 +3,7 @@
     <div class="card-header">
       <ul class="nav nav-pills card-header-pills">
         <li class="nav-item">
-          <a class="nav-link active" href="#">Flights</a>
+          <a class="nav-link active" href="#"><span><i class="fa fa-plane" aria-hidden="true"></i></span> Flights</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Trains</a>
@@ -12,42 +12,46 @@
       </ul>
     </div>
     <div class="card-body">
-      <h5 class="card-title">Search Flights</h5>
-      <form class="needs-validation" #searchForm="ngForm" novalidate>
+      <h5 class="card-title"><span><i class="fa fa-plane" aria-hidden="true"></i></span>Search Flights</h5>
+      <form class="needs-validation" #searchForm="ngForm" novalidate >
         <div class="row">
           <div class="col-sm-6">
 
             <div class="col-md-12 mb-3 mr-3">
 
-              <div class="input-group">
-                <div class="input-group-prepend" style="width:15%">
-                  <span class="input-group-text" id="inputGroupPrepend">From</span>
-                </div>
+              <div>
+               
+                  <span class="input-group-text" id="inputGroupPrepend"><strong>From</strong></span>                  
+               
                 <input type="text" class="form-control" id="validationCustomUsername" placeholder="Source"
-                  aria-describedby="inputGroupPrepend" [(ngModel)]="fromValue" name="from" [ngbTypeahead]="search" required>
+                  aria-describedby="inputGroupPrepend" [(ngModel)]="fromValue" name="from" [ngbTypeahead]="search"  required>
                 <div class="invalid-feedback">
                   Please choose a valid source.
-                </div>
+                </div>                
               </div>
             </div>
             <div class="col-md-12 mb-3 mr-3">
-
-              <div class="input-group">
-                <div class="input-group-prepend"style="width:15%">
-                  <span class="input-group-text" id="inputGroupPrepend">To</span>
-                </div>
+              <div>
+                
+                  <span class="input-group-text" id="inputGroupPrepend"><strong>To</strong></span>
+                
                 <input type="text" class="form-control" id="validationCustomUsername" placeholder="Destination"
                   aria-describedby="inputGroupPrepend" [(ngModel)]="toValue" name="to" [ngbTypeahead]="search" required>
                 <div class="invalid-feedback">
                   Please choose a valid destination.
                 </div>
+                <div *ngIf ="(this.fromValue==undefined&&this.toValue==undefined)?false:true"><br><br>
+                    <p style="color:red;font-size: .5em" *ngIf="isSame()"> *Both {{fromValue}} in From and {{toValue}} in to must not be same</p>
+                </div>               
+              
               </div>
             </div>
 
           </div>
           <div class="col-sm-6">
             <div style="padding-bottom: 2%">
-              <b>Journey Date<br></b> <input type="text" bsDatepicker [(ngModel)]="date" name="dateValue" [minDate]="today" />
+                <div class="input-group-text" id="inputGroupPrepend"><strong>Date of Jouney</strong></div>
+              <input type="text" id="validationCustomUsername" placeholder="Enter the date of journey" class="form-control" bsDatepicker [(ngModel)]="date" name="dateValue"/>
             </div>
           </div>
         </div>
@@ -55,7 +59,7 @@
 
           <div class="col-lg-4" style="padding:2%">
               <div class="input-group-prepend">
-                  <span class="input-group-text" id="inputGroupPrepend">Passengers</span>
+                  <span class="input-group-text" id="inputGroupPrepend"><strong>Passengers</strong></span>
                 </div>
             <select class="form-control form-control-md" #passCount>
               <option>One</option>
@@ -65,7 +69,7 @@
           </div>
           <div class="col-lg-4" style="padding:2%">
               <div class="input-group-prepend">
-                  <span class="input-group-text" id="inputGroupPrepend">Class</span>
+                  <span class="input-group-text" id="inputGroupPrepend"><strong>Class</strong></span>
                 </div>
             <select class="form-control form-control-md" #class>
               
@@ -76,7 +80,7 @@
           </div>
           <div class="col-lg-4" style="padding:2%">
               <div class="input-group-prepend">
-                  <span class="input-group-text" id="inputGroupPrepend">Type</span>
+                  <span class="input-group-text" id="inputGroupPrepend"><strong>Type</strong></span>
                 </div>
             <select class="form-control form-control-md" #type>
               <option>One Way</option>
@@ -85,7 +89,7 @@
             </select>
           </div>
         </div>
-        <a  class="btn btn-primary" (click)="onSubmit(searchForm.value)">SUBMIT</a>
+        <button  class="btn btn-primary" [disabled]="isdisabled" (click)="onSubmit(searchForm.value)">SUBMIT</button>
 
       </form>
     </div>

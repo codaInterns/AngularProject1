@@ -21,9 +21,16 @@
         <div class="col-lg-2 flight-text">
           {{details.price}}
         </div>
+        <div class="col-lg-2" style="align-items: flex-end">
+          <button type="button" class="btn btn-danger">BOOK</button>
+        </div>
+<<<<<<< HEAD
               <div class="col-lg-2" style="align-items: flex-end">
-                <button type="button" class="btn btn-danger" (click)="onBook()">BOOK</button>
+                <button type="button" class="btn btn-danger" (click)="onBook()" routerLink="/booked">BOOK</button>
               </div>
+=======
+
+>>>>>>> 1aaf49f05dc13c7fd55e101bc5fb3d33e7b40cdd
       </div>
     </div>
     <div class="card-footer"></div>

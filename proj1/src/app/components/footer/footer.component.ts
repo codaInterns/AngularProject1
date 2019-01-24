@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { FlightService } from "src/app/services/flight.service";
+import { Router } from '@angular/router';
 
 @Component({
   selector: "app-footer",

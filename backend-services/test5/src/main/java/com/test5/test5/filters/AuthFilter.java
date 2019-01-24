@@ -7,9 +7,11 @@ import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTVerificationException;
+import com.auth0.jwt.interfaces.Claim;
 import com.auth0.jwt.interfaces.DecodedJWT;
 
 import java.io.IOException;
+import java.util.Map;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -44,7 +46,9 @@ public class AuthFilter implements Filter {
 	   	    JWTVerifier verifier = JWT.require(algorithm).withIssuer("auth0")
 	   	            .build();
 	   	    DecodedJWT jwt = verifier.verify(token);
-	   	    System.out.println(jwt.getIssuer());
+	   	    
+	   	    
+	   	    request.setAttribute("userid", jwt.getId());
 	   	    System.out.println("Valid token");
 	   	    request.setAttribute("valid", "true");
 	   	    chain.doFilter(request, response);

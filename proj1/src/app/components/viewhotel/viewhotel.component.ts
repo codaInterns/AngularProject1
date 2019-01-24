@@ -14,14 +14,13 @@ export class ViewhotelComponent implements OnInit {
   constructor(private addhotel:AddhotelService,private route:Router,private http:HttpClient) { this.getProducts();}
   products:any = [{}];
   ngOnInit() {
-  
-    //console.log("hiiiiiiiiiii");
+
     
   }
  
   getProducts() {
     this.products = [];
-    this.addhotel.getProducts().subscribe((data: {}) => {console.log("hello"+data);this.products = data;});
+    this.addhotel.getProducts().subscribe((data: {}) => {console.log(+data);this.products = data;});
   }
   
   

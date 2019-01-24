@@ -25,12 +25,12 @@ export class SearchhotelComponent implements OnInit {
   onSubmit() {
     //this.addhotel.postUser(this.model);
 
-    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.model))
+    //alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.model))
     console.log(this.model.hotel_location)
     //this.addhotel.locationdata(this.model).subscribe((data: {}) => {console.log("hello"+data);this.products = data;});
     //this.addhotel.locationdata(this.model).subscribe((data: {}) => {console.log("hello"+data);this.products = data;});
     this.addhotel.getProduct(this.model).subscribe(data => {
-      console.log("xbxhxhxhxh"+data);
+      //console.log("xbxhxhxhxh"+data);
       this.setform=true;
       this.products = data
       console.log(this.products)

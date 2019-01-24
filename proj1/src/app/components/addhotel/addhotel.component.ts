@@ -19,7 +19,8 @@ export class AddhotelComponent implements OnInit {
 
   onSubmit() {
    this.addhotel.postUser(this.model);
-    this.route.navigate(['/app-header']);
+   console.log(this.model);
+  this.route.navigate(['/app-header']);
   }
 
 }

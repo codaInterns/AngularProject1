@@ -1,15 +1,18 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import {ReactiveFormsModule} from '@angular/forms';
+
+
 import { RouterModule, Routes} from '@angular/router';
 
 import { AddhotelComponent } from "./components/addhotel/addhotel.component";
 import { HttpClientModule } from "@angular/common/http";
+import './polyfills';
+
 
 import { BsDropdownModule } from "ngx-bootstrap/dropdown";
 import { TooltipModule } from "ngx-bootstrap/tooltip";
@@ -37,7 +40,7 @@ const appRoutes: Routes = [
   },
   {
     path: "app-header",
-    component: HeaderComponent
+    component: ViewhotelComponent
   }
   
 ];
@@ -67,8 +70,10 @@ const appRoutes: Routes = [
     FormsModule,
     BrowserAnimationsModule,
     DemoMaterialModule,
+    MatNativeDateModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
+platformBrowserDynamic().bootstrapModule(AppModule);

@@ -1,0 +1,23 @@
+<div class="form-container">
+  <form [formGroup]="formdata" (ngSubmit)="onClickSubmit(formdata.value)">
+    <header>REgister details</header>
+    <label>email<span></span></label>
+    <input type="text" name="email" formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+    <div *ngIf="submitted && f.email.errors">
+      <span *ngIf="f.email.errors.required">Email is required</span>
+      <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+    </div>
+
+    <label>password<span></span></label>
+    <input type="password"  name="password" formControlName="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+    <div *ngIf="submitted && f.password.errors">
+      <div *ngIf="f.password.errors.required">Password is required</div>
+      <div *ngIf="f.password.errors">Password is not strong</div>
+      
+      
+    </div>
+
+
+    <button type="Submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>

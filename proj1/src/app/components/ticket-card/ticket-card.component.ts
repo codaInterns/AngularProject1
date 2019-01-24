@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { BookServiceService } from 'src/app/services/book-service.service';
 
 @Component({
   selector: 'app-ticket-card',
@@ -7,12 +8,12 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class TicketCardComponent implements OnInit {
 
-  @Input() ticket:any;
+  ticket:any;
 
-  constructor() { }
+  constructor(private myservice:BookServiceService) { }
 
   ngOnInit() {
-    console.log(this.ticket);
+    this.ticket = this.myservice.getDetails();
   }
 
 }

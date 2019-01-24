@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Output, EventEmitter, Input } from '@angular/core';
 import { Observable } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
 import { FlightService } from 'src/app/services/flight.service';
@@ -15,6 +15,9 @@ const states = [
 export class FlightSearchComponent implements OnInit {
 
 
+  @Input() fromValue:string;
+  @Input() toValue:string;
+
   @ViewChild('class') class:ElementRef;
   @ViewChild('type') type:ElementRef;
   @ViewChild('passCount') passCount:ElementRef;
@@ -24,6 +27,8 @@ export class FlightSearchComponent implements OnInit {
   serviceValue:{source:string,destination:string,departure:string};
   resValue:any;
 
+  isdisabled:any;
+ 
   search = (text$: Observable<String>) => 
     text$.pipe(
       debounceTime(200),
@@ -36,6 +41,7 @@ export class FlightSearchComponent implements OnInit {
         today;
   ngOnInit() {
     this.today = new Date();
+    console.log(this.fromValue);
   }
   output:any;
   onSubmit(searchForm:any){
@@ -48,7 +54,7 @@ export class FlightSearchComponent implements OnInit {
     this.serviceValue = {
       source:searchForm.from.toLowerCase(),
       destination:searchForm.to.toLowerCase(),
-      departure:"testing"
+      departure:searchForm.dateValue
     };
     
     console.log(this.serviceValue.source);
@@ -60,6 +66,16 @@ export class FlightSearchComponent implements OnInit {
 
    
     
+  }
+
+  isSame(){
+    if(this.fromValue == this.toValue){
+      this.isdisabled = true;
+      return true;
+    }
+    this.isdisabled = false;
+    return false;
+        
   }
 
 }

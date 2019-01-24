@@ -4,6 +4,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,11 +16,9 @@ import com.test5.test5.models.HotelInput;
 import com.test5.test5.models.hotels;
 import com.test5.test5.repo.hotelrespository;
 
-
-
 @RestController
 @RequestMapping("/api")
-
+@CrossOrigin("http://localhost:4200")
 	
 public class hotelcontroller {
 
@@ -39,9 +38,8 @@ public class hotelcontroller {
 	@PostMapping(path="/getHotel/" ,consumes = "application/json" , produces = "application/json")
 	public List<hotels> getHotels(@RequestBody HotelInput hi)
 			{
-		 
-		List<hotels> hotelList=repo.findAll();
 		
+		List<hotels> hotelList=repo.findAll();
 		Iterator<hotels> hotelIter=hotelList.iterator();
 		List<hotels> selectedList=new ArrayList<hotels>();
 		while(hotelIter.hasNext()) {
@@ -49,7 +47,6 @@ public class hotelcontroller {
 			if(f1.getHotel_place().equals(hi.getHotel_place())){
 				selectedList.add(f1);
 			}
-			
 			
 		}
 		
@@ -61,19 +58,13 @@ public class hotelcontroller {
 	@PostMapping(path="/addhotel/" ,consumes = "application/json" , produces = "application/json")
 	public String addhotel(@RequestBody HotelInput hi)
 	{
-		System.out.println("hekllcvbhccccccccccccccccccccccj");
+		
 		hotels hotel = new hotels();
-		/*System.out.println(hi.getHotel_name());
 		hotel.setHotel_name(hi.getHotel_name());
 		hotel.setHotel_place(hi.getHotel_place());
 		hotel.setPrice(hi.getPrice());
 		hotel.setHotel_description(hi.getHotel_description());
-		hotel.setHotel_image(hi.getHotel_image());*/
-		hotel.setHotel_name("ddh");
-		hotel.setHotel_place("dhdh");
-		hotel.setPrice(12345);
-		hotel.setHotel_description("dhdhh");
-		hotel.setHotel_image("dddjdj");
+		hotel.setHotel_image(hi.getHotel_image());
 		repo.save(hotel);
 		
 		return "success";

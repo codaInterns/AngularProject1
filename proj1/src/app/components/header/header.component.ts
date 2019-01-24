@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import {MatTabsModule} from '@angular/material/tabs'; 
+import { Component, OnInit } from '@angular/core'; 
 import{Router} from '@angular/router';
 
 @Component({
@@ -9,7 +8,7 @@ import{Router} from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private mat:MatTabsModule,private router:Router) { }
+  constructor(private router:Router) { }
 
   ngOnInit() {
   }

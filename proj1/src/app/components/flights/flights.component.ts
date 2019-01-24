@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HotDealsService } from 'src/app/services/hot-deals.service';
 import { FlightService } from 'src/app/services/flight.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-flights',
@@ -9,16 +10,20 @@ import { FlightService } from 'src/app/services/flight.service';
 })
 export class FlightsComponent implements OnInit {
 
-  details:any[];
+  
   flightAvailable:boolean=false;
   flightDetails:any;
   noResult:boolean;
   invalidInput: boolean;
-  constructor() { }
+  userFrom:any;
+  userTo:any;
+
+  constructor(private routes:ActivatedRoute) { }
   
 
   ngOnInit() {
-    
+    this.userFrom = this.routes.snapshot.params['from'];
+    this.userTo = this.routes.snapshot.params['to'];
   }
 
   onResultUpdate(event:any){
@@ -29,16 +34,17 @@ export class FlightsComponent implements OnInit {
     else{
       this.invalidInput=false;
     }
-    //console.log(this.flightDetails);
+   
     this.flightAvailable = true;
     this.flightDetails = event;
-    //console.log(this.flightDetails);
-    console.log(event);
+
     if(this.flightDetails.length==0)
       this.noResult=true;
     else
       this.noResult=false;
   }
+
+ 
 
 
 }

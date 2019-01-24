@@ -5,12 +5,15 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
+import com.example.Booking.Book.Exception.CustomizedExcp;
 import com.example.Booking.Book.Model.FlightPogo;
 import com.example.Booking.Book.Model.Flight_detail_capacity;
 import com.example.Booking.Book.Model.UserBooked;
@@ -19,10 +22,11 @@ import com.example.Booking.Book.Model.status;
 import com.example.Booking.Book.repo.FlightRepo;
 import com.example.Booking.Book.repo.UserRepo;
 
-
+@ControllerAdvice
 @RestController
 @RequestMapping("/book")
-public class BookingController {
+public class BookingController extends ResponseEntityExceptionHandler
+{
 	@Autowired
 	private FlightRepo book_repo;
 	@Autowired
@@ -56,10 +60,14 @@ public class BookingController {
 	}
 	
 	@PostMapping(path="/booking",produces="application/json",consumes="application/json")
-	public status booking(@RequestBody Userpogo bform)
-	{
+	public status booking(@RequestBody(required=false) Userpogo bform) {
+		if(bform==null)
+		throw new CustomizedExcp(404,"Not found");
 		List<FlightPogo> all_flight=book_repo.findAll();
 		Iterator<FlightPogo> itr=all_flight.iterator();
+		System.out.println(bform.getFlight_id());
+//		if(bform.getFlight_id()!=(int)bform.getFlight_id())
+//			throw new CustomizedExcp(415, "Unsupported type exception");
 		int fid=bform.getFlight_id();
 		int seats=bform.getSeats_booked();
 		status s=new status();
@@ -67,7 +75,6 @@ public class BookingController {
 		int f=0;
 		while(itr.hasNext())
 		{
-
 			FlightPogo fp=itr.next();
 			if(fp.getFid()==fid )
 				{

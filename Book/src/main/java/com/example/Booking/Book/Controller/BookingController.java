@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.Booking.Book.Model.FlightPogo;
 import com.example.Booking.Book.Model.Flight_detail_capacity;
+import com.example.Booking.Book.Model.UserBooked;
 import com.example.Booking.Book.Model.Userpogo;
 import com.example.Booking.Book.Model.status;
 import com.example.Booking.Book.repo.FlightRepo;
@@ -70,12 +71,12 @@ public class BookingController {
 			FlightPogo fp=itr.next();
 			if(fp.getFid()==fid )
 				{
-				f=1;
-				if((fp.getAvail_capacity()-seats)>0)
+				if((fp.getAvail_capacity()-seats)>0){
+					f=1;
 				System.out.println(bform.getFlight_id()+'\n'+bform.getName()+"\n"+bform.getSeats_booked());
 				up.setFlight_id(fid);				
 				FlightPogo ff=book_repo.getOne(fid);
-				ff.setAvail_capacity(fp.getTotal_capacity()-seats);
+				ff.setAvail_capacity(fp.getAvail_capacity()-seats);
 				up.setName(bform.getName());
 				up.setSeats_booked(seats);
 				up.setFlight_name(fp.getFlight_name());
@@ -86,12 +87,29 @@ public class BookingController {
 				break;
 			}
 				}
+		}
 		if(f!=1)
 		{
-			s.setMessage("Error while booking");
-			
+			s.setMessage("The number of seats you booked is not sufficient ");	 
 		}
-		
 		return s;
 	}	
+	
+	@PostMapping(path="/bookedusers",consumes="application/json",produces="application/json")
+	public List<UserBooked> getdetails_bookedUser()
+	{
+		List<Userpogo> all_user=book_user.findAll();
+		Iterator<Userpogo> it=all_user.iterator();
+		List<UserBooked> user_list=new ArrayList<>();
+		while(it.hasNext())
+		{
+			UserBooked ub=new UserBooked();
+			Userpogo up=it.next();
+			ub.setFname(up.getFlight_name());
+			ub.setUname(up.getName());
+			ub.setSeats_booked(up.getSeats_booked());
+			user_list.add(ub);
+		}
+		return user_list;
+	}
 }

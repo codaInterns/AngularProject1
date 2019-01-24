@@ -8,39 +8,50 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { DashboardComponent } from './views/dashboard/dashboard.component';
-import { RegisterComponent } from './components/register/register.component';
+
 import {ReactiveFormsModule} from '@angular/forms';
 import {Routes,RouterModule} from '@angular/router';
 import { UserloginComponent } from "./components/userlogin/userlogin.component";
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
-
-import { FlightSearchComponent } from "./components/flight-search/flight-search.component";
-import { CardsComponent } from "./components/cards/cards.component";
-import { NavFeatureComponent } from "./components/nav-feature/nav-feature.component";
-import { FlightsComponent } from "./views/flights/flights.component";
 import { BsDropdownModule } from "ngx-bootstrap/dropdown";
 import { TooltipModule } from "ngx-bootstrap/tooltip";
 import { ModalModule } from "ngx-bootstrap/modal";
-import { FlightSearchResultComponent } from "./components/flight-search-result/flight-search-result.component";
-import { FooterComponent } from "./components/footer/footer.component";
+import {RegisterComponent} from './components/register/register.component';
 import { BsDatepickerModule } from "ngx-bootstrap/datepicker";
 import { TicketCardComponent } from "./components/ticket-card/ticket-card.component";
 import { ShowHidePasswordModule } from 'ngx-show-hide-password';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { BookingComponent } from './views/booking/booking.component';
-import { AdvertisementComponent } from './components/advertisement/advertisement.component';
 import { TokenInterceptor } from './services/token.service';
+import { SearchhotelComponent } from './Components/searchhotel/searchhotel.component';
+import { HeaderComponent } from './Components/header/header.component';
+import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { ViewhotelComponent } from './Components/viewhotel/viewhotel.component';
+import {FlightsComponent} from './views/flights/flights.component';
+import {DashboardComponent} from './views/dashboard/dashboard.component';
+import {FlightSearchComponent} from './components/flight-search/flight-search.component';
+import {FlightSearchResultComponent} from './components/flight-search-result/flight-search-result.component';
+import {CardsComponent} from './components/cards/cards.component';
+import {NavFeatureComponent} from './components/nav-feature/nav-feature.component';
+import {FooterComponent} from './components/footer/footer.component';
+import {AddhotelComponent} from './components/addhotel/addhotel.component';
+import {MatTabsModule} from '@angular/material/tabs';
+
 
 const appRoutes: Routes = [
   {
-
-    path : "flights",
-    component: FlightsComponent
+    path : "",
+    component : NavFeatureComponent
   },
   {
-    path: "login",
-   component : UserloginComponent
+    path: "app-searchhotel",
+    component: SearchhotelComponent
+  },
+  {
+    path:"app-addhotel",
+    component: AddhotelComponent
+
   },
   {
     path: "register",
@@ -51,9 +62,22 @@ const appRoutes: Routes = [
     component: BookingComponent
   },
   {
+    path : "flights",
+    component : FlightsComponent
+  },
+  {
     path: "flights/:from/:to",
-    component: FlightsComponent
+    component: FlightSearchComponent
+  },{
+    path:"app-viewhotel",
+    component: ViewhotelComponent
+  },
+  {
+    path : "login",
+    component : UserloginComponent
+
   }
+  
 ];
 
 
@@ -71,7 +95,10 @@ const appRoutes: Routes = [
     FooterComponent,
     TicketCardComponent,
     BookingComponent,
-    AdvertisementComponent
+    AddhotelComponent,
+    SearchhotelComponent,
+    HeaderComponent,
+    ViewhotelComponent
   ],
   imports: [
     BrowserModule,
@@ -79,7 +106,6 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes),
     HttpClientModule,
-    ShowHidePasswordModule.forRoot(),
     RouterModule.forRoot(appRoutes),
     BsDropdownModule.forRoot(),
     BsDatepickerModule.forRoot(),
@@ -94,7 +120,8 @@ const appRoutes: Routes = [
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
       multi: true
-    }
+    },
+    BrowserAnimationsModule,
   ],
   bootstrap: [AppComponent]
 })

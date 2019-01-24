@@ -33,7 +33,7 @@ public class AuthFilter implements Filter {
        String token=req.getHeader("token");
        if(token==null) {
     	   System.out.println("Invalid token");
-	   		request.setAttribute("valid", false);
+	   		request.setAttribute("valid", "false");
 	   		chain.doFilter(request, response);
 	   		return;
        }
@@ -46,13 +46,13 @@ public class AuthFilter implements Filter {
 	   	    DecodedJWT jwt = verifier.verify(token);
 	   	    System.out.println(jwt.getIssuer());
 	   	    System.out.println("Valid token");
-	   	    request.setAttribute("valid", true);
+	   	    request.setAttribute("valid", "true");
 	   	    chain.doFilter(request, response);
 	   	    
 	   	} catch (JWTVerificationException exception){
 	   	    
 	   		System.out.println("Invalid token");
-	   		request.setAttribute("valid", false);
+	   		request.setAttribute("valid", "false");
 	   		chain.doFilter(request, response);
 	   	}
         

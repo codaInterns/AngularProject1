@@ -3,6 +3,9 @@ package com.test5.test5.controllers;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -25,8 +28,15 @@ public class BookController {
 	private bookInput opt;
 	
 	@PostMapping(path = "/book/" , consumes = "application/json" , produces = "application/json")
-	public Boolean postUser(@RequestBody bookInput opt,final HttpServletRequest request)throws Exception {
+	public ResponseEntity<Boolean> postUser(@RequestBody bookInput opt,final HttpServletRequest request)throws Exception {
 		
+		HttpHeaders responseHeaders = new HttpHeaders();
+		String isValidAuth = (String) request.getAttribute("valid");
+		responseHeaders.set("Authentication", isValidAuth);
+		if(isValidAuth.equals("false")){
+			return new ResponseEntity<Boolean>(false,responseHeaders,HttpStatus.OK);
+		}
+	    responseHeaders.set("valid", isValidAuth);
 		Book bookDb=new Book();
 		try {
 			bookDb.setName(opt.getName());
@@ -35,12 +45,12 @@ public class BookController {
 			bookDb.setSource(opt.getSource());
 			book.save(bookDb);
 			
-			return true;
+			return new ResponseEntity<Boolean>(true,responseHeaders,HttpStatus.OK);
 		}
 		catch(Exception ex)
 		{
 			ex.printStackTrace();
-			return false;
+			return new ResponseEntity<Boolean>(false,responseHeaders,HttpStatus.OK);
 		}
 		
 	}

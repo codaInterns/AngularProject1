@@ -20,6 +20,7 @@ export class TicketCardComponent implements OnInit {
     console.log("booked");
     this.myservice.bookTicket(this.ticket).subscribe(res=>{
       console.log(res);
+      console.log(res.headers.get('Authentication'));
     });
     //this.myservice.bookTicket()
   }

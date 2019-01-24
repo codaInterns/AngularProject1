@@ -35,7 +35,10 @@ import { LandingComponent } from './components/landing/landing.component';
 
 
 const appRoutes: Routes = [
-  
+  {
+    path : "",
+    component : LandingComponent
+  },
   {
     path: "app-searchhotel",
     component: SearchhotelComponent
@@ -90,7 +93,8 @@ const appRoutes: Routes = [
     AddhotelComponent,
     SearchhotelComponent,
     HeaderComponent,
-    ViewhotelComponent
+    ViewhotelComponent,
+    LandingComponent
   ],
   imports: [
     BrowserModule,

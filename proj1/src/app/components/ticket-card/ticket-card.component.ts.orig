@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { BookServiceService } from 'src/app/services/book-service.service';
 import { HttpResponse } from '@angular/common/http';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-ticket-card',
@@ -12,7 +11,7 @@ export class TicketCardComponent implements OnInit {
 
   ticket:any;
 
-  constructor(private myservice:BookServiceService,private routes:Router) { }
+  constructor(private myservice:BookServiceService) { }
 
   ngOnInit() {
     this.ticket = this.myservice.getDetails();
@@ -21,16 +20,20 @@ export class TicketCardComponent implements OnInit {
   onConfirmBook(){
     console.log("booked");
     this.myservice.bookTicket(this.ticket).subscribe(
+<<<<<<< HEAD
+    (res:HttpResponse<any>)=>{
+      console.log(res.headers);
+      console.log(res.headers.get('Authentication'));
+    });
+=======
       (data: HttpResponse<any>) => {
-        if(data.status == 200){
-          this.routes.navigate(['/ticketBooked']);
-        }
+        
+        console.log(data.status);
       },
       error => {
-        console.log("Invalid response"); 
-        alert('Please Login before Booking');
-        this.routes.navigate(['/login']);      
+        console.log("Invalid response");       
       });
+>>>>>>> f41810a97d4e2933f5346cf55fec437bfc4645ce
     //this.myservice.bookTicket()
   }
 }

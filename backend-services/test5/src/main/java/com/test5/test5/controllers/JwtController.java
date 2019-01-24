@@ -58,6 +58,8 @@ public class JwtController {
     	    	 } catch (JWTCreationException exception){
     	    		    //Invalid Signing configuration / Couldn't convert Claims.
     	    		}
+    	     }else {
+    	    	 return null;
     	     }
     	    
     	}

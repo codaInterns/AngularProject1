@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { HttpClientModule, HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
@@ -9,8 +9,10 @@ export class BookServiceService {
   private details:any;
 
   token:any;
+  isBooked:boolean;
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient) {}
+   
 
   setDetails(details:any){
     console.log(details);

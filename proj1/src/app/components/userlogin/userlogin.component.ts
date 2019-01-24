@@ -39,18 +39,17 @@ export class UserloginComponent implements OnInit {
       return;
   }
     this.email.getUser(data.email, data.password).subscribe(res => {
-    this.result = res; console.log(this.result);
-    localStorage.setItem('token',this.result);
-      /*if (this.result == true) {
-        alert("Login Sucessful");
-        this.router.navigate(['flights']);
-      }
-      else {
-        alert("Login Not Sucessful");
-        this.router.navigate(['register']);
+    this.result = res; 
+    console.log(this.result);
 
-        return false;
-      }*/
+    if(this.result){
+      localStorage.setItem('token',this.result);
+      this.router.navigate(['/flights']);
+    }
+    else{
+      alert('Invalid User! Please Register ');
+      this.router.navigate(['/register']);
+    }
 
     });
 

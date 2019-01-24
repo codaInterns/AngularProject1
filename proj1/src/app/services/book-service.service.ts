@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpClientModule, HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -7,6 +7,8 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 export class BookServiceService {
 
   private details:any;
+
+  token:any;
 
   constructor(private http:HttpClient) { }
 
@@ -20,6 +22,10 @@ export class BookServiceService {
   }
 
   bookTicket(bookDetails:any){
-    return this.http.post("http://localhost:8080/jwt/book/",bookDetails);
+    this.token = localStorage.getItem('token');
+    const headers= new HttpHeaders({
+      'token':this.token
+    })
+    return this.http.post("http://localhost:8080/JwtAuth/book/",bookDetails,{headers:headers});
   }
 }

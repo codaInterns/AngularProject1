@@ -1,5 +1,7 @@
 package com.test5.test5.controllers;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,7 +16,7 @@ import com.test5.test5.models.options;
 import com.test5.test5.repo.bookInterface;
 
 @RestController
-@RequestMapping("/jwt")
+@RequestMapping("/JwtAuth")
 @CrossOrigin("http://localhost:4200")
 public class BookController {
 	
@@ -23,7 +25,8 @@ public class BookController {
 	private bookInput opt;
 	
 	@PostMapping(path = "/book/" , consumes = "application/json" , produces = "application/json")
-	public Boolean postUser(@RequestBody bookInput opt) {
+	public Boolean postUser(@RequestBody bookInput opt,final HttpServletRequest request)throws Exception {
+		
 		Book bookDb=new Book();
 		try {
 			bookDb.setName(opt.getName());

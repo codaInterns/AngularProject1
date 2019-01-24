@@ -42,28 +42,12 @@ public List<flights> getAllFlights(){
 
 @PostMapping(path="/getFlight/" ,consumes = "application/json" , produces = "application/json")
 <<<<<<< HEAD
-public List<flights> getFlights(@RequestBody FlightInput fi,@RequestHeader(value="token")String gtoken)
-		{
-	System.out.println(gtoken);
+public List<flights> getFlights(@RequestBody FlightInput fi,@RequestHeader(value="token")String token )
 =======
-public List<flights> getFlights(@RequestHeader(value="token") String token, @RequestBody FlightInput fi)
+public List<flights> getFlights( @RequestBody FlightInput fi)
+>>>>>>> 99bcac0527b3b450a77eb3c83252f9b1f0c58028
 		{
-	System.out.println(token);
-	try {
-	    Algorithm algorithm = Algorithm.HMAC256("secret");
-	    
-	    JWTVerifier verifier = JWT.require(algorithm).withIssuer("auth0")
-	            .build();
-	    DecodedJWT jwt = verifier.verify(token);
-	    System.out.println(jwt.getIssuer());
-	    System.out.println("Valid token");
-	    
-	} catch (JWTVerificationException exception){
-	    
-		System.out.println("Invalid token");
-		return null;
-	}
->>>>>>> 6e0fb7617d0914af113470d98eb0e1d74544deaf
+	
 	List<flights> flightList=repo.findAll();
 	Iterator<flights> flightIter=flightList.iterator();
 	List<flights> selectedList=new ArrayList<flights>();
@@ -78,7 +62,6 @@ public List<flights> getFlights(@RequestHeader(value="token") String token, @Req
 	return selectedList;
 		
 		}
-	
 
 
 

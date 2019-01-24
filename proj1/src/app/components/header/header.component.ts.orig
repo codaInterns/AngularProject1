@@ -9,7 +9,11 @@ import{Router} from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
+<<<<<<< HEAD
+  constructor() { }
+=======
   constructor(private mat:MatTabsModule,private router:Router) { }
+>>>>>>> 2fc39efaa2bd457812686bca6a1d1eaa6170199e
 
   ngOnInit() {
   }

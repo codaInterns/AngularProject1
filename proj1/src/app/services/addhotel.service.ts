@@ -31,6 +31,6 @@ export class AddhotelService {
 
   getProduct(data): Observable<any> {
     console.log(data)
-    return this.http.post("http://localhost:8080/api/gethotel/",data)
+    return this.http.post("http://localhost:8080/api/getHotel/",data)
   }
 }

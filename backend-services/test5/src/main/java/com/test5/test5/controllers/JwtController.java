@@ -1,9 +1,12 @@
 package com.test5.test5.controllers;
 
 import java.security.Key;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,15 +50,35 @@ public class JwtController {
     	     UserDB user=listIterator.next();
     	     if(user.getEmail().equals(opt.getEmail()) && user.getPassword().equals(opt.getPassword()) ){
     	    	 try {
-    	    		 	int id = user.getId();
+    	    		 	/*int id = user.getId();
     	    		 	System.out.println(id);
     	    		    Algorithm algorithm = Algorithm.HMAC256("secret");
-    	    		    String token = JWT.create().withJWTId(String.valueOf(id))
+    	    		    Map<String, Object> headerClaims = new HashMap();
+    	    		    headerClaims.put("roles", (String)"user");
+    	    		    String token = JWT.create().withHeader(headerClaims).withJWTId(String.valueOf(id))
     	    		        .withIssuer("auth0")
     	    		        .sign(algorithm);
     	    		    
     	    		    System.out.println(token);    
-    	    		    return token;
+    	    		    
+    	    		    */
+    	    		    
+    	    		  
+    	    		 	List<String> rolesList = new ArrayList<String>();
+    	    		 	rolesList.add("user");
+    	    		 	if(user.getEmail().equals("admin@admin.com")) {
+    	    		 		rolesList.add("admin");
+    	    		 	}
+    	    		 	String userid = String.valueOf(user.getId());
+    	    		 	System.out.println("userid login generator:"+userid);
+    	    		    String newToken = Jwts.builder().setSubject(user.getEmail())
+    	                .claim("roles", rolesList).claim("userid", userid).setIssuedAt(new Date())
+    	                .signWith(SignatureAlgorithm.HS256, "MysecretHighlyKeySecureAnandBalaKaushikVarun").compact();
+    	    		    
+    	    		    System.out.println(newToken);
+    	    		    
+    	    		    return newToken;
+    	    		    
     	    	 } catch (JWTCreationException exception){
     	    		 	System.out.println("INVALID JWT CREATION");
     	    		    //Invalid Signing configuration / Couldn't convert Claims.

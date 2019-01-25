@@ -2,6 +2,8 @@
     margin-top: 30px;
     margin-bottom: 20px;
 }
+<<<<<<< HEAD
+=======
 .card-header:first-child{
     background: #454c4c;
 }
@@ -40,3 +42,4 @@ input[type=text]{
 input[type=text]:hover{
     padding:5px;
 }
+>>>>>>> cace4771b395342b5b33a142e669aaa1171c7323

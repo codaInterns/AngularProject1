@@ -1,0 +1,35 @@
+<<<<<<< HEAD
+import { Component, OnInit, Input } from '@angular/core';
+=======
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { BookServiceService } from 'src/app/services/book-service.service';
+import { Router } from '@angular/router';
+>>>>>>> cace4771b395342b5b33a142e669aaa1171c7323
+
+@Component({
+  selector: 'app-flight-search-result',
+  templateUrl: './flight-search-result.component.html',
+  styleUrls: ['./flight-search-result.component.css']
+})
+export class FlightSearchResultComponent implements OnInit {
+
+  @Input('flight') details:any;
+
+<<<<<<< HEAD
+  constructor() { }
+=======
+  constructor(private myservice:BookServiceService,private routes:Router) { }
+>>>>>>> cace4771b395342b5b33a142e669aaa1171c7323
+ 
+  ngOnInit() {
+  }
+
+<<<<<<< HEAD
+=======
+  onBook(){
+    this.myservice.setDetails(this.details);
+    this.routes.navigate(['/booked']);
+  }
+
+>>>>>>> cace4771b395342b5b33a142e669aaa1171c7323
+}

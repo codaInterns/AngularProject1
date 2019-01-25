@@ -26,6 +26,6 @@ export class BookServiceService {
     const headers= new HttpHeaders({
       'token':this.token
     })
-    return this.http.post("http://localhost:8080/JwtAuth/book/",bookDetails,{headers:headers,observe:'response' as 'body'});
+    return this.http.post("http://localhost:8080/JwtAuth/book/",bookDetails,{observe:'response' as 'body'});
   }
 }

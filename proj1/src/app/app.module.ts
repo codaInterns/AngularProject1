@@ -120,8 +120,7 @@ const appRoutes: Routes = [
     TooltipModule.forRoot(),
     ModalModule.forRoot(),
     NgbModule.forRoot(),
-    FormsModule,
-    
+    FormsModule
   ],
   providers: [
     // {

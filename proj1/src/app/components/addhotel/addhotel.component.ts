@@ -10,34 +10,35 @@ import { Router } from '@angular/router';
   styleUrls: ['./addhotel.component.css']
 })
 export class AddhotelComponent implements OnInit {
+  registerForm: FormGroup;
+  submitted = false;
 
-<<<<<<< .merge_file_a13148
-  constructor(private route: Router, private http: HttpClient, private Addhotel: AddhotelService) { }
-=======
-  constructor(private route:Router,private http:HttpClient,private addhotel:AddhotelService ) { }
->>>>>>> .merge_file_a15324
+  constructor(private route:Router,private http:HttpClient,private addhotel:AddhotelService,private formBuilder:FormBuilder) { }
 
   ngOnInit() {
-  }
-  model: any = {};
-<<<<<<< .merge_file_a13148
-<<<<<<< HEAD
-  value:any
-  onSubmit(data:any) {
-    this.value=this.Addhotel.addHotels(data);
-    alert('SUCCESS!! :-)\n\n' + JSON.stringify(data))
-    console.log(this.value)
-=======
-=======
->>>>>>> .merge_file_a15324
 
+    this.registerForm = this.formBuilder.group({
+      hotel_name: ['', Validators.required],
+      hotel_description: ['', Validators.required],
+      hotel_place: ['', [Validators.required]],
+      hotel_image: ['', [Validators.required]],
+      price: ['', Validators.required]
+  });
+}
+
+// convenience getter for easy access to form fields
+get f() { return this.registerForm.controls; }
+  
+  model: any = {};
   onSubmit() {
+   // alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.model.value))
+   
    this.addhotel.postUser(this.model);
-    this.route.navigate(['/app-header']);
-<<<<<<< .merge_file_a13148
->>>>>>> 90c0c41fb4dc16560ae7101580a76bca51d901cd
-=======
->>>>>>> .merge_file_a15324
+   //console.log(this.model);
+   this.submitted = true;
+
+   this.route.navigate(['/app-viewhotel']);
   }
 
 }
+

@@ -10,16 +10,18 @@ import { Router } from '@angular/router';
   styleUrls: ['./addhotel.component.css']
 })
 export class AddhotelComponent implements OnInit {
-
 <<<<<<< HEAD
+
+<<<<<<< .merge_file_a13148
   constructor(private route: Router, private http: HttpClient, private Addhotel: AddhotelService) { }
 =======
   constructor(private route:Router,private http:HttpClient,private addhotel:AddhotelService ) { }
->>>>>>> da017f28a26292df905321b9c4eec4042e93993d
+>>>>>>> .merge_file_a15324
 
   ngOnInit() {
   }
   model: any = {};
+<<<<<<< .merge_file_a13148
 <<<<<<< HEAD
   value:any
   onSubmit(data:any) {
@@ -27,13 +29,50 @@ export class AddhotelComponent implements OnInit {
     alert('SUCCESS!! :-)\n\n' + JSON.stringify(data))
     console.log(this.value)
 =======
+=======
+>>>>>>> .merge_file_a15324
 
   onSubmit() {
    this.addhotel.postUser(this.model);
-
-    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.model))
-    console.log(this.model.hotel_name)
->>>>>>> da017f28a26292df905321b9c4eec4042e93993d
+    this.route.navigate(['/app-header']);
+<<<<<<< .merge_file_a13148
+>>>>>>> 90c0c41fb4dc16560ae7101580a76bca51d901cd
+=======
+>>>>>>> .merge_file_a15324
   }
 
 }
+=======
+  registerForm: FormGroup;
+  submitted = false;
+
+  constructor(private route:Router,private http:HttpClient,private addhotel:AddhotelService,private formBuilder:FormBuilder) { }
+
+  ngOnInit() {
+
+    this.registerForm = this.formBuilder.group({
+      hotel_name: ['', Validators.required],
+      hotel_description: ['', Validators.required],
+      hotel_place: ['', [Validators.required]],
+      hotel_image: ['', [Validators.required]],
+      price: ['', Validators.required]
+  });
+}
+
+// convenience getter for easy access to form fields
+get f() { return this.registerForm.controls; }
+  
+  model: any = {};
+  onSubmit() {
+   // alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.model.value))
+   
+   this.addhotel.postUser(this.model);
+   //console.log(this.model);
+   this.submitted = true;
+
+   this.route.navigate(['/app-viewhotel']);
+  }
+
+}
+
+>>>>>>> cace4771b395342b5b33a142e669aaa1171c7323

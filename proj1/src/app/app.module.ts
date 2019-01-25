@@ -14,8 +14,7 @@ import { ModalModule } from "ngx-bootstrap/modal";
 import {RegisterComponent} from './components/register/register.component';
 import { BsDatepickerModule } from "ngx-bootstrap/datepicker";
 import { TicketCardComponent } from "./components/ticket-card/ticket-card.component";
-import { ShowHidePasswordModule } from 'ngx-show-hide-password';
-import { AngularFontAwesomeModule } from 'angular-font-awesome';
+
 import { BookingComponent } from './views/booking/booking.component';
 import { TokenInterceptor } from './services/token.service';
 import { SearchhotelComponent } from './Components/searchhotel/searchhotel.component';
@@ -111,8 +110,7 @@ const appRoutes: Routes = [
     TooltipModule.forRoot(),
     ModalModule.forRoot(),
     NgbModule.forRoot(),
-    FormsModule,
-    AngularFontAwesomeModule
+    FormsModule
   ],
   providers: [
     // {

@@ -17,11 +17,6 @@ create table users (
 );
 
 drop table hotels;
-create table hotels (
-    hotel_id int(25)  primary Key AUTO_INCREMENT,
-    hotel_name varchar(25),
-    hotel_place varchar(25),
-    price int(10),
-    hotel_description varchar(200),
-    hotel_image varchar(200)
-);
+create table hotels ( hotel_id int(25)  primary Key AUTO_INCREMENT, hotel_name varchar(25), hotel_place varchar(25), price int(10), hotel_description varchar(200), hotel_image varchar(200) );
+
+create table booking (booking_id bigint(20),departure varchar(255),destination varchar(255),name varchar(255),source varchar(255),user_id varchar(255));

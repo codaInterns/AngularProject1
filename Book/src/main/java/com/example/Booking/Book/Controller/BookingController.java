@@ -4,13 +4,19 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.HttpClientErrorException.BadRequest;
+import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import com.example.Booking.Book.Exception.CustomizedExcp;
@@ -60,19 +66,40 @@ public class BookingController extends ResponseEntityExceptionHandler
 	}
 	
 	@PostMapping(path="/booking",produces="application/json",consumes="application/json")
-	public status booking(@RequestBody(required=false) Userpogo bform) {
+	public status booking(@Valid @RequestBody(required=false) Userpogo bform,BindingResult bs) throws BadRequest
+	{
 		if(bform==null)
-		throw new CustomizedExcp(404,"Not found");
+		throw new CustomizedExcp(404,"NOT_FOUND");
+			//throw new RuntimeException(HttpStatus.NOT_FOUND.toString());
+		if(bs.hasErrors()) {
+			System.out.println("hii");
+			throw new CustomizedExcp(400, "Bad request");
+		}
 		List<FlightPogo> all_flight=book_repo.findAll();
 		Iterator<FlightPogo> itr=all_flight.iterator();
-		System.out.println(bform.getFlight_id());
-//		if(bform.getFlight_id()!=(int)bform.getFlight_id())
-//			throw new CustomizedExcp(415, "Unsupported type exception");
-		int fid=bform.getFlight_id();
+	 	System.out.println(bform.getFlight_id());
+		int fid;
+		try {
+		 fid=bform.getFlight_id();
+			System.out.println(fid);
+		}catch(Exception e)
+		{
+			throw new CustomizedExcp(415,"Mismatched type");
+		}
 		int seats=bform.getSeats_booked();
+	
 		status s=new status();
 		Userpogo up=new Userpogo();
 		int f=0;
+		FlightPogo ff=book_repo.getOne(fid);;
+		
+		try {
+		ff=book_repo.getOne(fid);
+		System.out.println(ff);
+		}catch(Exception e) {
+			throw new CustomizedExcp(400,"Bad request");
+			//throw new RuntimeException(HttpStatus.BAD_REQUEST.toString());
+		}
 		while(itr.hasNext())
 		{
 			FlightPogo fp=itr.next();
@@ -82,7 +109,7 @@ public class BookingController extends ResponseEntityExceptionHandler
 					f=1;
 				System.out.println(bform.getFlight_id()+'\n'+bform.getName()+"\n"+bform.getSeats_booked());
 				up.setFlight_id(fid);				
-				FlightPogo ff=book_repo.getOne(fid);
+
 				ff.setAvail_capacity(fp.getAvail_capacity()-seats);
 				up.setName(bform.getName());
 				up.setSeats_booked(seats);

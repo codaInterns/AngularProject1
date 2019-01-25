@@ -16,8 +16,7 @@ export class CardsComponent implements OnInit {
   
   }
 
-  myFun(event: any){
-    console.log("hi");
+  myFun(){
     this.routes.navigate(['/flights',this.city.source,this.city.destination]);
   }
 

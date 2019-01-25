@@ -1,0 +1,32 @@
+import { Component, OnInit } from '@angular/core';
+import {MatTabsModule} from '@angular/material/tabs'; 
+import{Router} from '@angular/router';
+
+@Component({
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.css']
+})
+export class HeaderComponent implements OnInit {
+
+<<<<<<< HEAD
+  constructor() { }
+=======
+  constructor(private mat:MatTabsModule,private router:Router) { }
+>>>>>>> 2fc39efaa2bd457812686bca6a1d1eaa6170199e
+
+  ngOnInit() {
+  }
+
+  onAddHotel(){
+    console.log("sharrar");
+   this.router.navigate[('app-addhotel')];
+
+  } 
+  onSearcHotel(){
+
+  }
+  OnViewHotelClick(){
+
+  }
+}

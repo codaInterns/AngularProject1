@@ -12,7 +12,11 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @Entity
 @Table(name="hotels")
+<<<<<<< HEAD
+
+=======
 @EntityListeners(AuditingEntityListener.class)
+>>>>>>> master
 public class hotels {
 
 	@Id

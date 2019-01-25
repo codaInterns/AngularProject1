@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">Coda Trip</a>
+  <a class="navbar-brand" routerLink="/">Coda Trip</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -11,15 +11,17 @@
       <li class="nav-item">
         <a class="nav-link" routerLink="/flights">Flights</a>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" routerLink="/app-viewhotel" id="navbardrop" data-toggle="dropdown">
-          Hotels
-        </a>
-        <div class="dropdown-menu">
-          <a class="dropdown-item" routerLink="/app-addhotel">Add Hotels</a>
-          <a class="dropdown-item" routerLink="/app-searchhotel">Search Hotels</a>
-          <a class="dropdown-item" routerLink="/app-viewhotel">View Hotels</a>
+      <li>
+      
+        <div class="dropdown">
+            <a class="nav-link" routerLink="/flights">Hotels</a>
+          <div class="dropdown-content">
+          <a routerLink="/app-addhotel">Add Hotels</a>
+          <a routerLink="/app-searchhotel">Search Hotels</a>
+          <a routerLink="/app-viewhotel">View Hotels</a>
+          </div>
         </div>
+
       </li>
     </ul>
     <ul class="navbar-nav">

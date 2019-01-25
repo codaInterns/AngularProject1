@@ -4,19 +4,14 @@
   <mat-tab label="Search Hotel" (click)="OnSearchHotel()">  </mat-tab>
   <mat-tab label="View Hotel" (click)="OnViewHotel()">  </mat-tab>
   -->
-
-
-
-
- 
-    <ul>
-     
-      <li><a routerLink="/app-addhotel" routerLinkActive="active">Add Hotel</a></li>
-      <li><a routerLink="/app-searchhotel" routerLinkActive="active">Search hotel</a></li>
-      <li><a routerLink="/app-viewhotel" routerLinkActive="active">View hotel</a></li>
-    </ul>
- 
-  
-
-
-
+    <div class="dropdown">
+      <button class="dropbtn">Dropdown</button>
+      <div class="dropdown-content">
+          <a routerLink="/app-addhotel" routerLinkActive="active">Add Hotel</a>
+          <a routerLink="/app-searchhotel" routerLinkActive="active">Search hotel</a>
+          <a routerLink="/app-viewhotel" routerLinkActive="active">View hotel</a>
+      </div>
+    </div>
+    
+    
+    

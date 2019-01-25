@@ -8,7 +8,8 @@ describe('NavFeatureComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NavFeatureComponent ]
+      declarations: [ NavFeatureComponent ],
+     
     })
     .compileComponents();
   }));

@@ -1,0 +1,42 @@
+.flight-container{
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+.card-header:first-child{
+    background: #454c4c;
+}
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link{
+    background: none;
+}
+.btn-primary{
+    background: #48b58f;
+    padding-left:30px;
+    padding-right:30px;
+    border:1px solid black;   
+}
+a .btn-primary {
+    color:white;
+}
+.btn-primary:hover{
+    background: #337c63;
+}
+#row1{
+    margin:20px; 
+}
+
+.button{
+    margin-top:20px;
+}
+.radio-text{
+    padding:10px;
+    text-align: center
+}
+.card-title{
+    font-size:30px;
+}
+input[type=text]{
+    width:100%;
+}
+input[type=text]:hover{
+    padding:5px;
+}

@@ -92,11 +92,7 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     DashboardComponent,
-<<<<<<<<< Temporary merge branch 1
-    UserloginComponent
-    
-  
-=========
+    UserloginComponent,
     FlightSearchComponent,
     FlightSearchResultComponent,
     CardsComponent,
@@ -108,7 +104,7 @@ const appRoutes: Routes = [
 
     
     BookedComponent,
-
+    RegisterComponent,
     AddhotelComponent,
     SearchhotelComponent,
     HeaderComponent,

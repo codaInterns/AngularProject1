@@ -8,11 +8,11 @@ export class EmailService {
   constructor(private http:HttpClient) { }
 
    public getUser(email:String,password:String){
-    var userData = {
+    const userData = {
       email : email,
       password : password
         
     };
-    return this.http.post("http://localhost:8080/api/jwt/",userData,{responseType: 'text'});
+    return this.http.post('http://localhost:8080/api/jwt/',userData,{responseType: 'text'});
   }
 }

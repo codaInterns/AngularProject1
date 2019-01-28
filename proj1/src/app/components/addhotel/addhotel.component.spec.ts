@@ -15,10 +15,8 @@ describe('AddhotelComponent', () => {
         RouterTestingModule,
         FormsModule,
         HttpClientModule,
-        ReactiveFormsModule
-        
-      ]
-       ,
+        ReactiveFormsModule       
+      ],       
       declarations: [ 
         AddhotelComponent,
 

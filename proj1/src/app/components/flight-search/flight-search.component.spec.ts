@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FlightSearchComponent } from './flight-search.component';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('FlightSearchComponent', () => {
   let component: FlightSearchComponent;
@@ -8,6 +9,7 @@ describe('FlightSearchComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports:[HttpClientModule],
       declarations: [ FlightSearchComponent ]
     })
     .compileComponents();

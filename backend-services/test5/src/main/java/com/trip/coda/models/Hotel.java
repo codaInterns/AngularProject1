@@ -62,18 +62,18 @@ public class Hotel {
 	}
 
 
-	public void setHotelPlace(String hotel_place) {
+	public void setHotelPlace(String hotelPlace) {
 		this.hotelPlace = hotelPlace;
 	}
 
 
-	public long getPrice() {
+	public long getHotelPrice() {
 		return hotelPrice;
 	}
 
 
-	public void setPrice(long price) {
-		this.hotelPrice = price;
+	public void setHotelPrice(long hotelPrice) {
+		this.hotelPrice = hotelPrice;
 	}
 
 
@@ -95,7 +95,9 @@ public class Hotel {
 	public void setHotelImage(String hotelImage) {
 		this.hotelImage = hotelImage;
 	}
-	
+
+
+
 	
 	
  

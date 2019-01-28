@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.test5.test5.models.hotels;
 import com.trip.coda.models.Hotel;
 
-public interface HotelRespository extends JpaRepository<Hotel, Integer>{
+public interface HotelInterface extends JpaRepository<Hotel, Integer>{
 	
 	
 

@@ -38,23 +38,12 @@ public long getFlightId() {
 @Column(name="price")
 private int flightPrice;
 
-public int getPrice() {
-	return flightPrice;
-}
 
-public void setPrice(int price) {
-	this.flightPrice = price;
-}
-
-
-public void setFlightId(long flightId) {
-	this.flightId = flightId;
-}
-
-public String getName() {
+public String getFlightName() {
 	return flightName;
 }
-public void setName(String flightName) {
+
+public void setFlightName(String flightName) {
 	this.flightName = flightName;
 }
 
@@ -81,6 +70,19 @@ public String getDeparture() {
 public void setDeparture(String departure) {
 	this.departure = departure;
 }
+
+public int getFlightPrice() {
+	return flightPrice;
+}
+
+public void setFlightPrice(int flightPrice) {
+	this.flightPrice = flightPrice;
+}
+
+public void setFlightId(long flightId) {
+	this.flightId = flightId;
+}
+
 
 
 

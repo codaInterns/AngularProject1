@@ -1,4 +1,4 @@
-package com.test5.test5;
+package com.trip.coda;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class Test5ApplicationTests {
+public class ApplicationTests {
 
 	@Test
 	public void contextLoads() {

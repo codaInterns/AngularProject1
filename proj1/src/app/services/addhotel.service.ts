@@ -5,7 +5,7 @@ import { map, catchError, tap } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class AddhotelService {
+export class AddHotelService {
 
    endpoint = 'http://localhost:3000/api/v1/';
    httpOptions = {

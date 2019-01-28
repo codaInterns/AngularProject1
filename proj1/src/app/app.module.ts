@@ -26,7 +26,7 @@ import { TicketCardComponent } from "./components/ticket-card/ticket-card.compon
 import { BookingComponent } from './views/booking/booking.component';
 import { BookedComponent } from './components/booked/booked.component';
 import { TokenInterceptor } from './services/token.service';
-import { SearchhotelComponent } from './Components/searchhotel/searchhotel.component';
+import { SearchHotelComponent } from './Components/searchhotel/searchhotel.component';
 import { HeaderComponent } from './components/header/header.component';
 import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -48,7 +48,7 @@ const appRoutes: Routes = [
   },
   {
     path: "app-searchhotel",
-    component: SearchhotelComponent
+    component: SearchHotelComponent
   },
   {
     path:"app-addhotel",
@@ -106,7 +106,7 @@ const appRoutes: Routes = [
     BookedComponent,
     RegisterComponent,
     AddhotelComponent,
-    SearchhotelComponent,
+    SearchHotelComponent,
     HeaderComponent,
     ViewhotelComponent,
     LandingComponent

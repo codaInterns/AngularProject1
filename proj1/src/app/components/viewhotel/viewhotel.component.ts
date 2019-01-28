@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { AddhotelService } from '../../services/addhotel.service';
+import { AddHotelService } from '../../services/addhotel.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class ViewhotelComponent implements OnInit {
 
   
-  constructor(private addhotel:AddhotelService,private route:Router,private http:HttpClient) { }
+  constructor(private addhotel:AddHotelService,private route:Router,private http:HttpClient) { }
   products:any = [{}];
   ngOnInit() {
 

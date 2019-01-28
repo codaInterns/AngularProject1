@@ -19,18 +19,15 @@ export class TicketCardComponent implements OnInit {
   }
 
   onConfirmBook(){
-    console.log("booked");
     this.myService.bookTicket(this.ticket).subscribe(
       (data: HttpResponse<any>) => {
         if(data.status == 200){
           this.routes.navigate(['/ticketBooked']);
         }
       },
-      error => {
-        console.log("Invalid response"); 
+      error => { 
         alert('Please Login before Booking');
         this.routes.navigate(['/login']);      
       });
-    //this.myservice.bookTicket()
   }
 }

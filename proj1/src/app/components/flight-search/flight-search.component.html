@@ -60,18 +60,18 @@
           </div>
           <div class="col-lg-4"  >             
              <div class="radio">
-                <label><input type="radio" name="optradio" value="One Way"#type ><span class="radio-text">One way</span></label>
+                <label><input type="radio" name="opt" value="One Way"#type ><span class="radio-text">One way</span></label>
               </div>
               <div class="radio">
-                <label><input type="radio" name="optradio" value="Two-way" #type><span class="radio-text">Two-way</span></label>
+                <label><input type="radio" name="opt" value="Two-way" #type><span class="radio-text">Two-way</span></label>
               </div>
               <div class="radio disabled">
-                <label><input type="radio" name="optradio" value="Round-trip" #type><span class="radio-text">Round-trip</span></label>
+                <label><input type="radio" name="opt" value="Round-trip" #type><span class="radio-text">Round-trip</span></label>
               </div> 
           </div>
         </div>
         <div class="button">
-        <button  class="btn btn-primary" [disabled]="isdisabled" (click)="onSubmit(searchForm.value)">Submit</button>
+        <button  class="btn btn-primary" [disabled]="isDisabled" (click)="onSubmit(searchForm.value)">Submit</button>
       </div>
       </form>
     </div>

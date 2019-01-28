@@ -7,13 +7,11 @@ import { HttpClientModule, HttpClient, HttpHeaders } from '@angular/common/http'
 export class BookServiceService {
 
   private details:any;
-
   token:any;
 
   constructor(private http:HttpClient) { }
 
   setDetails(details:any){
-    console.log(details);
     this.details = details;
   }
 
@@ -26,6 +24,6 @@ export class BookServiceService {
     const headers= new HttpHeaders({
       'token':this.token
     })
-    return this.http.post("http://localhost:8080/JwtAuth/book/",bookDetails,{headers:headers,observe:'response' as 'body'});
+    return this.http.post('http://localhost:8080/JwtAuth/book/',bookDetails,{headers:headers,observe:'response' as 'body'});
   }
 }

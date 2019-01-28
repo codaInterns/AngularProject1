@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl,FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import { AddhotelService } from '../../services/addhotel.service';
+import { AddHotelService } from '../../services/addhotel.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -13,7 +13,7 @@ export class AddhotelComponent implements OnInit {
   registerForm: FormGroup;
   submitted = false;
 
-  constructor(private route:Router,private http:HttpClient,private addhotel:AddhotelService,private formBuilder:FormBuilder) { }
+  constructor(private route:Router,private http:HttpClient,private addhotel:AddHotelService,private formBuilder:FormBuilder) { }
 
   ngOnInit() {
 

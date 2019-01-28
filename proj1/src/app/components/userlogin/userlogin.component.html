@@ -1,31 +1,78 @@
-
-
 <div class="login-container">
   <div class="login">
-  <form [formGroup]="formdata" (ngSubmit)="onClickSubmit(formdata.value)">
-  <h1 class="login-title">Login Form</h1>  
-  
-   <input type="text" name="email" formControlName="email" [(ngModel)]="mid" class="login-input"  placeholder="Email Address" autofocus
-      >
-   <div>
-     <span class="error" *ngIf="(formdata.controls.email.required && formdata.controls.email.touched)">*Email is required</span>
-     <div class="error" *ngIf="(formdata.controls.email.invalid && formdata.controls.email.touched)">*Email must be a valid email address</div>
-   </div>
-   
-   <input type="password"  class="login-input" name="password" [(ngModel)] ="pwd" formControlName="password" placeholder="Password" 
-   />
-   <div>
-     <span class="error" *ngIf="(formdata.controls.password.required && formdata.controls.password.touched)">*Password is required</span>
-     <div class="error" *ngIf="(formdata.controls.password.invalid && formdata.controls.password.touched)">*password must contain atleast one upper case ,lowercase, special character , number and length =8</div>
-   </div>
+    <form
+      [formGroup]="formdata"
+      (ngSubmit)="onClickSubmit(formdata.value, formdata)"
+    >
+      <h1 class="login-title">Login Form</h1>
 
-  <input type="submit" value="Log in" class="login-button"> 
-    
-  <p id="p1" *ngIf="isValidUser(formdata.controls.password,formdata.controls.email)">Username or Password incorrect !</p>
+      <input
+        type="text"
+        name="email"
+        formControlName="email"
+        [(ngModel)]="mid"
+        class="login-input"
+        placeholder="Email Address"
+        autofocus
+      />
+      <div>
+        <span
+          class="error"
+          *ngIf="
+            formdata.controls.email.required && formdata.controls.email.touched
+          "
+          >*Email is required</span
+        >
+        <div
+          class="error"
+          *ngIf="
+            formdata.controls.email.invalid && formdata.controls.email.touched
+          "
+        >
+          *Email must be a valid email address
+        </div>
+      </div>
 
-  </form>
+      <input
+        type="password"
+        class="login-input"
+        name="password"
+        [(ngModel)]="pwd"
+        formControlName="password"
+        placeholder="Password"
+      />
+      <div>
+        <span
+          class="error"
+          *ngIf="
+            formdata.controls.password.required &&
+            formdata.controls.password.touched
+          "
+          >*Password is required</span
+        >
+        <div
+          class="error"
+          *ngIf="
+            formdata.controls.password.invalid &&
+            formdata.controls.password.touched
+          "
+        >
+          *password must contain atleast one upper case ,lowercase, special
+          character , number and length =8
+        </div>
+      </div>
+      <div>
+        <input type="submit" value="Log in" class="login-button" />
+
+        <p
+          id="p1"
+          *ngIf="
+            isValidUser(formdata.controls.password, formdata.controls.email)
+          "
+        >
+          Username or Password incorrect !
+        </p>
+      </div>
+    </form>
+  </div>
 </div>
-</div>
-
-
-

@@ -9,7 +9,6 @@ import org.springframework.context.annotation.ComponentScan;
 import com.test5.test5.filters.AuthFilter;
 
 @SpringBootApplication
-
 @ComponentScan({"com.test5.test5"})
 
 public class Test5Application {

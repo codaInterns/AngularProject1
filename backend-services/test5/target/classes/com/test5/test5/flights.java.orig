@@ -36,8 +36,12 @@ private int price;
 public long getFlights_id() {
 	return flights_id;
 }
+<<<<<<< HEAD
 @Column(name="price")
 private int price;
+=======
+
+>>>>>>> 44186f4ed186164fccc105d1aada7a636a1d2fa9
 
 public int getPrice() {
 	return price;

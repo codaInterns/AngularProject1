@@ -18,7 +18,7 @@ public class Userpogo {
 	private String name;
 	
 	@Column(name="flight_id")
-	private int Flight_id;
+	private String Flight_id;
 	
 	@Column(name="flight_name")
 	private String flight_name;
@@ -31,11 +31,11 @@ public class Userpogo {
 		this.flight_name = flight_name;
 	}
 
-	public int getFlight_id() {
+	public String getFlight_id() {
 		return Flight_id;
 	}
 
-	public void setFlight_id(int flight_id) {
+	public void setFlight_id(String flight_id) {
 		Flight_id = flight_id;
 	}
 

@@ -1,4 +1,4 @@
-package com.example.Booking.Book.Exception;
+package com.example.Booking.Book.Model;
 
 public class Errorpogo {
 	private int code;

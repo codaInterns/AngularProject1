@@ -46,8 +46,7 @@ public class FlightsControllerTest {
 		 		 .andExpect(MockMvcResultMatchers.jsonPath("$[*].name").exists())
 		 		 .andDo(print());
 		 		 
-		// assertThat(response.getStatus(),is(equalTo(200)));
-		 
+		// assertThat(response.getStatus(),is(equalTo(200))); 
 	 }
 	 @Test
 	 public void testGetFlights() throws Exception{
@@ -63,6 +62,5 @@ public class FlightsControllerTest {
 		 		 .andExpect(MockMvcResultMatchers.jsonPath("$[*].name").exists())
  		         .andDo(print());
 		 //assertThat(response.getStatus(),is(equalTo(200)));
-	 }
-	
+	 }	
 }

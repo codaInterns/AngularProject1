@@ -6,8 +6,10 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import org.springframework.beans.TypeMismatchException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,11 +29,12 @@ import com.example.Booking.Book.Model.Userpogo;
 import com.example.Booking.Book.Model.status;
 import com.example.Booking.Book.repo.FlightRepo;
 import com.example.Booking.Book.repo.UserRepo;
+import com.fasterxml.jackson.databind.exc.InvalidFormatException;
 
 @ControllerAdvice
 @RestController
 @RequestMapping("/book")
-public class BookingController extends ResponseEntityExceptionHandler
+public class BookingController
 {
 	@Autowired
 	private FlightRepo book_repo;
@@ -65,11 +68,25 @@ public class BookingController extends ResponseEntityExceptionHandler
 		return cap;
 	}
 	
-	@PostMapping(path="/booking",produces="application/json",consumes="application/json")
-	public status booking(@Valid @RequestBody(required=false) Userpogo bform,BindingResult bs) throws BadRequest
+	@PostMapping(path="/bookingc",produces="application/json",consumes="application/json")
+	public UserBooked bookingcheck(@RequestBody(required=false) UserBooked bform,BindingResult bs) 
 	{
-		if(bform==null)
+		int fid=Integer.parseInt(bform.getFname());
+		
+		return bform;
+		
+	}
+	
+	@PostMapping(path="/booking",produces="application/json",consumes="application/json")
+	public status booking(@Valid @RequestBody(required=false) UserBooked bform,BindingResult bs) 
+	{
+		status s=new status();
+		
+//		try {
+		if(bform==null) {
+			System.out.println("hello");
 		throw new CustomizedExcp(404,"NOT_FOUND");
+		}
 			//throw new RuntimeException(HttpStatus.NOT_FOUND.toString());
 		if(bs.hasErrors()) {
 			System.out.println("hii");
@@ -77,10 +94,10 @@ public class BookingController extends ResponseEntityExceptionHandler
 		}
 		List<FlightPogo> all_flight=book_repo.findAll();
 		Iterator<FlightPogo> itr=all_flight.iterator();
-	 	System.out.println(bform.getFlight_id());
+	 	System.out.println(bform.getFname());
 		int fid;
 		try {
-		 fid=bform.getFlight_id();
+		 fid=Integer.parseInt(bform.getFname());
 			System.out.println(fid);
 		}catch(Exception e)
 		{
@@ -88,7 +105,6 @@ public class BookingController extends ResponseEntityExceptionHandler
 		}
 		int seats=bform.getSeats_booked();
 	
-		status s=new status();
 		Userpogo up=new Userpogo();
 		int f=0;
 		FlightPogo ff=book_repo.getOne(fid);;
@@ -107,11 +123,11 @@ public class BookingController extends ResponseEntityExceptionHandler
 				{
 				if((fp.getAvail_capacity()-seats)>0){
 					f=1;
-				System.out.println(bform.getFlight_id()+'\n'+bform.getName()+"\n"+bform.getSeats_booked());
-				up.setFlight_id(fid);				
+				System.out.println(bform.getFname()+'\n'+"\n"+bform.getSeats_booked());
+				up.setFlight_id(bform.getFname());			
 
 				ff.setAvail_capacity(fp.getAvail_capacity()-seats);
-				up.setName(bform.getName());
+				up.setName(bform.getUname());
 				up.setSeats_booked(seats);
 				up.setFlight_name(fp.getFlight_name());
 				System.out.println(up);
@@ -126,6 +142,12 @@ public class BookingController extends ResponseEntityExceptionHandler
 		{
 			s.setMessage("The number of seats you booked is not sufficient ");	 
 		}
+//		}catch(Exception e)
+//		{
+//			//e.printStackTrace();
+//			System.out.println("hiii");
+//			throw new HttpMessageNotReadableException(e.toString());
+//		}
 		return s;
 	}	
 	

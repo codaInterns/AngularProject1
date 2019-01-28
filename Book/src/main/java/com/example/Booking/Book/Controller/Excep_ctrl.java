@@ -1,10 +1,12 @@
-package com.example.Booking.Book.Exception;
+package com.example.Booking.Book.Controller;
 
 
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.omg.CORBA.NO_RESPONSE;
+import org.springframework.beans.TypeMismatchException;
 import org.springframework.boot.webservices.client.HttpWebServiceMessageSenderBuilder;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -22,13 +24,15 @@ import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
+import com.example.Booking.Book.Exception.CustomizedExcp;
+import com.example.Booking.Book.Model.Errorpogo;
+
 @ControllerAdvice
-@RestController
 public class Excep_ctrl extends ResponseEntityExceptionHandler{
 	@ExceptionHandler({CustomizedExcp.class})
 	public  ResponseEntity<Object> handleCustomExc(CustomizedExcp ex,WebRequest req)
 	{
-		
+		System.out.println("hiii from exception controller");
      	Errorpogo ep=new Errorpogo();
      	ep.setCode(ex.getCode());
      	ep.setMessage(ex.getMessage());
@@ -45,14 +49,31 @@ public class Excep_ctrl extends ResponseEntityExceptionHandler{
 //	    }	
 
 	
-//	@ResponseStatus(HttpStatus.BAD_REQUEST)
+	@ExceptionHandler(Exception.class)
+	public ResponseEntity<Object> handleMethodArgumentNotValid(Exception e,HttpHeaders headers, HttpStatus status, WebRequest request) {
+		System.out.println("hiii from exception controllersss");
+		Errorpogo ep=new Errorpogo();
+		ep.setMessage(e.getLocalizedMessage());
+		System.out.println("e.getLocalizedMessage()");
+		ep.setCode(HttpStatus.BAD_REQUEST.value());
+		return new ResponseEntity<>(ep,HttpStatus.BAD_REQUEST);
+	}
+	
+	//@ExceptionHandler(HttpMessageNotReadableException.class)
+	
+	
+	
 //	@ExceptionHandler(value= {MethodArgumentNotValidException.class})
-//	public ResponseEntity<Object> handleallException(MethodArgumentNotValidException e,HttpServletRequest req)
+//	public ResponseEntity<Object> handleException(MethodArgumentNotValidException e,HttpServletRequest req)
 //	{
+//		System.out.println("hiii from exception controller");
 //		Errorpogo ep=new Errorpogo();
 //		ep.setMessage(e.getLocalizedMessage());
 //		System.out.println(e.getLocalizedMessage());
 //		ep.setCode(HttpStatus.BAD_REQUEST.value());
 //		return new ResponseEntity<>(ep,HttpStatus.BAD_REQUEST);
 //	}
+//	
+	
 }
+

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import {AddHotelService } from '../../services/addHotel.service';
 import { Router } from '@angular/router';
-import { AddHotelService } from 'src/app/services/addhotel.service';
 
 @Component({
   selector: 'app-searchhotel',
@@ -9,23 +9,20 @@ import { AddHotelService } from 'src/app/services/addhotel.service';
   styleUrls: ['./searchhotel.component.css']
 })
 export class SearchHotelComponent implements OnInit {
-
-  constructor(private addHotel:AddHotelService,private route:Router,private http:HttpClient) { }
-  
-  setForm:boolean=false;
-  products:any = [];
+  isSetForm: boolean = false;
+  products: any = [];
   model: any = {};
 
-  ngOnInit() {
-  }
+  constructor(private addHotel: AddHotelService, private route: Router, private http: HttpClient) { } 
+
+  ngOnInit() { }
   
-  onSubmit() {  
-    this.addHotel.getProduct(this.model).subscribe(data => {
-      this.setForm=true;
-      this.products = data
+  onSubmit() {
+      this.addHotel.getProduct(this.model).subscribe(data => {
+      this.isSetForm = true;
+      this.products = data;
     });
-    
-  }
-  
+
+  } 
 }
 

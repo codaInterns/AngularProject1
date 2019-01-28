@@ -1,4 +1,4 @@
-package com.test5.test5.controllers;
+package com.trip.coda.controllerss
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -6,15 +6,15 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.test5.test5.models.HotelInput;
 import com.test5.test5.models.hotels;
-import com.test5.test5.repo.hotelrespository;
+import com.trip.coda.models.Hotel;
+import com.trip.coda.models.HotelInput;
+import com.trip.coda.repo.HotelRespository;
 
 
 
@@ -26,19 +26,19 @@ public class hotelcontroller {
 
 
 	@Autowired 
-	private hotelrespository repo;
+	private HotelRespository repo;
 	
 	
 // retrival of all hotels
 	@GetMapping("/gethotels")
-	public List<hotels> getAllHotels(){
+	public List<Hotel> getAllHotels(){
 		return repo.findAll();
 	}
 	
 
 //retrival of location based hotel
 	@PostMapping(path="/getHotel/" ,consumes = "application/json" , produces = "application/json")
-	public List<hotels> getHotels(@RequestBody HotelInput hi)
+	public List<Hotel> getHotels(@RequestBody HotelInput hi)
 			{
 		// System.out.println("hii");
 		List<hotels> hotelList=repo.findAll();

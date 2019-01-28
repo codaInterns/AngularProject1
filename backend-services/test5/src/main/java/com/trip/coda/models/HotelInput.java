@@ -1,43 +1,43 @@
-package com.test5.test5.models;
+package com.trip.coda.models;
 
 import javax.persistence.Column;
 
 public class HotelInput {
 	
-	private String hotel_name;
-	private String hotel_place;
-	private long price;
-	private String hotel_description;
-	private String hotel_image;
-	public String getHotel_name() {
-		return hotel_name;
+	private String hotelName;
+	private String hotelPlace;
+	private long hotelPrice;
+	private String hotelDescription;
+	private String hotelImage;
+	public String gethotelname() {
+		return hotelName;
 	}
-	public void setHotel_name(String hotel_name) {
-		this.hotel_name = hotel_name;
+	public void sethotelname(String hotelName) {
+		this.hotelName = hotelName;
 	}
-	public String getHotel_place() {
-		return hotel_place;
+	public String gethotelplace() {
+		return hotelPlace;
 	}
-	public void setHotel_place(String hotel_place) {
-		this.hotel_place = hotel_place;
+	public void sethotelplace(String hotelPlace) {
+		this.hotelPlace = hotelPlace;
 	}
 	public long getPrice() {
-		return price;
+		return hotelPrice;
 	}
-	public void setPrice(long price) {
-		this.price = price;
+	public void setPrice(long hotelPrice) {
+		this.hotelPrice = hotelPrice;
 	}
-	public String getHotel_description() {
-		return hotel_description;
+	public String gethoteldescription() {
+		return hotelDescription;
 	}
-	public void setHotel_description(String hotel_description) {
-		this.hotel_description = hotel_description;
+	public void sethoteldescription(String hoteldescription) {
+		this.hotelDescription = hoteldescription;
 	}
-	public String getHotel_image() {
-		return hotel_image;
+	public String gethotelimage() {
+		return hotelImage;
 	}
-	public void setHotel_image(String hotel_image) {
-		this.hotel_image = hotel_image;
+	public void sethotelimage(String hotelimage) {
+		this.hotelImage = hotelimage;
 	}
 	
 	

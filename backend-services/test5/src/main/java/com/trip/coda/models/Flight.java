@@ -1,4 +1,4 @@
-package com.test5.test5.models;
+package com.trip.coda.models;
 import javax.annotation.Generated;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,13 +13,13 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @Entity
 @Table(name="flights")
 @EntityListeners(AuditingEntityListener.class)
-public class flights {
+public class Flight {
 @Id
 @GeneratedValue(strategy=GenerationType.AUTO)
-private long flights_id;
+private long flightId;
 
 @Column(name="name ")
-private String name;
+private String flightName;
 
 @Column(name="source")
 private String source;
@@ -31,32 +31,31 @@ private String destination;
 private String departure;
 
 
-public long getFlights_id() {
-	return flights_id;
+public long getFlightId() {
+	return flightId;
 }
 
 @Column(name="price")
-private int price;
+private int flightPrice;
 
 public int getPrice() {
-	return price;
+	return flightPrice;
 }
 
 public void setPrice(int price) {
-	this.price = price;
+	this.flightPrice = price;
 }
 
 
-public void setFlights_id(long flights_id) {
-	this.flights_id = flights_id;
+public void setFlightId(long flightId) {
+	this.flightId = flightId;
 }
 
 public String getName() {
-	return name;
+	return flightName;
 }
-
-public void setName(String name) {
-	this.name = name;
+public void setName(String flightName) {
+	this.flightName = flightName;
 }
 
 public String getSource() {

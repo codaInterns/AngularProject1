@@ -1,20 +1,20 @@
-package com.test5.test5.models;
+package com.trip.coda.models;
 
-public class bookInput {
-	private int flights_id;
-	private String name,source,destination,departure;
+public class BookingInput {
+	private int userId;
+	private String flightName,source,destination,departure;
 	
-	public int getFlights_id() {
-		return flights_id;
+	public int getUserId() {
+		return userId;
 	}
-	public void setFlights_id(int flights_id) {
-		this.flights_id = flights_id;
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 	public String getName() {
-		return name;
+		return flightName;
 	}
 	public void setName(String name) {
-		this.name = name;
+		this.flightName = name;
 	}
 	public String getSource() {
 		return source;

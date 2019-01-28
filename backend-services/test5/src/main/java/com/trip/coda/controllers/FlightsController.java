@@ -1,4 +1,4 @@
-package com.test5.test5.controllers;
+package com.trip.coda.controllers;
 
 
 import java.util.ArrayList;
@@ -22,9 +22,9 @@ import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.auth0.jwt.interfaces.DecodedJWT;
-import com.test5.test5.models.FlightInput;
-import com.test5.test5.models.flights;
-import com.test5.test5.repo.FlightsInterface;
+import com.trip.coda.models.Flight;
+import com.trip.coda.models.FlightInput;
+import com.trip.coda.repo.FlightsInterface;
 
 
 
@@ -40,19 +40,19 @@ private FlightsInterface repo;
 
 
 @GetMapping("/getFlights")
-public List<flights> getAllFlights(){
+public List<Flight> getAllFlights(){
 	return repo.findAll();
 }
 
 @PostMapping(path="/getFlight/" ,consumes = "application/json" , produces = "application/json")
-public List<flights> getFlights(@RequestBody FlightInput fi)
+public List<Flight> getFlights(@RequestBody FlightInput fi)
 		{
 	
-	List<flights> flightList=repo.findAll();
-	Iterator<flights> flightIter=flightList.iterator();
-	List<flights> selectedList=new ArrayList<flights>();
+	List<Flight> flightList=repo.findAll();
+	Iterator<Flight> flightIter=flightList.iterator();
+	List<Flight> selectedList=new ArrayList<Flight>();
 	while(flightIter.hasNext()) {
-		flights f1=flightIter.next();
+		Flight f1=flightIter.next();
 		if(f1.getDestination().equals(fi.getDestination())&&f1.getSource().equals(fi.getSource())) {
 			selectedList.add(f1);
 		}

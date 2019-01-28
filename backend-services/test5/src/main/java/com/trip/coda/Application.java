@@ -1,4 +1,4 @@
-package com.test5.test5;
+package com.trip.coda;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6,13 +6,14 @@ import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 
-import com.test5.test5.filters.AuthFilter;
+import com.trip.coda.filters.AuthFilter;
+
 
 @SpringBootApplication
 
-@ComponentScan({"com.test5.test5"})
+@ComponentScan({"com.trip.coda"})
 
-public class Test5Application {
+public class Application {
 
 	@Bean
 	public FilterRegistrationBean<AuthFilter> loggingFilter(){
@@ -25,7 +26,7 @@ public class Test5Application {
 	    return authBean;    
 	}
 	public static void main(String[] args) {
-		SpringApplication.run(Test5Application.class, args);
+		SpringApplication.run(Application.class, args);
 	}
 
 }

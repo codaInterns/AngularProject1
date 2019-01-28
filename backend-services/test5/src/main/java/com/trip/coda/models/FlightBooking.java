@@ -1,4 +1,4 @@
-package com.test5.test5.models;
+package com.trip.coda.models;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
@@ -10,16 +10,16 @@ import javax.persistence.Table;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @Entity
-@Table(name="booking")
+@Table(name="BookingTable")
 @EntityListeners(AuditingEntityListener.class)
-public class Book {
+public class FlightBooking {
 
 @Id
 @GeneratedValue(strategy=GenerationType.AUTO)
-private long book_id;
+private long bookingId;
 
 @Column(name="name")
-private String name;
+private String flightName;
 
 @Column(name="source")
 private String source;
@@ -31,28 +31,29 @@ private String destination;
 private String departure;
 
 @Column(name="user_id")
-private String user_id;
+private String userId;
 
-public String getUser_id() {
-	return user_id;
+
+public String getUserId() {
+	return userId;
 }
-public void setUser_id(String user_id) {
-	this.user_id=user_id;
+public void setUserId(String userId) {
+	this.userId=userId;
 }
-public long getBook_id() {
-	return book_id;
+public long getBookingId() {
+	return this.bookingId;
 }
 
-public void setBook_id(long book_id) {
-	this.book_id = book_id;
+public void setBookingId(long bookingId) {
+	this.bookingId = bookingId;
 }
 
 public String getName() {
-	return name;
+	return flightName;
 }
 
 public void setName(String name) {
-	this.name = name;
+	this.flightName = flightName;
 }
 
 public String getSource() {

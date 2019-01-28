@@ -1,4 +1,4 @@
-package com.test5.test5.models;
+package com.trip.coda.models;
 
 public class FlightInput {
 private String source;

@@ -1,4 +1,4 @@
-package com.test5.test5.repo;
+package com.trip.coda.repo;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

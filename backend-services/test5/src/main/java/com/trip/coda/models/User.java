@@ -1,4 +1,4 @@
-package com.test5.test5.models;
+package com.trip.coda.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -7,40 +7,40 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import com.test5.test5.validators.ValidEmail;
-import com.test5.test5.validators.ValidPassword;
+import com.trip.coda.validators.ValidEmail;
+import com.trip.coda.validators.ValidPassword;
 
 
 @Entity
 @Table(name="users")
-public class UserDB {
+public class User {
 @Id
 @GeneratedValue(strategy=GenerationType.AUTO)
-private int id;	
+private int userId;	
 @Column(name="email")
 @ValidEmail
-private String email;
+private String userEmail;
 @Column(name="password")
 @ValidPassword
-private String password;
+private String userPassword;
 
 public int getId() {
-	return id;
+	return userId;
 }
 public void setId(int id) {
-	this.id = id;
+	this.userId = id;
 }
 
 public String getEmail() {
-	return email;
+	return userEmail;
 }
 public void setEmail(String email) {
-	this.email = email;
+	this.userEmail = email;
 }
 public String getPassword() {
-	return password;
+	return userPassword;
 }
 public void setPassword(String password) {
-	this.password = password;
+	this.userPassword = password;
 }
 }

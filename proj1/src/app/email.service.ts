@@ -6,16 +6,13 @@ import {HttpClient} from '@angular/common/http';
 export class EmailService {
 
   constructor(private http:HttpClient) {
-
    }
 
    public getUser(email:String,password:String){
     var options = {
       email : email,
       password : password
-        
     };
-     return this.http.post("http://localhost:8080/api/jwt/",options,{responseType: 'text'});
-
+     return this.http.post('http://localhost:8080/api/jwt/',options,{responseType: 'text'});
    }
 }

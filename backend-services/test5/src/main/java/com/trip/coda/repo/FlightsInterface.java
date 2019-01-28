@@ -2,11 +2,8 @@ package com.trip.coda.repo;
 
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import com.trip.coda.models.Flight;
 
-import com.test5.test5.models.flights;
-
-
-
-public interface FlightsInterface extends JpaRepository<flights, Long> {
+public interface FlightsInterface extends JpaRepository<Flight, Long> {
 
 }

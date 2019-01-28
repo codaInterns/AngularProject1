@@ -12,7 +12,6 @@ import { SimpleChanges } from '@angular/core';
 })
 export class UserloginComponent implements OnInit , OnChanges {
 
-
   pristine = true;
   submitted = false;
   formdata;
@@ -20,8 +19,11 @@ export class UserloginComponent implements OnInit , OnChanges {
   mid;
   passcheck = false;
   emailcheck = false;
+  isUserValid:boolean = true;
+
   constructor(private router: Router, private formBuilder: FormBuilder, private email: EmailService) { 
   }
+
   hasClass(e1:any)
   {
     var classes = [];
@@ -91,19 +93,15 @@ export class UserloginComponent implements OnInit , OnChanges {
       this.router.navigate(['/flights']);
     }
     else{
-      alert('Invalid User! Please Register ');
-      this.router.navigate(['/register']);
+      this.isUserValid = false;
     }
 
     });
-
-
-
   }
 
-
-
-
-
+  isValidUser(password,email){
+    console.log(password.touched);
+    console.log(email.touched);
+  }
 
 }

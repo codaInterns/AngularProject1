@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl,FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { RegisterServiceService } from '../../services/register-service.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { checkAndUpdatePureExpressionDynamic } from '@angular/core/src/view/pure_expression';
 @Component({
   selector: 'app-register',
@@ -11,9 +11,12 @@ import { checkAndUpdatePureExpressionDynamic } from '@angular/core/src/view/pure
 })
 export class RegisterComponent implements OnInit {
   formdata:FormGroup;
-  customerdata;
+  customerdata:any;
   submitted= false;
-  constructor(private http: HttpClient,private formBuilder:FormBuilder,private registerServe: RegisterServiceService, private route: Router) { }
+  errorMsg:string;
+
+  constructor(private http: HttpClient,private formBuilder:FormBuilder,private registerServe: RegisterServiceService, 
+              private route: Router,private routes:ActivatedRoute) { }
 
 
   stateCtrl: FormControl;
@@ -26,8 +29,7 @@ export class RegisterComponent implements OnInit {
       password:["",[Validators.required,Validators.pattern("(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}"
 
       )]],
-    }
-      
+    } 
     );
   }
   get f() { return this.formdata.controls; }

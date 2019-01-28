@@ -72,7 +72,7 @@ const appRoutes: Routes = [
     component: BookedComponent
   },
   {
-    path : "flights",
+    path: "flights",
     component : FlightsComponent
   },
   {
@@ -80,10 +80,9 @@ const appRoutes: Routes = [
     component: ViewHotelComponent
   },
   {
-    path : "login",
-    component : UserloginComponent
-
- }
+    path: "login",
+    component: UserloginComponent
+  }
   
 ];
 

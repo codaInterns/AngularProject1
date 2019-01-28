@@ -1,33 +1,29 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { AddHotelService } from '../../services/addhotel.service';
 import { Router } from '@angular/router';
-import { AddHotelService } from 'src/app/services/addhotel.service';
 
 @Component({
-  selector: 'app-searchhotel',
-  templateUrl: './searchhotel.component.html',
-  styleUrls: ['./searchhotel.component.css']
+  selector: 'app-viewhotel',
+  templateUrl: './viewhotel.component.html',
+  styleUrls: ['./viewhotel.component.css']
 })
-export class SearchHotelComponent implements OnInit {
+export class ViewHotelComponent implements OnInit {
 
+  products:any = [{}];
+  
   constructor(private addHotel:AddHotelService,private route:Router,private http:HttpClient) { }
   
-  setForm:boolean=false;
-  products:any = [];
-  model: any = {};
-
   ngOnInit() {
+    this.getProducts();  
   }
-  
-  onSubmit() {  
-    this.addHotel.getProduct(this.model).subscribe(data => {
-      this.setForm=true;
-      this.products = data
+ 
+  getProducts() {
+    this.products = [];
+    this.addHotel.getProducts().subscribe((data: {}) => {
+      this.products = data;
     });
-    
   }
-
   
   
 }
-

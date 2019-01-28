@@ -23,5 +23,6 @@ export class SearchHotelComponent implements OnInit {
       this.products = data;
     });
 
-  }
+  } 
 }
+

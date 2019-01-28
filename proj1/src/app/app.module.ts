@@ -15,7 +15,7 @@ import { UserloginComponent } from "./components/userlogin/userlogin.component";
 
 
 
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { BsDropdownModule } from "ngx-bootstrap/dropdown";
 import { TooltipModule } from "ngx-bootstrap/tooltip";
 import { ModalModule } from "ngx-bootstrap/modal";
@@ -28,9 +28,8 @@ import { BookedComponent } from './components/booked/booked.component';
 import { TokenInterceptor } from './services/token.service';
 import { SearchHotelComponent } from './Components/searchhotel/searchhotel.component';
 import { HeaderComponent } from './components/header/header.component';
-import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { ViewhotelComponent } from './components/viewhotel/viewhotel.component';
+import { ViewHotelComponent } from './components/viewhotel/viewhotel.component';
 import {FlightsComponent} from './views/flights/flights.component';
 import {DashboardComponent} from './views/dashboard/dashboard.component';
 import {FlightSearchComponent} from './components/flight-search/flight-search.component';
@@ -78,7 +77,7 @@ const appRoutes: Routes = [
   },
   {
     path:"app-viewhotel",
-    component: ViewhotelComponent
+    component: ViewHotelComponent
   },
   {
     path : "login",
@@ -108,7 +107,7 @@ const appRoutes: Routes = [
     AddhotelComponent,
     SearchHotelComponent,
     HeaderComponent,
-    ViewhotelComponent,
+    ViewHotelComponent,
     LandingComponent
 
   ],
@@ -127,11 +126,11 @@ const appRoutes: Routes = [
     FormsModule
   ],
   providers: [
-    // {
-    //   provide: HTTP_INTERCEPTORS,
-    //   useClass: TokenInterceptor,
-    //   multi: true
-    // },
+    {
+      provide: HTTP_INTERCEPTORS  ,
+      useClass: TokenInterceptor,
+      multi: true
+    },
     BrowserAnimationsModule
   ],
 

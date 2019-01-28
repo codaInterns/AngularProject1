@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormControl,FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import { AddHotelService } from '../../services/addHotel.service';
+import { AddHotelService } from '../../services/addhotel.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,15 +10,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./addhotel.component.css']
 })
 export class AddhotelComponent implements OnInit {
-
-
-
-  get f() { return this.registerForm.controls; }
   registerForm: FormGroup;
-  isSubmitted = false;
-  model: any = {};
-  constructor(private route: Router, private http: HttpClient, private addHotel: AddHotelService, private formBuilder: FormBuilder) { }
+  submitted = false;
 
+  constructor(private route:Router,private http:HttpClient,private addhotel:AddHotelService,private formBuilder:FormBuilder) { }
 
   ngOnInit() {
 
@@ -28,13 +23,21 @@ export class AddhotelComponent implements OnInit {
       hotel_place: ['', [Validators.required]],
       hotel_image: ['', [Validators.required]],
       price: ['', Validators.required]
-    });
-  }
+  });
+}
 
+// convenience getter for easy access to form fields
+get f() { return this.registerForm.controls; }
+  
+  model: any = {};
   onSubmit() {
-    this.addHotel.postUser(this.model);
-    this.isSubmitted = true;
-    this.route.navigate(['/app-viewhotel']);
+   // alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.model.value))
+   
+   this.addhotel.postUser(this.model);
+   //console.log(this.model);
+   this.submitted = true;
+
+   this.route.navigate(['/app-viewhotel']);
   }
 
 }

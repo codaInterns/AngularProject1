@@ -9,7 +9,6 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./flights.component.css']
 })
 export class FlightsComponent implements OnInit {
-
   
   flightAvailable:boolean=false;
   flightDetails:any;
@@ -19,7 +18,6 @@ export class FlightsComponent implements OnInit {
   userTo:any;
 
   constructor(private routes:ActivatedRoute) { }
-  
 
   ngOnInit() {
     this.userFrom = this.routes.snapshot.params['from'];
@@ -43,8 +41,5 @@ export class FlightsComponent implements OnInit {
     else
       this.noResult=false;
   }
-
- 
-
 
 }

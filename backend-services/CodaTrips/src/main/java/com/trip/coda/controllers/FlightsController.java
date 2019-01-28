@@ -25,6 +25,7 @@ import com.auth0.jwt.interfaces.DecodedJWT;
 import com.trip.coda.models.Flight;
 import com.trip.coda.models.FlightInput;
 import com.trip.coda.repo.FlightsInterface;
+import com.trip.coda.services.FlightService;
 
 
 
@@ -33,35 +34,21 @@ import com.trip.coda.repo.FlightsInterface;
 @CrossOrigin("http://localhost:4200")
 public class FlightsController {
 
-@Autowired 
-private FlightsInterface repo;
+FlightService flightservice;
 
 
-
-
-@GetMapping("/getFlights")
-public List<Flight> getAllFlights(){
-	return repo.findAll();
-}
-
-@PostMapping(path="/getFlight/" ,consumes = "application/json" , produces = "application/json")
-public List<Flight> getFlights(@RequestBody FlightInput fi)
-		{
+ @GetMapping("/getFlights")
+ public List<Flight> getAllFlights(){
 	
-	List<Flight> flightList=repo.findAll();
-	Iterator<Flight> flightIter=flightList.iterator();
-	List<Flight> selectedList=new ArrayList<Flight>();
-	while(flightIter.hasNext()) {
-		Flight f1=flightIter.next();
-		if(f1.getDestination().equals(fi.getDestination())&&f1.getSource().equals(fi.getSource())) {
-			selectedList.add(f1);
-		}
-		
-	}
-	System.out.println(selectedList);
-	return selectedList;
-		
-		}
+	return flightservice.getAllFlights();
+	
+ }
+
+ @PostMapping(path="/getFlight/" ,consumes = "application/json" , produces = "application/json")
+ public List<Flight> getFlights(@RequestBody FlightInput fi)
+ {
+	return flightservice.getFlights(fi);
+ }
 
 
 

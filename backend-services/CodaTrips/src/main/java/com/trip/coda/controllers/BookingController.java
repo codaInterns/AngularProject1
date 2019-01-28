@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.trip.coda.models.BookingInput;
 import com.trip.coda.repo.BookingInterface;
+import com.trip.coda.services.BookingService;
 
 
 
@@ -22,41 +23,12 @@ import com.trip.coda.repo.BookingInterface;
 @CrossOrigin("http://localhost:4200")
 public class BookingController {
 	
-	@Autowired
-	private BookingInterface bookingInterface;
-	private BookingInput input;
-	
+	BookingService bookingservice; 
+
 	@PostMapping(path = "/book/" , consumes = "application/json" , produces = "application/json")
 	public ResponseEntity<Boolean> postUser(@RequestBody BookingInput opt,final HttpServletRequest request)throws Exception {
 		
-		Boolean isBookingComplete = false;
-		String isValidAuth = (String) request.getAttribute("valid");
-		HttpHeaders responseHeaders = new HttpHeaders();
-		responseHeaders.set("Authentication", isValidAuth);
-		HttpStatus httpStatus = HttpStatus.OK;
 		
-		if(isValidAuth.equals("false")){
-			httpStatus=HttpStatus.FORBIDDEN;
-		}
-		else {
-			BookingInput bookingObject=new BookingInput();
-			try {
-				bookingObject.setName(opt.getName());
-				bookingObject.setDeparture(opt.getDeparture());
-				bookingObject.setDestination(opt.getDestination());
-				bookingObject.setSource(opt.getSource());
-				bookingObject.setUserId((String)request.getAttribute("userid"));
-				bookingInterface.save(bookingObject);
-				
-				System.out.println("VALID BOOKING");
-				
-				isBookingComplete = true;
-			}
-			catch(Exception ex) {
-				ex.printStackTrace();
-				httpStatus = HttpStatus.FORBIDDEN;
-			}
-		}
-		return new ResponseEntity<Boolean>(isBookingComplete,responseHeaders,httpStatus);
+		return bookingservice.postUser(opt, request);
 	}
 }

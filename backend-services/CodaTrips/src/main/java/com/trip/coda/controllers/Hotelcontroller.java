@@ -20,7 +20,7 @@ import com.trip.coda.services.HotelService;
 @RequestMapping("/api")
 
 	
-public  class hotelcontroller {
+public  class Hotelcontroller {
 
 	HotelService hotelservice;
 	
@@ -37,7 +37,7 @@ public  class hotelcontroller {
 	@PostMapping(path="/getHotel/" ,consumes = "application/json" , produces = "application/json")
 	public List<Hotel> gethotels(@RequestBody HotelInput hi)
 	{
-		List<Hotel> list=hotelservice.getHotels(hi.getHotel_place());
+		List<Hotel> list=hotelservice.getHotels(hi.getHotelPlace());
 		return list;
 	}
 

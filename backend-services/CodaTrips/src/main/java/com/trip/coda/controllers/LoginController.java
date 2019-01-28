@@ -1,7 +1,4 @@
-package com.test5.test5.controllers;
-
-import java.util.Iterator;
-import java.util.List;
+package com.trip.coda.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -11,49 +8,24 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.test5.test5.models.UserDB;
-import com.test5.test5.models.options;
-import com.test5.test5.repo.UserInterface;
+import com.trip.coda.models.AccountInput;
+import com.trip.coda.services.LoginService;
 
 @RestController
 @RequestMapping("/api")
 @CrossOrigin("http://localhost:4200")
 public class LoginController {
-    @Autowired
-	private UserInterface repo;
-	private options opt;
-    /*@GetMapping("/get")
-	public String Allid() {
-		return "hi";
-	}*/
+   
+	LoginService loginservice;
+	
 	@PostMapping(path = "/users/" , consumes = "application/json" , produces = "application/json")
-    public Boolean login(@RequestBody options opt){
-    	List<UserDB> list1= repo.findAll();
-    	Iterator<UserDB> listIterator=list1.iterator();
-    	while(listIterator.hasNext()) {
-    	     UserDB user=listIterator.next();
-    	     if(user.getEmail().equals(opt.getEmail()) && user.getPassword().equals(opt.getPassword()) ){
-    	    	 return true;
-    	     }
-    	    
-    	}
-    	return false;
+    public Boolean login(@RequestBody AccountInput opt){
+     
+		return loginservice.login(opt);
     }
 	@PostMapping(path = "/register/" , consumes = "application/json" , produces = "application/json")
-	public Boolean postUser(@RequestBody options opt) {
-		UserDB user1=new UserDB();
-		try {
-			user1.setEmail(opt.getEmail());
-			user1.setPassword(opt.getPassword());
-			repo.save(user1);
-			return true;
-		}
-		catch(Exception ex)
-		{
-			ex.printStackTrace();
-			return false;
-		}
+	public Boolean postUser(@RequestBody AccountInput opt) {
 		
+		return loginservice.postUser(opt);
 	}
 }

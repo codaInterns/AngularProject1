@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import com.trip.coda.models.Hotel;
+import com.trip.coda.models.HotelInput;
 import com.trip.coda.repo.HotelInterface;
 
 
@@ -24,13 +25,13 @@ public class HotelService {
 	public List<Hotel> getHotels(String location)
 	{
  
-        List<hotels> hotelList=repo.findAll();
-        Iterator<hotels> hotelIter=hotelList.iterator();
-        List<hotels> selectedList=new ArrayList<hotels>();
+        List<Hotel> hotelList=repo.findAll();
+        Iterator<Hotel> hotelIter=hotelList.iterator();
+        List<Hotel> selectedList=new ArrayList<Hotel>();
         while(hotelIter.hasNext())
         {
-	      hotels f1=hotelIter.next();
-	      if(f1.getHotel_place().equals(location))
+	      Hotel f1=hotelIter.next();
+	      if(f1.getHotelPlace().equals(location))
 	      {
 		  selectedList.add(f1);
 	      }
@@ -42,13 +43,13 @@ public class HotelService {
 	public boolean addhotel(HotelInput hi)
 	{
 		try {
-		hotels hotel = new hotels();
-		System.out.println(hi.getHotel_name());
-		hotel.setHotel_name(hi.getHotel_name());
-		hotel.setHotel_place(hi.getHotel_place());
-		hotel.setPrice(hi.getPrice());
-		hotel.setHotel_description(hi.getHotel_description());
-		hotel.setHotel_image(hi.getHotel_image());
+		Hotel hotel = new Hotel();
+		
+		hotel.setHotelName(hi.getHotelName());
+		hotel.setHotelPlace(hi.getHotelPlace());
+		hotel.setHotelPrice(hi.getHotelPrice());
+		hotel.setHotelDescription(hi.getHotelDescription());
+		hotel.setHotelImage(hi.getHotelImage());
 		repo.save(hotel);
 		
 		return true;

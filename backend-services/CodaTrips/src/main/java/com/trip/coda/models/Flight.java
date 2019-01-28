@@ -18,7 +18,7 @@ public class Flight {
 @GeneratedValue(strategy=GenerationType.AUTO)
 private long flightId;
 
-@Column(name="name ")
+@Column(name="name")
 private String flightName;
 
 @Column(name="source")

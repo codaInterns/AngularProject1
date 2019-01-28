@@ -8,14 +8,9 @@ import { HotDealsService } from 'src/app/services/hot-deals.service';
 })
 export class DashboardComponent implements OnInit {
 
-  
-
   constructor() { }
 
-  ngOnInit() {
-    
+  ngOnInit() {  
   }
-
-
-
+  
 }

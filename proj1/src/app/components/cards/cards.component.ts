@@ -13,10 +13,9 @@ export class CardsComponent implements OnInit {
   constructor(private routes:Router) {}
 
   ngOnInit() {
-  
   }
 
-  myFun(){
+  cardClicked(){
     this.routes.navigate(['/flights',this.city.source,this.city.destination]);
   }
 

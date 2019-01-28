@@ -11,13 +11,13 @@ export class FlightSearchResultComponent implements OnInit {
 
   @Input('flight') details:any;
 
-  constructor(private myservice:BookServiceService,private routes:Router) { }
+  constructor(private myService:BookServiceService,private routes:Router) { }
  
   ngOnInit() {
   }
 
   onBook(){
-    this.myservice.setDetails(this.details);
+    this.myService.setDetails(this.details);
     this.routes.navigate(['/booked']);
   }
 

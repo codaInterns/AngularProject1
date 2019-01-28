@@ -12,15 +12,15 @@ export class TicketCardComponent implements OnInit {
 
   ticket:any;
 
-  constructor(private myservice:BookServiceService,private routes:Router) { }
+  constructor(private myService:BookServiceService,private routes:Router) { }
 
   ngOnInit() {
-    this.ticket = this.myservice.getDetails();
+    this.ticket = this.myService.getDetails();
   }
 
   onConfirmBook(){
     console.log("booked");
-    this.myservice.bookTicket(this.ticket).subscribe(
+    this.myService.bookTicket(this.ticket).subscribe(
       (data: HttpResponse<any>) => {
         if(data.status == 200){
           this.routes.navigate(['/ticketBooked']);

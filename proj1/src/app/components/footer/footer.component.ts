@@ -10,12 +10,11 @@ import { Router } from '@angular/router';
 export class FooterComponent implements OnInit {
   city: any;
 
-  constructor(private myservice: FlightService) {}
+  constructor(private myService: FlightService) {}
 
   ngOnInit() {
-    this.myservice.getHotDeals().subscribe(res => {
+    this.myService.getHotDeals().subscribe(res => {
       this.city = res;
-      
     });
   }
 }

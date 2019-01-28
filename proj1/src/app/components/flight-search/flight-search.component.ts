@@ -26,9 +26,12 @@ export class FlightSearchComponent implements OnInit {
 
   serviceValue:{source:string,destination:string,departure:string};
   resValue:any;
-
   isdisabled:any;
- 
+  today:any;
+  output:any;
+
+  constructor(private myService:FlightService) { }
+
   search = (text$: Observable<String>) => 
     text$.pipe(
       debounceTime(200),
@@ -36,14 +39,12 @@ export class FlightSearchComponent implements OnInit {
       map(term => term.length < 2 ? [] :
         states.filter(v => v.toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0,10))
       )
-
-  constructor(private myservice:FlightService) { }
-        today;
+        
   ngOnInit() {
     this.today = new Date();
     console.log(this.fromValue);
   }
-  output:any;
+
   onSubmit(searchForm:any){
     
     if(searchForm.from==null || searchForm.to==null)
@@ -59,13 +60,10 @@ export class FlightSearchComponent implements OnInit {
     
     console.log(this.serviceValue.source);
 
-    
-    this.myservice.getFlights(this.serviceValue).subscribe(res => {
+    this.myService.getFlights(this.serviceValue).subscribe(res => {
       console.log(res);
       this.result.emit(res);
     });
-
-   
     
   }
 
@@ -76,7 +74,6 @@ export class FlightSearchComponent implements OnInit {
     }
     this.isdisabled = false;
     return false;
-        
   }
 
 }

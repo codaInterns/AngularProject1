@@ -15,13 +15,13 @@ export class AddHotelService {
 
   httpOptions = {
     headers: new HttpHeaders({
-      'Content-Type':  'application/json'
+      'Content-Type': 'application/json'
     })
   };
-  
+
   private extractData(res: Response) {
-    let body = res;
-    return body || { };
+    const body = res;
+    return body || {};
   }
 
   getProducts(): Observable<any> {
@@ -37,7 +37,7 @@ export class AddHotelService {
     });
   }
 
-  getProduct(data:any): Observable<any> {
-    return this.http.post("http://localhost:8080/api/getHotel/",data);
+  getProduct(data): Observable<any> {
+    return this.http.post("http://localhost:8080/api/getHotel/",data)
   }
 }

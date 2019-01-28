@@ -30,3 +30,4 @@ export class SearchHotelComponent implements OnInit {
   
   
 }
+}

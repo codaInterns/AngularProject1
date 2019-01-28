@@ -15,7 +15,7 @@ import { UserloginComponent } from "./components/userlogin/userlogin.component";
 
 
 
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { BsDropdownModule } from "ngx-bootstrap/dropdown";
 import { TooltipModule } from "ngx-bootstrap/tooltip";
 import { ModalModule } from "ngx-bootstrap/modal";
@@ -127,11 +127,11 @@ const appRoutes: Routes = [
     FormsModule
   ],
   providers: [
-    // {
-    //   provide: HTTP_INTERCEPTORS,
-    //   useClass: TokenInterceptor,
-    //   multi: true
-    // },
+    {
+      provide: HTTP_INTERCEPTORS  ,
+      useClass: TokenInterceptor,
+      multi: true
+    },
     BrowserAnimationsModule
   ],
 

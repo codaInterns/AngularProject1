@@ -6,19 +6,17 @@ import { HotDeals } from '../modals/hotDeals.modals';
   providedIn: "root"
 })
 export class FlightService {
-  constructor(private http: HttpClient) {}
 
   token:any;
   output:any;
 
+  constructor(private http: HttpClient) {}
+
   getFlights(searchDetails: any) {
-  
-    console.log("input"+searchDetails);
-    return this.http.post("http://localhost:8080/api/getFlight/", searchDetails);
-     
+    return this.http.post('http://localhost:8080/api/getFlight/', searchDetails);
   }
 
   getHotDeals() {
-    return this.http.get<HotDeals[]>("http://localhost:8080/api/getFlights");
+    return this.http.get<HotDeals[]>('http://localhost:8080/api/getFlights');
   }
 }

@@ -34,6 +34,7 @@ import com.trip.coda.services.FlightService;
 @CrossOrigin("http://localhost:4200")
 public class FlightsController {
 
+@Autowired
 FlightService flightservice;
 
 

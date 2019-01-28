@@ -5,6 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import com.trip.coda.models.Hotel;
@@ -12,7 +13,7 @@ import com.trip.coda.models.HotelInput;
 import com.trip.coda.repo.HotelInterface;
 
 
-
+@Service
 public class HotelService {
 	
 	@Autowired 
@@ -51,7 +52,7 @@ public class HotelService {
 		hotel.setHotelDescription(hi.getHotelDescription());
 		hotel.setHotelImage(hi.getHotelImage());
 		repo.save(hotel);
-		
+		System.out.println(hi.getHotelDescription());
 		return true;
 		}
 		catch(Exception ex)

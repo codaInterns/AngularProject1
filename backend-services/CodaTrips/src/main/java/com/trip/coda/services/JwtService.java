@@ -4,6 +4,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -14,6 +15,7 @@ import com.auth0.jwt.exceptions.JWTCreationException;
 import com.trip.coda.models.AccountInput;
 import com.trip.coda.models.User;
 
+@Service
 public class JwtService {
 
 	    @Autowired

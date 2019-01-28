@@ -6,12 +6,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import com.trip.coda.models.BookingInput;
+import com.trip.coda.models.FlightBooking;
 import com.trip.coda.repo.BookingInterface;
 
+@Service
 public class BookingService {
 	
 	@Autowired
@@ -30,7 +33,7 @@ public class BookingService {
 			httpStatus=HttpStatus.FORBIDDEN;
 		}
 		else {
-			BookingInput bookingObject=new BookingInput();
+			FlightBooking bookingObject=new FlightBooking();
 			try {
 				bookingObject.setFlightName(opt.getFlightName());
 				bookingObject.setDeparture(opt.getDeparture());
@@ -39,7 +42,7 @@ public class BookingService {
 				bookingObject.setUserId((String)request.getAttribute("userid"));
 				bookingInterface.save(bookingObject);
 				
-				System.out.println("VALID BOOKING");
+				//System.out.println("VALID BOOKING");
 				
 				isBookingComplete = true;
 			}

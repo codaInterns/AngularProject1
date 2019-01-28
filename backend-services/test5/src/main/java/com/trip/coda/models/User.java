@@ -23,23 +23,24 @@ private String userEmail;
 @Column(name="password")
 @ValidPassword
 private String userPassword;
-public int getUserId() {
+
+public int getId() {
 	return userId;
 }
-public void setUserId(int userId) {
-	this.userId = userId;
-}
-public String getUserEmail() {
-	return userEmail;
-}
-public void setUserEmail(String userEmail) {
-	this.userEmail = userEmail;
-}
-public String getUserPassword() {
-	return userPassword;
-}
-public void setUserPassword(String userPassword) {
-	this.userPassword = userPassword;
+public void setId(int id) {
+	this.userId = id;
 }
 
+public String getEmail() {
+	return userEmail;
+}
+public void setEmail(String email) {
+	this.userEmail = email;
+}
+public String getPassword() {
+	return userPassword;
+}
+public void setPassword(String password) {
+	this.userPassword = password;
+}
 }

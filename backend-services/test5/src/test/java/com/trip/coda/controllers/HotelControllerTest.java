@@ -1,4 +1,4 @@
-package com.trip.coda.controllers;
+package com.test5.test5.controllers;
 import static org.hamcrest.Matchers.containsString;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -23,8 +23,9 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.trip.coda.models.HotelInput;
-
+import com.test5.test5.models.FlightInput;
+import com.test5.test5.models.HotelInput;
+import com.test5.test5.models.options;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -64,11 +65,9 @@ public class HotelControllerTest {
 	 }
 	 @Test
 	 public void testaddHotel() throws Exception{
-		 HotelInput mockInput=new HotelInput();
-		 
-		 mockInput.sethoteldescription("good");
-		 mockInput.sethotelimage("n");
-		 mockInput.sethotelname("vijaya hotel");
+		 options mockInput=new options();
+		 mockInput.setEmail("new@olivecastle.com");
+		 mockInput.setPassword("test");
 		
 		 String json=mapper.writeValueAsString(mockInput);
 		 mockMvc.perform(post("/api/addhotel/")

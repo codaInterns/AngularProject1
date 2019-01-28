@@ -15,9 +15,6 @@ describe('AppComponent', () => {
       imports: [
         RouterTestingModule,
         HttpClientModule
-        
-     
-
       ],
       declarations: [
         AppComponent,

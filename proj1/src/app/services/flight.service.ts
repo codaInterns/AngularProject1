@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { HotDeals } from 'models/HotDeals';
 
 @Injectable({
   providedIn: "root"
@@ -18,6 +19,6 @@ export class FlightService {
   }
 
   getHotDeals() {
-    return this.http.get("http://localhost:8080/api/getFlights");
+    return this.http.get<HotDeals[]>("http://localhost:8080/api/getFlights");
   }
 }

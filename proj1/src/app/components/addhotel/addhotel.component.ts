@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 export class AddhotelComponent implements OnInit {
   registerForm: FormGroup;
   isSubmitted:boolean = false;
-
+  model: any = {};
   constructor(private route:Router,private http:HttpClient,private addhotel:AddHotelService,private formBuilder:FormBuilder) { }
 
   ngOnInit() {
@@ -27,7 +27,6 @@ export class AddhotelComponent implements OnInit {
 }
 
 get f() { return this.registerForm.controls; }  
-  model: any = {};
   onSubmit() {   
    this.addhotel.postUser(this.model);   
    this.isSubmitted = true;

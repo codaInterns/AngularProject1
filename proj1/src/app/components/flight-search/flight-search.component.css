@@ -37,6 +37,3 @@ a .btn-primary {
 input[type=text]{
     width:100%;
 }
-input[type=text]:hover{
-    padding:5px;
-}

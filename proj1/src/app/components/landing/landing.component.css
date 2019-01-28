@@ -41,10 +41,6 @@ h1{
     transition: all 100ms ease-in-out;
     left:0;
 }
-.header-container a:hover{
-    font-size: 17px;
-    left:20px;
-}
 .clone{
     color:black;
     font-weight: 200;

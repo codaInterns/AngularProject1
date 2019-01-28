@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class AddhotelComponent implements OnInit {
   registerForm: FormGroup;
-  submitted = false;
+  isSubmitted:boolean = false;
 
   constructor(private route:Router,private http:HttpClient,private addhotel:AddHotelService,private formBuilder:FormBuilder) { }
 
@@ -26,17 +26,11 @@ export class AddhotelComponent implements OnInit {
   });
 }
 
-// convenience getter for easy access to form fields
-get f() { return this.registerForm.controls; }
-  
+get f() { return this.registerForm.controls; }  
   model: any = {};
-  onSubmit() {
-   // alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.model.value))
-   
-   this.addhotel.postUser(this.model);
-   //console.log(this.model);
-   this.submitted = true;
-
+  onSubmit() {   
+   this.addhotel.postUser(this.model);   
+   this.isSubmitted = true;
    this.route.navigate(['/app-viewhotel']);
   }
 

@@ -36,9 +36,7 @@
      outline: none;
    }
    .login-input:hover {
-      border-color:#6e8095;
-      outline: initial;
-      height:55px;
+      border-color:#6e8095;      
     }
  .login-button {
    width: 100%;

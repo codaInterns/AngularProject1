@@ -22,7 +22,6 @@ import { ModalModule } from "ngx-bootstrap/modal";
 import {RegisterComponent} from './components/register/register.component';
 import { BsDatepickerModule } from "ngx-bootstrap/datepicker";
 import { TicketCardComponent } from "./components/ticket-card/ticket-card.component";
-
 import { BookingComponent } from './views/booking/booking.component';
 import { BookedComponent } from './components/booked/booked.component';
 import { TokenInterceptor } from './services/token.service';

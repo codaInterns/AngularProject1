@@ -30,7 +30,7 @@ import com.test5.test5.repo.FlightsInterface;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin("http://localhost:4200")
+@CrossOrigin("http://localhost:9876")
 public class FlightsController {
 
 @Autowired 

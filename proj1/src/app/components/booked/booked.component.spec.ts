@@ -10,7 +10,9 @@ describe('BookedComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports:[HttpClientModule],
-      declarations: [ BookedComponent ]
+      declarations: [ BookedComponent
+      ,
+     ]
     })
     .compileComponents();
   }));

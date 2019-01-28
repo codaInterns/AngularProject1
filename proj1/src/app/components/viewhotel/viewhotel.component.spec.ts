@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing'
 import { ViewhotelComponent } from './viewhotel.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
 
 describe('ViewhotelComponent', () => {
@@ -10,7 +10,7 @@ describe('ViewhotelComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports:[HttpClientModule,RouterTestingModule],
+      imports:[HttpClientModule,HttpClientTestingModule,RouterTestingModule],
       declarations: [ ViewhotelComponent ]
     })
     .compileComponents();

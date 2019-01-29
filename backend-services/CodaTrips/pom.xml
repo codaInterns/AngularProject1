@@ -107,20 +107,23 @@
 			<artifactId>junit</artifactId>
 			<version>4.13-beta-1</version>
 		</dependency>
-                <dependency>
+		<dependency>
 
-            <groupId>mysql</groupId>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
 
-            <artifactId>mysql-connector-java</artifactId>
+		</dependency>
 
-        </dependency>
- 
-      <dependency>
-      <groupId>log4j</groupId>
-       <artifactId>log4j</artifactId>
-        <version>1.2.17</version>
-      </dependency>
-      
+	<dependency>
+    <groupId>org.apache.logging.log4j</groupId>
+    <artifactId>log4j-api</artifactId>
+    <version>2.6.1</version>
+</dependency>
+<dependency>
+    <groupId>org.apache.logging.log4j</groupId>
+    <artifactId>log4j-core</artifactId>
+    <version>2.6.1</version>
+</dependency>
 
 	</dependencies>
 

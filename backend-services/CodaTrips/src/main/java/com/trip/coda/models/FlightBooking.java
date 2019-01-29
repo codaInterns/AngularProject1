@@ -33,26 +33,19 @@ private String departure;
 @Column(name="user_id")
 private String userId;
 
-
-public String getUserId() {
-	return userId;
-}
-public void setUserId(String userId) {
-	this.userId=userId;
-}
 public long getBookingId() {
-	return this.bookingId;
+	return bookingId;
 }
 
 public void setBookingId(long bookingId) {
 	this.bookingId = bookingId;
 }
 
-public String getName() {
+public String getFlightName() {
 	return flightName;
 }
 
-public void setName(String name) {
+public void setFlightName(String flightName) {
 	this.flightName = flightName;
 }
 
@@ -79,6 +72,16 @@ public String getDeparture() {
 public void setDeparture(String departure) {
 	this.departure = departure;
 }
+
+public String getUserId() {
+	return userId;
+}
+
+public void setUserId(String userId) {
+	this.userId = userId;
+}
+
+
 
 
 

@@ -12,7 +12,7 @@ import com.trip.coda.models.AccountInput;
 import com.trip.coda.services.LoginService;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/v1")
 @CrossOrigin("http://localhost:4200")
 public class LoginController {
    

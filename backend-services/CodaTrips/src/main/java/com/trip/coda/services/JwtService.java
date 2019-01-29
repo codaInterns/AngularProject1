@@ -4,6 +4,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -14,6 +15,7 @@ import com.auth0.jwt.exceptions.JWTCreationException;
 import com.trip.coda.models.AccountInput;
 import com.trip.coda.models.User;
 
+@Service
 public class JwtService {
 
 	    @Autowired
@@ -29,9 +31,9 @@ public class JwtService {
 	    	Iterator<User> listIterator=list1.iterator();
 	    	while(listIterator.hasNext()) {
 	    	     User user=listIterator.next();
-	    	     if(user.getEmail().equals(opt.getEmail()) && user.getPassword().equals(opt.getPassword()) ){
+	    	     if(user.getUserEmail().equals(opt.getUserEmail()) && user.getUserPassword().equals(opt.getUserPassword()) ){
 	    	    	 try {
-	    	    		 	int id = user.getId();
+	    	    		 	int id = user.getUserId();
 	    	    		 	System.out.println(id);
 	    	    		    Algorithm algorithm = Algorithm.HMAC256("secret");
 	    	    		    String token = JWT.create().withJWTId(String.valueOf(id))

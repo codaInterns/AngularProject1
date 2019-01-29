@@ -1,4 +1,4 @@
-package com.test5.test5.controllers;
+package com.trip.coda.controllers;
 
 import static org.hamcrest.Matchers.containsString;
 
@@ -27,8 +27,8 @@ import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.test5.test5.models.FlightInput;
-import com.test5.test5.models.options;
+
+import com.trip.coda.models.AccountInput;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -43,9 +43,10 @@ public class JwtControllerTest {
 	
 	 @Test
 	 public void testJwtAuthController() throws Exception{
-		 options mockInput=new options();
-		 mockInput.setEmail("aa@aa.com");
-		 mockInput.setPassword("Kaushik@1");
+		 AccountInput mockInput=new AccountInput();
+		 
+		 mockInput.setUserEmail("aa@aa.com");
+		 mockInput.setUserPassword("Kaushik@1");
 		
 		 String json=mapper.writeValueAsString(mockInput);
 		 

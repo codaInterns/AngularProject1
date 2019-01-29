@@ -27,23 +27,16 @@ private String source;
 @Column(name="destination")
 private String destination;
 
+
 @Column(name="departure")
 private String departure;
 
 
-public long getFlightId() {
-	return flightId;
-}
-
 @Column(name="price")
 private int flightPrice;
 
-public int getPrice() {
-	return flightPrice;
-}
-
-public void setPrice(int price) {
-	this.flightPrice = price;
+public long getFlightId() {
+	return flightId;
 }
 
 
@@ -51,36 +44,58 @@ public void setFlightId(long flightId) {
 	this.flightId = flightId;
 }
 
-public String getName() {
+
+public String getFlightName() {
 	return flightName;
 }
-public void setName(String flightName) {
+
+
+public void setFlightName(String flightName) {
 	this.flightName = flightName;
 }
+
 
 public String getSource() {
 	return source;
 }
 
+
 public void setSource(String source) {
 	this.source = source;
 }
+
 
 public String getDestination() {
 	return destination;
 }
 
+
 public void setDestination(String destination) {
 	this.destination = destination;
 }
+
 
 public String getDeparture() {
 	return departure;
 }
 
+
 public void setDeparture(String departure) {
 	this.departure = departure;
 }
+
+
+public int getFlightPrice() {
+	return flightPrice;
+}
+
+
+public void setFlightPrice(int flightPrice) {
+	this.flightPrice = flightPrice;
+}
+
+
+
 
 
 

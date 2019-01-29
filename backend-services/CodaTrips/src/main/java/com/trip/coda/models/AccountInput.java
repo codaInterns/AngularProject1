@@ -3,21 +3,22 @@ package com.trip.coda.models;
 public class AccountInput {
 	private String userEmail , userPassword;
 
-	public String getEmail() {
+	public String getUserEmail() {
 		return userEmail;
 	}
 
-	public void setEmail(String email) {
-		this.userEmail = email;
+	public void setUserEmail(String userEmail) {
+		this.userEmail = userEmail;
 	}
 
-	public String getPassword() {
+	public String getUserPassword() {
 		return userPassword;
 	}
 
-	public void setPassword(String password) {
-		this.userPassword = password;
+	public void setUserPassword(String userPassword) {
+		this.userPassword = userPassword;
 	}
+
 	
 
 }

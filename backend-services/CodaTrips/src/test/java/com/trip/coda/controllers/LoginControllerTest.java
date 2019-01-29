@@ -1,4 +1,4 @@
-package com.test5.test5.controllers;
+package com.trip.coda.controllers;
 import static org.hamcrest.Matchers.containsString;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -23,8 +23,8 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.test5.test5.models.FlightInput;
-import com.test5.test5.models.options;
+
+import com.trip.coda.models.AccountInput;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -39,9 +39,9 @@ public class LoginControllerTest {
 	
 	 @Test
 	 public void testPostUser() throws Exception{
-		 options mockInput=new options();
-		 mockInput.setEmail("new@olivecastle.com");
-		 mockInput.setPassword("test");
+		 AccountInput mockInput=new AccountInput();
+		 mockInput.setUserEmail("new@olivecastle.com");
+		 mockInput.setUserPassword("test");
 		
 		 String json=mapper.writeValueAsString(mockInput);
 		 mockMvc.perform(post("/api/register/")
@@ -53,9 +53,9 @@ public class LoginControllerTest {
 	 }
 	 @Test
 	 public void testLogin() throws Exception{
-		 options mockInput=new options();
-		 mockInput.setEmail("sivani@olivecastle.com");
-		 mockInput.setPassword("test");
+		 AccountInput mockInput=new AccountInput();
+		 mockInput.setUserEmail("sivani@olivecastle.com");
+		 mockInput.setUserPassword("test");
 		
 		 String json=mapper.writeValueAsString(mockInput);
 		 mockMvc.perform(post("/api/users/")

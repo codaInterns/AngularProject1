@@ -9,35 +9,35 @@ public class HotelInput {
 	private long hotelPrice;
 	private String hotelDescription;
 	private String hotelImage;
-	public String gethotelname() {
+	public String getHotelName() {
 		return hotelName;
 	}
-	public void sethotelname(String hotelName) {
+	public void setHotelName(String hotelName) {
 		this.hotelName = hotelName;
 	}
-	public String gethotelplace() {
+	public String getHotelPlace() {
 		return hotelPlace;
 	}
-	public void sethotelplace(String hotelPlace) {
+	public void setHotelPlace(String hotelPlace) {
 		this.hotelPlace = hotelPlace;
 	}
-	public long getPrice() {
+	public long getHotelPrice() {
 		return hotelPrice;
 	}
-	public void setPrice(long hotelPrice) {
+	public void setHotelPrice(long hotelPrice) {
 		this.hotelPrice = hotelPrice;
 	}
-	public String gethoteldescription() {
+	public String getHotelDescription() {
 		return hotelDescription;
 	}
-	public void sethoteldescription(String hoteldescription) {
-		this.hotelDescription = hoteldescription;
+	public void setHotelDescription(String hotelDescription) {
+		this.hotelDescription = hotelDescription;
 	}
-	public String gethotelimage() {
+	public String getHotelImage() {
 		return hotelImage;
 	}
-	public void sethotelimage(String hotelimage) {
-		this.hotelImage = hotelimage;
+	public void setHotelImage(String hotelImage) {
+		this.hotelImage = hotelImage;
 	}
 	
 	

@@ -1,4 +1,4 @@
-package com.test5.test5.controllers;
+package com.trip.coda.controllers;
 import static org.hamcrest.Matchers.containsString;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -23,9 +23,9 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.test5.test5.models.FlightInput;
-import com.test5.test5.models.HotelInput;
-import com.test5.test5.models.options;
+import com.trip.coda.models.Hotel;
+import com.trip.coda.models.HotelInput;
+
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -53,7 +53,7 @@ public class HotelControllerTest {
 	 public void testGetHotels() throws Exception{
 		 HotelInput mockInput=new HotelInput();
 		 
-		 mockInput.setHotel_place("bistro");
+		 mockInput.setHotelPlace("bistro");
 		 String json=mapper.writeValueAsString(mockInput);
 		 mockMvc.perform(post("/api/getHotel/")
 				 .content(json).contentType(MediaType.APPLICATION_JSON)
@@ -65,10 +65,12 @@ public class HotelControllerTest {
 	 }
 	 @Test
 	 public void testaddHotel() throws Exception{
-		 options mockInput=new options();
-		 mockInput.setEmail("new@olivecastle.com");
-		 mockInput.setPassword("test");
-		
+		 Hotel mockInput=new Hotel();
+		 mockInput.setHotelDescription("testing");
+		 mockInput.setHotelImage("test images");
+		 mockInput.setHotelName("Test hotel name");
+		 mockInput.setHotelPlace("hotel test place");
+		 mockInput.setHotelPrice(78586);
 		 String json=mapper.writeValueAsString(mockInput);
 		 mockMvc.perform(post("/api/addhotel/")
 				 .content(json).contentType(MediaType.APPLICATION_JSON)

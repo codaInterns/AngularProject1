@@ -1,4 +1,4 @@
-package com.test5.test5.controllers;
+package com.trip.coda.controllers;
 import static org.hamcrest.Matchers.containsString;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -23,7 +23,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.test5.test5.models.FlightInput;
+import com.trip.coda.models.FlightInput;
 
 import io.micrometer.core.ipc.http.HttpSender.Response;
 

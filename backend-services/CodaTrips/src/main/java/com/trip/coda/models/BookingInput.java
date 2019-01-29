@@ -6,8 +6,8 @@ public class BookingInput {
 	public String getUserId() {
 		return userId;
 	}
-	public void setUserId(String string) {
-		this.userId = string;
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 	public String getFlightName() {
 		return flightName;
@@ -34,5 +34,4 @@ public class BookingInput {
 		this.departure = departure;
 	}
 	
-
 }

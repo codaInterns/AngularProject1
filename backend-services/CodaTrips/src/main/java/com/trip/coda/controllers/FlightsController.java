@@ -34,19 +34,22 @@ import com.trip.coda.services.FlightService;
 @CrossOrigin("http://localhost:4200")
 public class FlightsController {
 
-FlightService flightservice;
+	@Autowired 
+	private FlightsInterface repo;
+	
+  FlightService flightservice = new FlightService();
 
 
  @GetMapping("/getFlights")
  public List<Flight> getAllFlights(){
-	
-	return flightservice.getAllFlights();
+	return flightservice.getF();
 	
  }
 
  @PostMapping(path="/getFlight/" ,consumes = "application/json" , produces = "application/json")
  public List<Flight> getFlights(@RequestBody FlightInput fi)
  {
+	 
 	return flightservice.getFlights(fi);
  }
 

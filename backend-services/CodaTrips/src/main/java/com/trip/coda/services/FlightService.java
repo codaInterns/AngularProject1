@@ -15,13 +15,14 @@ public class FlightService {
 	private FlightsInterface repo;
 
 	
-	public List<Flight> getAllFlights(){
+	public List<Flight> getF(){
+		 System.out.println("hello saja");
 		return repo.findAll();
 	}
     
 	public List<Flight> getFlights(FlightInput fi)
 	{
-
+      System.out.println("hello saja1");
       List<Flight> flightList=repo.findAll();
       Iterator<Flight> flightIter=flightList.iterator();
       List<Flight> selectedList=new ArrayList<Flight>();

@@ -29,9 +29,9 @@ public class JwtService {
 	    	Iterator<User> listIterator=list1.iterator();
 	    	while(listIterator.hasNext()) {
 	    	     User user=listIterator.next();
-	    	     if(user.getUserEmail().equals(opt.getEmail()) && user.getUserPassword().equals(opt.getPassword()) ){
+	    	     if(user.getEmail().equals(opt.getEmail()) && user.getPassword().equals(opt.getPassword()) ){
 	    	    	 try {
-	    	    		 	int id = user.getUserId();
+	    	    		 	int id = user.getId();
 	    	    		 	System.out.println(id);
 	    	    		    Algorithm algorithm = Algorithm.HMAC256("secret");
 	    	    		    String token = JWT.create().withJWTId(String.valueOf(id))

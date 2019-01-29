@@ -1,5 +1,4 @@
 package com.trip.coda.services;
-
 import java.util.Iterator;
 import java.util.List;
 
@@ -23,7 +22,7 @@ public class LoginService {
 	    	Iterator<User> listIterator=list1.iterator();
 	    	while(listIterator.hasNext()) {
 	    	     User user=listIterator.next();
-	    	     if(user.getUserEmail().equals(opt.getEmail()) && user.getUserPassword().equals(opt.getPassword()) ){
+	    	     if(user.getEmail().equals(opt.getEmail()) && user.getPassword().equals(opt.getPassword()) ){
 	    	    	 return true;
 	    	     }
 	    	    
@@ -34,8 +33,8 @@ public class LoginService {
 		public Boolean postUser(AccountInput opt) {
 			User user1=new User();
 			try {
-				user1.setUserEmail(opt.getEmail());
-				user1.setUserPassword(opt.getPassword());
+				user1.setEmail(opt.getEmail());
+				user1.setPassword(opt.getPassword());
 				repo.save(user1);
 				return true;
 			}

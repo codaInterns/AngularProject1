@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import com.trip.coda.models.BookingInput;
+import com.trip.coda.models.FlightBooking;
 import com.trip.coda.repo.BookingInterface;
 
 public class BookingService {
@@ -30,9 +31,9 @@ public class BookingService {
 			httpStatus=HttpStatus.FORBIDDEN;
 		}
 		else {
-			BookingInput bookingObject=new BookingInput();
+			FlightBooking bookingObject=new FlightBooking();
 			try {
-				bookingObject.setFlightName(opt.getFlightName());
+				bookingObject.setName(opt.getFlightName());
 				bookingObject.setDeparture(opt.getDeparture());
 				bookingObject.setDestination(opt.getDestination());
 				bookingObject.setSource(opt.getSource());

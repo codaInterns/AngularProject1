@@ -45,11 +45,11 @@ public class HotelService {
 		try {
 		Hotel hotel = new Hotel();
 		
-		hotel.setHotelName(hi.getHotelName());
-		hotel.setHotelPlace(hi.getHotelPlace());
-		hotel.setHotelPrice(hi.getHotelPrice());
-		hotel.setHotelDescription(hi.getHotelDescription());
-		hotel.setHotelImage(hi.getHotelImage());
+		hotel.setHotelName(hi.gethotelname());
+		hotel.setHotelPlace(hi.gethotelplace());
+		hotel.setPrice(hi.getPrice());
+		hotel.setHotelDescription(hi.gethoteldescription());
+		hotel.setHotelImage(hi.gethotelimage());
 		repo.save(hotel);
 		
 		return true;

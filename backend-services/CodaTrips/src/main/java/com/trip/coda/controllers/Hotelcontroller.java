@@ -28,8 +28,8 @@ public  class Hotelcontroller {
 // retrival of all hotels
 	@GetMapping("/gethotels")
 	public List<Hotel> gethotels(){
-	List<Hotel> list =hotelservice.getAllHotels();
-	return list;
+	 return hotelservice.getAllHotels();
+	//return list;
 	}
 	
 
@@ -37,8 +37,8 @@ public  class Hotelcontroller {
 	@PostMapping(path="/getHotel/" ,consumes = "application/json" , produces = "application/json")
 	public List<Hotel> gethotels(@RequestBody HotelInput hi)
 	{
-		List<Hotel> list=hotelservice.getHotels(hi.getHotelPlace());
-		return list;
+		return hotelservice.getHotels(hi.gethotelplace());
+		//return list;
 	}
 
 //hotel insertion in to database

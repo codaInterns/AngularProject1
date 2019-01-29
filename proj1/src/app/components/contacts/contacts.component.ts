@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { Component, OnInit, ElementRef, Input, SimpleChanges, OnChanges, EventEmitter, Output } from '@angular/core';
 import { FormArray, FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -11,18 +11,39 @@ export class ContactsComponent implements OnInit {
   formdata: FormGroup;
   detcard: FormArray;
   i: number;
-  
-
-
+  user;
+  curVal;
+  change;
+  submitting=false;
+  @Input('user') value: any;
+  @Output() result = new EventEmitter<any>();
   name = false;
   emailid = false;
   constructor(private formBuilder: FormBuilder, private route: Router) { }
 
+  
   ngOnInit() {
+    
     this.formdata = this.formBuilder.group({
       detcard: this.formBuilder.array([this.createDetCard()])
     });
+     
     //console.log(this.formdata.controls.detcard.controls[0].controls.userName);
+  }
+  ngOnChanges(changes: SimpleChanges) {
+    console.log(changes);
+    if(changes.value.currentValue===undefined){
+      console.log("nothing");
+    }
+    else{
+    for (let propName in changes) {
+      this.change = changes[propName];
+      this.curVal =this.change.currentValue;
+      this.submitting=true;
+      console.log(this.curVal);
+      this.autoFill();
+    }
+  }
   }
 
   onDelete(i) {
@@ -32,6 +53,7 @@ export class ContactsComponent implements OnInit {
   }
   createDetCard(): FormGroup {
     console.log("form getting created");
+   
     return this.formBuilder.group({
       userName: ["", [Validators.required, Validators.pattern(/^[A-Za-z0-9]+(?:[ _-][A-Za-z0-9]+)*$/)]],
       email: ["", [Validators.required, Validators.pattern(/^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,}$/)]]
@@ -67,23 +89,34 @@ export class ContactsComponent implements OnInit {
      }*/
   onSubmit() {
     if (this.formdata.invalid) {
-     
+
       return;
     }
-    
+
     this.detcard = this.formdata.get('detcard') as FormArray;
-    var testing=this.detcard.value;
-    console.log("form group name ");
-    console.log(testing);
+    this.result.emit( this.detcard.value);
+    
     /*for (let card of this.detcard.controls) {
       var item = card as FormGroup;
       console.log(item);
       console.log("submit");
-
     }*/
-    var details=JSON.stringify(testing);
-    console.log(details);
+    
   }
- 
+
+
+  autoFill() {
+    if(this.submitting===false){
+      return;
+    }
+    this.formdata = new FormGroup({
+      detcard: new FormArray(this.curVal.map(item => {
+        const group = this.createDetCard();
+        group.patchValue(item);
+        return group;
+      }))
+    });
+  }
+
 }
 

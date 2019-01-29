@@ -64,4 +64,8 @@ form button{
 #header{
     text-align: center;
 }
-
+#sub
+{
+    font-size: 1.3rem;
+    margin-left:100;
+}

@@ -1,3 +1,6 @@
-<p>
-  admin works!
-</p>
+<div>
+  <div>
+    <button style="position: absolute;" id="sub" (click)="autoFill()">AutoFill</button>
+  </div>
+  <app-contacts [user]=user (result)="onUpdate($event)"></app-contacts>
+</div>

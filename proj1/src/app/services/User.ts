@@ -16,9 +16,12 @@ export class UserService{
             "userName" : "kaushik456"
         },
         {
-            "email" : "nilesh13@gmail.com",
+            "email" : "nilesh13@mail.com",
             "userName":"kaushik789"
         }
     
     ];
+    getUsers(){
+        return this.user;
+    }
 }

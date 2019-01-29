@@ -43,6 +43,10 @@ const appRoutes: Routes = [
     {
       path:"contacts",
       component: ContactsComponent
+    },
+    {
+      path:"admin",
+      component: AdminComponent
     }
 ];
 

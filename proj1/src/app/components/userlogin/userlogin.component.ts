@@ -76,7 +76,7 @@ export class UserloginComponent implements OnInit , OnChanges {
   get f() { return this.formdata.controls; }
   result:any;
   onClickSubmit(data) {
-    console.log(data.email);
+    console.log("hi");
 
     this.submitted = true;
     if (this.formdata.invalid) {

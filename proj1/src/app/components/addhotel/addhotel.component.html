@@ -3,46 +3,57 @@
       <div class="row">
           <div class="col-md-8 offset-md-2">
   
-              <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+              <form name="form" (ngSubmit)="onSubmit(registerForm.value)"  [formGroup]="registerForm" >
                   <div class="form-group">
                       <label for="hotel_name">Hotel Name</label>
-                      <input type="text" class="form-control" name="hotel_name" [(ngModel)]="model.hotel_name" #hotel_name="ngModel"  required />
-                      <div *ngIf="f.submitted && hotel_name.invalid" class="invalid-feedback">
-                          <div *ngIf="hotel_name.errors.required">hotel name is required</div>
+                      <input type="text" class="form-control" name="hotel_name" formControlName="hotel_name"     /><p style="color:red;">{{hotel_name_err}}</p>
+                      <div *ngIf="registerForm.controls['hotel_name'].invalid && (registerForm.controls['hotel_name'].dirty ||registerForm.controls['hotel_name'].touched)" >
+                        <div style="color:red;" *ngIf="registerForm.controls['hotel_name'].errors.required">
+                        hotel name is required.
                       </div>
-                  </div>
+                    </div>
+                  </div>                  
                   <div class="form-group">
                       <label for="hotel_description">Hotel Description</label>
-                      <input type="text" class="form-control" name="hotel_description" [(ngModel)]="model.hotel_description" #hotel_description="ngModel"  required />
-                      <div *ngIf="f.submitted && hotel_description.invalid" class="invalid-feedback">
-                          <div *ngIf="hotel_description.errors.required">Hotel Description is required</div>
+                      <input type="text" class="form-control" name="hotel_description" formControlName="hotel_description"   /><p style="color:red;">{{hotel_description_err}}</p>
+                      <div *ngIf="registerForm.controls['hotel_description'].invalid && (registerForm.controls['hotel_description'].dirty ||registerForm.controls['hotel_description'].touched)" >
+                        <div style="color:red;" *ngIf="registerForm.controls['hotel_description'].errors.required">
+                        hotel description is required.
                       </div>
+                  </div>
                   </div>
                   <div class="form-group">
                     <label for="hotel_place">Hotel Location</label>
-                    <input type="text" class="form-control" name="hotel_place" [(ngModel)]="model.hotel_place" #hotel_place="ngModel"  required />
-                    <div *ngIf="f.submitted && hotel_place.invalid" class="invalid-feedback">
-                        <div *ngIf="hotel_place.errors.required">Hotel location is required</div>
-                    </div>
+                    <input type="text" class="form-control" name="hotel_place" formControlName="hotel_place"   /><p style="color:red;">{{hotel_place_err}}</p>
+                    <div *ngIf="registerForm.controls['hotel_place'].invalid && (registerForm.controls['hotel_place'].dirty ||registerForm.controls['hotel_place'].touched)" >
+                        <div style="color:red;" *ngIf="registerForm.controls['hotel_place'].errors.required">
+                        hotel place is required.
+                      </div>
+                </div>
                 </div>
                 <div class="form-group">
                     <label for="hotel_image">Hotel image</label>
-                    <input type="text" class="form-control" name="hotel_image" [(ngModel)]="model.hotel_image" #hotel_image="ngModel"  required />
-                    <div *ngIf="f.submitted && hotel_image.invalid" class="invalid-feedback">
-                        <div *ngIf="hotel_image.errors.required">Hotel image is required</div>
-                    </div>
+                    <input type="text" class="form-control" name="hotel_image" formControlName="hotel_image"  /><p style="color:red;">{{hotel_image_err}}</p>
+                    <div *ngIf="registerForm.controls['hotel_image'].invalid && (registerForm.controls['hotel_image'].dirty ||registerForm.controls['hotel_image'].touched)" >
+                        <div style="color:red;"*ngIf="registerForm.controls['hotel_image'].errors.required">
+                        hotel place is required.
+                      </div>
+                </div>
                 </div>
                 <div class="form-group">
                     <label for="price">Hotel price</label>
-                    <input type="text" class="form-control" name="price" [(ngModel)]="model.price" #price="ngModel" required/>
-                    <div *ngIf="f.submitted && price.invalid" class="invalid-feedback">
-                        <div *ngIf="price.errors.required">Hotel price is required</div>
-                    </div>
+                    <input type="text" class="form-control" name="price" formControlName="price" /><p style="color:red;">{{price_err}}</p>
+                    <div *ngIf="registerForm.controls['price'].invalid && (registerForm.controls['price'].dirty ||registerForm.controls['price'].touched)">
+                        <div style="color:red;"*ngIf="registerForm.controls['price'].errors.required">
+                        hotel place is required.
+                      </div>
+                </div>
                 </div>
                   
                   <div class="form-group">
-                      <button class="btn btn-primary" >Register</button>
+                      <button class="btn btn-primary" (click)="perform(registerForm)" [disabled]="!registerForm.valid">Register</button>
                   </div>
+                  <h6 style="color:red;">{{error}}</h6>
               </form>
           </div>
       </div>

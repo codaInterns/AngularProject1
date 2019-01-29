@@ -5,11 +5,11 @@
       <div class="row">
           <div class="col-md-8 offset-md-2">
               <h3></h3>
-              <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+              <form name="form" (ngSubmit)="searchForm.valid && onSubmit(searchForm.value)" [formGroup]="searchForm" novalidate>
                   <div class="form-group">
                       <label for="firstName">Hotel location</label>
-                      <input type="text" class="form-control" name="hotel_place" [(ngModel)]="model.hotel_place" #hotel_place="ngModel"  required />
-                      <div *ngIf="f.submitted &&  hotel_place.invalid" class="invalid-feedback">
+                      <input type="text" class="form-control" name="hotel_place" formControlName="hotel_place"  required />
+                      <div *ngIf="searchForm.submitted &&  hotel_place.invalid" class="invalid-feedback">
                           <div *ngIf="hotel_name.errors.required">hotel name is required</div>
                       </div>
                   </div>
@@ -24,7 +24,7 @@
   </div>
 </div>
 
-<div *ngIf="setForm">
+<div *ngIf="isSetForm">
  
 <table>
     <tr>

@@ -9,12 +9,9 @@ import { Router } from '@angular/router';
 export class CardsComponent implements OnInit {
   @Input()
   city: any;
-
   constructor(private routes:Router) {}
-
   ngOnInit() {
   }
-
   cardClicked(){
     this.routes.navigate(['/flights',this.city.source,this.city.destination]);
   }

@@ -22,7 +22,6 @@ export class UserloginComponent implements OnInit {
     });
   }
   onClickSubmit(data) {
-    console.log(this.formdata);
     if (this.formdata.invalid) {
       return;
     }

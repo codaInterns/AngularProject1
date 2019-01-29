@@ -11,7 +11,7 @@ export class FlightService {
   output:any;
 
   getFlights(searchDetails: any) {
-  console.log("input"+searchDetails);
+  console.log('input'+searchDetails);
     return this.http.post("http://localhost:8080/api/getFlight/", searchDetails);
   }
 

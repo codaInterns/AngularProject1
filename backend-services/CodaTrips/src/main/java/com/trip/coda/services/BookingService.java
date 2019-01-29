@@ -7,8 +7,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+
 
 import com.trip.coda.models.BookingInput;
 import com.trip.coda.models.FlightBooking;
@@ -19,9 +18,9 @@ public class BookingService {
 	
 	@Autowired
 	private BookingInterface bookingInterface;
-	private BookingInput input;
 	
-	public ResponseEntity<Boolean> postUser(BookingInput opt,final HttpServletRequest request)throws Exception {
+	
+	public ResponseEntity<Boolean> postUser(BookingInput opt,final HttpServletRequest request) {
 		
 		Boolean isBookingComplete = false;
 		String isValidAuth = (String) request.getAttribute("valid");
@@ -41,17 +40,14 @@ public class BookingService {
 				bookingObject.setSource(opt.getSource());
 				bookingObject.setUserId((String)request.getAttribute("userid"));
 				bookingInterface.save(bookingObject);
-				
-				//System.out.println("VALID BOOKING");
-				
 				isBookingComplete = true;
 			}
 			catch(Exception ex) {
-				ex.printStackTrace();
+				
 				httpStatus = HttpStatus.FORBIDDEN;
 			}
 		}
-		return new ResponseEntity<Boolean>(isBookingComplete,responseHeaders,httpStatus);
+		return new ResponseEntity<>(isBookingComplete,responseHeaders,httpStatus);
 	}
 
 }

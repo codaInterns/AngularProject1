@@ -1,6 +1,6 @@
 package com.trip.coda.models;
 
-import javax.persistence.Column;
+
 
 public class HotelInput {
 	

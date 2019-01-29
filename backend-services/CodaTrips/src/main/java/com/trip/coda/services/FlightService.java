@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
+
 
 import com.trip.coda.models.Flight;
 import com.trip.coda.models.FlightInput;
@@ -26,7 +26,7 @@ public class FlightService {
      
       List<Flight> flightList=repo.findAll();
       Iterator<Flight> flightIter=flightList.iterator();
-      List<Flight> selectedList=new ArrayList<Flight>();
+      List<Flight> selectedList=new ArrayList<>();
       while(flightIter.hasNext()) 
       {
 	    Flight f1=flightIter.next();

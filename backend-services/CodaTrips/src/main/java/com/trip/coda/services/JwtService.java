@@ -5,10 +5,9 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
-import com.trip.coda.repo.UserInterface;
+
+
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTCreationException;
@@ -20,12 +19,11 @@ public class JwtService {
 
 	    @Autowired
 		private com.trip.coda.repo.UserInterface repo;
-		private AccountInput opt;
+		
 		
 		
 	    public String login(AccountInput opt){
-			//System.out.println(opt.getEmail()+" "+opt.getPassword());
-			
+		
 			
 	    	List<User> list1= repo.findAll();
 	    	Iterator<User> listIterator=list1.iterator();
@@ -34,22 +32,22 @@ public class JwtService {
 	    	     if(user.getUserEmail().equals(opt.getUserEmail()) && user.getUserPassword().equals(opt.getUserPassword()) ){
 	    	    	 try {
 	    	    		 	int id = user.getUserId();
-	    	    		 	System.out.println(id);
+	    	    		 
 	    	    		    Algorithm algorithm = Algorithm.HMAC256("secret");
-	    	    		    String token = JWT.create().withJWTId(String.valueOf(id))
+	    	    		    return JWT.create().withJWTId(String.valueOf(id))
 	    	    		        .withIssuer("auth0")
 	    	    		        .sign(algorithm);
 	    	    		    
-	    	    		    System.out.println(token);    
-	    	    		    return token;
+	    	    		   
+	    	    		    
 	    	    	 } catch (JWTCreationException exception){
-	    	    		 	System.out.println("INVALID JWT CREATION");
-	    	    		    //Invalid Signing configuration / Couldn't convert Claims.
+	    	    		 
+	    	    		    
 	    	    		}
 	    	     }
 	    	    
 	    	}
-	    	System.out.println("Not in db");
+	    	
 	    	return null;
 	    }
 		

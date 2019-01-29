@@ -1,7 +1,8 @@
 package com.trip.coda.models;
 
 public class AccountInput {
-	private String userEmail , userPassword;
+	private String userEmail;
+	private String userPassword;
 
 	public String getUserEmail() {
 		return userEmail;

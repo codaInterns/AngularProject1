@@ -9,8 +9,7 @@ public class PasswordConstraintValidator implements ConstraintValidator<ValidPas
 	@Override
 	public boolean isValid(String value, ConstraintValidatorContext context) {
 		String pattern = "(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}";
-		if(value.matches(pattern))
-			return true;
-		return false;
+		
+		return value.matches(pattern);
 	}
 }

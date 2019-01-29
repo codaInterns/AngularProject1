@@ -8,11 +8,12 @@ public class EmailConstraintValidator implements ConstraintValidator<ValidEmail,
 	@Override
 	public boolean isValid(String value, ConstraintValidatorContext context) {
 		String pattern  = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$";
-		if(value.matches(pattern))
-			return true;
 		
-		return false;
+		return value.matches(pattern);
+		
 	}
+	
+	
 	
 
 }

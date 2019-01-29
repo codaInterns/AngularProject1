@@ -1,12 +1,11 @@
 package com.trip.coda.controllers;
-import java.util.ArrayList;
-import java.util.Iterator;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,8 +28,8 @@ public class Hotelcontroller {
 // retrival of all hotels
 	@GetMapping("/gethotels")
 	public List<Hotel> gethotels(){
-	List<Hotel> list = hotelservice.getAllHotels();
-	return list;
+	return hotelservice.getAllHotels();
+	
 	}
 	
 
@@ -38,9 +37,9 @@ public class Hotelcontroller {
 	@PostMapping(path="/getHotel/" ,consumes = "application/json" , produces = "application/json")
 	public List<Hotel> gethotels(@RequestBody HotelInput hi)
 	{
-		System.out.println(hi.getHotelPlace());
-		List<Hotel> list=hotelservice.getHotels(hi.getHotelPlace());
-		return list;
+		
+		return hotelservice.getHotels(hi.getHotelPlace());
+		
 	}
 
 //hotel insertion in to databasea

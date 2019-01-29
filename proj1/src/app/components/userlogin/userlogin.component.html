@@ -7,7 +7,7 @@
   
    <input type="text" name="email" formControlName="email"  class="login-input"  placeholder="Email Address" autofocus>
    <div>
-     <span class="error" *ngIf="(formdata.controls.email.required && formdata.controls.email.touched)">*Email is required</span>
+     <div class="error" *ngIf="(formdata.controls.email.required && formdata.controls.email.touched)">*Email is required</div>
      <div class="error" *ngIf="(formdata.controls.email.invalid && formdata.controls.email.touched)">*Email must be a valid email address</div>
    </div>
    

@@ -1,5 +1,5 @@
-import { Component, OnInit} from '@angular/core';
-import { FormGroup,FormBuilder,Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { EmailService } from '../../services/login.service';
 
@@ -9,34 +9,31 @@ import { EmailService } from '../../services/login.service';
   templateUrl: './userlogin.component.html',
   styleUrls: ['./userlogin.component.css']
 })
-export class UserloginComponent implements OnInit{
-  formdata:FormGroup;
-  constructor(private router: Router, private formBuilder: FormBuilder, private email: EmailService) { 
+export class UserloginComponent implements OnInit {
+  formdata: FormGroup;
+  constructor(private router: Router, private formBuilder: FormBuilder, private email: EmailService) {
   }
-  
+  token: string;
   ngOnInit() {
-    
     this.formdata = this.formBuilder.group({
-      email: ["", [Validators.required, Validators.pattern(/^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,}$/
+      email: ['', [Validators.required, Validators.pattern(/^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,}$/
       )]],
-      password: ["", [Validators.required, Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/)]]
+      password: ['', [Validators.required, Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/)]]
     });
   }
-  token:string;
   onClickSubmit(data) {
+    console.log(this.formdata);
     if (this.formdata.invalid) {
       return;
-  }
+    }
     this.email.getUser(data.email, data.password).subscribe(res => {
-    this.token = res; 
-    if(this.token){
-      localStorage.setItem('token',this.token);
-      this.router.navigate(['/flights']);
-    }
-    else{
-      //alert('Invalid User! Please Register ');
-      this.router.navigate(['/register']);
-    }
+      this.token = res;
+      if (this.token) {
+        localStorage.setItem('token', this.token);
+        this.router.navigate(['/flights']);
+      } else {
+        this.router.navigate(['/register']);
+      }
     });
   }
 }

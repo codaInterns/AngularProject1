@@ -11,6 +11,7 @@ export class ContactsComponent implements OnInit {
   formdata: FormGroup;
   detcard: FormArray;
   i: number;
+  
 
 
   name = false;
@@ -66,16 +67,23 @@ export class ContactsComponent implements OnInit {
      }*/
   onSubmit() {
     if (this.formdata.invalid) {
+     
       return;
     }
+    
     this.detcard = this.formdata.get('detcard') as FormArray;
-    var result: any[];
-    console.log("submitting....");
-    for (let card of this.detcard.controls) {
+    var testing=this.detcard.value;
+    console.log("form group name ");
+    console.log(testing);
+    /*for (let card of this.detcard.controls) {
       var item = card as FormGroup;
-      var userName = item.controls.userName as FormControl;
-      console.log(userName.value);
+      console.log(item);
+      console.log("submit");
 
-    }
+    }*/
+    var details=JSON.stringify(testing);
+    console.log(details);
   }
+ 
 }
+

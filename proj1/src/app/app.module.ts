@@ -24,7 +24,7 @@ import { BsDatepickerModule } from "ngx-bootstrap/datepicker";
 import { TicketCardComponent } from "./components/ticket-card/ticket-card.component";
 
 import { ContactsComponent } from './components/contacts/contacts.component';
-
+import { AdminComponent } from './components/admin/admin.component';
 
 
 const appRoutes: Routes = [
@@ -62,6 +62,8 @@ const appRoutes: Routes = [
     TicketCardComponent,
    
     ContactsComponent,
+   
+    AdminComponent
     
     
   ],

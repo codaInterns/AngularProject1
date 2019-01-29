@@ -63,7 +63,6 @@ export class FlightSearchComponent implements OnInit {
     });
     
   }
-
   isSame(){
     if(this.fromValue == this.toValue){
       this.isDisabled = true;

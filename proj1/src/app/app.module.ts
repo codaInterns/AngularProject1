@@ -38,6 +38,8 @@ import {NavFeatureComponent} from './components/nav-feature/nav-feature.componen
 import {FooterComponent} from './components/footer/footer.component';
 import {AddhotelComponent} from './components/addhotel/addhotel.component';
 import { LandingComponent } from './components/landing/landing.component';
+import { OverlayPartComponent } from './components/overlay-part/overlay-part.component';
+
 
 
 const appRoutes: Routes = [
@@ -107,7 +109,9 @@ const appRoutes: Routes = [
     SearchHotelComponent,
     HeaderComponent,
     ViewHotelComponent,
-    LandingComponent
+    LandingComponent,
+    OverlayPartComponent,
+ 
 
   ],
   imports: [

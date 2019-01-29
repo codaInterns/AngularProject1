@@ -15,6 +15,7 @@ for i in diff:
 		print(i)
 		cmd = os.popen('tslint '+basepath+i).read()
 		print(cmd)
+		exit(1)
 	elif os.path.splitext(base)[1] == '.java':
 		print(basepath+i)
 		cmd = os.popen('java -jar' + basepath+'checkstyle-8.17-all.jar -c '+basepath + 'sun_checks.xml ' + basepath+i)		

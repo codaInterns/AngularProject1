@@ -10,7 +10,7 @@ import javax.persistence.Table;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @Entity
-@Table(name="BookingTable")
+@Table(name="booking_table")
 @EntityListeners(AuditingEntityListener.class)
 public class FlightBooking {
 

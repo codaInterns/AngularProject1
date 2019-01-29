@@ -1,20 +1,19 @@
 package com.trip.coda.models;
 
 public class BookingInput {
-	private int userId;
+	private String userId;
 	private String flightName,source,destination,departure;
-	
-	public int getUserId() {
+	public String getUserId() {
 		return userId;
 	}
-	public void setUserId(String userId) {
-		this.userId = userId;
+	public void setUserId(String string) {
+		this.userId = string;
 	}
-	public String getName() {
+	public String getFlightName() {
 		return flightName;
 	}
-	public void setName(String name) {
-		this.flightName = name;
+	public void setFlightName(String flightName) {
+		this.flightName = flightName;
 	}
 	public String getSource() {
 		return source;
@@ -34,4 +33,6 @@ public class BookingInput {
 	public void setDeparture(String departure) {
 		this.departure = departure;
 	}
+	
+
 }

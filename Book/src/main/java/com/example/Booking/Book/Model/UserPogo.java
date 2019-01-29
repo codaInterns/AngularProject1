@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="user_booked")
-public class Userpogo {
+public class UserPogo {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer uid;

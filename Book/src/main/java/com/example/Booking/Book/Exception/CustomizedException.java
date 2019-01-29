@@ -4,11 +4,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 
-public class CustomizedExcp extends RuntimeException{
+public class CustomizedException extends RuntimeException{
 	public static final long serialversionUID=5L;
 	private int code;
 	private String message;
-	public CustomizedExcp(int code, String message) {
+	public CustomizedException(int code, String message) {
 
 		this.code = code;
 		this.message = message;

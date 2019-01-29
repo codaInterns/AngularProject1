@@ -1,6 +1,6 @@
 package com.example.Booking.Book.Model;
 
-public class responsePogo {
+public class ResponsePogo {
 	private String uname;
 	private String fname;
 	private int seats;

@@ -1,6 +1,6 @@
 package com.example.Booking.Book.Model;
 
-public class Flight_detail_capacity {
+public class FlightDetailCapacity {
 	private String name;
 	private String desc;
 	private long avail_cap;

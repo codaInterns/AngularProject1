@@ -1,4 +1,4 @@
-package com.example.Booking.Book.Controller;
+package com.example.Booking.Book.Exception;
 
 
 
@@ -24,16 +24,15 @@ import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import com.example.Booking.Book.Exception.CustomizedExcp;
-import com.example.Booking.Book.Model.Errorpogo;
+import com.example.Booking.Book.Model.ErrorPogo;
 
 @ControllerAdvice
-public class Excep_ctrl extends ResponseEntityExceptionHandler{
-	@ExceptionHandler({CustomizedExcp.class})
-	public  ResponseEntity<Object> handleCustomExc(CustomizedExcp ex,WebRequest req)
+public class ExceptionController extends ResponseEntityExceptionHandler{
+	@ExceptionHandler({CustomizedException.class})
+	public  ResponseEntity<Object> handleCustomExc(CustomizedException ex,WebRequest req)
 	{
 		System.out.println("hiii from exception controller");
-     	Errorpogo ep=new Errorpogo();
+     	ErrorPogo ep=new ErrorPogo();
      	ep.setCode(ex.getCode());
      	ep.setMessage(ex.getMessage());
      	return new ResponseEntity<Object>(ep,HttpStatus.NOT_FOUND);		
@@ -52,7 +51,7 @@ public class Excep_ctrl extends ResponseEntityExceptionHandler{
 	@ExceptionHandler(Exception.class)
 	public ResponseEntity<Object> handleMethodArgumentNotValid(Exception e,HttpHeaders headers, HttpStatus status, WebRequest request) {
 		System.out.println("hiii from exception controllersss");
-		Errorpogo ep=new Errorpogo();
+		ErrorPogo ep=new ErrorPogo();
 		ep.setMessage(e.getLocalizedMessage());
 		System.out.println("e.getLocalizedMessage()");
 		ep.setCode(HttpStatus.BAD_REQUEST.value());

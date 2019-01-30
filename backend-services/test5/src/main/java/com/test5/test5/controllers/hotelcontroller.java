@@ -16,8 +16,6 @@ import com.test5.test5.models.HotelInput;
 import com.test5.test5.models.hotels;
 import com.test5.test5.repo.hotelrespository;
 
-
-
 @RestController
 @RequestMapping("/api")
 @CrossOrigin("http://localhost:4200")

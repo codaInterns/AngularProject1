@@ -11,17 +11,17 @@ import { AppComponent } from './app.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
-import { UserloginComponent } from "./components/userlogin/userlogin.component";
+import { UserloginComponent } from './components/userlogin/userlogin.component';
 
 
 
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule } from '@angular/common/http';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { RegisterComponent } from './components/register/register.component';
-import { BsDatepickerModule } from "ngx-bootstrap/datepicker";
-import { TicketCardComponent } from "./components/ticket-card/ticket-card.component";
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { TicketCardComponent } from './components/ticket-card/ticket-card.component';
 
 import { BookingComponent } from './views/booking/booking.component';
 import { BookedComponent } from './components/booked/booked.component';

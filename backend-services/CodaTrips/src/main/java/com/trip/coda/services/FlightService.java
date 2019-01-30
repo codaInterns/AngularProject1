@@ -16,12 +16,12 @@ public class FlightService {
 	private FlightsInterface repo;
  
 	
-	public List<Flight> getF(){
+	public List<Flight> getFlightsDetails(){
 		 
 		return repo.findAll();
 	}
     
-	public List<Flight> getFlights(FlightInput fi)
+	public List<Flight> getLocationBasedFlights(FlightInput fi)
 	{
      
       List<Flight> flightList=repo.findAll();

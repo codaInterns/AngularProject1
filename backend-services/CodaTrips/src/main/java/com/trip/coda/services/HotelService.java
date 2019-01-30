@@ -19,11 +19,11 @@ public class HotelService {
 	@Autowired 
 	private HotelInterface repo;
 	
-	public List<Hotel> getAllHotels(){
+	public List<Hotel> getHotelDetails(){
 		return repo.findAll();
 	}
     
-	public List<Hotel> getHotels(String location)
+	public List<Hotel> getLocationBasedHotel(String location)
 	{
  
         List<Hotel> hotelList=repo.findAll();
@@ -41,7 +41,7 @@ public class HotelService {
 	
 	}
 	
-	public boolean addhotel(HotelInput hi)
+	public boolean addHotelDetail(HotelInput hi)
 	{
 		try {
 		Hotel hotel = new Hotel();

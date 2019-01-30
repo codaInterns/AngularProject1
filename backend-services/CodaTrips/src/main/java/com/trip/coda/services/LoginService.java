@@ -16,7 +16,7 @@ public class LoginService {
 	 @Autowired
 		private UserInterface repo;
 		
-		public Boolean login(AccountInput opt){
+		public Boolean loginUser(AccountInput opt){
 	    	List<User> list1= repo.findAll();
 	    	Iterator<User> listIterator=list1.iterator();
 	    	while(listIterator.hasNext()) {
@@ -29,7 +29,7 @@ public class LoginService {
 	    	return false;
 	    }
 		
-		public Boolean postUser(AccountInput opt) {
+		public Boolean registerUser(AccountInput opt) {
 			User user1=new User();
 			try {
 				user1.setUserEmail(opt.getUserEmail());

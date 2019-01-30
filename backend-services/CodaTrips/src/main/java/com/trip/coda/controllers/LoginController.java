@@ -17,14 +17,14 @@ public class LoginController {
    
 	LoginService loginservice;
 	
-	@PostMapping(path = "/users/" , consumes = "application/json" , produces = "application/json")
+	@PostMapping(path = "/loginUser/" , consumes = "application/json" , produces = "application/json")
     public Boolean login(@RequestBody AccountInput opt){
      
-		return loginservice.login(opt);
+		return loginservice.loginUser(opt);
     }
-	@PostMapping(path = "/register/" , consumes = "application/json" , produces = "application/json")
+	@PostMapping(path = "/registerUser/" , consumes = "application/json" , produces = "application/json")
 	public Boolean postUser(@RequestBody AccountInput opt) {
 		
-		return loginservice.postUser(opt);
+		return loginservice.registerUser(opt);
 	}
 }

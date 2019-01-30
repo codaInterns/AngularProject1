@@ -20,7 +20,7 @@ public class BookingService {
 	private BookingInterface bookingInterface;
 	
 	
-	public ResponseEntity<Boolean> postUser(BookingInput opt,final HttpServletRequest request) {
+	public ResponseEntity<Boolean> bookingFlight(BookingInput opt,final HttpServletRequest request) {
 		
 		Boolean isBookingComplete = false;
 		String isValidAuth = (String) request.getAttribute("valid");

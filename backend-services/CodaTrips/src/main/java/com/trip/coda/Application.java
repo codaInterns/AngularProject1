@@ -1,7 +1,9 @@
 package com.trip.coda;
 
+import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.core.config.Configurator;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
@@ -29,12 +31,9 @@ public class Application {
 	}
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
-		System.out.println(LOGGER.isDebugEnabled());
-		System.out.println(LOGGER.isTraceEnabled());
-		LOGGER.trace("hello");
-        LOGGER.info("Info level log message");
-        LOGGER.debug("Debug level log message");
-        LOGGER.error("Error level log message");
+         Configurator.setRootLevel(Level.TRACE);
+		LOGGER.traceEntry("entered");
+        LOGGER.info("The application starts");
 	}
 
 }

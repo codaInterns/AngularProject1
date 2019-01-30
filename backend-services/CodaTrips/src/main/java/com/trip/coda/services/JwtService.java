@@ -2,12 +2,10 @@ package com.trip.coda.services;
 
 import java.util.Iterator;
 import java.util.List;
-
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-
-
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTCreationException;
@@ -16,7 +14,8 @@ import com.trip.coda.models.User;
 
 @Service
 public class JwtService {
-
+  
+	     private Logger logger = LogManager.getLogger(JwtService.class.getName());
 	    @Autowired
 		private com.trip.coda.repo.UserInterface repo;
 		
@@ -42,15 +41,14 @@ public class JwtService {
 	    	    		    
 	    	    	 } catch (JWTCreationException exception){
 	    	    		 
-	    	    		    
+	    	    		    logger.error(exception);
 	    	    		}
 	    	     }
 	    	    
 	    	}
 	    	
 	    	return null;
-	    }
-		
+	    }	
 		
 }
 

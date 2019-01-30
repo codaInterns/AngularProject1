@@ -1,18 +1,17 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
 export class EmailService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-   public getUser(email:String,password:String){
-    var userData = {
-      email : email,
-      password : password
-        
+  public getUser(email: String, password: String) {
+    const userData = {
+      email: email,
+      password: password
     };
-    return this.http.post("http://localhost:8080/api/jwt/",userData,{responseType: 'text'});
+    return this.http.post('http://localhost:8080/api/jwt/', userData, { responseType: 'text' });
   }
 }

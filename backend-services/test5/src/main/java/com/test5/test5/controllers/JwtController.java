@@ -1,15 +1,10 @@
 package com.test5.test5.controllers;
 
-import java.security.Key;
-import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
-import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,9 +16,6 @@ import com.auth0.jwt.exceptions.JWTCreationException;
 import com.test5.test5.models.UserDB;
 import com.test5.test5.models.options;
 import com.test5.test5.repo.UserInterface;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
-import io.jsonwebtoken.security.Keys;
 
 @RestController
 @RequestMapping("/api")

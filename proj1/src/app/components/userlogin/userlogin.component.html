@@ -7,7 +7,7 @@
   
    <input type="text" name="email" formControlName="email"  class="login-input"  placeholder="Email Address" autofocus>
    <div>
-     <span class="error" *ngIf="(formdata.controls.email.required && formdata.controls.email.touched)">*Email is required</span>
+     <div class="error" *ngIf="(formdata.controls.email.required && formdata.controls.email.touched)">*Email is required</div>
      <div class="error" *ngIf="(formdata.controls.email.invalid && formdata.controls.email.touched)">*Email must be a valid email address</div>
    </div>
    
@@ -16,14 +16,13 @@
      <span class="error" *ngIf="(formdata.controls.password.required && formdata.controls.password.touched)">*Password is required</span>
      <div class="error" *ngIf="(formdata.controls.password.invalid && formdata.controls.password.touched)">*password must contain atleast one upper case ,lowercase, special character , number and length =8</div>
    </div>
-
-   
   <input type="submit" value="Log in" class="login-button"> 
-    
-
   </form>
 </div>
 </div>
+
+
+
 
 
 

@@ -5,8 +5,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,10 +21,7 @@ public class LoginController {
     @Autowired
 	private UserInterface repo;
 	private options opt;
-    /*@GetMapping("/get")
-	public String Allid() {
-		return "hi";
-	}*/
+    
 	@PostMapping(path = "/users/" , consumes = "application/json" , produces = "application/json")
     public Boolean login(@RequestBody options opt){
     	List<UserDB> list1= repo.findAll();

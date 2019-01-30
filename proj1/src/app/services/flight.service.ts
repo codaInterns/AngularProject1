@@ -1,8 +1,8 @@
-import { Injectable } from "@angular/core";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 export class FlightService {
   constructor(private http: HttpClient) { }
@@ -12,11 +12,11 @@ export class FlightService {
 
   getFlights(searchDetails: any) {
     console.log('input' + searchDetails);
-    return this.http.post("http://localhost:8080/api/getFlight/", searchDetails);
+    return this.http.post('http://localhost:8080/api/getFlight/', searchDetails);
   }
 
   getHotDeals() {
-    return this.http.get("http://localhost:8080/api/getFlights");
+    return this.http.get('http://localhost:8080/api/getFlights');
   }
 }
 

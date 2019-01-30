@@ -63,12 +63,8 @@ export class FlightSearchComponent implements OnInit {
     this.myservice.getFlights(this.serviceValue).subscribe(res => {
       console.log(res);
       this.result.emit(res);
-    });
-
-   
-    
+    }); 
   }
-
   isSame(){
     if(this.fromValue == this.toValue){
       this.isdisabled = true;

@@ -3,7 +3,8 @@ import os
 import subprocess
 import sys
 from glob import glob
-def fun():	
+def fun():
+	sys.stderr.write("Hiiiii")	
 	commitids = os.popen('git log --format="%H" -n 2').read()
 	commitids = commitids.splitlines()
 	diff = os.popen('git diff --name-only ' + commitids[0] + ' ' + commitids[1]).read()

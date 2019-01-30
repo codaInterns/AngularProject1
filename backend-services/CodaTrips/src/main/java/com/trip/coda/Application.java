@@ -1,5 +1,8 @@
 package com.trip.coda;
 
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.type.MappedTypes;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
@@ -7,10 +10,14 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 
 import com.trip.coda.filters.AuthFilter;
+import com.trip.coda.models.Flight;
+import com.trip.coda.models.FlightBooking;
+import com.trip.coda.models.Hotel;
+import com.trip.coda.models.User;
 
-
+@MapperScan("com.trip.coda.mapper")
+@MappedTypes(value = { User.class,Hotel.class,Flight.class,FlightBooking.class })
 @SpringBootApplication
-
 @ComponentScan({"com.trip.coda"})
 
 public class Application {

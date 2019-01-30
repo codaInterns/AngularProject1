@@ -29,20 +29,20 @@ import com.trip.coda.services.FlightService;
 public class FlightsController {
 
 @Autowired
-FlightService flightservice;
+FlightService flightService;
 
 
  @GetMapping("/getFlights")
  public List<Flight> getAllFlights(){
 	
-	return flightservice.getF();
+	return flightService.getF();
 	
  }
 
  @PostMapping(path="/getFlight/" ,consumes = "application/json" , produces = "application/json")
  public List<Flight> getFlights(@RequestBody FlightInput fi)
  {
-	return flightservice.getFlights(fi);
+	return flightService.getFlights(fi);
  }
 
 

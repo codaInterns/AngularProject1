@@ -21,10 +21,10 @@ import com.trip.coda.services.BookingService;
 @CrossOrigin("http://localhost:4200")
 public class BookingController {
 	
-	BookingService bookingservice; 
+	BookingService bookingService; 
 
 	@PostMapping(path = "/book/" , consumes = "application/json" , produces = "application/json")
 	public ResponseEntity<Boolean> postBooking(@RequestBody BookingInput opt,final HttpServletRequest request) {
-		return bookingservice.postUser(opt, request);
+		return bookingService.postUser(opt, request);
 	}
 }

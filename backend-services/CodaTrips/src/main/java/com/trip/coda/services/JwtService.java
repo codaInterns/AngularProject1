@@ -11,25 +11,21 @@ import org.springframework.stereotype.Service;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTCreationException;
+import com.trip.coda.mapper.UserMapper;
 import com.trip.coda.models.AccountInput;
 import com.trip.coda.models.User;
 
 @Service
 public class JwtService {
 
-	    @Autowired
-		private com.trip.coda.repo.UserInterface repo;
-		
+
+		@Autowired
+		private UserMapper mapper;
 		
 		
 	    public String login(AccountInput opt){
 		
-			
-	    	List<User> list1= repo.findAll();
-	    	Iterator<User> listIterator=list1.iterator();
-	    	while(listIterator.hasNext()) {
-	    	     User user=listIterator.next();
-	    	     if(user.getUserEmail().equals(opt.getUserEmail()) && user.getUserPassword().equals(opt.getUserPassword()) ){
+			User user=mapper.login(opt);
 	    	    	 try {
 	    	    		 	int id = user.getUserId();
 	    	    		 
@@ -44,9 +40,9 @@ public class JwtService {
 	    	    		 
 	    	    		    
 	    	    		}
-	    	     }
+	    	     
 	    	    
-	    	}
+    	
 	    	
 	    	return null;
 	    }

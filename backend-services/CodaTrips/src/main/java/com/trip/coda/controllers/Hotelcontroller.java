@@ -22,13 +22,13 @@ public class Hotelcontroller {
 	 static Logger logger = Logger.getLogger(Hotelcontroller.class);
 
 	@Autowired
-	HotelService hotelservice;
+	HotelService hotelService;
 	
 	
 // retrival of all hotels
 	@GetMapping("/gethotels")
 	public List<Hotel> gethotels(){
-	return hotelservice.getAllHotels();
+	return hotelService.getAllHotels();
 	
 	}
 	
@@ -38,7 +38,7 @@ public class Hotelcontroller {
 	public List<Hotel> gethotels(@RequestBody HotelInput hi)
 	{
 		
-		return hotelservice.getHotels(hi.getHotelPlace());
+		return hotelService.getHotels(hi);
 		
 	}
 
@@ -48,7 +48,7 @@ public class Hotelcontroller {
 	{
 		logger.trace(hi.getHotelImage());
 		
-          return hotelservice.addhotel(hi);
+          return hotelService.addhotel(hi);
        
 	}
 

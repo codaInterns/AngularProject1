@@ -8,16 +8,16 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-
+import com.trip.coda.mapper.BookingMapper;
 import com.trip.coda.models.BookingInput;
 import com.trip.coda.models.FlightBooking;
-import com.trip.coda.repo.BookingInterface;
+
 
 @Service
 public class BookingService {
 	
 	@Autowired
-	private BookingInterface bookingInterface;
+	private BookingMapper mapper;
 	
 	
 	public ResponseEntity<Boolean> postUser(BookingInput opt,final HttpServletRequest request) {
@@ -39,7 +39,7 @@ public class BookingService {
 				bookingObject.setDestination(opt.getDestination());
 				bookingObject.setSource(opt.getSource());
 				bookingObject.setUserId((String)request.getAttribute("userid"));
-				bookingInterface.save(bookingObject);
+				mapper.save(bookingObject);
 				isBookingComplete = true;
 			}
 			catch(Exception ex) {
@@ -48,6 +48,7 @@ public class BookingService {
 			}
 		}
 		return new ResponseEntity<>(isBookingComplete,responseHeaders,httpStatus);
+		
 	}
 
 }

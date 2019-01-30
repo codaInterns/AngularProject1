@@ -7,60 +7,54 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
+import com.trip.coda.mapper.HotelMapper;
+import com.trip.coda.models.Flight;
 import com.trip.coda.models.Hotel;
 import com.trip.coda.models.HotelInput;
-import com.trip.coda.repo.HotelInterface;
+
 
 
 @Service
 public class HotelService {
 	
 	@Autowired 
-	private HotelInterface repo;
+	private HotelMapper mapper;
 	
 	public List<Hotel> getAllHotels(){
-		return repo.findAll();
+		return mapper.findAll();
+		
 	}
     
-	public List<Hotel> getHotels(String location)
+	public List<Hotel> getHotels(HotelInput hi)
 	{
- 
-        List<Hotel> hotelList=repo.findAll();
-        Iterator<Hotel> hotelIter=hotelList.iterator();
-        List<Hotel> selectedList=new ArrayList<>();
-        while(hotelIter.hasNext())
-        {
-	      Hotel f1=hotelIter.next();
-	      if(f1.getHotelPlace().equals(location))
-	      {
-		  selectedList.add(f1);
-	      }
-	   }
-       return selectedList;
+		Hotel hotel=new Hotel();
+		hotel.setHotelDescription(hi.getHotelDescription());
+		hotel.setHotelImage(hi.getHotelImage());
+		hotel.setHotelName(hi.getHotelName());
+		hotel.setHotelPlace(hi.getHotelPlace());
+		hotel.setHotelPrice(hi.getHotelPrice());
+		
+		return mapper.findHotelByLocation(hotel);
 	
 	}
 	
 	public boolean addhotel(HotelInput hi)
 	{
-		try {
-		Hotel hotel = new Hotel();
-		
+		Hotel hotel=new Hotel();
+		hotel.setHotelDescription(hi.getHotelDescription());
+		hotel.setHotelImage(hi.getHotelImage());
 		hotel.setHotelName(hi.getHotelName());
 		hotel.setHotelPlace(hi.getHotelPlace());
 		hotel.setHotelPrice(hi.getHotelPrice());
-		hotel.setHotelDescription(hi.getHotelDescription());
-		hotel.setHotelImage(hi.getHotelImage());
-		repo.save(hotel);
-		
+		try {
+			
+		mapper.save(hotel);
 		return true;
 		}
-		catch(Exception ex)
-		{
-			
+		catch(Exception e) {
+			e.printStackTrace();
 			return false;
 		}
-		
 		
 	}
 	

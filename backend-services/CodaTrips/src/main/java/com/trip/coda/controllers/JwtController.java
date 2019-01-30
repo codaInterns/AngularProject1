@@ -1,6 +1,7 @@
 package com.trip.coda.controllers;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,12 +21,12 @@ import com.trip.coda.services.JwtService;
 @CrossOrigin("http://localhost:4200")
 public class JwtController {
    
-  
-	JwtService jwtservice;
+	@Autowired
+	JwtService jwtService;
 	@PostMapping(path = "/jwt/" , consumes = "application/json")
     public String login(@RequestBody AccountInput opt){
 		
-	    return jwtservice.login(opt);
+	    return jwtService.login(opt);
     }
 	
 }

@@ -95,7 +95,6 @@ export class ContactsComponent implements OnInit {
 
     this.detcard = this.formdata.get('detcard') as FormArray;
     this.result.emit( this.detcard.value);
-    
     /*for (let card of this.detcard.controls) {
       var item = card as FormGroup;
       console.log(item);

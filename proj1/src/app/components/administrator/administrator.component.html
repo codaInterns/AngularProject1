@@ -1,0 +1,16 @@
+<div id="header">
+  <h1>Add User Details: version 2</h1>
+</div>
+<div>
+  <button style="position: absolute;" id="sub" (click)="autoFill()">Autofill</button>
+</div>
+<form>
+  <div id="form-container">
+<app-details [formdata]=formdata (delete)="onDelete(i)"></app-details>
+<button id="addbtn"  (click)="addDetCard()"><i class="fa fa-plus-square" aria-hidden="true"></i></button>
+<button style="position:absolute;" id="submit" (click)="onSubmit()" type="submit">Submit</button>
+</div>
+</form>
+<div>
+  <button id="reset" (click)="reset()">Reset</button>
+</div>

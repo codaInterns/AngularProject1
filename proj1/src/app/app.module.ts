@@ -25,6 +25,8 @@ import { TicketCardComponent } from "./components/ticket-card/ticket-card.compon
 
 import { ContactsComponent } from './components/contacts/contacts.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { AdministratorComponent } from './components/administrator/administrator.component';
+import { DetailsComponent } from './components/details/details.component';
 
 
 const appRoutes: Routes = [
@@ -67,7 +69,11 @@ const appRoutes: Routes = [
    
     ContactsComponent,
    
-    AdminComponent
+    AdminComponent,
+   
+    AdministratorComponent,
+   
+    DetailsComponent
     
     
   ],

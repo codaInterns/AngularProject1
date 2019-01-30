@@ -8,12 +8,11 @@ import { BookServiceService } from 'src/app/services/book-service.service';
 })
 export class BookedComponent implements OnInit {
 
-  isBooked:boolean;
-  
-  constructor(private myservice:BookServiceService) { }
+  isBooked: boolean;
+
+  constructor(private myservice: BookServiceService) { }
 
   ngOnInit() {
-  
   }
 
 }

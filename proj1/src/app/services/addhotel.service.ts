@@ -9,9 +9,9 @@ import { map, catchError, tap } from 'rxjs/operators';
 export class AddHotelService {
 
   endpoint = 'http://localhost:3000/api/v1/';
-  result:any;
+  result: any;
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -29,15 +29,14 @@ export class AddHotelService {
       map(this.extractData));
   }
 
-  public postUser(data:any){
-    this.http.post('http://localhost:8080/api/addhotel/',data).subscribe(res=>
-    {
-      this.result=res;
+  public postUser(data: any) {
+    this.http.post('http://localhost:8080/api/addhotel/', data).subscribe(res => {
+      this.result = res;
       console.log(this.result);
     });
   }
 
   getProduct(data): Observable<any> {
-    return this.http.post("http://localhost:8080/api/getHotel/",data)
+    return this.http.post('http://localhost:8080/api/getHotel/', data);
   }
 }

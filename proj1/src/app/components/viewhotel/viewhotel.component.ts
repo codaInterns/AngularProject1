@@ -10,20 +10,20 @@ import { Router } from '@angular/router';
 })
 export class ViewHotelComponent implements OnInit {
 
-  products:any = [{}];
-  
-  constructor(private addHotel:AddHotelService,private route:Router,private http:HttpClient) { }
-  
+  products: any = [{}];
+
+  constructor(private addHotel: AddHotelService, private route: Router, private http: HttpClient) { }
+
   ngOnInit() {
-    this.getProducts();  
+    this.getProducts();
   }
- 
+
   getProducts() {
     this.products = [];
     this.addHotel.getProducts().subscribe((data: {}) => {
       this.products = data;
     });
   }
-  
-  
+
+
 }

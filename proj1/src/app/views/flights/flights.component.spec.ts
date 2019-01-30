@@ -5,7 +5,7 @@ import { FlightsComponent } from './flights.component';
 describe('FlightsComponent', () => {
   let component: FlightsComponent;
   let fixture: ComponentFixture<FlightsComponent>;
-  let submitEl = fixture.debugElement.query(By.css('.col-12'));
+  const submitEl = fixture.debugElement.query(By.css('.col-12'));
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ FlightsComponent ]

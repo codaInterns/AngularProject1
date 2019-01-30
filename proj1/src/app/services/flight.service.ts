@@ -1,22 +1,31 @@
-import { Injectable } from "@angular/core";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { HotDeals } from '../modals/hotDeals.modals';
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 export class FlightService {
 
-  token:any;
-  output:any;
+  HotDeals: {
+    flights_id: number,
+    name: string,
+    source: string,
+    destination: string,
+    departure: string,
+    price: number
+  };
 
-  constructor(private http: HttpClient) {}
+
+  token: any;
+  output: any;
+
+  constructor(private http: HttpClient) { }
 
   getFlights(searchDetails: any) {
     return this.http.post('http://localhost:8080/api/getFlight/', searchDetails);
   }
 
   getHotDeals() {
-    return this.http.get<HotDeals[]>('http://localhost:8080/api/getFlights');
+    return this.http.get('http://localhost:8080/api/getFlights');
   }
 }

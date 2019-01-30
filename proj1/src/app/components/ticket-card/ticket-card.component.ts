@@ -10,24 +10,24 @@ import { Router } from '@angular/router';
 })
 export class TicketCardComponent implements OnInit {
 
-  ticket:any;
+  ticket: any;
 
-  constructor(private myService:BookServiceService,private routes:Router) { }
+  constructor(private myService: BookServiceService, private routes: Router) { }
 
   ngOnInit() {
     this.ticket = this.myService.getDetails();
   }
 
-  onConfirmBook(){
+  onConfirmBook() {
     this.myService.bookTicket(this.ticket).subscribe(
       (data: HttpResponse<any>) => {
-        if(data.status == 200){
+        if (data.status === 200) {
           this.routes.navigate(['/ticketBooked']);
         }
       },
-      error => { 
+      error => {
         alert('Please Login before Booking');
-        this.routes.navigate(['/login']);      
+        this.routes.navigate(['/login']);
       });
   }
 }

@@ -4,7 +4,7 @@ import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
 import { FlightService } from 'src/app/services/flight.service';
 
 const states = [
-  'chennai','Madurai','Coimbatore','Mumbai','Noida','Nepal','Hyderabad','Himalayas'
+  'chennai', 'Madurai', 'Coimbatore', 'Mumbai', 'Noida', 'Nepal', 'Hyderabad', 'Himalayas'
 ];
 
 @Component({
@@ -15,57 +15,56 @@ const states = [
 export class FlightSearchComponent implements OnInit {
 
 
-  @Input() fromValue:string;
-  @Input() toValue:string;
+  @Input() fromValue: string;
+  @Input() toValue: string;
 
-  @ViewChild('class') class:ElementRef;
-  @ViewChild('type') type:ElementRef;
-  @ViewChild('passCount') passCount:ElementRef;
+  @ViewChild('class') class: ElementRef;
+  @ViewChild('type') type: ElementRef;
+  @ViewChild('passCount') passCount: ElementRef;
 
   @Output() result = new EventEmitter<any>();
 
-  serviceValue:{source:string,destination:string,departure:string};
-  resValue:any;
-  isDisabled:any;
-  today:any;
-  output:any;
+  serviceValue: { source: string, destination: string, departure: string };
+  resValue: any;
+  isDisabled: any;
+  today: any;
+  output: any;
 
-  constructor(private myService:FlightService) { }
+  constructor(private myService: FlightService) { }
 
-  search = (text$: Observable<String>) => 
+  search = (text$: Observable<String>) =>
     text$.pipe(
       debounceTime(200),
       distinctUntilChanged(),
       map(term => term.length < 2 ? [] :
-        states.filter(v => v.toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0,10))
-      )
-        
+        states.filter(v => v.toLowerCase().indexOf(term.toLowerCase()) > -1).slice(0, 10))
+    )
+
   ngOnInit() {
     this.today = new Date();
   }
 
-  onSubmit(searchForm:any){
-    
-    if(searchForm.from==null || searchForm.to==null)
-    {
+  onSubmit(searchForm: any) {
+
+    if (searchForm.from == null || searchForm.to == null) {
       this.result.emit(null);
       return;
     }
 
     this.serviceValue = {
-      source:searchForm.from.toLowerCase(),
-      destination:searchForm.to.toLowerCase(),
-      departure:searchForm.dateValue
+      source: searchForm.from.toLowerCase(),
+      destination: searchForm.to.toLowerCase(),
+      departure: searchForm.dateValue
     };
 
     this.myService.getFlights(this.serviceValue).subscribe(res => {
       this.result.emit(res);
     });
-    
+
   }
 
-  isSame(){
-    if(this.fromValue == this.toValue){
+  isSame() {
+    if (this.fromValue === this.toValue) {
       this.isDisabled = true;
       return true;
     }

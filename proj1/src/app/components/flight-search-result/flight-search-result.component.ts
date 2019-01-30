@@ -9,15 +9,15 @@ import { Router } from '@angular/router';
 })
 export class FlightSearchResultComponent implements OnInit {
 
-  @Input('flight') details:any;
+  @Input() flight: any;
 
-  constructor(private myService:BookServiceService,private routes:Router) { }
- 
+  constructor(private myService: BookServiceService, private routes: Router) { }
+
   ngOnInit() {
   }
 
-  onBook(){
-    this.myService.setDetails(this.details);
+  onBook() {
+    this.myService.setDetails(this.flight);
     this.routes.navigate(['/booked']);
   }
 

@@ -39,6 +39,7 @@ import {FooterComponent} from './components/footer/footer.component';
 import {AddhotelComponent} from './components/addhotel/addhotel.component';
 import { LandingComponent } from './components/landing/landing.component';
 import { OverlayPartComponent } from './components/overlay-part/overlay-part.component';
+import { OverlayPart2Component } from './components/overlay-part2/overlay-part2.component';
 
 
 
@@ -111,6 +112,7 @@ const appRoutes: Routes = [
     ViewHotelComponent,
     LandingComponent,
     OverlayPartComponent,
+    OverlayPart2Component,
  
 
   ],
@@ -126,7 +128,8 @@ const appRoutes: Routes = [
     TooltipModule.forRoot(),
     ModalModule.forRoot(),
     NgbModule.forRoot(),
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [
     {
@@ -134,7 +137,7 @@ const appRoutes: Routes = [
       useClass: TokenInterceptor,
       multi: true
     },
-    BrowserAnimationsModule
+   
   ],
 
   bootstrap: [AppComponent]

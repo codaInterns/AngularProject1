@@ -23,10 +23,7 @@ public class LoginController {
     @Autowired
 	private UserInterface repo;
 	private options opt;
-    /*@GetMapping("/get")
-	public String Allid() {
-		return "hi";
-	}*/
+    
 	@PostMapping(path = "/users/" , consumes = "application/json" , produces = "application/json")
     public Boolean login(@RequestBody options opt){
     	List<UserDB> list1= repo.findAll();

@@ -6,14 +6,22 @@ import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.auth0.jwt.JWT;
+import com.auth0.jwt.JWTVerifier;
+import com.auth0.jwt.algorithms.Algorithm;
+import com.auth0.jwt.exceptions.JWTVerificationException;
+import com.auth0.jwt.interfaces.DecodedJWT;
 import com.test5.test5.models.FlightInput;
 import com.test5.test5.models.flights;
 import com.test5.test5.repo.FlightsInterface;
@@ -27,6 +35,9 @@ public class FlightsController {
 
 @Autowired 
 private FlightsInterface repo;
+
+
+
 
 @GetMapping("/getFlights")
 public List<flights> getAllFlights(){
@@ -47,11 +58,10 @@ public List<flights> getFlights(@RequestBody FlightInput fi)
 		}
 		
 	}
-	
+	System.out.println(selectedList);
 	return selectedList;
 		
 		}
-	
 
 
 

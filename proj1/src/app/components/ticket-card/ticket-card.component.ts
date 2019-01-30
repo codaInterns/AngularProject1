@@ -1,4 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { BookServiceService } from 'src/app/services/book-service.service';
+import { HttpResponse } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-ticket-card',
@@ -7,12 +10,27 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class TicketCardComponent implements OnInit {
 
-  @Input() ticket:any;
+  ticket:any;
 
-  constructor() { }
+  constructor(private myservice:BookServiceService,private routes:Router) { }
 
   ngOnInit() {
-    console.log(this.ticket);
+    this.ticket = this.myservice.getDetails();
   }
 
+  onConfirmBook(){
+    console.log("booked");
+    this.myservice.bookTicket(this.ticket).subscribe(
+      (data: HttpResponse<any>) => {
+        if(data.status == 200){
+          this.routes.navigate(['/ticketBooked']);
+        }
+      },
+      error => {
+        console.log("Invalid response"); 
+        alert('Please Login before Booking');
+        this.routes.navigate(['/login']);      
+      });
+    //this.myservice.bookTicket()
+  }
 }

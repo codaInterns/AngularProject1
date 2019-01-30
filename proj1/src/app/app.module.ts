@@ -1,20 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
 import { FormsModule } from '@angular/forms';
-
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
 import {ReactiveFormsModule} from '@angular/forms';
 import {Routes,RouterModule} from '@angular/router';
 import { UserloginComponent } from "./components/userlogin/userlogin.component";
-
-
-
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { BsDropdownModule } from "ngx-bootstrap/dropdown";
 import { TooltipModule } from "ngx-bootstrap/tooltip";
@@ -30,15 +22,14 @@ import { HeaderComponent } from './components/header/header.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { ViewHotelComponent } from './components/viewhotel/viewhotel.component';
 import {FlightsComponent} from './views/flights/flights.component';
-import {DashboardComponent} from './views/dashboard/dashboard.component';
+import {DashBoardComponent} from './views/dashboard/dashboard.component';
 import {FlightSearchComponent} from './components/flight-search/flight-search.component';
 import {FlightSearchResultComponent} from './components/flight-search-result/flight-search-result.component';
 import {CardsComponent} from './components/cards/cards.component';
 import {NavFeatureComponent} from './components/nav-feature/nav-feature.component';
 import {FooterComponent} from './components/footer/footer.component';
-import {AddhotelComponent} from './components/addhotel/addhotel.component';
+import {AddHotelComponent} from './components/addhotel/addhotel.component';
 import { LandingComponent } from './components/landing/landing.component';
-import { OverlayPartComponent } from './components/overlay-part/overlay-part.component';
 import { OverlayPart2Component } from './components/overlay-part2/overlay-part2.component';
 import { DummyComp1Component } from './components/dummy-comp1/dummy-comp1.component';
 import { DummyComp2Component } from './components/dummy-comp2/dummy-comp2.component';
@@ -58,7 +49,7 @@ const appRoutes: Routes = [
   },
   {
     path:"app-addhotel",
-    component: AddhotelComponent
+    component: AddHotelComponent
 
   },
   {
@@ -113,7 +104,7 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent,
+    DashBoardComponent,
     UserloginComponent,
     FlightSearchComponent,
     FlightSearchResultComponent,
@@ -122,16 +113,14 @@ const appRoutes: Routes = [
     FlightsComponent,
     FooterComponent,
     TicketCardComponent,
-    BookingComponent,
-    
+    BookingComponent,    
     BookedComponent,
     RegisterComponent,
-    AddhotelComponent,
+    AddHotelComponent,
     SearchHotelComponent,
     HeaderComponent,
     ViewHotelComponent,
-    LandingComponent,
-    OverlayPartComponent,
+    LandingComponent,   
     OverlayPart2Component,
     DummyComp1Component,
     DummyComp2Component,

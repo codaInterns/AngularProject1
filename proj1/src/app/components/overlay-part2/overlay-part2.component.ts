@@ -22,18 +22,15 @@ export class OverlayPart2Component implements OnInit {
   @Input() closable = true;
   @Input() visible: boolean;
   @Output() visibleChange: EventEmitter<boolean> = new EventEmitter<boolean>();
-  
+
   constructor() { }
 
   ngOnInit() {
-  }
- 
 
+  }
   close() {
     this.visible = false;
     this.visibleChange.emit(this.visible);
-    console.log("visible:"+this.visible);
-    console.log("visible:"+this.visibleChange);
   }
 
 }

@@ -10,7 +10,7 @@ export class BookedComponent implements OnInit {
 
   isBooked:boolean;
   
-  constructor(private myservice:BookServiceService) { }
+  constructor(private myService:BookServiceService) { }
 
   ngOnInit() {
   

@@ -6,7 +6,7 @@ import { HotDealsService } from 'src/app/services/hot-deals.service';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent implements OnInit {
+export class DashBoardComponent implements OnInit {
 
   constructor() { }
 

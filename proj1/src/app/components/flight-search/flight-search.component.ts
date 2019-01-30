@@ -14,14 +14,11 @@ const states = [
 })
 export class FlightSearchComponent implements OnInit {
 
-
   @Input() fromValue:string;
   @Input() toValue:string;
-
   @ViewChild('class') class:ElementRef;
   @ViewChild('type') type:ElementRef;
   @ViewChild('passCount') passCount:ElementRef;
-
   @Output() result = new EventEmitter<any>();
 
   serviceValue:{source:string,destination:string,departure:string};

@@ -17,16 +17,16 @@ h1{
     font-size:50px;   
     letter-spacing: 0.2em
 }
-.pictextspan{
+.picTextSpan{
     text-transform: uppercase;
 }
-.picpara{
+.picPara{
     font-size:30px;
     font-weight: 100;
     letter-spacing: 0.1em;
     
 }
-.inpiclink{  
+.inPicLink{  
     color:White;
    font-weight: 100;
     text-decoration: none;
@@ -49,7 +49,7 @@ h1{
      padding:12px 18px;
      border-radius: 5px;    
 }
-.boxwrapper{
+.box-wrapper{
     display:flex;
     margin-top:2px;
    
@@ -61,7 +61,7 @@ h1{
     max-height:768px;
     height:100%;     
 }
-.boxheader{
+.box-header{
     letter-spacing: .1em;
     font-family:monospace;
     padding-top:10px;
@@ -71,21 +71,21 @@ h1{
     width:10%;
     font-size:12px;
 }
-.box1data{
+.box-data{
 margin-top:10px;
 }
-.boxdata p{
+.box-data p{
     text-align: justify;
 }
 .para{
     padding:20px;
    
 }
-.hotdeals{
+.hotDeals{
     display: flex;
     margin-top:40px;
 }
-.fullbox{
+.fullBox{
     flex:1;
     margin:0 auto;
   letter-spacing: .1em;

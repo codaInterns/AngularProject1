@@ -30,7 +30,7 @@
     }
   }
   
-  .dialog__close-btn {
+  .dialog-close-btn {
     border: 1px solid green;
     background: none;
     color: #2d2d2d;

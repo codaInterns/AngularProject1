@@ -4,5 +4,5 @@ export interface HotDeals{
     source: string,
     destination: string,
     departure: string,
-    price: number
+    price: number;
 }

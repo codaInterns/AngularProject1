@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dummy-comp3.component.css']
 })
 export class DummyComp3Component implements OnInit {
-  componentName:string = "dummy-comp3";
+  componentName = 'dummy-comp3';
   constructor() { }
 
   ngOnInit() {

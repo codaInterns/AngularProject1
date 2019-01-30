@@ -9,15 +9,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./details.component.css']
 })
 export class DetailsComponent implements OnInit {
-@Input() formdata:FormGroup;
-@Output() delete = new  EventEmitter<number>();
-  constructor(private route:Router) { }
+  @Input() formdata: FormGroup;
+  @Output() delete = new EventEmitter<number>();
+  constructor(private route: Router) { }
 
   ngOnInit() {
 
   }
-onDelete(i){
-  this.delete.emit(i);
-}
+  onDelete(i) {
+    this.delete.emit(i);
+  }
 
 }

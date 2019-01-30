@@ -14,7 +14,7 @@ export class AdministratorComponent implements OnInit {
   change;
   curVal;
   users: any;
-  submitting=false;
+  submitting = false;
   constructor(private formBuilder: FormBuilder, private route: Router, private myservice: UserService) { }
 
   ngOnInit() {
@@ -23,14 +23,14 @@ export class AdministratorComponent implements OnInit {
     });
 
   }
-  
+
 
   createDetCard(): FormGroup {
     return this.formBuilder.group({
-      userName: ["", [Validators.required, Validators.pattern(/^[A-Za-z0-9]+(?:[ _-][A-Za-z0-9]+)*$/)]],
-      email: ["", [Validators.required, Validators.pattern(/^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,}$/)]]
-    })
-  };
+      userName: ['', [Validators.required, Validators.pattern(/^[A-Za-z0-9]+(?:[ _-][A-Za-z0-9]+)*$/)]],
+      email: ['', [Validators.required, Validators.pattern(/^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,}$/)]]
+    });
+  }
 
   addDetCard(): void {
     this.detcard = this.formdata.get('detcard') as FormArray;
@@ -38,7 +38,7 @@ export class AdministratorComponent implements OnInit {
   }
 
   onDelete(i) {
-    console.log("removing user:" + i);
+    console.log('removing user:' + i);
     this.detcard = this.formdata.get('detcard') as FormArray;
     this.detcard.removeAt(i);
   }
@@ -49,25 +49,25 @@ export class AdministratorComponent implements OnInit {
       return;
     }
     this.detcard = this.formdata.get('detcard') as FormArray;
-    var testing = JSON.stringify(this.detcard.value);
+    const testing = JSON.stringify(this.detcard.value);
     console.log(testing);
 
   }
 
 
-   autoFill() {
-     this.users=this.myservice.getUsers();
-     this.formdata = new FormGroup({
-       detcard: new FormArray(this.users.map(item => {
-         const group = this.createDetCard();
-         group.patchValue(item);
-         return group;
-       }))
-     });
-   }
-  
-   reset(){
-     this.formdata.reset();
-   }
+  autoFill() {
+    this.users = this.myservice.getUsers();
+    this.formdata = new FormGroup({
+      detcard: new FormArray(this.users.map(item => {
+        const group = this.createDetCard();
+        group.patchValue(item);
+        return group;
+      }))
+    });
+  }
+
+  reset() {
+    this.formdata.reset();
+  }
 
 }

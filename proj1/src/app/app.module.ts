@@ -9,8 +9,8 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import {ReactiveFormsModule} from '@angular/forms';
-import {Routes,RouterModule} from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
+import { Routes, RouterModule } from '@angular/router';
 import { UserloginComponent } from "./components/userlogin/userlogin.component";
 
 
@@ -19,7 +19,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ModalModule } from 'ngx-bootstrap/modal';
-import {RegisterComponent} from './components/register/register.component';
+import { RegisterComponent } from './components/register/register.component';
 import { BsDatepickerModule } from "ngx-bootstrap/datepicker";
 import { TicketCardComponent } from "./components/ticket-card/ticket-card.component";
 
@@ -28,30 +28,32 @@ import { BookedComponent } from './components/booked/booked.component';
 import { TokenInterceptor } from './services/token.service';
 import { SearchhotelComponent } from './Components/searchhotel/searchhotel.component';
 import { HeaderComponent } from './components/header/header.component';
-import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ViewhotelComponent } from './components/viewhotel/viewhotel.component';
-import {FlightsComponent} from './views/flights/flights.component';
-import {DashboardComponent} from './views/dashboard/dashboard.component';
-import {FlightSearchComponent} from './components/flight-search/flight-search.component';
-import {FlightSearchResultComponent} from './components/flight-search-result/flight-search-result.component';
-import {CardsComponent} from './components/cards/cards.component';
-import {NavFeatureComponent} from './components/nav-feature/nav-feature.component';
-import {FooterComponent} from './components/footer/footer.component';
-import {AddhotelComponent} from './components/addhotel/addhotel.component';
+import { FlightsComponent } from './views/flights/flights.component';
+import { DashboardComponent } from './views/dashboard/dashboard.component';
+import { FlightSearchComponent } from './components/flight-search/flight-search.component';
+import { FlightSearchResultComponent } from './components/flight-search-result/flight-search-result.component';
+import { CardsComponent } from './components/cards/cards.component';
+import { NavFeatureComponent } from './components/nav-feature/nav-feature.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { AddhotelComponent } from './components/addhotel/addhotel.component';
 import { LandingComponent } from './components/landing/landing.component';
+import { AdministratorComponent } from './components/administrator/administrator.component';
+import { DetailsComponent } from './components/details/details.component';
 
 const appRoutes: Routes = [
   {
-    path : '',
-    component : LandingComponent
+    path: '',
+    component: LandingComponent
   },
   {
     path: 'app-searchhotel',
     component: SearchhotelComponent
   },
   {
-    path:'app-addhotel',
+    path: 'app-addhotel',
     component: AddhotelComponent
 
   },
@@ -72,19 +74,19 @@ const appRoutes: Routes = [
     component: BookedComponent
   },
   {
-    path : 'flights',
-    component : FlightsComponent
+    path: 'flights',
+    component: FlightsComponent
   },
   {
-    path:'app-viewhotel',
+    path: 'app-viewhotel',
     component: ViewhotelComponent
   },
   {
-    path : 'login',
-    component : UserloginComponent
+    path: 'login',
+    component: UserloginComponent
 
- }
-  
+  }
+
 ];
 
 
@@ -102,14 +104,16 @@ const appRoutes: Routes = [
     TicketCardComponent,
     BookingComponent,
 
-    
+
     BookedComponent,
     RegisterComponent,
     AddhotelComponent,
     SearchhotelComponent,
     HeaderComponent,
     ViewhotelComponent,
-    LandingComponent
+    LandingComponent,
+    DetailsComponent,
+    AdministratorComponent
 
   ],
   imports: [
@@ -137,4 +141,4 @@ const appRoutes: Routes = [
 
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

@@ -1,7 +1,3 @@
-<h1>overlaypart</h1>
-<button (click)="showDialog = !showDialog" class="btn">Open</button>
-{{showDialog}}
-<app-overlay-part2 [(visible)]="showDialog">    
-	<app-userlogin></app-userlogin>
-	<button (click)="showDialog = !showDialog" class="btn">Close</button>
-</app-overlay-part2>
+<app-nav-feature></app-nav-feature>
+<router-outlet></router-outlet>
+<app-footer></app-footer>

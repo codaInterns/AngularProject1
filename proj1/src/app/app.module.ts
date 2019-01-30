@@ -40,6 +40,10 @@ import {AddhotelComponent} from './components/addhotel/addhotel.component';
 import { LandingComponent } from './components/landing/landing.component';
 import { OverlayPartComponent } from './components/overlay-part/overlay-part.component';
 import { OverlayPart2Component } from './components/overlay-part2/overlay-part2.component';
+import { DummyComp1Component } from './components/dummy-comp1/dummy-comp1.component';
+import { DummyComp2Component } from './components/dummy-comp2/dummy-comp2.component';
+import { DummyComp3Component } from './components/dummy-comp3/dummy-comp3.component';
+import { DummyComp4Component } from './components/dummy-comp4/dummy-comp4.component';
 
 
 
@@ -85,7 +89,23 @@ const appRoutes: Routes = [
     path : "login",
     component : UserloginComponent
 
- }
+ },
+ {
+   path:"dummy/comp1",
+   component : DummyComp1Component
+ },
+ {
+  path:"dummy/comp2",
+  component : DummyComp2Component
+},
+{
+  path:"dummy/comp3",
+  component : DummyComp3Component
+},
+{
+  path:"dummy/comp4",
+  component : DummyComp4Component
+}
   
 ];
 
@@ -113,6 +133,11 @@ const appRoutes: Routes = [
     LandingComponent,
     OverlayPartComponent,
     OverlayPart2Component,
+    DummyComp1Component,
+    DummyComp2Component,
+    DummyComp3Component,
+    DummyComp4Component,
+    
  
 
   ],

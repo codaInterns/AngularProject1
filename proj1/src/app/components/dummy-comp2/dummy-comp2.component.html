@@ -1,0 +1,7 @@
+<h1>dummy component2</h1>
+<button (click)="showDialog = !showDialog" class="btn">Open</button>
+{{showDialog}}
+<app-overlay-part2 [(visible)]="showDialog">    
+	<app-userlogin [componentName]="componentName"></app-userlogin>
+	<button (click)="showDialog = !showDialog" class="btn">Close</button>
+</app-overlay-part2>

@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges } from '@angular/core';
+import { Component, OnInit, OnChanges, Input } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { EmailService } from 'src/app/email.service';
@@ -12,7 +12,8 @@ import { SimpleChanges } from '@angular/core';
 })
 export class UserloginComponent implements OnInit , OnChanges {
 
-
+  @Input() componentName:any;
+  
   pristine = true;
   submitted = false;
   formdata;

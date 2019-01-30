@@ -22,7 +22,7 @@ def fun():
 				sys.stderr.write(cmd)
 		elif os.path.splitext(base)[1] == '.java':
 			# print(basepath+i)
-			cmd = os.popen('java -jar' + basepath+'tools\\java-linting-tools\\checkstyle-8.17-all.jar -c '+basepath + 'tools\\java-linting-tools\\sun_checks.xml ' + basepath+i)
+			cmd = os.popen('java -jar ' + basepath+'tools\\java-linting-tools\\checkstyle-8.17-all.jar -c '+basepath + 'tools\\java-linting-tools\\sun_checks.xml ' + basepath+i).read()
 			# print(cmd)
 			if len(cmd) == 0:
 				isLintingProper = 0

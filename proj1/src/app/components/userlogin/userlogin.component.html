@@ -63,9 +63,9 @@
       </div>
       <div>
         <input type="submit" value="Log in" class="login-button" />
-
+        <br>
         <p
-          id="p1"
+          class="error"
           *ngIf="
             isValidUser(formdata.controls.password, formdata.controls.email)
           "

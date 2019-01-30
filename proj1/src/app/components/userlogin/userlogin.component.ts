@@ -9,6 +9,7 @@ import { Router } from "@angular/router";
 import { EmailService } from "src/app/email.service";
 import { jsonpCallbackContext } from "@angular/common/http/src/module";
 import { SimpleChanges } from "@angular/core";
+import { CustomNotificationService } from 'src/app/services/custom-notification.service';
 
 @Component({
   selector: "app-userlogin",
@@ -28,7 +29,8 @@ export class UserloginComponent implements OnInit, OnChanges {
   constructor(
     private router: Router,
     private formBuilder: FormBuilder,
-    private email: EmailService
+    private email: EmailService,
+    private notificationService:CustomNotificationService
   ) {}
 
   hasClass(e1: any) {
@@ -103,6 +105,7 @@ export class UserloginComponent implements OnInit, OnChanges {
       } else {
         this.isValid = false;
         formValue.reset();
+        this.notificationService.notify('failure','Login unsuccessfull!');
       }
     });
   }

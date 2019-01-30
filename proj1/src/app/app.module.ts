@@ -38,6 +38,8 @@ import {NavFeatureComponent} from './components/nav-feature/nav-feature.componen
 import {FooterComponent} from './components/footer/footer.component';
 import {AddhotelComponent} from './components/addhotel/addhotel.component';
 import { LandingComponent } from './components/landing/landing.component';
+import { NotificationComponent } from './components/notification/notification.component';
+import { NotificationHandler } from './services/notification-handler.service';
 
 
 const appRoutes: Routes = [
@@ -106,11 +108,13 @@ const appRoutes: Routes = [
     SearchHotelComponent,
     HeaderComponent,
     ViewHotelComponent,
-    LandingComponent
+    LandingComponent,
+    NotificationComponent
 
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes),
@@ -129,7 +133,7 @@ const appRoutes: Routes = [
       useClass: TokenInterceptor,
       multi: true
     },
-    BrowserAnimationsModule
+    NotificationHandler
   ],
 
   bootstrap: [AppComponent]

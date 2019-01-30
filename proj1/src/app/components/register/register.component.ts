@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { RegisterServiceService } from '../../services/register-service.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { checkAndUpdatePureExpressionDynamic } from '@angular/core/src/view/pure_expression';
+import { CustomNotificationService } from 'src/app/services/custom-notification.service';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -16,7 +17,7 @@ export class RegisterComponent implements OnInit {
   errorMsg:string;
 
   constructor(private http: HttpClient,private formBuilder:FormBuilder,private registerServe: RegisterServiceService, 
-              private route: Router,private routes:ActivatedRoute) { }
+              private route: Router,private routes:ActivatedRoute,private notificationService:CustomNotificationService) { }
 
 
   stateCtrl: FormControl;
@@ -42,12 +43,10 @@ export class RegisterComponent implements OnInit {
       return;
   }
   this.registerServe.postUser(data.email, data.password);
-  alert("register successfully");
+  this.notificationService.notify("success","Registration Successfull");
   this.route.navigate(['/']);
   }
 
-  
-    //console.log(this.userdata);
   }
 
 

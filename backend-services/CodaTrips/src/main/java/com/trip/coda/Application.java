@@ -29,7 +29,6 @@ public class Application {
 	         
 	    authBean.setFilter(new AuthFilter());
 	    authBean.addUrlPatterns("/JwtAuth/*");
-	         
 	    return authBean;    
 	}
 	public static void main(String[] args) {

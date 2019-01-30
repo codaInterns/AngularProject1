@@ -15,23 +15,22 @@ def fun():
 		base=os.path.basename(i)
 		if os.path.splitext(base)[1] == '.ts':
 			cmd = os.popen('tslint '+basepath+i).read()
-			if len(cmd) == 0:
+			if len(cmd) != 0:
 				isLintingProper = 0
-			else:
 				sys.stderr.write(i)
 				sys.stderr.write(cmd)
 		elif os.path.splitext(base)[1] == '.java':
 			# print(basepath+i)
 			cmd = os.popen('java -jar ' + basepath+'tools\\java-linting-tools\\checkstyle-8.17-all.jar -c '+basepath + 'tools\\java-linting-tools\\sun_checks.xml ' + basepath+i).read()
 			# print(cmd)
-			if len(cmd) == 0:
+			# sys.stderr.write(str(len(cmd)))
+			if len(cmd) != 0:
 				isLintingProper = 0
-			else:
 				sys.stderr.write(basepath+i)
 				sys.stderr.write(cmd)	
 
 
-	print(isLintingProper)
+	return isLintingProper
 
 if __name__ == "__main__":
-	fun()
+	print(fun())

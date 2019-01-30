@@ -30,7 +30,8 @@ public class LoginController {
     	     UserDB user=listIterator.next();
     	     if(user.getEmail().equals(opt.getEmail()) && user.getPassword().equals(opt.getPassword()) ){
     	    	 return true;
-    	     }   
+    	     }
+    	    
     	}
     	return false;
     }

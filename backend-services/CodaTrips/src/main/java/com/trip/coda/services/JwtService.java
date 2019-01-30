@@ -39,13 +39,13 @@ public class JwtService {
 	    	    		    
 	    	    	 } catch (JWTCreationException exception){
 	    	    		 
-	    	    		    
+	    	    		 return null;
 	    	    		}
 	    	     
 	    	    
     	
 	    	
-	    	return null;
+	    	
 	    }
 		
 		

@@ -1,0 +1,72 @@
+import { Component, OnInit } from '@angular/core';
+<<<<<<< HEAD
+import { FormControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+=======
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+>>>>>>> ComponentInteraction
+import { HttpClient } from '@angular/common/http';
+import { RegisterServiceService } from '../../services/register-service.service';
+import { Router, ActivatedRoute } from '@angular/router';
+import { checkAndUpdatePureExpressionDynamic } from '@angular/core/src/view/pure_expression';
+import { CustomNotificationService } from 'src/app/services/custom-notification.service';
+@Component({
+  selector: 'app-register',
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.css']
+})
+export class RegisterComponent implements OnInit {
+  formdata: FormGroup;
+<<<<<<< HEAD
+  customerdata: any;
+  submitted = false;
+  errorMsg: string;
+  userdata: any;
+
+  constructor(private http: HttpClient, private formBuilder: FormBuilder, private registerServe: RegisterServiceService,
+    private route: Router, private routes: ActivatedRoute, private notificationService: CustomNotificationService) { }
+
+
+  stateCtrl: FormControl;
+
+=======
+  constructor(private http: HttpClient,
+     private formBuilder: FormBuilder, private registerServe: RegisterServiceService, private route: Router) {  }
+>>>>>>> ComponentInteraction
+  ngOnInit() {
+    this.formdata = this.formBuilder.group({
+
+      email: ['', [Validators.required, Validators.pattern('^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$'
+      )]],
+      password: ['', [Validators.required, Validators.pattern('(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}'
+
+      )]],
+<<<<<<< HEAD
+    }
+    );
+  }
+  get f() { return this.formdata.controls; }
+
+  onClickSubmit(data) {
+    this.submitted = true;
+
+=======
+    });
+  }
+  onClickSubmit(data) {
+>>>>>>> ComponentInteraction
+    if (this.formdata.invalid) {
+      return;
+    }
+    this.registerServe.postUser(data.email, data.password);
+<<<<<<< HEAD
+    this.notificationService.notify('success', 'Registration Successfull');
+    this.route.navigate(['/']);
+  }
+
+=======
+    this.route.navigate(['/']);
+  }
+>>>>>>> ComponentInteraction
+}
+
+

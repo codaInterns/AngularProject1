@@ -1,94 +1,119 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
 import { FormsModule } from '@angular/forms';
-
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+<<<<<<< HEAD
+import { ReactiveFormsModule } from '@angular/forms';
+import { Routes, RouterModule } from '@angular/router';
+import { UserloginComponent } from './components/userlogin/userlogin.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+=======
 
-import {ReactiveFormsModule} from '@angular/forms';
-import {Routes,RouterModule} from '@angular/router';
-import { UserloginComponent } from "./components/userlogin/userlogin.component";
+import { ReactiveFormsModule } from '@angular/forms';
+import { Routes, RouterModule } from '@angular/router';
+import { UserloginComponent } from './components/userlogin/userlogin.component';
 
 
 
-import { HttpClientModule } from "@angular/common/http";
-import { BsDropdownModule } from "ngx-bootstrap/dropdown";
-import { TooltipModule } from "ngx-bootstrap/tooltip";
-import { ModalModule } from "ngx-bootstrap/modal";
-import {RegisterComponent} from './components/register/register.component';
-import { BsDatepickerModule } from "ngx-bootstrap/datepicker";
-import { TicketCardComponent } from "./components/ticket-card/ticket-card.component";
+import { HttpClientModule } from '@angular/common/http';
+>>>>>>> ComponentInteraction
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { RegisterComponent } from './components/register/register.component';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { TicketCardComponent } from './components/ticket-card/ticket-card.component';
+<<<<<<< HEAD
+=======
 
+>>>>>>> ComponentInteraction
 import { BookingComponent } from './views/booking/booking.component';
 import { BookedComponent } from './components/booked/booked.component';
 import { TokenInterceptor } from './services/token.service';
-<<<<<<< HEAD
-=======
 import { SearchHotelComponent } from './Components/searchhotel/searchhotel.component';
->>>>>>> 857495d2c0dfc5a2203199e3f3df2e8e48aaedb9
 import { HeaderComponent } from './components/header/header.component';
-import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+<<<<<<< HEAD
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ViewHotelComponent } from './components/viewhotel/viewhotel.component';
+=======
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ViewhotelComponent } from './components/viewhotel/viewhotel.component';
-import {FlightsComponent} from './views/flights/flights.component';
-import {DashboardComponent} from './views/dashboard/dashboard.component';
-import {FlightSearchComponent} from './components/flight-search/flight-search.component';
-import {FlightSearchResultComponent} from './components/flight-search-result/flight-search-result.component';
-import {CardsComponent} from './components/cards/cards.component';
-import {NavFeatureComponent} from './components/nav-feature/nav-feature.component';
-import {FooterComponent} from './components/footer/footer.component';
-import {AddhotelComponent} from './components/addhotel/addhotel.component';
+>>>>>>> ComponentInteraction
+import { FlightsComponent } from './views/flights/flights.component';
+import { DashboardComponent } from './views/dashboard/dashboard.component';
+import { FlightSearchComponent } from './components/flight-search/flight-search.component';
+import { FlightSearchResultComponent } from './components/flight-search-result/flight-search-result.component';
+import { CardsComponent } from './components/cards/cards.component';
+import { NavFeatureComponent } from './components/nav-feature/nav-feature.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { AddhotelComponent } from './components/addhotel/addhotel.component';
 import { LandingComponent } from './components/landing/landing.component';
-import { SearchHotelComponent} from './components/searchhotel/searchhotel.component'
+<<<<<<< HEAD
+import { NotificationComponent } from './components/notification/notification.component';
+import { NotificationHandler } from './services/notification-handler.service';
+
+=======
+import { AdministratorComponent } from './components/administrator/administrator.component';
+import { DetailsComponent } from './components/details/details.component';
+>>>>>>> ComponentInteraction
 
 const appRoutes: Routes = [
   {
-    path : "",
-    component : LandingComponent
+    path: '',
+    component: LandingComponent
   },
   {
-    path: "app-searchhotel",
+    path: 'app-searchhotel',
+<<<<<<< HEAD
     component: SearchHotelComponent
+=======
+    component: SearchhotelComponent
+>>>>>>> ComponentInteraction
   },
   {
-    path:"app-addhotel",
+    path: 'app-addhotel',
     component: AddhotelComponent
-
   },
   {
-    path: "register",
+    path: 'register',
     component: RegisterComponent
   },
   {
-    path: "booked",
+    path: 'booked',
     component: BookingComponent
   },
   {
-    path: "flights/:from/:to",
+    path: 'flights/:from/:to',
     component: FlightsComponent
   },
   {
-    path: "ticketBooked",
+    path: 'ticketBooked',
     component: BookedComponent
   },
   {
-    path : "flights",
-    component : FlightsComponent
+    path: 'flights',
+    component: FlightsComponent
   },
   {
-    path:"app-viewhotel",
+    path: 'app-viewhotel',
+<<<<<<< HEAD
+    component: ViewHotelComponent
+=======
     component: ViewhotelComponent
+>>>>>>> ComponentInteraction
   },
   {
-    path : "login",
-    component : UserloginComponent
+    path: 'login',
+    component: UserloginComponent
+<<<<<<< HEAD
+=======
 
- }
-  
+>>>>>>> ComponentInteraction
+  }
+
 ];
 
 
@@ -105,18 +130,31 @@ const appRoutes: Routes = [
     FooterComponent,
     TicketCardComponent,
     BookingComponent,
-    
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> ComponentInteraction
     BookedComponent,
     RegisterComponent,
     AddhotelComponent,
     SearchHotelComponent,
     HeaderComponent,
+<<<<<<< HEAD
+    ViewHotelComponent,
+    LandingComponent,
+    NotificationComponent
+=======
     ViewhotelComponent,
-    LandingComponent
+    LandingComponent,
+    DetailsComponent,
+    AdministratorComponent
+>>>>>>> ComponentInteraction
 
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes),
@@ -130,14 +168,14 @@ const appRoutes: Routes = [
     FormsModule
   ],
   providers: [
-    // {
-    //   provide: HTTP_INTERCEPTORS,
-    //   useClass: TokenInterceptor,
-    //   multi: true
-    // },
-    BrowserAnimationsModule
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    },
+    NotificationHandler
   ],
 
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

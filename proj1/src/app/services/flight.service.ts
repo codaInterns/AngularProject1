@@ -29,3 +29,5 @@ export class FlightService {
     return this.http.get('http://localhost:8080/api/getFlights');
   }
 }
+
+

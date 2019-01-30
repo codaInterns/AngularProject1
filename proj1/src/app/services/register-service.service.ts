@@ -5,15 +5,13 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class RegisterServiceService {
-  
-  result:any;
-
-  constructor(private http:HttpClient) {}
-
+  result;
+  constructor(private http:HttpClient) { }
   public postUser(email:String,password:String){
     var options = {
       email : email,
       password : password
+        
     };
     return this.http.post("http://localhost:8080/api/register/",options).subscribe(res=>{
       this.result=res;

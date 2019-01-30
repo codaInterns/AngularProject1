@@ -23,7 +23,7 @@ export class UserloginComponent implements OnInit {
       password: ['', [Validators.required, Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/)]]
     });
   }
-  onClickSubmit(data, formValue) {
+
     if (this.formdata.invalid) {
       return;
     }
@@ -52,3 +52,8 @@ export class UserloginComponent implements OnInit {
 }
 
 
+
+
+
+
+}

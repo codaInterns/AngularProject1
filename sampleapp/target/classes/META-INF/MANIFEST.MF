@@ -1,0 +1,20 @@
+Manifest-Version: 1.0
+<<<<<<< HEAD:backend-services/test5/bin/target/classes/META-INF/MANIFEST.MF
+Implementation-Title: test5
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: Anand
+Implementation-Vendor-Id: com.test5
+Build-Jdk: 1.8.0_161
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/test5
+=======
+Implementation-Title: sampleapp
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: VC
+Implementation-Vendor-Id: com
+Build-Jdk: 1.8.0_191
+Implementation-URL: https://projects.spring.io/spring-boot/#/spring-bo
+ ot-starter-parent/sampleapp
+>>>>>>> ComponentInteraction:sampleapp/target/classes/META-INF/MANIFEST.MF
+Created-By: Maven Integration for Eclipse
+

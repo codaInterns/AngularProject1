@@ -24,8 +24,10 @@ describe('FlightsComponent', () => {
   });
 
   it('Setting enabled to false disables the submit button', () => {
-    component.noResult = true;
+    
+    component.onResultUpdate(event);
     fixture.detectChanges();
-    expect(submitEl.nativeElement.disabled).toBeTruthy();
+    submitEl=fixture.debugElement.query(By.css('app-flight-search-result'));
+    expect(submitEl.nativeElement.enabled).toBeTruthy();
 });
 });

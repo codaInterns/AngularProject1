@@ -1,6 +1,5 @@
 package com.trip.coda.services;
-import java.util.ArrayList;
-import java.util.Iterator;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.trip.coda.mapper.FlightMapper;
 import com.trip.coda.models.Flight;
 import com.trip.coda.models.FlightInput;
-import com.trip.coda.models.Hotel;
+
 
 @Service
 public class FlightService {
@@ -18,7 +17,7 @@ public class FlightService {
 	
  
 	
-	public List<Flight> getF(){
+	public List<Flight> getAllFlights(){
 		 
 		
 		return mapper.findAll();

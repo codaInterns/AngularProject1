@@ -2,8 +2,7 @@ package com.trip.coda.models;
 
 
 
-import com.trip.coda.validators.ValidEmail;
-import com.trip.coda.validators.ValidPassword;
+
 
 
 

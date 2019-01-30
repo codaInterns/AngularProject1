@@ -1,7 +1,7 @@
 package com.trip.coda.services;
 
-import java.util.Iterator;
-import java.util.List;
+
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,6 +14,7 @@ import com.auth0.jwt.exceptions.JWTCreationException;
 import com.trip.coda.mapper.UserMapper;
 import com.trip.coda.models.AccountInput;
 import com.trip.coda.models.User;
+
 
 @Service
 public class JwtService {

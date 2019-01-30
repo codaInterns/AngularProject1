@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.trip.coda.mapper.UserMapper;
 import com.trip.coda.models.AccountInput;
 import com.trip.coda.models.User;
 import com.trip.coda.services.LoginService;
@@ -40,7 +39,7 @@ public class LoginController {
 	
 	@GetMapping("/users")
 	public String findAll(){
-		List<User> userList=loginService.GetAllUsers();
+		List<User> userList=loginService.getAllUsers();
 		User user1=userList.get(0);
 		return user1.getUserEmail();
 		

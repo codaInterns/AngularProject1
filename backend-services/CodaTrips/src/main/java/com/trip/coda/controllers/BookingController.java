@@ -2,6 +2,7 @@ package com.trip.coda.controllers;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,7 +21,7 @@ import com.trip.coda.services.BookingService;
 @RequestMapping("/JwtAuth")
 @CrossOrigin("http://localhost:4200")
 public class BookingController {
-	
+	@Autowired
 	BookingService bookingService; 
 
 	@PostMapping(path = "/book/" , consumes = "application/json" , produces = "application/json")

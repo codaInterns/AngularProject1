@@ -1,6 +1,6 @@
 package com.trip.coda;
 
-import org.apache.ibatis.annotations.Mapper;
+
 import org.apache.ibatis.type.MappedTypes;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;

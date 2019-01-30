@@ -35,7 +35,7 @@ FlightService flightService;
  @GetMapping("/getFlights")
  public List<Flight> getAllFlights(){
 	
-	return flightService.getF();
+	return flightService.getAllFlights();
 	
  }
 

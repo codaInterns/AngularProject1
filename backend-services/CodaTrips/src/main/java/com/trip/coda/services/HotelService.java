@@ -1,14 +1,13 @@
 package com.trip.coda.services;
 
-import java.util.ArrayList;
-import java.util.Iterator;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.trip.coda.mapper.HotelMapper;
-import com.trip.coda.models.Flight;
+
 import com.trip.coda.models.Hotel;
 import com.trip.coda.models.HotelInput;
 
@@ -52,7 +51,7 @@ public class HotelService {
 		return true;
 		}
 		catch(Exception e) {
-			e.printStackTrace();
+			
 			return false;
 		}
 		

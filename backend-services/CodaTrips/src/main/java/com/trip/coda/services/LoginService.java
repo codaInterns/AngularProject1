@@ -1,5 +1,5 @@
 package com.trip.coda.services;
-import java.util.Iterator;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,14 +20,14 @@ public class LoginService{
 	private UserMapper mapper; 
 	
 	
-		public List<User> GetAllUsers(){
+		public List<User> getAllUsers(){
 			return mapper.findAll();
 		}
 		
 		public Boolean login(AccountInput opt){
 			User user=mapper.login(opt);
-			if(user==null)return false;
-			else return true;
+			return (user!=null);
+			
 		}
 
 
@@ -42,7 +42,7 @@ public class LoginService{
 			}
 			catch(Exception ex)
 			{
-				ex.printStackTrace();
+				
 				return false;
 			}
 			

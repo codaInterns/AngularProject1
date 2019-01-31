@@ -5,80 +5,80 @@ package com.trip.coda.models;
 
 public class Flight {
 
-private long flightId;
+  private long flightId;
 
-private String flightName;
-
-
-private String source;
-
-private String destination;
+  private String flightName;
 
 
-private String departure;
+  private String source;
+
+  private String destination;
+
+
+  private String departure;
 
 
 
-private int flightPrice;
+  private int flightPrice;
 
-public long getFlightId() {
-	return flightId;
-}
-
-
-public void setFlightId(long flightId) {
-	this.flightId = flightId;
-}
+  public long getFlightId() {
+    return flightId;
+  }
 
 
-public String getFlightName() {
-	return flightName;
-}
+  public void setFlightId(long flightId) {
+    this.flightId = flightId;
+  }
 
 
-public void setFlightName(String flightName) {
-	this.flightName = flightName;
-}
+  public String getFlightName() {
+    return flightName;
+  }
 
 
-public String getSource() {
-	return source;
-}
+  public void setFlightName(String flightName) {
+    this.flightName = flightName;
+  }
 
 
-public void setSource(String source) {
-	this.source = source;
-}
+  public String getSource() {
+    return source;
+  }
 
 
-public String getDestination() {
-	return destination;
-}
+  public void setSource(String source) {
+    this.source = source;
+  }
 
 
-public void setDestination(String destination) {
-	this.destination = destination;
-}
+  public String getDestination() {
+    return destination;
+  }
 
 
-public String getDeparture() {
-	return departure;
-}
+  public void setDestination(String destination) {
+    this.destination = destination;
+  }
 
 
-public void setDeparture(String departure) {
-	this.departure = departure;
-}
+  public String getDeparture() {
+    return departure;
+  }
 
 
-public int getFlightPrice() {
-	return flightPrice;
-}
+  public void setDeparture(String departure) {
+    this.departure = departure;
+  }
 
 
-public void setFlightPrice(int flightPrice) {
-	this.flightPrice = flightPrice;
-}
+  public int getFlightPrice() {
+    return flightPrice;
+  }
+
+
+  public void setFlightPrice(int flightPrice) {
+    this.flightPrice = flightPrice;
+  }
 
 
 

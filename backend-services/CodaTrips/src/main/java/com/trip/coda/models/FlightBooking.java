@@ -7,67 +7,67 @@ package com.trip.coda.models;
 public class FlightBooking {
 
 
-private long bookingId;
+  private long bookingId;
 
 
-private String flightName;
+  private String flightName;
 
 
-private String source;
+  private String source;
 
-private String destination;
+  private String destination;
 
-private String departure;
+  private String departure;
 
-private String userId;
+  private String userId;
 
-public long getBookingId() {
-	return bookingId;
-}
+  public long getBookingId() {
+    return bookingId;
+  }
 
-public void setBookingId(long bookingId) {
-	this.bookingId = bookingId;
-}
+  public void setBookingId(long bookingId) {
+    this.bookingId = bookingId;
+  }
 
-public String getFlightName() {
-	return flightName;
-}
+  public String getFlightName() {
+    return flightName;
+  }
 
-public void setFlightName(String flightName) {
-	this.flightName = flightName;
-}
+  public void setFlightName(String flightName) {
+    this.flightName = flightName;
+  }
 
-public String getSource() {
-	return source;
-}
+  public String getSource() {
+    return source;
+  }
 
-public void setSource(String source) {
-	this.source = source;
-}
+  public void setSource(String source) {
+    this.source = source;
+  }
 
-public String getDestination() {
-	return destination;
-}
+  public String getDestination() {
+    return destination;
+  }
 
-public void setDestination(String destination) {
-	this.destination = destination;
-}
+  public void setDestination(String destination) {
+    this.destination = destination;
+  }
 
-public String getDeparture() {
-	return departure;
-}
+  public String getDeparture() {
+    return departure;
+  }
 
-public void setDeparture(String departure) {
-	this.departure = departure;
-}
+  public void setDeparture(String departure) {
+    this.departure = departure;
+  }
 
-public String getUserId() {
-	return userId;
-}
+  public String getUserId() {
+    return userId;
+  }
 
-public void setUserId(String userId) {
-	this.userId = userId;
-}
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
 
 
 

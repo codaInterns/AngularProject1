@@ -23,44 +23,36 @@ import javax.servlet.http.HttpServletRequest;
 @Order(1)
 public class AuthFilter implements Filter {
  
-    @Override
+  @Override
     public void doFilter(
       ServletRequest request, 
       ServletResponse response, 
       FilterChain chain) throws IOException, ServletException {
-    	 String valid="valid";
-        HttpServletRequest req = (HttpServletRequest) request;
+    String valid = "valid";
+    HttpServletRequest req = (HttpServletRequest) request;
      
-       String token=req.getHeader("token");
-       if(token==null) {
-    	   
-	   		request.setAttribute(valid, "false");
-	   		chain.doFilter(request, response);
-	   		return;
-       }
-       
-	   	try {
-	   	    Algorithm algorithm = Algorithm.HMAC256("secret");
-	   	    
-	   	    JWTVerifier verifier = JWT.require(algorithm).withIssuer("auth0")
-	   	            .build();
-	   	    DecodedJWT jwt = verifier.verify(token);
-	   	    
-	   	    
-	   	    request.setAttribute("userid", jwt.getId());
-	   	  
-	   	    request.setAttribute(valid, "true");
-	   	    chain.doFilter(request, response);
-	   	    
-	   	} catch (JWTVerificationException exception){
-	   	    
-	   	
-	   		request.setAttribute(valid, "false");
-	   		chain.doFilter(request, response);
-	   	}
-        
-        
+    String token = req.getHeader("token");
+    if (token == null) {
+      request.setAttribute(valid, "false");
+      chain.doFilter(request, response);
+      return;
     }
+    try {
+      Algorithm algorithm = Algorithm.HMAC256("secret");
+      JWTVerifier verifier = JWT.require(algorithm).withIssuer("auth0")
+          .build();
+      DecodedJWT jwt = verifier.verify(token);
+
+      request.setAttribute("userid", jwt.getId());
+      request.setAttribute(valid, "true");
+      chain.doFilter(request, response);
+    } catch (JWTVerificationException exception) {
+      request.setAttribute(valid, "false");
+      chain.doFilter(request, response);
+    }
+        
+        
+  }
  
-    // other methods 
+
 }

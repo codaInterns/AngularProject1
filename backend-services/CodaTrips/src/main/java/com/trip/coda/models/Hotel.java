@@ -6,90 +6,80 @@ package com.trip.coda.models;
 
 public class Hotel {
 
-	private long hotelId;
-
-	
-	private String hotelName;
-
-	
-	private String hotelPlace;
+  private long hotelId;
 
 
-	private long hotelPrice;
-	
-	
-	
-	private String hotelDescription;
-	
-	
-
-	private String hotelImage;
+  private String hotelName;
 
 
-	public long getHotelId() {
-		return hotelId;
-	}
+  private String hotelPlace;
+
+  private long hotelPrice;
 
 
-	public void setHotelId(long hotelId) {
-		this.hotelId = hotelId;
-	}
+
+  private String hotelDescription;
+
+  private String hotelImage;
 
 
-	public String getHotelName() {
-		return hotelName;
-	}
+  public long getHotelId() {
+    return hotelId;
+  }
 
 
-	public void setHotelName(String hotelName) {
-		this.hotelName = hotelName;
-	}
+  public void setHotelId(long hotelId) {
+    this.hotelId = hotelId;
+  }
 
 
-	public String getHotelPlace() {
-		return hotelPlace;
-	}
+  public String getHotelName() {
+    return hotelName;
+  }
 
 
-	public void setHotelPlace(String hotelPlace) {
-		this.hotelPlace = hotelPlace;
-	}
+  public void setHotelName(String hotelName) {
+    this.hotelName = hotelName;
+  }
 
 
-	public long getHotelPrice() {
-		return hotelPrice;
-	}
+  public String getHotelPlace() { 
+    return hotelPlace;
+  }
 
 
-	public void setHotelPrice(long hotelPrice) {
-		this.hotelPrice = hotelPrice;
-	}
+  public void setHotelPlace(String hotelPlace) {
+    this.hotelPlace = hotelPlace;
+  }
 
 
-	public String getHotelDescription() {
-		return hotelDescription;
-	}
+  public long getHotelPrice() {
+    return hotelPrice;
+  }
 
 
-	public void setHotelDescription(String hotelDescription) {
-		this.hotelDescription = hotelDescription;
-	}
+  public void setHotelPrice(long hotelPrice) {
+    this.hotelPrice = hotelPrice;
+  }
+
+  public String getHotelDescription() {
+    return hotelDescription;
+  }
 
 
-	public String getHotelImage() {
-		return hotelImage;
-	}
+  public void setHotelDescription(String hotelDescription) {
+    this.hotelDescription = hotelDescription;
+  }
 
 
-	public void setHotelImage(String hotelImage) {
-		this.hotelImage = hotelImage;
-	}
+  public String getHotelImage() {
+    return hotelImage;
+  }
 
-	
-	
- 
-	
+  public void setHotelImage(String hotelImage) {
+    this.hotelImage = hotelImage;
+  }
 
-	
+
 
 }

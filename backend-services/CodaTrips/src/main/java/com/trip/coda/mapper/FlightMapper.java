@@ -10,11 +10,10 @@ import com.trip.coda.models.Flight;
 @Mapper
 public interface FlightMapper {
 
-	@Select("select * from flights")
-	List<Flight> findAll();
+  @Select("select * from flights")
+  List<Flight> findAll();
 
-	
-	@Select("select * from flights where source=(#{source}) and destination=(#{destination})")
-	List<Flight> getFlights(Flight flight);
+  @Select("select * from flights where source=(#{source}) and destination=(#{destination})")
+  List<Flight> getFlights(Flight flight);
 
 }

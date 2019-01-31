@@ -32,6 +32,8 @@ import { AddhotelComponent } from './components/addhotel/addhotel.component';
 import { LandingComponent } from './components/landing/landing.component';
 import { NotificationComponent } from './components/notification/notification.component';
 import { NotificationHandler } from './services/notification-handler.service';
+import { AdministratorComponent } from './components/administrator/administrator.component';
+import { DetailsComponent } from './components/details/details.component';
 
 
 const appRoutes: Routes = [
@@ -74,6 +76,10 @@ const appRoutes: Routes = [
   {
     path: 'login',
     component: UserloginComponent
+  },
+  {
+    path: 'bulk-register',
+    component:  AdministratorComponent
   }
 
 ];
@@ -99,8 +105,9 @@ const appRoutes: Routes = [
     HeaderComponent,
     ViewHotelComponent,
     LandingComponent,
-    NotificationComponent
-
+    NotificationComponent,
+    AdministratorComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,

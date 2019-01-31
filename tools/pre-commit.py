@@ -21,9 +21,10 @@ def fun():
 				sys.stderr.write(cmd)
 		elif os.path.splitext(base)[1] == '.java':
 			# print(basepath+i)
-			cmd = os.popen('java -jar ' + basepath+'tools\\java-linting-tools\\checkstyle-8.17-all.jar -c '+basepath + 'tools\\java-linting-tools\\sun_checks.xml ' + basepath+i).read()
-			# print(cmd)
-			# sys.stderr.write(str(len(cmd)))
+			cmd = os.popen('java -jar ' + basepath+'tools\\java-linting-tools\\checkstyle-8.17-all.jar -c '+basepath + 'tools\\java-linting-tools\\google_checks.xml ' + basepath+i).read()
+			cmd = cmd.splitlines()
+			cmd.remove('Starting audit...')
+			cmd.remove('Audit done.')
 			if len(cmd) != 0:
 				isLintingProper = 0
 				sys.stderr.write(basepath+i)

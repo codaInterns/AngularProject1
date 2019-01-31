@@ -12,6 +12,7 @@ import { CustomNotificationService } from 'src/app/services/custom-notification.
 export class UserloginComponent implements OnInit {
   formdata: FormGroup;
   isValid: Boolean = true;
+
   constructor(private router: Router, private formBuilder: FormBuilder, private email: EmailService,
     private notification: CustomNotificationService) {
   }
@@ -23,7 +24,7 @@ export class UserloginComponent implements OnInit {
       password: ['', [Validators.required, Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/)]]
     });
   }
-
+  onClickSubmit(data, formValue) {
     if (this.formdata.invalid) {
       return;
     }
@@ -39,6 +40,7 @@ export class UserloginComponent implements OnInit {
       }
     });
   }
+
 
   isValidUser(password, email) {
     if (!this.isValid) {
@@ -56,4 +58,4 @@ export class UserloginComponent implements OnInit {
 
 
 
-}
+

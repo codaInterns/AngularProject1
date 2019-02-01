@@ -26,7 +26,7 @@ public class Hotelcontroller {
 	
 	
 // retrival of all hotels
-	@GetMapping("/gethotels")
+	@GetMapping("/getHotelDetails")
 	public List<Hotel> gethotels(){
 	return hotelService.getAllHotels();
 	
@@ -34,7 +34,7 @@ public class Hotelcontroller {
 	
 
 //retrival of location based hotel
-	@PostMapping(path="/getHotel/" ,consumes = "application/json" , produces = "application/json")
+	@PostMapping(path="/getLocationBasedHotel/" ,consumes = "application/json" , produces = "application/json")
 	public List<Hotel> gethotels(@RequestBody HotelInput hi)
 	{
 		
@@ -43,7 +43,7 @@ public class Hotelcontroller {
 	}
 
 //hotel insertion in to databasea
-	@PostMapping(path="/addhotel/" ,consumes = "application/json" , produces = "application/json")
+	@PostMapping(path="/addHotelDetails/" ,consumes = "application/json" , produces = "application/json")
 	public boolean addhotel(@RequestBody HotelInput hi)
 	{
 		logger.trace(hi.getHotelImage());

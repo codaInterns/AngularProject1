@@ -35,7 +35,7 @@ import { NotificationHandler } from './services/notification-handler.service';
 import { AdministratorComponent } from './components/administrator/administrator.component';
 import { DetailsComponent } from './components/details/details.component';
 import { AccordinComponent } from './components/accordin/accordin.component';
-
+import { MatExpansionModule } from '@angular/material/expansion';
 
 const appRoutes: Routes = [
   {
@@ -81,6 +81,10 @@ const appRoutes: Routes = [
   {
     path: 'bulk-register',
     component:  AdministratorComponent
+  },
+  {
+    path: 'accordion',
+    component:  AccordinComponent
   }
 
 ];
@@ -113,6 +117,7 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
+    MatExpansionModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     ReactiveFormsModule,

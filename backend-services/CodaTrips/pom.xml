@@ -141,6 +141,16 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<plugin>
+                 <groupId>org.mybatis.maven</groupId>
+                 <artifactId>migrations-maven-plugin</artifactId>
+                 <version>${version.mybatis.plugin}</version>
+                 <configuration>
+                     <repository>src/main/resources/db/</repository>
+                     <output>dist/migration-name.sql</output>
+                 </configuration>
+                    
+             </plugin>
 		</plugins>
 	</build>
 

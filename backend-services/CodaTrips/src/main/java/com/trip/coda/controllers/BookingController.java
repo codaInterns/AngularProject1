@@ -18,8 +18,10 @@ import org.springframework.web.bind.annotation.RestController;
 public final class BookingController {
   @Autowired
   private BookingService bookingService;
+  
   @PostMapping(path = "/book/", consumes = "application/json", produces = "application/json")
-      public ResponseEntity<Boolean> postBooking(@RequestBody final BookingInput opt, final HttpServletRequest request) {
-		return bookingService.postUser(opt, request);
-	}
+      public ResponseEntity<Boolean> postBooking(@RequestBody final BookingInput opt, 
+      final HttpServletRequest request) {
+    return bookingService.postUser(opt, request);
+  }
 }

@@ -1,3 +1,9 @@
-<app-nav-feature></app-nav-feature>
+<!-- <app-nav-feature></app-nav-feature>
 <router-outlet></router-outlet>
-<app-footer></app-footer>
+<app-footer></app-footer> -->
+
+<app-wizard [ngSwitch]="state">
+    <app-wizard-from1 *ngSwitchCase=1></app-wizard-from1>
+    <app-wizard-from2 *ngSwitchCase=2></app-wizard-from2>
+</app-wizard>
+<button class="main-button" (click)="stateChange()">Next</button>

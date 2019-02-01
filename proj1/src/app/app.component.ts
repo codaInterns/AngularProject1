@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Coda Trip';
+  state:number=0;
+  stateChange(){
+    this.state++;
+
+  }
  }

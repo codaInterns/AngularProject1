@@ -19,8 +19,8 @@ export class UserloginComponent implements OnInit , OnChanges {
   formData:FormGroup;
   pwd;
   mid;
-  isPasscheck = false;
-  isEmailcheck = false;
+  isPassCheck = false;
+  isEmailCheck = false;
   constructor(private router: Router, private formBuilder: FormBuilder, private email: EmailService) { 
   }
   hasClass(e1:any)
@@ -51,13 +51,11 @@ export class UserloginComponent implements OnInit , OnChanges {
     var pattern =  /^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,}$/;    
     if(pattern.test(this.mid))
     {
-      this.isEmailcheck = true;
+      this.isEmailCheck = true;
     }
-    else{
-      console.log(this.mid);
-      this.isEmailcheck = false;
-    }
-    console.log(this.formData.controls);
+    else{     
+      this.isEmailCheck = false;
+    }    
     
   }
   onKeyPassword(event)
@@ -65,10 +63,10 @@ export class UserloginComponent implements OnInit , OnChanges {
     var pattern = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/;
     if(pattern.test(this.pwd))
     {
-      this.isPasscheck = true;
+      this.isPassCheck = true;
     }
     else{
-      this.isPasscheck = false;
+      this.isPassCheck = false;
     }
   }  
   get f() { return this.formData.controls; }
@@ -91,10 +89,7 @@ export class UserloginComponent implements OnInit , OnChanges {
       this.router.navigate(['/register']);
     }
 
-    });
-
-
-
+    });    
   }
 
 

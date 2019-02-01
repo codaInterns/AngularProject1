@@ -7,6 +7,7 @@ import com.trip.coda.models.FlightBooking;
 
 @Mapper
 public interface BookingMapper {
+	
 	@Insert("insert into booking_table(departure,destination,name,source,user_id) values(#{departure},#{destination},#{flightName},#{source},#{userId})")
 	void save(FlightBooking bookingObject);
 

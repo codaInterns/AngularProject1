@@ -23,3 +23,11 @@
 /dist/
 /nbdist/
 /.nb-gradle/
+/classes/
+/.gitignore
+/.mvn/
+/mvnw
+/mvnw.cmd
+/mysql-connector-java-8.0.13.jar
+/pom.xml
+/src/

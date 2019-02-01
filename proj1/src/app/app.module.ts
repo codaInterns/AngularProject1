@@ -8,7 +8,7 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
+import {HighchartsChartModule} from 'highcharts-angular';
 import {ReactiveFormsModule} from '@angular/forms';
 import {Routes,RouterModule} from '@angular/router';
 import { UserloginComponent } from "./components/userlogin/userlogin.component";
@@ -40,6 +40,7 @@ import {NavFeatureComponent} from './components/nav-feature/nav-feature.componen
 import {FooterComponent} from './components/footer/footer.component';
 import {AddhotelComponent} from './components/addhotel/addhotel.component';
 import { LandingComponent } from './components/landing/landing.component';
+import { RatingsComponent } from './components/ratings/ratings.component';
 
 const appRoutes: Routes = [
   {
@@ -80,6 +81,10 @@ const appRoutes: Routes = [
     component: ViewhotelComponent
   },
   {
+    path: "app-ratings",
+    component: RatingsComponent
+  },
+  {
     path : "login",
     component : UserloginComponent
 
@@ -109,7 +114,9 @@ const appRoutes: Routes = [
     SearchhotelComponent,
     HeaderComponent,
     ViewhotelComponent,
-    LandingComponent
+    LandingComponent,
+    RatingsComponent
+    
 
   ],
   imports: [
@@ -124,7 +131,8 @@ const appRoutes: Routes = [
     TooltipModule.forRoot(),
     ModalModule.forRoot(),
     NgbModule.forRoot(),
-    FormsModule
+    FormsModule,
+    HighchartsChartModule
   ],
   providers: [
     // {

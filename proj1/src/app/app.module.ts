@@ -38,6 +38,7 @@ import { DummyComp4Component } from './components/dummy-comp4/dummy-comp4.compon
 import { WizardComponent } from './components/wizard/wizard.component';
 import { WizardFrom1Component } from './components/wizard-from1/wizard-from1.component';
 import { WizardFrom2Component } from './components/wizard-from2/wizard-from2.component';
+import { WizardFrom3Component } from './components/wizard-from3/wizard-from3.component';
 
 
 
@@ -132,6 +133,7 @@ const appRoutes: Routes = [
     WizardComponent,
     WizardFrom1Component,
     WizardFrom2Component,
+    WizardFrom3Component,
     
  
 

@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { trigger, transition, style, animate } from '@angular/animations';
 
 @Component({
   selector: 'app-wizard',
@@ -6,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./wizard.component.css']
 })
 export class WizardComponent implements OnInit {
-  @Input() change: boolean;
+ @Input() visible: boolean;
   constructor() { }
 
   ngOnInit() {

@@ -2,7 +2,7 @@ package com.trip.coda.models;
 
 public class BookingInput {
 	private String userId;
-	private String flightName;
+	private String name;
 	private String source;
 	private String destination;
 	private String departure;
@@ -12,11 +12,12 @@ public class BookingInput {
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}
-	public String getFlightName() {
-		return flightName;
+	
+	public String getName() {
+		return name;
 	}
-	public void setFlightName(String flightName) {
-		this.flightName = flightName;
+	public void setName(String name) {
+		this.name = name;
 	}
 	public String getSource() {
 		return source;

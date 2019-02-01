@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { BookServiceService } from 'src/app/services/book-service.service';
 import { HttpResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { CustomNotificationService } from 'src/app/services/custom-notification.service';
 
 @Component({
   selector: 'app-ticket-card',
@@ -12,7 +13,7 @@ export class TicketCardComponent implements OnInit {
 
   ticket: any;
 
-  constructor(private myService: BookServiceService, private routes: Router) { }
+  constructor(private myService: BookServiceService, private routes: Router, private notification: CustomNotificationService) { }
 
   ngOnInit() {
     this.ticket = this.myService.getDetails();
@@ -26,7 +27,7 @@ export class TicketCardComponent implements OnInit {
         }
       },
       error => {
-        alert('Please Login before Booking');
+        this.notification.notify('failure', 'Please Login Before Booking !');
         this.routes.navigate(['/login']);
       });
   }

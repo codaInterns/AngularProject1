@@ -15,7 +15,6 @@ export class FooterComponent implements OnInit {
   ngOnInit() {
     this.myService.getHotDeals().subscribe(res => {
       this.city = res;
-      
     });
   }
 }

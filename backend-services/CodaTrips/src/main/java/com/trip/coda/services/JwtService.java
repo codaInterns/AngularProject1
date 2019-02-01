@@ -27,25 +27,22 @@ public class JwtService {
 	    public String login(AccountInput opt){
 		
 			User user=mapper.login(opt);
-	    	    	 try {
-	    	    		 	int id = user.getUserId();
-	    	    		 
-	    	    		    Algorithm algorithm = Algorithm.HMAC256("secret");
-	    	    		    return JWT.create().withJWTId(String.valueOf(id))
-	    	    		        .withIssuer("auth0")
-	    	    		        .sign(algorithm);
-	    	    		    
-	    	    		   
-	    	    		    
-	    	    	 } catch (JWTCreationException exception){
-	    	    		 
-	    	    		 return null;
-	    	    		}
-	    	     
-	    	    
-    	
-	    	
-	    	
+			if(user!=null) {
+				try {
+	    		 	int id = user.getUserId();
+	    		 
+	    		    Algorithm algorithm = Algorithm.HMAC256("secret");
+	    		    return JWT.create().withJWTId(String.valueOf(id))
+	    		        .withIssuer("auth0")
+	    		        .sign(algorithm);
+	   
+	    	 } catch (JWTCreationException exception){
+	    		 
+	    		 return null;
+	    		}
+	    
+			}
+			return null;
 	    }
 		
 		

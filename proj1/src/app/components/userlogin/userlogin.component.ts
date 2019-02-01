@@ -32,11 +32,12 @@ export class UserloginComponent implements OnInit {
       this.token = res;
       if (this.token) {
         localStorage.setItem('token', this.token);
+        this.notification.notify('success', 'Login successfull !');
         this.router.navigate(['/flights']);
       } else {
         formValue.reset();
         this.isValid = false;
-        this.notification.notify('failure', 'Login unsuccesfull !');
+        this.notification.notify('failure', 'Login unsuccessfull !');
       }
     });
   }

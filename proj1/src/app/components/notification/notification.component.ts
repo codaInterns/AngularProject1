@@ -13,7 +13,7 @@ import { trigger, style, state, transition, animate } from '@angular/animations'
       state('void', style({
         opacity: 0
       })),
-      transition('void<=>*', animate(1000))
+      transition('void<=>*', animate(2000))
     ])
   ]
 })

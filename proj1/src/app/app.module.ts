@@ -34,6 +34,7 @@ import { NotificationComponent } from './components/notification/notification.co
 import { NotificationHandler } from './services/notification-handler.service';
 import { AdministratorComponent } from './components/administrator/administrator.component';
 import { DetailsComponent } from './components/details/details.component';
+import { AccordinComponent } from './components/accordin/accordin.component';
 
 
 const appRoutes: Routes = [
@@ -107,7 +108,8 @@ const appRoutes: Routes = [
     LandingComponent,
     NotificationComponent,
     AdministratorComponent,
-    DetailsComponent
+    DetailsComponent,
+    AccordinComponent
   ],
   imports: [
     BrowserModule,

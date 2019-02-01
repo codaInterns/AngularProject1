@@ -5,12 +5,12 @@ import { FlightsComponent } from './flights.component';
 describe('FlightsComponent', () => {
   let component: FlightsComponent;
   let fixture: ComponentFixture<FlightsComponent>;
-  const submitEl = fixture.debugElement.query(By.css('.col-12'));
+  let submitEl = fixture.debugElement.query(By.css('.col-12'));
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FlightsComponent ]
+      declarations: [FlightsComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -24,10 +24,10 @@ describe('FlightsComponent', () => {
   });
 
   it('Setting enabled to false disables the submit button', () => {
-    
+
     component.onResultUpdate(event);
     fixture.detectChanges();
-    submitEl=fixture.debugElement.query(By.css('app-flight-search-result'));
+    submitEl = fixture.debugElement.query(By.css('app-flight-search-result'));
     expect(submitEl.nativeElement.enabled).toBeTruthy();
-});
+  });
 });

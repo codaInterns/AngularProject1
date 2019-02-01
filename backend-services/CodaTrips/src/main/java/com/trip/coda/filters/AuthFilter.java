@@ -32,8 +32,8 @@ public class AuthFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) request;
      
        String token=req.getHeader("token");
+       
        if(token==null) {
-    	   
 	   		request.setAttribute(valid, "false");
 	   		chain.doFilter(request, response);
 	   		return;
@@ -45,9 +45,9 @@ public class AuthFilter implements Filter {
 	   	    JWTVerifier verifier = JWT.require(algorithm).withIssuer("auth0")
 	   	            .build();
 	   	    DecodedJWT jwt = verifier.verify(token);
-	   	    
-	   	    
 	   	    request.setAttribute("userid", jwt.getId());
+	   	    
+	   	    System.out.println("Valid");
 	   	  
 	   	    request.setAttribute(valid, "true");
 	   	    chain.doFilter(request, response);

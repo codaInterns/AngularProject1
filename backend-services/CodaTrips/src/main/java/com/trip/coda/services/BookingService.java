@@ -34,7 +34,7 @@ public class BookingService {
 		else {
 			FlightBooking bookingObject=new FlightBooking();
 			try {
-				bookingObject.setFlightName(opt.getFlightName());
+				bookingObject.setFlightName(opt.getName());
 				bookingObject.setDeparture(opt.getDeparture());
 				bookingObject.setDestination(opt.getDestination());
 				bookingObject.setSource(opt.getSource());

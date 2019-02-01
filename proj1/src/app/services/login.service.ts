@@ -9,8 +9,8 @@ export class EmailService {
 
   public getUser(email: String, password: String) {
     const userData = {
-      email: email,
-      password: password
+      userEmail: email,
+      userPassword: password
     };
     return this.http.post('http://localhost:8080/api/jwt/', userData, { responseType: 'text' });
   }

@@ -19,7 +19,7 @@ public interface HotelMapper {
 	List<Hotel> findHotelByLocation(Hotel hotel);
 
 	@Insert("insert into hotels(hotelDescription,hotelImage,hotelName,hotelPlace,hotelPrice) values(#{hotelDescription},#{hotelImage},#{hotelName},#{hotelPlace},#{hotelPrice})")
-	@SelectKey(statement="select  LAST_INSERT_ID() ", keyProperty="hotelId", before=false, resultType=int.class)
+	@SelectKey(statement = "select  LAST_INSERT_ID() ", keyProperty = "hotelId", before = false, resultType = int.class)
 	void save(Hotel hotel);
 
 }

@@ -1,32 +1,36 @@
 package com.trip.coda.models;
 
+import org.bson.types.ObjectId;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-
-
+@Document(collection = "flights")
 public class Flight {
 
-private long flightId;
+  
+  @Id 
+  private ObjectId flightId;
 
-private String flightName;
-
-
-private String source;
-
-private String destination;
+  private String flightName;
 
 
-private String departure;
+  private String source;
+
+  private String destination;
+
+
+  private String departure;
 
 
 
-private int flightPrice;
+  private int flightPrice;
 
-public long getFlightId() {
-	return flightId;
-}
+  public ObjectId getFlightId() {
+    return flightId;
+  }
 
 
-public void setFlightId(long flightId) {
+public void setFlightId(ObjectId flightId) {
 	this.flightId = flightId;
 }
 

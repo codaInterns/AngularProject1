@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.trip.coda.mapper.UserMapper;
 import com.trip.coda.models.AccountInput;
 import com.trip.coda.models.User;
+import com.trip.coda.repo.UserRepo;
 
 
 
@@ -17,15 +18,15 @@ public class LoginService{
 	
 	
 	@Autowired
-	private UserMapper mapper; 
+	private UserRepo repo; 
 	
 	
 		public List<User> getAllUsers(){
-			return mapper.findAll();
+			return repo.findAll();
 		}
 		
 		public Boolean login(AccountInput opt){
-			User user=mapper.login(opt);
+			User user=repo.login(opt.getUserEmail(),opt.getUserPassword());
 			return (user!=null);
 			
 		}
@@ -37,11 +38,12 @@ public class LoginService{
 			try {
 				user1.setUserEmail(opt.getUserEmail());
 				user1.setUserPassword(opt.getUserPassword());
-				mapper.save(user1);
+				repo.save(user1);
 				return true;
 			}
 			catch(Exception ex)
 			{
+				ex.printStackTrace();
 				
 				return false;
 			}

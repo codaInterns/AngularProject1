@@ -12,11 +12,11 @@ export class FlightService {
 
   getFlights(searchDetails: any) {
     console.log('input' + searchDetails);
-    return this.http.post("http://localhost:8080/api/getFlight/", searchDetails);
+    return this.http.post("http://localhost:8080/api/v1/getFlight/", searchDetails);
   }
 
   getHotDeals() {
-    return this.http.get("http://localhost:8080/api/getFlights");
+    return this.http.get("http://localhost:8080/api/v1/getFlights");
   }
 }
 

@@ -21,7 +21,7 @@ export class ViewHotelComponent implements OnInit {
   getProducts() {
     this.products = [];
     this.addHotel.getProducts().subscribe((data: {}) => {
-      this.products = data;
+    this.products = data;
     });
   }
   

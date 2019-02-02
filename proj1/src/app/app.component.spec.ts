@@ -9,9 +9,6 @@ describe('AppComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
-        
-     
-
       ],
       declarations: [
         AppComponent
@@ -25,5 +22,4 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  
 });

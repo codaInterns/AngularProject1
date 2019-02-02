@@ -10,16 +10,17 @@ import { checkAndUpdatePureExpressionDynamic } from '@angular/core/src/view/pure
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  formdata:FormGroup;
-  customerdata;
-  submitted= false;
+  formData:FormGroup;
+  customerData;
+  isSubmitted= false;
+  userData;
   constructor(private http: HttpClient,private formBuilder:FormBuilder,private registerServe: RegisterServiceService, private route: Router) { }
 
 
   stateCtrl: FormControl;
 
   ngOnInit() {
-    this.formdata = this.formBuilder.group({
+    this.formData = this.formBuilder.group({
       
       email: ["",[Validators.required,Validators.pattern("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$"
       )]],
@@ -30,22 +31,16 @@ export class RegisterComponent implements OnInit {
       
     );
   }
-  get f() { return this.formdata.controls; }
-  userdata;
-
+  get f() { return this.formData.controls; } 
   onClickSubmit(data) {
-    this.submitted=true;
-    
-    if (this.formdata.invalid) {
+    this.isSubmitted=true;    
+    if (this.formData.invalid) {
       return;
   }
   this.registerServe.postUser(data.email, data.password);
   alert("register successfully");
   this.route.navigate(['/']);
-  }
-
-  
-    //console.log(this.userdata);
+  }   
   }
 
 

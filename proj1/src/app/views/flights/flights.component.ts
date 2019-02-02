@@ -10,10 +10,10 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class FlightsComponent implements OnInit {
   
-  flightAvailable:boolean=false;
+  isFlightAvailable:boolean=false;
   flightDetails:any;
-  noResult:boolean;
-  invalidInput: boolean;
+  isNoResult:boolean;
+  isInvalidInput: boolean;
   userFrom:any;
   userTo:any;
 
@@ -26,20 +26,20 @@ export class FlightsComponent implements OnInit {
 
   onResultUpdate(event:any){
     if(event==null){
-      this.invalidInput=true;
+      this.isInvalidInput=true;
       return;
     }
     else{
-      this.invalidInput=false;
+      this.isInvalidInput=false;
     }
    
-    this.flightAvailable = true;
+    this.isFlightAvailable = true;
     this.flightDetails = event;
 
     if(this.flightDetails.length==0)
-      this.noResult=true;
+      this.isNoResult=true;
     else
-      this.noResult=false;
+      this.isNoResult=false;
   }
 
 }

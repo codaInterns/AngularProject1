@@ -13,15 +13,8 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
   }
 
-  onAddHotel(){
-    console.log("sharrar");
+  onAddHotel(){    
    this.router.navigate[('app-addhotel')];
 
   } 
-  onSearcHotel(){
-
-  }
-  OnViewHotelClick(){
-
-  }
 }

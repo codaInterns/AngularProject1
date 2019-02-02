@@ -1,0 +1,10 @@
+.main-button{
+    padding:5px 27px;
+    border:none;
+    margin-left:60%;
+    margin-top:40px;
+    background-color: rgba(137, 223, 137, 0.794);
+}
+button{
+    font-size: 25px;
+}

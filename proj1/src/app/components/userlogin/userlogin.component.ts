@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges } from '@angular/core';
+import { Component, OnInit, OnChanges, Input } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { EmailService } from 'src/app/email.service';
@@ -12,14 +12,15 @@ import { SimpleChanges } from '@angular/core';
 })
 export class UserloginComponent implements OnInit , OnChanges {
 
-
-  pristine = true;
-  submitted = false;
-  formdata;
+  @Input() componentName:any;
+  
+  isPristine = true;
+  isSubmitted = false;
+  formData:FormGroup;
   pwd;
   mid;
-  passcheck = false;
-  emailcheck = false;
+  isPassCheck = false;
+  isEmailCheck = false;
   constructor(private router: Router, private formBuilder: FormBuilder, private email: EmailService) { 
   }
   hasClass(e1:any)
@@ -34,31 +35,27 @@ export class UserloginComponent implements OnInit , OnChanges {
 
   ngOnInit() {
     
-    this.formdata = this.formBuilder.group({
+    this.formData = this.formBuilder.group({
       email: ["", [Validators.required, Validators.pattern(/^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,}$/
       )]],
       password: ["", [Validators.required, Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/)]]
     });
-    console.log(this.formdata);
+    
     
   }
-  ngOnChanges(changes: SimpleChanges)
-  {
-    console.log(changes);
+  ngOnChanges(changes: SimpleChanges){
+    
   }
   onKeyEmail(event)
   {
-    var pattern =  /^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,}$/;
-    
+    var pattern =  /^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,}$/;    
     if(pattern.test(this.mid))
     {
-      this.emailcheck = true;
+      this.isEmailCheck = true;
     }
-    else{
-      console.log(this.mid);
-      this.emailcheck = false;
-    }
-    console.log(this.formdata.controls);
+    else{     
+      this.isEmailCheck = false;
+    }    
     
   }
   onKeyPassword(event)
@@ -66,25 +63,22 @@ export class UserloginComponent implements OnInit , OnChanges {
     var pattern = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/;
     if(pattern.test(this.pwd))
     {
-      this.passcheck = true;
+      this.isPassCheck = true;
     }
     else{
-      this.passcheck = false;
+      this.isPassCheck = false;
     }
-  }
+  }  
+  get f() { return this.formData.controls; }
   
-  get f() { return this.formdata.controls; }
   result:any;
   onClickSubmit(data) {
-    console.log("hi");
-
-    this.submitted = true;
-    if (this.formdata.invalid) {
+    this.isSubmitted = true;
+    if (this.formData.invalid) {
       return;
   }
     this.email.getUser(data.email, data.password).subscribe(res => {
-    this.result = res; 
-    console.log(this.result);
+    this.result = res;     
 
     if(this.result){
       localStorage.setItem('token',this.result);
@@ -95,10 +89,7 @@ export class UserloginComponent implements OnInit , OnChanges {
       this.router.navigate(['/register']);
     }
 
-    });
-
-
-
+    });    
   }
 
 

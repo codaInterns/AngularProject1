@@ -1,4 +1,72 @@
-<h1>Welcome to wizard</h1>
-<h4>complete the steps to complete the registration</h4>
-<div ><ng-content [@wizard]></ng-content></div>
-
+<div class="container2">
+    <ul class="progressBar">
+      <li class="active" (click)="addIte(0)">step1</li>
+      <li (click)="addIte(1)" class="active">step2</li>
+      <li (click)="addIte(2)" class="active">step3</li>
+    </ul>
+  </div>
+  <div style="width:60%; margin-left: 20%">
+    <ul>
+      <li *ngIf="state==0" [@EnterLeave]="'flyIn'">
+        <h3>Contact Form1</h3>
+        <div class="container">
+          <form>
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" name="firstname" placeholder="Your name..">
+        
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+        
+            <label for="country">Country</label>
+            <select id="country" name="country">
+              <option value="australia">Australia</option>
+              <option value="canada">Canada</option>
+              <option value="usa">USA</option>
+            </select>
+        
+            <label for="subject">Subject</label>
+            <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>      
+          </form>
+          <div style="position:absolute">
+            <button (click)="addItem()">next</button>
+            <button (click)="removeItem()">back</button>
+          </div>
+        </div>
+      </li>
+      <li *ngIf="state==1" [@EnterLeave]="'flyIn'">
+        <h3>Contact Form2</h3>
+        <div class="container">
+          <form>
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" name="firstname" placeholder="Your name..">
+        
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" name="lastname" placeholder="Your last name..">     
+          
+            <label for="subject">Subject</label>
+            <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>      
+          </form>
+          <div style="position:absolute">
+            <button (click)="addItem()">Next</button>
+            <button (click)="removeItem()">Back</button>
+          </div>
+        </div>
+      </li>
+      <li *ngIf="state==2" [@EnterLeave]="'flyIn'">
+        <h3>Contact Form3</h3>
+        <div class="container">
+          <form>
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" name="firstname" placeholder="Your name..">
+        
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" name="lastname" placeholder="Your last name..">         
+          </form>
+          <div style="position:absolute">
+            <button (click)="addItem()">next</button>
+            <button (click)="removeItem()">back</button>
+          </div>
+        </div>
+      </li>
+    </ul> 
+  </div>

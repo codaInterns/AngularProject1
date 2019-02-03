@@ -2,9 +2,4 @@
 <router-outlet></router-outlet>
 <app-footer></app-footer> -->
 
-<app-wizard [ngSwitch]="state">
-    <app-wizard-from1  *ngSwitchCase=1  [@wizard]></app-wizard-from1>
-    <app-wizard-from2 *ngSwitchCase=2  [@wizard]></app-wizard-from2>
-    <app-wizard-from3 *ngSwitchCase=3  [@wizard]></app-wizard-from3>
-</app-wizard>
-<button class="main-button" (click)="stateChange()">Next</button>
+<app-wizard></app-wizard>

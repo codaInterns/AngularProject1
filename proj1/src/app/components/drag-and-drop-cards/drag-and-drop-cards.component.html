@@ -4,7 +4,9 @@
     #card1="cdkDropList"
     [cdkDropListConnectedTo]="[card2]"
     (cdkDropListDropped)="drop($event)">
-  <div cdkDrag *ngFor="let i of values" class="drag-box"><h2 style="border-bottom: 1px solid #ccc;width:100%;line-height: 50px;">{{i.name}}</h2>
+  <div cdkDrag *ngFor="let i of values" class="drag-box">
+      <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+    <h2 style="border-bottom: 1px solid #ccc;width:100%;line-height: 50px;">{{i.name}}</h2>
     <p class="content">{{i.type}}</p>
   </div>
     </div>
@@ -15,7 +17,9 @@
     #card2="cdkDropList"
     [cdkDropListConnectedTo]="[card1]"
     (cdkDropListDropped)="drop($event)">
-    <div cdkDrag *ngFor="let i of values2" class="drag-box"><h2 style="border-bottom: 1px solid #ccc;width:100%; line-height: 50px;">{{i.name}}</h2>
+    <div cdkDrag *ngFor="let i of values2" class="drag-box">
+        <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+      <h2 style="border-bottom: 1px solid #ccc;width:100%; line-height: 50px;">{{i.name}}</h2>
       <p class="content">{{i.type}}</p>
     </div>
   </div>

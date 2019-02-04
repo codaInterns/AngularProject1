@@ -1,8 +1,8 @@
 <div class="container2">
     <ul class="progressBar">
-      <li class="active" (click)="addIte(0)">step1</li>
-      <li (click)="addIte(1)" class="active">step2</li>
-      <li (click)="addIte(2)" class="active">step3</li>
+      <li [className]="state==0?'active':''"(click)="addIte(0)"></li>
+      <li [className]="state==1?'active':''"(click)="addIte(1)"></li>
+      <li [className]="state==2?'active':''"(click)="addIte(2)"></li>
     </ul>
   </div>
   <div style="width:60%; margin-left: 20%">
@@ -60,7 +60,13 @@
             <input type="text" id="fname" name="firstname" placeholder="Your name..">
         
             <label for="lname">Last Name</label>
-            <input type="text" id="lname" name="lastname" placeholder="Your last name..">         
+            <input type="text" id="lname" name="lastname" placeholder="Your last name.."> 
+            <label for="country">Country</label>
+            <select id="country" name="country">
+              <option value="australia">Australia</option>
+              <option value="canada">Canada</option>
+              <option value="usa">USA</option>
+            </select>        
           </form>
           <div style="position:absolute">
             <button (click)="addItem()">next</button>

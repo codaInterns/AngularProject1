@@ -1,0 +1,21 @@
+<div class="drag-container" >
+    <h3 class="container-name">Card1 Container</h3>
+    <div class="drag-list" cdkDropList [cdkDropListData]="values"
+    #card1="cdkDropList"
+    [cdkDropListConnectedTo]="[card2]"
+    (cdkDropListDropped)="drop($event)">
+  <div cdkDrag *ngFor="let i of values" class="drag-box"><h2 style="border-bottom: 1px solid #ccc;width:100%;line-height: 50px;">{{i.name}}</h2>
+    <p class="content">{{i.type}}</p>
+  </div>
+    </div>
+  </div>
+<div class="drag-container" >
+    <h3 class="container-name">Card2 Container</h3>
+    <div class="drag-list" cdkDropList [cdkDropListData]="values2"
+    #card2="cdkDropList"
+    [cdkDropListConnectedTo]="[card1]"
+    (cdkDropListDropped)="drop($event)">
+    <div cdkDrag *ngFor="let i of values2" class="drag-box"><h2 style="border-bottom: 1px solid #ccc;width:100%; line-height: 50px;">{{i.name}}</h2>
+      <p class="content">{{i.type}}</p>
+    </div>
+  </div>

@@ -30,12 +30,12 @@ public class Flight {
   }
 
 
-public void setFlightId(ObjectId flightId) {
+  public void setFlightId(ObjectId flightId) {
 	this.flightId = flightId;
-}
+  }
 
 
-public String getFlightName() {
+  public String getFlightName() {
 	return flightName;
 }
 
